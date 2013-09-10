@@ -1,0 +1,184 @@
+<html lang="zh">
+<head>
+<title>LaTeX - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Publishing-Styles.html#Publishing-Styles" title="Publishing Styles">
+<link rel="prev" href="Journal.html#Journal" title="Journal">
+<link rel="next" href="Poem.html#Poem" title="Poem">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="LaTeX"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Poem.html#Poem">Poem</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Journal.html#Journal">Journal</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Publishing-Styles.html#Publishing-Styles">Publishing Styles</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@section Publishing LaTeX documents -->
+<h3 class="section">9.6 发布 LaTeX 文档</h3>
+
+<!-- (FlyZhyGG)This publishing style is capable of producing LaTeX or PDF documents. -->
+<p>这个发布风格可以生成 LaTeX 或者 PDF 文档。
+
+<!-- (FlyZhyGG)If you wish to publish PDF documents, you will need to have a good TeX -->
+<!-- (FlyZhyGG)installation.  For Debian and Ubuntu, this can be accomplished by -->
+<!-- (FlyZhyGG)installing the ``tetex-bin'' and ``tetex-extra'' packages.  TeX fonts -->
+<!-- (FlyZhyGG)are also a must. -->
+<p>如果你想要发布 PDF 文档，你需要有一个安装好的 TeX。对于 Debian 和 Ubuntu
+可以安装“tetex-bin”和“tetex-extra”包。TeX 字体也是必须的。
+
+<!-- (FlyZhyGG)@subheading Styles provided -->
+<h4 class="subheading">提供的风格</h4>
+
+     
+<a name="index-publishing-styles_002c-latex-89"></a>
+<dl><dt><code>latex</code><dd><!-- (FlyZhyGG)Publish a LaTeX document. -->
+发布一个 LaTeX 文档。
+
+     <p><a name="index-publishing-styles_002c-pdf-90"></a><br><dt><code>pdf</code><dd><!-- (FlyZhyGG)Publish a PDF document, using an external LaTeX document conversion -->
+<!-- (FlyZhyGG)tool. -->
+使用一个外部的 LaTeX 文档转换工具，发布一个 PDF 文档。
+
+     <p><a name="index-publishing-styles_002c-latexcjk-91"></a><br><dt><code>latexcjk</code><dd><!-- (FlyZhyGG)Publish a LaTeX document with CJK (Chinese) encodings. -->
+发布一个 CJK（中文）编码的 LaTeX 文档。
+
+     <p><a name="index-publishing-styles_002c-pdfcjk-92"></a><br><dt><code>pdfcjk</code><dd><!-- (FlyZhyGG)Publish a PDF document with CJK (Chinese) encodings, using an external -->
+<!-- (FlyZhyGG)LaTeX document conversion tool. -->
+使用一个外部的 LaTeX 文档转换工具，发布一个 CJK（中文）编码的 PDF 文档。
+
+</dl>
+
+<!-- (FlyZhyGG)@subheading Options provided -->
+<h4 class="subheading">提供的选项</h4>
+
+     <dl>
+<dt><code>muse-latex-extension</code><dd><!-- (FlyZhyGG)Default file extension for publishing LaTeX files. -->
+发布 LaTeX 文件默认的扩展名。
+
+     <br><dt><code>muse-latex-pdf-extension</code><dd><!-- (FlyZhyGG)Default file extension for publishing LaTeX files to PDF. -->
+发布 LaTeX 文件到 PDF 默认的扩展名。
+
+     <br><dt><code>muse-latex-header</code><dd><!-- (FlyZhyGG)Header used for publishing LaTeX files. -->
+发布 LaTeX 文件使用的页眉。
+
+     <!-- (FlyZhyGG)This may be text or a filename. -->
+<p>这可以是文本或者一个文件名。
+
+     <br><dt><code>muse-latex-footer</code><dd><!-- (FlyZhyGG)Footer used for publishing LaTeX files. -->
+发布 LaTeX 文件使用的页脚。
+
+     <!-- (FlyZhyGG)This may be text or a filename. -->
+<p>这可以是文本或者一个文件名。
+
+     <br><dt><code>muse-latexcjk-header</code><dd><!-- (FlyZhyGG)Header used for publishing LaTeX files (CJK). -->
+发布 LaTeX 文件（CJK）使用的页眉。
+
+     <!-- (FlyZhyGG)This may be text or a filename. -->
+<p>这可以是文本或者一个文件名。
+
+     <br><dt><code>muse-latexcjk-footer</code><dd><!-- (FlyZhyGG)Footer used for publishing LaTeX files (CJK). -->
+发布 LaTeX 文件（CJK）使用的页脚。
+
+     <!-- (FlyZhyGG)This may be text or a filename. -->
+<p>这可以是文本或者一个文件名。
+
+     <br><dt><code>muse-latex-markup-regexps</code><dd><!-- (FlyZhyGG)List of markup regexps for identifying regions in a Muse page. -->
+在一个 Muse 页面中用来识别区域的标记正则表达式表。
+
+     <!-- (FlyZhyGG)For more on the structure of this list, -->
+<!-- (FlyZhyGG)@xref{muse-publish-markup-regexps}. -->
+<p>关于这个列表构成的更多信息，参阅 <a href="muse_002dpublish_002dmarkup_002dregexps.html#muse_002dpublish_002dmarkup_002dregexps">muse-publish-markup-regexps</a>。
+
+     <br><dt><code>muse-latex-markup-functions</code><dd><!-- (FlyZhyGG)An alist of style types to custom functions for that kind of text. -->
+为该风格文本定制函数的风格样式列表。
+
+     <!-- (FlyZhyGG)For more on the structure of this list, -->
+<!-- (FlyZhyGG)@xref{muse-publish-markup-functions}. -->
+<p>关于这个列表构成的更多信息，参阅 <a href="muse_002dpublish_002dmarkup_002dfunctions.html#muse_002dpublish_002dmarkup_002dfunctions">muse-publish-markup-functions</a>。
+
+     <br><dt><code>muse-latex-markup-strings</code><dd><!-- (FlyZhyGG)Strings used for marking up text. -->
+标记文本使用的字符串。
+
+     <!-- (FlyZhyGG)These cover the most basic kinds of markup, the handling of which -->
+<!-- (FlyZhyGG)differs little between the various styles. -->
+<p>这些字符串涵盖最基本的标记类，它们在各种风格之间的操作差别很小。
+
+     <br><dt><code>muse-latexcjk-encoding-map</code><dd><!-- (FlyZhyGG)An alist mapping emacs coding systems to appropriate CJK codings. -->
+<!-- (FlyZhyGG)Use the base name of the coding system (ie, without the -unix). -->
+映射 emacs 编码系统到合适 CJK 编码的一个列表。使用编码系统的基名（例如，
+没有 -unix）。
+
+     <br><dt><code>muse-latexcjk-encoding-default</code><dd><!-- (FlyZhyGG)The default Emacs buffer encoding to use in published files. -->
+在发布文件中使用默认的 Emacs buffer 编码。
+
+     <!-- (FlyZhyGG)This will be used if no special characters are found. -->
+<p>如果没有发现特殊字符，该选项将被使用。
+
+     <br><dt><code>muse-latex-markup-specials-example</code><dd><!-- (FlyZhyGG)A table of characters which must be represented specially. -->
+<!-- (FlyZhyGG)These are applied to @verb{|example>|} regions. -->
+必须被特殊表示的字符列表，用于 <tt>example</tt> 区域。
+
+     <!-- (FlyZhyGG)With the default interpretation of @verb{|<example>|} regions, no -->
+<!-- (FlyZhyGG)specials need to be escaped. -->
+<p>在 <tt>&lt;example></tt> 区域的缺省解释下，没有需要被转义的特别字符。
+
+     <br><dt><code>muse-latex-markup-specials-document</code><dd><!-- (FlyZhyGG)A table of characters which must be represented specially. -->
+<!-- (FlyZhyGG)These are applied to the entire document, sans already-escaped -->
+<!-- (FlyZhyGG)regions. -->
+必须被特殊表示的字符列表，用于整个文档中（除去已经被转义的区域）。
+
+     <br><dt><code>muse-latex-markup-specials-literal</code><dd><!-- (FlyZhyGG)A table of characters which must be represented specially. -->
+<!-- (FlyZhyGG)This applies to =monospaced text= and @verb{|<code>|} regions. -->
+必须被特殊表示的字符列表，用于 =monospaced text= 和 <tt>&lt;code></tt> 区域。
+
+     <br><dt><code>muse-latex-markup-specials-url</code><dd><!-- (FlyZhyGG)A table of characters which must be represented specially. -->
+<!-- (FlyZhyGG)These are applied to URLs. -->
+必须被特殊表示的字符列表，用于 URL。
+
+     <br><dt><code>muse-latex-permit-contents-tag</code><dd><!-- (FlyZhyGG)If nil, ignore @verb{|<contents>|} tags.  Otherwise, insert table of -->
+<!-- (FlyZhyGG)contents. -->
+如果该选项为空，省略 <tt>&lt;contents></tt> 标签；否则，插入目录。
+
+     <!-- (FlyZhyGG)Most of the time, it is best to have a table of contents on the -->
+<!-- (FlyZhyGG)first page, with a new page immediately following.  To make this -->
+<!-- (FlyZhyGG)work with documents published in both HTML and LaTeX, we need to -->
+<!-- (FlyZhyGG)ignore the @verb{|<contents>|} tag. -->
+<p>大多数时候，最好在第一页有一个目录，紧跟其后一个新页。为了让这个设置在
+发布到 HTML 和 LaTeX 文档时都能够工作，我们需要省略 <tt>&lt;contents></tt> 标签。
+
+     <!-- (FlyZhyGG)If you don't agree with this, then set this option to non-nil, -->
+<!-- (FlyZhyGG)and it will do what you expect. -->
+<p>如果你不赞成这样，那么设置这个选项非空，你就会得到你所期望的了。
+
+</dl>
+
+   </body></html>
+

@@ -1,0 +1,154 @@
+<html lang="zh">
+<head>
+<title>Poem - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Publishing-Styles.html#Publishing-Styles" title="Publishing Styles">
+<link rel="prev" href="LaTeX.html#LaTeX" title="LaTeX">
+<link rel="next" href="Texinfo.html#Texinfo" title="Texinfo">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Poem"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Texinfo.html#Texinfo">Texinfo</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="LaTeX.html#LaTeX">LaTeX</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Publishing-Styles.html#Publishing-Styles">Publishing Styles</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@section Publish a poem to LaTex or PDF -->
+<h3 class="section">9.7 发布诗到 LaTeX 或 PDF</h3>
+
+<!-- (FlyZhyGG)The @code{muse-poem} module makes it easy to attractively publish and -->
+<!-- (FlyZhyGG)reference poems in the following format, using the "memoir" module for -->
+<!-- (FlyZhyGG)LaTeX publishing.  It will also markup poems for every other output -->
+<!-- (FlyZhyGG)style, though none are nearly as pretty. -->
+<!-- (ConfusedByFlyZhyGG) -->
+<p><code>muse-poem</code> 模块使得以下面的格式发布和引用诗变得简单，使用“memoir”
+模块发布 LaTeX。它也可以为每个其他输出风格标记诗章，尽管没有一个能象下面
+的这样漂亮。
+
+<pre class="example">     Title
+     
+     
+     Body of poem
+     
+     
+     Annotations, history, notes, etc.
+</pre>
+   <!-- (FlyZhyGG)Once a poem is written in this format, just publish it to PDF using the -->
+<!-- (FlyZhyGG)@code{poem-pdf} style.  To make an inlined reference to a poem that -->
+<!-- (FlyZhyGG)you've written - for example, from a blog page - there is a "poem" tag -->
+<!-- (FlyZhyGG)defined by this module. -->
+<p>一旦以这种格式写作一首诗，就可以使用 <code>poem-pdf</code> 风格来发布成 PDF。
+用这个模块定义的“poem”标签为你写的诗做一个内部引用（比如，从一个
+blog 页面）。
+
+<pre class="example">     &lt;poem title="name.of.poem.page"&gt;
+</pre>
+   <!-- (FlyZhyGG)Let's assume the template above was called @file{name.of.poem.page}; -->
+<!-- (FlyZhyGG)then the above tag would result in this inclusion. -->
+<p>我们假设上面的那个模板被命名为 <samp><span class="file">name.of.poem.page</span></samp>，那么上面的这个
+标签就会产生下面的内容。
+
+<pre class="example">     ** Title
+     
+     &gt; Body of poem
+</pre>
+   <!-- (FlyZhyGG)John Wiegley uses this module for publishing all of the poems on his -->
+<!-- (FlyZhyGG)website, which are at -->
+<!-- (FlyZhyGG)@uref{http://www.newartisans.com/johnw/poems.html}. -->
+<p>John Wiegley 使用这个模块来发布他的网站 <a href="http://www.newartisans.com/johnw/poems.html">http://www.newartisans.com/johnw/poems.html</a>
+上的所有的诗。
+
+<!-- (FlyZhyGG)@subheading Styles provided -->
+<h4 class="subheading">提供的风格</h4>
+
+     
+<a name="index-publishing-styles_002c-poem_002dlatex-93"></a>
+<dl><dt><code>poem-latex</code><dd><!-- (FlyZhyGG)Publish a poem in LaTeX form. -->
+以 LaTeX 形式发布一首诗。
+
+     <p><a name="index-publishing-styles_002c-poem_002dpdf-94"></a><br><dt><code>poem-pdf</code><dd><!-- (FlyZhyGG)Publish a poem to a PDF document. -->
+发布一首诗到一个 PDF 文档。
+
+     <p><a name="index-publishing-styles_002c-chapbook_002dlatex-95"></a><br><dt><code>chapbook-latex</code><dd><!-- (FlyZhyGG)Publish a book of poems in LaTeX form. -->
+以 LaTeX 形式发布一本诗集。
+
+     <p><a name="index-publishing-styles_002c-chapbook_002dpdf-96"></a><br><dt><code>chapbook-pdf</code><dd><!-- (FlyZhyGG)Publish a book of poems to a PDF document. -->
+发布一本诗集到一个 PDF 文档。
+
+</dl>
+
+<!-- (FlyZhyGG)@subheading Options provided -->
+<h4 class="subheading">提供的选项</h4>
+
+     <dl>
+<dt><code>muse-poem-latex-header</code><dd><!-- (FlyZhyGG)Header used for publishing LaTeX poems. -->
+发布 LaTeX 诗使用的页眉。
+
+     <!-- (FlyZhyGG)This may be text or a filename. -->
+<p>这可以是文本或者一个文件名。
+
+     <br><dt><code>muse-poem-latex-footer</code><dd><!-- (FlyZhyGG)Footer used for publishing LaTeX files. -->
+发布 LaTeX 文件使用的页脚。
+
+     <!-- (FlyZhyGG)This may be text or a filename. -->
+<p>这可以是文本或者一个文件名。
+
+     <br><dt><code>muse-poem-markup-strings</code><dd><!-- (FlyZhyGG)Strings used for marking up poems. -->
+标记诗使用的字符串。
+
+     <!-- (FlyZhyGG)These cover the most basic kinds of markup, the handling of which -->
+<!-- (FlyZhyGG)differs little between the various styles. -->
+<p>这些字符串涵盖最基本的标记类，它们在各种风格之间的操作差别很小。
+
+     <br><dt><code>muse-chapbook-latex-header</code><dd><!-- (FlyZhyGG)Header used for publishing a book of poems in LaTeX form. -->
+以 LaTeX 形式发布一本诗集使用的页眉。
+
+     <!-- (FlyZhyGG)This may be text or a filename. -->
+<p>这可以是文本或者一个文件名。
+
+     <br><dt><code>muse-chapbook-latex-footer</code><dd><!-- (FlyZhyGG)Footer used for publishing a book of poems in LaTeX form. -->
+以 LaTeX 形式发布一本诗集使用的页脚。
+
+     <!-- (FlyZhyGG)This may be text or a filename. -->
+<p>这可以是文本或者一个文件名。
+
+     <br><dt><code>muse-poem-chapbook-strings</code><dd><!-- (FlyZhyGG)Strings used for marking up books of poems. -->
+标记诗集使用的字符串。
+
+     <!-- (FlyZhyGG)These cover the most basic kinds of markup, the handling of which -->
+<!-- (FlyZhyGG)differs little between the various styles. -->
+<p>这些字符串涵盖最基本的标记类，它们在各种风格之间的操作差别很小。
+
+</dl>
+
+   </body></html>
+

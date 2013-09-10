@@ -1,0 +1,256 @@
+<html lang="zh">
+<head>
+<title>Journal - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Publishing-Styles.html#Publishing-Styles" title="Publishing Styles">
+<link rel="prev" href="HTML.html#HTML" title="HTML">
+<link rel="next" href="LaTeX.html#LaTeX" title="LaTeX">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Journal"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="LaTeX.html#LaTeX">LaTeX</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="HTML.html#HTML">HTML</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Publishing-Styles.html#Publishing-Styles">Publishing Styles</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@section Keeping a journal or blog -->
+<h3 class="section">9.5 写日记或者博客</h3>
+
+<p><a name="index-journal-77"></a><a name="index-blog_002c-journal-style-78"></a>
+<!-- (FlyZhyGG)The module facilitates the keeping and publication of a journal.  When -->
+<!-- (FlyZhyGG)publishing to HTML, it assumes the form of a web log, or blog. -->
+这个模块便于日志的撰写和发布，当发布成 HTML 时，它假定以网络日志或者博客
+的形式发布。
+
+<!-- (FlyZhyGG)The input format for each entry is as follows. -->
+<p>下面是每一个条目的输入格式。
+
+<pre class="example">     * 20040317: Title of entry
+     
+     text for the entry.
+     
+     &lt;qotd&gt;
+     "You know who you are. It comes down to a simple gut check: You
+     either love what you do or you don't. Period." -- P. Bronson
+     &lt;/qotd&gt;
+</pre>
+   <!-- (FlyZhyGG)The "qotd", or Quote of the Day, is entirely optional.  When generated -->
+<!-- (FlyZhyGG)to HTML, this entry is rendered as the following. -->
+<p>“quod”部分或者说当天的引述，完全是可选的。生成 HTML 后这个条目会产生
+下面的输出。
+
+<pre class="example">     &lt;div class="entry"&gt;
+       &lt;div class="entry-qotd"&gt;
+         &lt;h3&gt;Quote of the Day:&lt;/h3&gt;
+         &lt;p&gt;"You know who you are. It comes down to a simple gut
+           check: You either love what you do or you don't. Period."
+           -- P. Bronson&lt;/p&gt;
+       &lt;/div&gt;
+       &lt;div class="entry-body"&gt;
+         &lt;div class="entry-head"&gt;
+           &lt;div class="entry-date"&gt;
+             &lt;span class="date"&gt;March 17, 2004&lt;/span&gt;
+           &lt;/div&gt;
+           &lt;div class="entry-title"&gt;
+             &lt;h2&gt;Title of entry&lt;/h2&gt;
+           &lt;/div&gt;
+         &lt;/div&gt;
+         &lt;div class="entry-text"&gt;
+           &lt;p&gt;Text for the entry.&lt;/p&gt;
+         &lt;/div&gt;
+       &lt;/div&gt;
+     &lt;/div&gt;
+</pre>
+   <!-- (FlyZhyGG)The plurality of "div" tags makes it possible to display the entries in -->
+<!-- (FlyZhyGG)any form you wish, using a CSS style. -->
+<p>大量的“div”标签使得以任意你想要的形式显示条目成为可能，这使用了一个 CSS
+设计。
+
+<!-- (FlyZhyGG)Also, an .RDF file can be generated from your journal by publishing it -->
+<!-- (FlyZhyGG)with the "rdf" style.  It uses the first two sentences of the first -->
+<!-- (FlyZhyGG)paragraph of each entry as its "description", and auto-generates tags -->
+<!-- (FlyZhyGG)for linking to the various entries. -->
+<p>而且，通过发布你的日志为“.rdf”风格，一个 .RDF 文件就可以被生成。它使用
+每个条目的第一段的前两句话作为它的“描述”，并自动生成链接到各个条目的
+标签。
+
+<!-- (FlyZhyGG)@subheading Styles provided -->
+<h4 class="subheading">提供的风格</h4>
+
+     
+<a name="index-publishing-styles_002c-journal_002dhtml-79"></a>
+<dl><dt><code>journal-html</code><dd><!-- (FlyZhyGG)Publish journal entries as an HTML document. -->
+发布日志条目为一个 HTML 文档。
+
+     <p><a name="index-publishing-styles_002c-journal_002dxhtml-80"></a><br><dt><code>journal-xhtml</code><dd><!-- (FlyZhyGG)Publish journal entries as an XHTML document. -->
+发布日志条目为一个 XHTML 文档。
+
+     <p><a name="index-publishing-styles_002c-journal_002dlatex-81"></a><br><dt><code>journal-latex</code><dd><!-- (FlyZhyGG)Publish journal entries as a LaTeX document. -->
+发布日志条目为一个 LaTeX 文档。
+
+     <p><a name="index-publishing-styles_002c-journal_002dpdf-82"></a><br><dt><code>journal-pdf</code><dd><!-- (FlyZhyGG)Publish journal entries as a PDF document. -->
+发布日志条目为一个 PDF 文档。
+
+     <p><a name="index-publishing-styles_002c-journal_002dbook_002dlatex-83"></a><br><dt><code>journal-book-latex</code><dd><!-- (FlyZhyGG)Publish journal entries as a LaTeX book. -->
+发布日志条目为一个 LaTeX 书。
+
+     <p><a name="index-publishing-styles_002c-journal_002dbook_002dpdf-84"></a><br><dt><code>journal-book-pdf</code><dd><!-- (FlyZhyGG)Publish journal entries as a PDF book. -->
+发布日志条目为一个 PDF 书。
+
+     <p><a name="index-publishing-styles_002c-journal_002drdf-85"></a><a name="index-publishing-styles_002c-RSS-1_002e0-86"></a><br><dt><code>journal-rdf</code><dd><!-- (FlyZhyGG)Publish journal entries as an RDF file (RSS 1.0). -->
+发布日志条目为一个 RDF 文件 （RSS 1.0）。
+
+     <p><a name="index-publishing-styles_002c-journal_002drss-87"></a><a name="index-publishing-styles_002c-RSS-2_002e0-88"></a><br><dt><code>journal-rss</code><dd><!-- (FlyZhyGG)Publish journal entries as an RSS file (RSS 2.0). -->
+发布日志条目为一个 RSS 文件 （RSS 2.0）。
+
+</dl>
+
+<!-- (FlyZhyGG)@subheading Options provided -->
+<h4 class="subheading">提供的选项</h4>
+
+     <dl>
+<dt><code>muse-journal-heading-regexp</code><dd><!-- (FlyZhyGG)A regexp that matches a journal heading. -->
+匹配日志标题的正则表达式。
+
+     <!-- (FlyZhyGG)Paren group 1 is the ISO date, group 2 is the optional category, and -->
+<!-- (FlyZhyGG)group 3 is the optional heading for the entry. -->
+<p>父组 1 是 ISO 日期，父组 2 是可选的分类，父组 3 是条目可选的标题。
+
+     <br><dt><code>muse-journal-date-format</code><dd><!-- (FlyZhyGG)Date format to use for journal entries. -->
+日志条目使用的日期格式。
+
+     <br><dt><code>muse-journal-html-heading-regexp</code><dd><!-- (FlyZhyGG)A regexp that matches a journal heading from an HTML document. -->
+一个 HTML 文档中匹配日志标题的正则表达式。
+
+     <!-- (FlyZhyGG)Paren group 1 is the ISO date, group 2 is the optional category, and -->
+<!-- (FlyZhyGG)group 3 is the optional heading for the entry. -->
+<p>父组 1 是 ISO 日期，父组 2 是可选的分类，父组 3 是条目可选的标题。
+
+     <br><dt><code>muse-journal-html-entry-template</code><dd><!-- (FlyZhyGG)Template used to publish individual journal entries as HTML. -->
+以 HTML 格式发布个人日志条目使用的模板。
+
+     <br><dt><code>muse-journal-latex-section</code><dd><!-- (FlyZhyGG)Template used to publish a LaTeX section. -->
+发布一个 LaTeX 节（section）使用的模板。
+
+     <br><dt><code>muse-journal-latex-subsection</code><dd><!-- (FlyZhyGG)Template used to publish a LaTeX subsection. -->
+发布一个 LaTeX 子节（subsection）使用的模板。
+
+     <br><dt><code>muse-journal-latex-markup-tags</code><dd><!-- (FlyZhyGG)A list of tag specifications, for specially marking up LaTeX. -->
+一个专门标记 LaTeX 的标签详表。
+
+     <!-- (FlyZhyGG)@xref{muse-publish-markup-tags}, for more information. -->
+<p>参阅 <a href="muse_002dpublish_002dmarkup_002dtags.html#muse_002dpublish_002dmarkup_002dtags">muse-publish-markup-tags</a> 获取更多信息。
+
+     <br><dt><code>muse-journal-rdf-extension</code><dd><!-- (FlyZhyGG)Default file extension for publishing RDF (RSS 1.0) files. -->
+发布 RDF （RSS 1.0）文件默认的扩展名。
+
+     <br><dt><code>muse-journal-rdf-base-url</code><dd><!-- (FlyZhyGG)The base URL of the website referenced by the RDF file. -->
+RDF 文件引用的网站基本 URL。
+
+     <br><dt><code>muse-journal-rdf-header</code><dd><!-- (FlyZhyGG)Header used for publishing RDF (RSS 1.0) files. -->
+发布 RDF （RSS 1.0）文件使用的页眉。
+
+     <!-- (FlyZhyGG)This may be text or a filename. -->
+<p>这可以是文本或者一个文件名。
+
+     <br><dt><code>muse-journal-rdf-footer</code><dd><!-- (FlyZhyGG)Footer used for publishing RDF (RSS 1.0) files. -->
+发布 RDF （RSS 1.0）文件使用的页脚。
+
+     <!-- (FlyZhyGG)This may be text or a filename. -->
+<p>这可以是文本或者一个文件名。
+
+     <br><dt><code>muse-journal-rdf-date-format</code><dd><!-- (FlyZhyGG)Date format to use for RDF entries. -->
+RDF 条目使用的日期格式。
+
+     <br><dt><code>muse-journal-rdf-entry-template</code><dd><!-- (FlyZhyGG)Template used to publish individual journal entries as RDF. -->
+以 RDF 格式发布个人日志条目使用的模板。
+
+     <br><dt><code>muse-journal-rdf-summarize-entries</code><dd><!-- (FlyZhyGG)If non-nil, include only summaries in the RDF file, not the full data. -->
+如果该选项非空，那么在 RDF 文件中仅仅包括摘要，而不是全部数据。
+
+     <br><dt><code>muse-journal-rss-extension</code><dd><!-- (FlyZhyGG)Default file extension for publishing RSS 2.0 files. -->
+发布 RSS 2.0 文件默认的扩展名。
+
+     <br><dt><code>muse-journal-rss-base-url</code><dd><!-- (FlyZhyGG)The base URL of the website referenced by the RSS file. -->
+RSS 文件引用的网站基本 URL。
+
+     <br><dt><code>muse-journal-rss-header</code><dd><!-- (FlyZhyGG)Header used for publishing RSS 2.0 files. -->
+发布 RSS 2.0 文件使用的页眉。
+
+     <!-- (FlyZhyGG)This may be text or a filename. -->
+<p>这可以是文本或者一个文件名。
+
+     <br><dt><code>muse-journal-rss-footer</code><dd><!-- (FlyZhyGG)Footer used for publishing RSS 2.0 files. -->
+发布 RSS 2.0 文件使用的页脚。
+
+     <!-- (FlyZhyGG)This may be text or a filename. -->
+<p>这可以是文本或者一个文件名。
+
+     <br><dt><code>muse-journal-rss-date-format</code><dd><!-- (FlyZhyGG)Date format to use for RSS 2.0 entries. -->
+RSS 2.0 条目使用的日期格式。
+
+     <br><dt><code>muse-journal-rss-entry-template</code><dd><!-- (FlyZhyGG)Template used to publish individual journal entries as RSS 2.0. -->
+以 RSS 2.0 格式发布个人日志条目使用的模板。
+
+     <br><dt><code>muse-journal-rss-enclosure-types-alist</code><dd><!-- (FlyZhyGG)File types that are accepted as RSS enclosures. -->
+RSS 附件所认可的文件类型。
+
+     <!-- (FlyZhyGG)This is an alist that maps file extension to content type. -->
+<p>这是一个映射文件扩展名到内容类型的列表。
+
+     <!-- (FlyZhyGG)Useful for podcasting. -->
+<p>这对于 podcasting 来说很有用。（podcasting 是一种网络录音或者类似的网络音讯软件）
+
+     <br><dt><code>muse-journal-rss-summarize-entries</code><dd><!-- (FlyZhyGG)If non-nil, include only summaries in the RSS file, not the full data. -->
+如果该选项非空，那么在 RSS 文件中仅仅包括摘要，而不是全部数据。
+
+     <!-- (FlyZhyGG)Many RSS subscribers find this annoying. -->
+<p>很多 RSS 订阅者感觉这个功能令人讨厌。
+
+     <br><dt><code>muse-journal-rss-markup-regexps</code><dd><!-- (FlyZhyGG)List of markup rules for publishing a Muse journal page to RSS. -->
+发布一个 Muse 日志页面为 RSS 的标记规则表。
+
+     <!-- (FlyZhyGG)For more information on the structure of this list, -->
+<!-- (FlyZhyGG)@xref{muse-publish-markup-regexps}. -->
+<p>关于这个列表构成的更多信息，参阅 <a href="muse_002dpublish_002dmarkup_002dregexps.html#muse_002dpublish_002dmarkup_002dregexps">muse-publish-markup-regexps</a>。
+
+     <br><dt><code>muse-journal-rss-markup-functions</code><dd><!-- (FlyZhyGG)An alist of style types to custom functions for that kind of text. -->
+为该风格文本定制函数的风格样式列表。
+
+     <!-- (FlyZhyGG)For more on the structure of this list, -->
+<!-- (FlyZhyGG)@xref{muse-publish-markup-functions}. -->
+<p>关于这个列表构成的更多信息，参阅 <a href="muse_002dpublish_002dmarkup_002dfunctions.html#muse_002dpublish_002dmarkup_002dfunctions">muse-publish-markup-functions</a>。
+
+</dl>
+
+   </body></html>
+

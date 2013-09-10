@@ -1,0 +1,79 @@
+<html lang="zh">
+<head>
+<title>Verse - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="prev" href="Footnotes.html#Footnotes" title="Footnotes">
+<link rel="next" href="Lists.html#Lists" title="Lists">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Verse"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Lists.html#Lists">Lists</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Footnotes.html#Footnotes">Footnotes</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@section Indicating poetic stanzas -->
+<h3 class="section">8.6 显示诗章</h3>
+
+<p><a name="index-verses-33"></a><a name="index-poetry-34"></a>
+<!-- (FlyZhyGG)Poetry requires that whitespace be preserved, but without resorting to -->
+<!-- (FlyZhyGG)monospace.  To indicate this, use the following markup, reminiscent of -->
+<!-- (FlyZhyGG)email quotations. -->
+诗要求空白字元被保留，但不采取等宽。为显示诗使用下面的标签，它让我们想起
+email 引用的方式。
+
+<pre class="example">     &gt; A line of Emacs verse;
+     &gt;   forgive its being so terse.
+</pre>
+   <!-- (FlyZhyGG)You can also use the @verb{|<verse>|} tag, if you prefer. -->
+<p>你也可以使用 <tt>&lt;verse></tt> 标签，如果你喜欢。
+
+<pre class="example">     &lt;verse&gt;
+     A line of Emacs verse;
+       forgive its being so terse.
+     &lt;/verse&gt;
+</pre>
+   <p><a name="index-verses_002c-multiple-stanzas-35"></a><!-- (FlyZhyGG)Multiple stanzas may be included in one set of @verb{|<verse>|} tags, as -->
+<!-- (FlyZhyGG)follows. -->
+多个章节可以被一组 <tt>&lt;verse></tt> 标签包括，如下所示。
+
+<pre class="example">     &lt;verse&gt;
+     A line of Emacs verse;
+       forgive its being so terse.
+     
+     In terms of terse verse,
+       you could do worse.
+     &lt;/verse&gt;
+</pre>
+   </body></html>
+

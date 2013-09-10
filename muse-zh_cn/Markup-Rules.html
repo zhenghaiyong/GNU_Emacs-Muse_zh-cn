@@ -1,0 +1,98 @@
+<html lang="zh">
+<head>
+<title>Markup Rules - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Keystroke-Summary.html#Keystroke-Summary" title="Keystroke Summary">
+<link rel="next" href="Publishing-Styles.html#Publishing-Styles" title="Publishing Styles">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Markup-Rules"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Publishing-Styles.html#Publishing-Styles">Publishing Styles</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Keystroke-Summary.html#Keystroke-Summary">Keystroke Summary</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@chapter Rules for Using Markup -->
+<h2 class="chapter">8 使用标记的规则</h2>
+
+<p><a name="index-markup-10"></a>
+<!-- (FlyZhyGG)A Muse document uses special, contextual markup rules to determine how -->
+<!-- (FlyZhyGG)to format the output result.  For example, if a paragraph is indented, -->
+<!-- (FlyZhyGG)Muse assumes it should be quoted. -->
+一个 Muse 文档使用特别的、文脉上的标记规则来决定怎样格式化输出结果。例如，
+如果一个段落被缩进了，Muse 就认为它应该被引用。
+
+<!-- (FlyZhyGG)There are not too many markup rules, and all of them strive to be as -->
+<!-- (FlyZhyGG)simple as possible so that you can focus on document creation, rather -->
+<!-- (FlyZhyGG)than formatting. -->
+<p>并没有太多的标记规则，而且所有的标记规则力争简单以便让使用者更加专注于
+文档创作，而不是格式。
+
+<!-- (FlyZhyGG)* Paragraphs::                  Paragraphs: centering and quoting. -->
+<ul class="menu">
+<li><a accesskey="1" href="Paragraphs.html#Paragraphs">Paragraphs</a>:                    段落：居中和引用。
+<!-- (FlyZhyGG)* Headings::                    Levels of headings. -->
+<li><a accesskey="2" href="Headings.html#Headings">Headings</a>:                      标题的层次。
+<!-- (FlyZhyGG)* Directives::                  Directives at the beginning of a -->
+<!-- (FlyZhyGG)                                  document. -->
+<li><a accesskey="3" href="Directives.html#Directives">Directives</a>:                    文档开始处的指令。
+<!-- (FlyZhyGG)* Emphasizing Text::            Bold, italicized, and underlined text. -->
+<li><a accesskey="4" href="Emphasizing-Text.html#Emphasizing-Text">Emphasizing Text</a>:              粗体，斜体和下划线文本。
+<!-- (FlyZhyGG)* Footnotes::                   Making notes to be shown at the end. -->
+<li><a accesskey="5" href="Footnotes.html#Footnotes">Footnotes</a>:                     在最后显示注解。
+<!-- (FlyZhyGG)* Verse::                       Indicating poetic stanzas. -->
+<li><a accesskey="6" href="Verse.html#Verse">Verse</a>:                         显示诗章。
+<!-- (FlyZhyGG)* Lists::                       Lists of items. -->
+<li><a accesskey="7" href="Lists.html#Lists">Lists</a>:                         项的列表。
+<!-- (FlyZhyGG)* Tables::                      Generation of data tables. -->
+<li><a accesskey="8" href="Tables.html#Tables">Tables</a>:                        数据表的生成。
+<!-- (FlyZhyGG)* Explicit Links::              Hyperlinks and email addresses with -->
+<!-- (FlyZhyGG)                                  descriptions. -->
+<li><a accesskey="9" href="Explicit-Links.html#Explicit-Links">Explicit Links</a>:                带描述的超级链接和邮件地址。
+<!-- (FlyZhyGG)* Implicit Links::              Bare URLs, WikiNames, and InterWiki -->
+<!-- (FlyZhyGG)                                  links. -->
+<li><a href="Implicit-Links.html#Implicit-Links">Implicit Links</a>:                无修饰的 URL，WikiNames 和 InteWiki 链接。
+<!-- (FlyZhyGG)* Images::                      Publishing and displaying images. -->
+<li><a href="Images.html#Images">Images</a>:                        发布和显示图片。
+<!-- (FlyZhyGG)* Horizontal Rules and Anchors::  Inserting a horizontal line or anchor. -->
+<li><a href="Horizontal-Rules-and-Anchors.html#Horizontal-Rules-and-Anchors">Horizontal Rules and Anchors</a>:  插入一个水平线或锚。
+<!-- (FlyZhyGG)* Embedded Lisp::               Evaluating Emacs Lisp code in documents -->
+<!-- (FlyZhyGG)                                  for extensibility. -->
+<li><a href="Embedded-Lisp.html#Embedded-Lisp">Embedded Lisp</a>:                 在文档中为扩展而执行 Emacs Lisp 代码。
+<!-- (FlyZhyGG)* Comments::                    Lines to omit from published output. -->
+<li><a href="Comments.html#Comments">Comments</a>:                      发布输出时被省略的行。
+<!-- (FlyZhyGG)* Tag Summary::                 Tags that Muse recognizes. -->
+<li><a href="Tag-Summary.html#Tag-Summary">Tag Summary</a>:                   Muse 可识别的标签。
+</ul>
+
+   </body></html>
+

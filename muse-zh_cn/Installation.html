@@ -1,0 +1,116 @@
+<html lang="zh">
+<head>
+<title>Installation - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Obtaining-Muse.html#Obtaining-Muse" title="Obtaining Muse">
+<link rel="next" href="Getting-Started.html#Getting-Started" title="Getting Started">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Installation"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Getting-Started.html#Getting-Started">Getting Started</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Obtaining-Muse.html#Obtaining-Muse">Obtaining Muse</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@chapter Compiling and Installing Muse -->
+<h2 class="chapter">4 编译和安装 Muse</h2>
+
+<!-- (FlyZhyGG)Muse may be compiled and installed on your machine. -->
+<p>Muse 可以在你的机器上被编译并安装。
+
+<!-- (FlyZhyGG)@subheading Compilation -->
+<h4 class="subheading">编译</h4>
+
+<!-- (FlyZhyGG)This is an optional step, since Emacs Lisp source code does not -->
+<!-- (FlyZhyGG)necessarily have to be byte-compiled.  It will yield a speed increase, -->
+<!-- (FlyZhyGG)though. -->
+<p>这是一个可选的步骤，因为 Emacs Lisp 源代码没有必要必须进行字节编译。
+但这样做可以产生速度的提升。
+
+<!-- (FlyZhyGG)A working copy of Emacs or XEmacs is needed in order to compile the -->
+<!-- (FlyZhyGG)Emacs Muse.  By default, the program that is installed with the name -->
+<!-- (FlyZhyGG)@command{emacs} will be used. -->
+<p>为了编译 Emacs Muse，一个Emacs 或 XEmacs 的工作副本是必须的。
+默认情况下，安装时命名为 <samp><span class="command">emacs</span></samp> 的程序将被使用。
+
+<!-- (FlyZhyGG)If you want to use the @command{xemacs} binary to perform the -->
+<!-- (FlyZhyGG)compilation, you would need to edit @file{Makefile.defs} in the -->
+<!-- (FlyZhyGG)top-level directory as follows.  You can put either a full path to an -->
+<!-- (FlyZhyGG)Emacs or XEmacs binary or just the command name, as long as it is in the -->
+<!-- (FlyZhyGG)@env{PATH}. -->
+<p>如果你想要使用二进制文件 <samp><span class="command">xemacs</span></samp> 来执行编译，你需要象下面这样编辑
+顶层目录中的 <samp><span class="file">Makefile.defs</span></samp> 文件。你可以输入 Emacs 或者 XEmacs 二进制文件
+所在的全路径，或者只要其全路径在环境变量 <samp><span class="env">PATH</span></samp> 中就可以仅仅输入命令名。
+
+<pre class="example">     EMACS    = xemacs
+     SITEFLAG = -no-site-file
+</pre>
+   <!-- (FlyZhyGG)Running @code{make} should compile the Muse source files in the -->
+<!-- (FlyZhyGG)@file{lisp} directory. -->
+<p>运行 <code>make</code> 就会编译 <samp><span class="file">lisp</span></samp> 目录中的 Muse 源文件。
+
+<!-- (FlyZhyGG)@subheading Installation -->
+<h4 class="subheading">安装</h4>
+
+<!-- (FlyZhyGG)Muse may be installed into your file hierarchy by doing the following. -->
+<p>通过下述操作 Muse 可以被安装到你的文件层次结构中。
+
+<!-- (FlyZhyGG)Edit the @file{Makefile.defs} file so that @env{ELISPDIR} points to -->
+<!-- (FlyZhyGG)where you want the source and compiled Muse files to be installed and -->
+<!-- (FlyZhyGG)@env{INFODIR} indicates where to put the Muse manual.  Of course, you -->
+<!-- (FlyZhyGG)will want to edit @env{EMACS} and @env{SITEFLAG} as shown in the -->
+<!-- (FlyZhyGG)Compilation section if you are using XEmacs. -->
+<p>编辑 <samp><span class="file">Makefile.defs</span></samp> 文件使得 <samp><span class="env">ELISPDIR</span></samp> 指向你想要的 Muse 源文件
+和编译文件的安装路径， <samp><span class="env">INFODIR</span></samp> 表示 Muse 手册的安装路径。当然，
+如果你使用 XEmacs 你需要如编译部分所说的那样编辑 <samp><span class="env">EMACS</span></samp> 和 <samp><span class="env">SITEFLAG</span></samp>。
+
+<!-- (FlyZhyGG)If you are installing Muse on a Debian or Ubuntu system, you might want -->
+<!-- (FlyZhyGG)to change the value of @env{INSTALLINFO} as specified in -->
+<!-- (FlyZhyGG)@file{Makefile.defs}. -->
+<p>如果你在一个 Debian 或者 Ubuntu 系统中安装 Muse，你可能需要按照文件
+<samp><span class="file">Makefile.defs</span></samp> 中的说明更改变量 <samp><span class="env">INSTALLINFO</span></samp> 的值。
+
+<!-- (FlyZhyGG)If you wish to install Muse to different locations than the defaults -->
+<!-- (FlyZhyGG)specify, edit @file{Makefile.defs} accordingly. -->
+<p>如果你想要安装 Muse 到一个非默认指定的位置，那么如前所说，编辑
+<samp><span class="file">Makefile.defs</span></samp> 文件。
+
+<!-- (FlyZhyGG)Run @code{make} as a normal user. -->
+<p>然后以普通用户身份运行 <code>make</code>。
+
+<!-- (FlyZhyGG)Run @code{make install} as the root user if you have chosen installation -->
+<!-- (FlyZhyGG)locations that require this. -->
+<p>如果你选择的安装位置要求必须 root 用户，那么以 root 身份运行
+<code>make install</code>。
+
+   </body></html>
+

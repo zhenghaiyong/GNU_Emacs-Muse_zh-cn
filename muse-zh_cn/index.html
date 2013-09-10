@@ -1,0 +1,332 @@
+<html lang="zh">
+<head>
+<title>Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="#Top">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<h1 class="settitle">Muse</h1>
+<div class="contents">
+<h2>目录</h2>
+<ul>
+<li><a name="toc_Top" href="index.html#Top">Muse</a>
+<li><a name="toc_Preface" href="Preface.html#Preface">1 关于本文档</a>
+<li><a name="toc_Introduction" href="Introduction.html#Introduction">2 什么是 Muse？</a>
+<li><a name="toc_Obtaining-Muse" href="Obtaining-Muse.html#Obtaining-Muse">3 怎样获得 Muse 发行及开发更新</a>
+<ul>
+<li><a href="Releases.html#Releases">3.1 Muse 的发行版本</a>
+<li><a href="Development.html#Development">3.2 最新的未发行的开发更新</a>
+</li></ul>
+<li><a name="toc_Installation" href="Installation.html#Installation">4 编译和安装 Muse</a>
+<li><a name="toc_Getting-Started" href="Getting-Started.html#Getting-Started">5 开始</a>
+<li><a name="toc_Projects" href="Projects.html#Projects">6 创建和管理 Muse 项目</a>
+<li><a name="toc_Keystroke-Summary" href="Keystroke-Summary.html#Keystroke-Summary">7 Muse 模式中使用的快捷键</a>
+<li><a name="toc_Markup-Rules" href="Markup-Rules.html#Markup-Rules">8 使用标记的规则</a>
+<ul>
+<li><a href="Paragraphs.html#Paragraphs">8.1 段落：居中和引用</a>
+<li><a href="Headings.html#Headings">8.2 标题的层次</a>
+<li><a href="Directives.html#Directives">8.3 文档开始处的指令</a>
+<li><a href="Emphasizing-Text.html#Emphasizing-Text">8.4 粗体，斜体和下划线文本</a>
+<li><a href="Footnotes.html#Footnotes">8.5 在最后显示注解</a>
+<li><a href="Verse.html#Verse">8.6 显示诗章</a>
+<li><a href="Lists.html#Lists">8.7 项的列表</a>
+<li><a href="Tables.html#Tables">8.8 数据表的生成</a>
+<li><a href="Explicit-Links.html#Explicit-Links">8.9 带描述的超级链接和邮件地址</a>
+<li><a href="Implicit-Links.html#Implicit-Links">8.10 无修饰的 URL，WikiNames 和 InteWiki 链接</a>
+<li><a href="Images.html#Images">8.11 发布和显示图片</a>
+<li><a href="Horizontal-Rules-and-Anchors.html#Horizontal-Rules-and-Anchors">8.12 插入一个水平线或锚</a>
+<li><a href="Embedded-Lisp.html#Embedded-Lisp">8.13 在文档中为扩展而执行 Emacs Lisp 代码</a>
+<li><a href="Comments.html#Comments">8.14 发布输出时被省略的行</a>
+<li><a href="Tag-Summary.html#Tag-Summary">8.15 Muse 可识别的标签</a>
+</li></ul>
+<li><a name="toc_Publishing-Styles" href="Publishing-Styles.html#Publishing-Styles">9 发布不同类型的文档</a>
+<ul>
+<li><a href="Blosxom.html#Blosxom">9.1 集成 Muse 和 pyblosxom.cgi</a>
+<ul>
+<li><a href="Blosxom-Requirements.html#Blosxom-Requirements">9.1.1 Blosxom 风格需要的其他工具</a>
+<li><a href="Blosxom-Entries.html#Blosxom-Entries">9.1.2 一个 Blosxom 条目的格式和自动操作</a>
+<li><a href="Blosxom-Options.html#Blosxom-Options">9.1.3 提供的 Blosxom 风格和选项</a>
+</li></ul>
+<li><a href="Book.html#Book">9.2 发布条目到编辑物</a>
+<li><a href="DocBook.html#DocBook">9.3 以 DocBook XML 形式发布</a>
+<li><a href="HTML.html#HTML">9.4 以 HTML 或者 XHTML 形式发布</a>
+<li><a href="Journal.html#Journal">9.5 写日记或者博客</a>
+<li><a href="LaTeX.html#LaTeX">9.6 发布 LaTeX 文档</a>
+<li><a href="Poem.html#Poem">9.7 发布诗到 LaTeX 或 PDF</a>
+<li><a href="Texinfo.html#Texinfo">9.8 发布条目到 Texinfo 格式或者 PDF</a>
+</li></ul>
+<li><a name="toc_Extending-Muse" href="Extending-Muse.html#Extending-Muse">10 制作你自己的发布风格</a>
+<ul>
+<li><a href="Common-Elements.html#Common-Elements">10.1 风格共有的通用功能</a>
+<ul>
+<li><a href="Markup-Functions.html#Markup-Functions">10.1.1 用来标记文本的指定函数</a>
+<li><a href="Markup-Regexps.html#Markup-Regexps">10.1.2 发布的标记规则</a>
+<li><a href="Markup-Strings.html#Markup-Strings">10.1.3 特别针对一个发布风格的字符串</a>
+<li><a href="Markup-Tags.html#Markup-Tags">10.1.4 特别标记的标签详述</a>
+<li><a href="Style-Elements.html#Style-Elements">10.1.5 定义风格使用的参数</a>
+</li></ul>
+<li><a href="Deriving-Styles.html#Deriving-Styles">10.2 从一个存在的风格中派生一个新的风格</a>
+</li></ul>
+<li><a name="toc_Getting-Help-and-Reporting-Bugs" href="Getting-Help-and-Reporting-Bugs.html#Getting-Help-and-Reporting-Bugs">11 获得帮助和报告 bug</a>
+<li><a name="toc_History" href="History.html#History">12 本文档的历史</a>
+<li><a name="toc_Contributors" href="Contributors.html#Contributors">13 本文档的贡献者</a>
+<li><a name="toc_GNU-General-Public-License" href="GNU-General-Public-License.html#GNU-General-Public-License">Appendix A GNU GENERAL PUBLIC LICENSE</a>
+<ul>
+<li><a href="GNU-General-Public-License.html#GNU-General-Public-License">A.1 Preamble</a>
+<li><a href="GNU-General-Public-License.html#GNU-General-Public-License">A.2 Appendix: How to Apply These Terms to Your New Programs</a>
+</li></ul>
+<li><a name="toc_Concept-Index" href="Concept-Index.html#Concept-Index">Index</a>
+</li></ul>
+</div>
+
+
+
+<div class="node">
+<p>
+<a name="Top"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Preface.html#Preface">Preface</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="../index.html#dir">(dir)</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="../index.html#dir">(dir)</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<h2 class="unnumbered">Muse</h2>
+
+<!-- (FlyZhyGG)This manual is for the Emacs Muse version 3.02.92 (3.03 RC2). -->
+<p>本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+   <p>Copyright &copy; 2004, 2005, 2006 Free Software Foundation, Inc.
+
+   <blockquote>
+<!-- (FlyZhyGG)Permission is granted to copy, distribute and/or modify this document -->
+<!-- (FlyZhyGG)under the terms of the GNU General Public License. -->
+基于 GNU 通用公共许可证（General Public Licese）的条款
+任何人有权复制，发布和/或修改本文档。
+</blockquote>
+   <!-- (FlyZhyGG)[Translator]: Zheng Haiyong@email{zhenghaiyong@@gmail.com} @url{http://ipl.ouc.edu.cn/~zhenghaiyong} -->
+[翻译]：郑海永(Zheng Haiyong) <a href="mailto:zhenghaiyong@gmail.com">zhenghaiyong@gmail.com</a> <a href="http://ipl.ouc.edu.cn/~zhenghaiyong">http://ipl.ouc.edu.cn/~zhenghaiyong</a>
+
+<!-- (FlyZhyGG)* Preface::                     About the documentation. -->
+<ul class="menu">
+<li><a accesskey="1" href="Preface.html#Preface">Preface</a>:                       关于本文档。
+<!-- (FlyZhyGG)* 前言::                         关于本文档。 -->
+<!-- (FlyZhyGG)* Introduction::                What is Muse? -->
+<li><a accesskey="2" href="Introduction.html#Introduction">Introduction</a>:                  什么是 Muse？
+<!-- (FlyZhyGG)* 介绍::                         什么是 Muse？ -->
+<!-- (FlyZhyGG)* Obtaining Muse::              How to get Muse releases and development -->
+<!-- (FlyZhyGG)                                  changes. -->
+<li><a accesskey="3" href="Obtaining-Muse.html#Obtaining-Muse">Obtaining Muse</a>:                怎样获得 Muse 发行及开发更新。
+<!-- (FlyZhyGG)* 获取::                         怎样获得 Muse 发行及开发更新。 -->
+<!-- (FlyZhyGG)* Installation::                Compiling and installing Muse. -->
+<li><a accesskey="4" href="Installation.html#Installation">Installation</a>:                  编译和安装 Muse。
+<!-- (FlyZhyGG)* 安装::                         编译和安装 Muse。 -->
+<!-- (FlyZhyGG)* Getting Started::             Settings for Muse. -->
+<li><a accesskey="5" href="Getting-Started.html#Getting-Started">Getting Started</a>:               配置 Muse。
+<!-- (FlyZhyGG)* 开始::                         配置 Muse。 -->
+<!-- (FlyZhyGG)* Projects::                    Creating and managing Muse projects. -->
+<li><a accesskey="6" href="Projects.html#Projects">Projects</a>:                      创建和管理 Muse 项目。
+<!-- (FlyZhyGG)* 项目::                         创建和管理 Muse 项目。 -->
+<!-- (FlyZhyGG)* Keystroke Summary::           Keys used in Muse mode. -->
+<li><a accesskey="7" href="Keystroke-Summary.html#Keystroke-Summary">Keystroke Summary</a>:             Muse 模式中使用的快捷键。
+<!-- (FlyZhyGG)* 热键概要::                     Muse 模式中使用的快捷键。 -->
+<!-- (FlyZhyGG)* Markup Rules::                Rules for using markup. -->
+<li><a accesskey="8" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>:                  使用标记的规则。
+<!-- (FlyZhyGG)* 标记规则::                     使用标记的规则。 -->
+<!-- (FlyZhyGG)* Publishing Styles::           Publishing various types of documents. -->
+<li><a accesskey="9" href="Publishing-Styles.html#Publishing-Styles">Publishing Styles</a>:             发布不同类型的文档。
+<!-- (FlyZhyGG)* 发布风格::                     发布不同类型的文档。 -->
+<!-- (FlyZhyGG)* Extending Muse::              Making your own publishing styles. -->
+<li><a href="Extending-Muse.html#Extending-Muse">Extending Muse</a>:                制作你自己的发布风格。
+<!-- (FlyZhyGG)* 扩展 Muse::                    制作你自己的发布风格。 -->
+<!-- (FlyZhyGG)* Getting Help and Reporting Bugs:: -->
+<li><a href="Getting-Help-and-Reporting-Bugs.html#Getting-Help-and-Reporting-Bugs">Getting Help and Reporting Bugs</a>
+<!-- (FlyZhyGG)* 获得帮助和报告 bug:: -->
+<!-- (FlyZhyGG)* History::                     History of this document. -->
+<li><a href="History.html#History">History</a>:                       本文档的历史。
+<!-- (FlyZhyGG)* 历史::                         本文档的历史。 -->
+<!-- (FlyZhyGG)* Contributors::                Contributors to this documentation. -->
+<li><a href="Contributors.html#Contributors">Contributors</a>:                  本文档的贡献者。
+<!-- (FlyZhyGG)* 贡献者::                       本文档的贡献者。 -->
+<!-- (FlyZhyGG)* GNU General Public License::  The license for this manual and Muse. -->
+<li><a href="GNU-General-Public-License.html#GNU-General-Public-License">GNU General Public License</a>:    本手册和 Muse 的许可证。
+<!-- (FlyZhyGG)* GNU 通用公共许可证::           本手册和 Muse 的许可证。 -->
+<!-- (FlyZhyGG)* Concept Index::               Search for terms. -->
+<li><a href="Concept-Index.html#Concept-Index">Concept Index</a>:                 查找术语。
+<!-- (FlyZhyGG)* 概念索引::                     查找术语。 -->
+
+<!-- (FlyZhyGG) - The Detailed Node Listing - -->
+</li></ul>
+<p>--- 详细节点列表 ---
+
+<!-- (FlyZhyGG)How to Get Muse Releases and Development Changes -->
+<p>怎样获得 Muse 发行及开发更新
+
+<!-- (FlyZhyGG)* Releases::                    Released versions of Muse. -->
+</p>
+<ul class="menu">
+<li><a href="Releases.html#Releases">Releases</a>:                      Muse 的发行版本。
+<!-- (FlyZhyGG)* 发行::                         Muse 的发行版本。 -->
+<!-- (FlyZhyGG)* Development::                 Latest unreleased development changes. -->
+<li><a href="Development.html#Development">Development</a>:                   最新的未发行的开发更新。
+<!-- (FlyZhyGG)* 开发::                         最新的未发行的开发更新。 -->
+
+<!-- (FlyZhyGG)Rules for Using Markup -->
+</li></ul>
+<p>使用标记的规则
+
+<!-- (FlyZhyGG)* Paragraphs::                  Paragraphs: centering and quoting. -->
+</p>
+<ul class="menu">
+<li><a href="Paragraphs.html#Paragraphs">Paragraphs</a>:                    段落：居中和引用。
+<!-- (FlyZhyGG)* 段落::                         段落：居中和引用。 -->
+<!-- (FlyZhyGG)* Headings::                    Levels of headings. -->
+<li><a href="Headings.html#Headings">Headings</a>:                      标题的层次。
+<!-- (FlyZhyGG)* 标题::                         标题的层次。 -->
+<!-- (FlyZhyGG)* Directives::                  Directives at the beginning of a -->
+<!-- (FlyZhyGG)                                  document. -->
+<li><a href="Directives.html#Directives">Directives</a>:                    文档开始处的指令。
+<!-- (FlyZhyGG)* 指令::                         文档开始处的指令。 -->
+<!-- (FlyZhyGG)* Emphasizing Text::            Bold, italicized, and underlined text. -->
+<li><a href="Emphasizing-Text.html#Emphasizing-Text">Emphasizing Text</a>:              粗体，斜体和下划线文本。
+<!-- (FlyZhyGG)* 强调文本::                     粗体，斜体和下划线文本。 -->
+<!-- (FlyZhyGG)* Footnotes::                   Making notes to be shown at the end. -->
+<li><a href="Footnotes.html#Footnotes">Footnotes</a>:                     在最后显示注解。
+<!-- (FlyZhyGG)* 脚注::                         在最后显示注解。 -->
+<!-- (FlyZhyGG)* Verse::                       Indicating poetic stanzas. -->
+<li><a href="Verse.html#Verse">Verse</a>:                         显示诗章。
+<!-- (FlyZhyGG)* 诗体::                          显示诗章。 -->
+<!-- (FlyZhyGG)* Lists::                       Lists of items. -->
+<li><a href="Lists.html#Lists">Lists</a>:                         项的列表。
+<!-- (FlyZhyGG)* 列表::                         项的列表。 -->
+<!-- (FlyZhyGG)* Tables::                      Generation of data tables. -->
+<li><a href="Tables.html#Tables">Tables</a>:                        数据表的生成。
+<!-- (FlyZhyGG)* 表::                           数据表的生成。 -->
+<!-- (FlyZhyGG)* Explicit Links::              Hyperlinks and email addresses with -->
+<!-- (FlyZhyGG)                                  descriptions. -->
+<li><a href="Explicit-Links.html#Explicit-Links">Explicit Links</a>:                带描述的超级链接和邮件地址。
+<!-- (FlyZhyGG)* 外显链接::                     带描述的超级链接和邮件地址。 -->
+<!-- (FlyZhyGG)* Implicit Links::              Bare URLs, WikiNames, and InterWiki -->
+<!-- (FlyZhyGG)                                  links. -->
+<li><a href="Implicit-Links.html#Implicit-Links">Implicit Links</a>:                无修饰的 URL，WikiNames 和 InteWiki 链接。
+<!-- (FlyZhyGG)* 隐含链接::                     无修饰的 URL，WikiNames 和 InteWiki 链接。 -->
+<!-- (FlyZhyGG)* Images::                      Publishing and displaying images. -->
+<li><a href="Images.html#Images">Images</a>:                        发布和显示图片。
+<!-- (FlyZhyGG)* 图::                           发布和显示图片。 -->
+<!-- (FlyZhyGG)* Horizontal Rules and Anchors::  Inserting a horizontal line or anchor. -->
+<li><a href="Horizontal-Rules-and-Anchors.html#Horizontal-Rules-and-Anchors">Horizontal Rules and Anchors</a>:  插入一个水平线或锚。
+<!-- (FlyZhyGG)* 水平线和锚::                 插入一个水平线或锚。 -->
+<!-- (FlyZhyGG)* Embedded Lisp::               Evaluating Emacs Lisp code in documents -->
+<!-- (FlyZhyGG)                                  for extensibility. -->
+<li><a href="Embedded-Lisp.html#Embedded-Lisp">Embedded Lisp</a>:                 在文档中为扩展而执行 Emacs Lisp 代码。
+<!-- (FlyZhyGG)* 嵌入的 Lisp::                  在文档中为扩展而执行 Emacs Lisp 代码。 -->
+<!-- (FlyZhyGG)* Comments::                    Lines to omit from published output. -->
+<li><a href="Comments.html#Comments">Comments</a>:                      发布输出时被省略的行。
+<!-- (FlyZhyGG)* 注释::                         发布输出时被省略的行。 -->
+<!-- (FlyZhyGG)* Tag Summary::                 Tags that Muse recognizes. -->
+<li><a href="Tag-Summary.html#Tag-Summary">Tag Summary</a>:                   Muse 可识别的标签。
+<!-- (FlyZhyGG)* 标签概要::                     Muse 可识别的标签。 -->
+
+<!-- (FlyZhyGG)Publishing Various Types of Documents -->
+</li></ul>
+<p>发布不同类型的文档
+
+<!-- (FlyZhyGG)* Blosxom::                     Integrating Muse and pyblosxom.cgi. -->
+</p>
+<ul class="menu">
+<li><a href="Blosxom.html#Blosxom">Blosxom</a>:                       集成 Muse 和 pyblosxom.cgi。
+<!-- (FlyZhyGG)* Book::                        Publishing entries into a compilation. -->
+<li><a href="Book.html#Book">Book</a>:                          发布条目到编辑物。
+<!-- (FlyZhyGG)* DocBook::                     Publishing in DocBook XML form. -->
+<li><a href="DocBook.html#DocBook">DocBook</a>:                       以 DocBook XML 形式发布。
+<!-- (FlyZhyGG)* HTML::                        Publishing in HTML or XHTML form. -->
+<li><a href="HTML.html#HTML">HTML</a>:                          以 HTML 或者 XHTML 形式发布。
+<!-- (FlyZhyGG)* Journal::                     Keeping a journal or blog. -->
+<li><a href="Journal.html#Journal">Journal</a>:                       写日记或者博客。
+<!-- (FlyZhyGG)* LaTeX::                       Publishing LaTeX documents. -->
+<li><a href="LaTeX.html#LaTeX">LaTeX</a>:                         发布 LaTeX 文档。
+<!-- (FlyZhyGG)* Poem::                        Publish a poem to LaTex or PDF. -->
+<li><a href="Poem.html#Poem">Poem</a>:                          发布诗到 LaTeX 或者 PDF。
+<!-- (FlyZhyGG)* Texinfo::                     Publish entries to Texinfo format or PDF. -->
+<li><a href="Texinfo.html#Texinfo">Texinfo</a>:                       发布条目到 Texinfo 格式或者 PDF 。
+
+<!-- (FlyZhyGG)Integrating Muse and pyblosxom.cgi -->
+</li></ul>
+<p>集成 Muse 和 pyblosxom.cgi
+
+<!-- (FlyZhyGG)* Blosxom Requirements::        Other tools needed for the Blosxom style. -->
+</p>
+<ul class="menu">
+<li><a href="Blosxom-Requirements.html#Blosxom-Requirements">Blosxom Requirements</a>:          Blosxom 风格需要的其他工具。
+<!-- (FlyZhyGG)* Blosxom 要求::                 Blosxom 风格需要的其他工具。 -->
+<!-- (FlyZhyGG)* Blosxom Entries::             Format of a Blosxom entry and automation. -->
+<li><a href="Blosxom-Entries.html#Blosxom-Entries">Blosxom Entries</a>:               一个 Blosxom 条目的格式和自动操作。
+<!-- (FlyZhyGG)* Blosxom 条目::                 一个 Blosxom 条目的格式和自动操作。 -->
+<!-- (FlyZhyGG)* Blosxom Options::             Blosxom styles and options provided. -->
+<li><a href="Blosxom-Options.html#Blosxom-Options">Blosxom Options</a>:               提供的 Blosxom 风格和选项。
+<!-- (FlyZhyGG)* Blosxom 选项::                 提供的 Blosxom 风格和选项。 -->
+
+<!-- (FlyZhyGG)Making your own publishing styles -->
+</li></ul>
+<p>制作你自己的发布风格
+
+<!-- (FlyZhyGG)* Common Elements::             Common functionality shared by styles. -->
+</p>
+<ul class="menu">
+<li><a href="Common-Elements.html#Common-Elements">Common Elements</a>:               风格共有的通用功能。
+<!-- (FlyZhyGG)* 通用元素::                     风格共有的通用功能。 -->
+<!-- (FlyZhyGG)* Deriving Styles::             Deriving a new style from an existing -->
+<!-- (FlyZhyGG)                                  one. -->
+<li><a href="Deriving-Styles.html#Deriving-Styles">Deriving Styles</a>:               从一个存在的风格中派生一个新的风格。
+<!-- (FlyZhyGG)* 派生风格::                     从一个存在的风格中派生一个新的风格。 -->
+
+<!-- (FlyZhyGG)Common functionality shared by styles -->
+</li></ul>
+<p>风格共有的通用功能
+
+<!-- (FlyZhyGG)* Markup Functions::            Specifying functions to marking up text. -->
+</p>
+<ul class="menu">
+<li><a href="Markup-Functions.html#Markup-Functions">Markup Functions</a>:              用来标记文本的指定函数。
+<!-- (FlyZhyGG)* 标记函数::                     用来标记文本的指定函数。 -->
+<!-- (FlyZhyGG)* Markup Regexps::              Markup rules for publishing. -->
+<li><a href="Markup-Regexps.html#Markup-Regexps">Markup Regexps</a>:                发布的标记规则。
+<!-- (FlyZhyGG)* 标记正则表达式::               发布的标记规则。 -->
+<!-- (FlyZhyGG)* Markup Strings::              Strings specific to a publishing style. -->
+<li><a href="Markup-Strings.html#Markup-Strings">Markup Strings</a>:                特别针对一个发布风格的字符串。
+<!-- (FlyZhyGG)* 标记字符串::                   特别针对一个发布风格的字符串。 -->
+<!-- (FlyZhyGG)* Markup Tags::                 Tag specifications for special markup. -->
+<li><a href="Markup-Tags.html#Markup-Tags">Markup Tags</a>:                   为特殊标记的标签详述。
+<!-- (FlyZhyGG)* 标记标签::                     为特殊标记的标签详述。 -->
+<!-- (FlyZhyGG)* Style Elements::              Parameters used for defining styles. -->
+<li><a href="Style-Elements.html#Style-Elements">Style Elements</a>:                定义风格使用的参数。
+<!-- (FlyZhyGG)* 风格元素::                     定义风格使用的参数。 -->
+
+   </ul>
+
+   </body></html>
+

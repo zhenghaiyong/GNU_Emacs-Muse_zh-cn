@@ -1,0 +1,374 @@
+<html lang="zh">
+<head>
+<title>Markup Strings - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Common-Elements.html#Common-Elements" title="Common Elements">
+<link rel="prev" href="Markup-Regexps.html#Markup-Regexps" title="Markup Regexps">
+<link rel="next" href="Markup-Tags.html#Markup-Tags" title="Markup Tags">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Markup-Strings"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Markup-Tags.html#Markup-Tags">Markup Tags</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Markup-Regexps.html#Markup-Regexps">Markup Regexps</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Common-Elements.html#Common-Elements">Common Elements</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@subsection Strings specific to a publishing style -->
+<h4 class="subsection">10.1.3 特别针对一个发布风格的字符串</h4>
+
+<p><a name="index-publishing_002c-markup-strings-104"></a>
+<!-- (FlyZhyGG)@dfn{Markup strings} are strings used for marking up text for a -->
+<!-- (FlyZhyGG)particular style. -->
+<dfn>Markup strings</dfn> 是一个特定风格标记文本使用的字符串。
+
+<!-- (FlyZhyGG)These cover the most basic kinds of markup, the handling of which -->
+<!-- (FlyZhyGG)differs little between the various styles. -->
+<p>这些字符串涵盖最基本的标记类，它们在各种风格之间的操作差别很小。
+
+<!-- (FlyZhyGG)@subheading Available markup strings -->
+<h4 class="subheading">可用的标记字符串</h4>
+
+     <dl>
+<dt><code>image-with-desc</code><dd><!-- (FlyZhyGG)An image and a description. -->
+一个图片和一个描述。
+
+     <!-- (FlyZhyGG)Argument 1: image without extension.  Argument 2: image extension. -->
+<!-- (FlyZhyGG)Argument 3: description. -->
+<p>参数 1：不带扩展名的图片；参数 2：图片扩展名；参数 3：描述。
+
+     <br><dt><code>image</code><dd><!-- (FlyZhyGG)An inlined image. -->
+一个直接插入的图片。
+
+     <!-- (FlyZhyGG)Argument 1: image without extension.  Argument 2: image extension. -->
+<p>参数 1：不带扩展名的图片；参数 2：图片扩展名。
+
+     <br><dt><code>image-link</code><dd><!-- (FlyZhyGG)A link to an image. -->
+到一个图片的一个链接。
+
+     <!-- (FlyZhyGG)Argument 1: link.  Argument 2: image without extension. -->
+<!-- (FlyZhyGG)Argument 3: image extension. -->
+<p>参数 1：链接；参数 2：不带扩展名的图片；参数 3：图片扩展名。
+
+     <br><dt><code>anchor-ref</code><dd><!-- (FlyZhyGG)A reference to an anchor on the current page. -->
+到当前页面一个锚的引用。
+
+     <!-- (FlyZhyGG)Argument 1: anchor name.  Argument 2: description if one exists, or the -->
+<!-- (FlyZhyGG)original link otherwise. -->
+<p>参数 1：锚名；参数 2：如果存在就是描述，否则是原始的链接。
+
+     <br><dt><code>url</code><dd><!-- (FlyZhyGG)A URL without a description. -->
+不带描述的一个 URL。
+
+     <!-- (FlyZhyGG)Argument 1: URL. -->
+<p>参数 1：URL。
+
+     <br><dt><code>link</code><dd><!-- (FlyZhyGG)A link with a description. -->
+带描述的一个链接。
+
+     <!-- (FlyZhyGG)Argument 1: link.  Argument 2: description if one exists, or the -->
+<!-- (FlyZhyGG)original link otherwise. -->
+<p>参数 1：链接；参数 2：如果存在就是描述，否则是原始的链接。
+
+     <br><dt><code>link-and-anchor</code><dd><!-- (FlyZhyGG)A link to a page with an anchor, and a description. -->
+到含有锚的一个页面链接和一个描述。
+
+     <!-- (FlyZhyGG)Argument 1: link.  Argument 2: anchor name. -->
+<!-- (FlyZhyGG)Argument 3: description if one exists, or the original link otherwise. -->
+<p>参数 1：链接；参数 2：锚名；参数 3：如果存在就是描述，否则是原始的链接。
+
+     <br><dt><code>email-addr</code><dd><!-- (FlyZhyGG)A link to an email address. -->
+到一个 email 地址的一个链接。
+
+     <!-- (FlyZhyGG)Argument 1: email address.  Argument 2: email address. -->
+<p>参数 1：email 地址；参数 2：email 地址。
+
+     <br><dt><code>emdash</code><dd><!-- (FlyZhyGG)A 2-length dash. -->
+两个 - 长的破折号。
+
+     <!-- (FlyZhyGG)Argument 1: Initial whitespace.  Argument 2: Terminating whitespace. -->
+<p>参数 1：起始的空白字元；参数 2：终止的空白字元。
+
+     <br><dt><code>comment-begin</code><dd><!-- (FlyZhyGG)Beginning of a comment. -->
+注释的开始。
+
+     <br><dt><code>comment-end</code><dd><!-- (FlyZhyGG)End of a comment. -->
+注释的结束。
+
+     <br><dt><code>rule</code><dd><!-- (FlyZhyGG)A horizontal line or space. -->
+一个水平线或者空白。
+
+     <br><dt><code>no-break-space</code><dd><!-- (FlyZhyGG)A space that separates two words which are not to be separated. -->
+一个分离两个不会被分开的单词的间隔。
+
+     <br><dt><code>footnote</code><dd><!-- (FlyZhyGG)Beginning of footnote. -->
+脚注的开始。
+
+     <br><dt><code>footnote-end</code><dd><!-- (FlyZhyGG)End of footnote. -->
+脚注的结束。
+
+     <br><dt><code>footnotemark</code><dd><!-- (FlyZhyGG)Mark a reference for the current footnote. -->
+为当前脚注标记一个引用。
+
+     <!-- (FlyZhyGG)Argument 1: number of this footnote. -->
+<p>参数 1：该脚注的数字标号。
+
+     <br><dt><code>footnotemark-end</code><dd><!-- (FlyZhyGG)End of a reference for the current footnote. -->
+当前脚注引用的结束。
+
+     <br><dt><code>footnotetext</code><dd><!-- (FlyZhyGG)Indicate the text of the current footnote. -->
+显示当前脚注的文本。
+
+     <!-- (FlyZhyGG)Argument 1: number of this footnote. -->
+<p>参数 1：该脚注的数字标号。
+
+     <br><dt><code>footnotetext-end</code><dd><!-- (FlyZhyGG)End of a footnote text line. -->
+脚注文本行的结束。
+
+     <br><dt><code>fn-sep</code><dd><!-- (FlyZhyGG)Text used to replace ``Footnotes:'' line. -->
+用来替代“Footnotes:”行的文本。
+
+     <br><dt><code>dots</code><dd><!-- (FlyZhyGG)3 dots. -->
+三个点。
+
+     <br><dt><code>enddots</code><dd><!-- (FlyZhyGG)4 dots. -->
+四个点。
+
+     <br><dt><code>part</code><dd><!-- (FlyZhyGG)Beginning of a part indicator line.  This is used by book publishing. -->
+一个 part 显示行的开始，用于书的发布。
+
+     <br><dt><code>part-end</code><dd><!-- (FlyZhyGG)End of a part indicator line.  This is used by book publishing. -->
+一个 part 显示行的结束，用于书的发布。
+
+     <br><dt><code>chapter</code><dd><!-- (FlyZhyGG)Beginning of a chapter indicator line.  This is used by book publishing. -->
+一个 chapter 显示行的开始，用于书的发布。
+
+     <br><dt><code>chapter-end</code><dd><!-- (FlyZhyGG)End of a chapter indicator line.  This is used by book publishing. -->
+一个 chapter 显示行的结束，用于书的发布。
+
+     <br><dt><code>section</code><dd><!-- (FlyZhyGG)Beginning of level 1 section indicator line. -->
+第一层 section 显示行的开始。
+
+     <!-- (FlyZhyGG)Argument 1: level of section; always 1. -->
+<p>参数 1：section 层数；总是1。
+
+     <br><dt><code>section-end</code><dd><!-- (FlyZhyGG)End of level 1 section indicator line. -->
+第一层 section 显示行的结束。
+
+     <!-- (FlyZhyGG)Argument 1: level of section; always 1. -->
+<p>参数 1：section 层数；总是1.
+
+     <br><dt><code>subsection</code><dd><!-- (FlyZhyGG)Beginning of level 2 section indicator line. -->
+第二层 section 显示行的开始。
+
+     <!-- (FlyZhyGG)Argument 1: level of section; always 2. -->
+<p>参数 1：section 层数；总是2。
+
+     <br><dt><code>subsection-end</code><dd><!-- (FlyZhyGG)End of level 2 section indicator line. -->
+第二层 section 显示行的结束。
+
+     <!-- (FlyZhyGG)Argument 1: level of section; always 2. -->
+<p>参数 1：section 层数；总是2。
+
+     <br><dt><code>subsubsection</code><dd><!-- (FlyZhyGG)Beginning of level 3 section indicator line. -->
+第三层 section 显示行的开始。
+
+     <!-- (FlyZhyGG)Argument 1: level of section; always 3. -->
+<p>参数 1：section 层数；总是3。
+
+     <br><dt><code>subsubsection-end</code><dd><!-- (FlyZhyGG)End of level 3 section indicator line. -->
+第三层 section 显示行的结束。
+
+     <!-- (FlyZhyGG)Argument 1: level of section; always 3. -->
+<p>参数 1：section 层数；总是3。
+
+     <br><dt><code>section-other</code><dd><!-- (FlyZhyGG)Beginning of section indicator line, where level is greater than 3. -->
+大于三层的 section 显示行的开始。
+
+     <!-- (FlyZhyGG)Argument 1: level of section. -->
+<p>参数 1：section 层数。
+
+     <br><dt><code>section-other-end</code><dd><!-- (FlyZhyGG)End of section indicator line, where level is greater than 3. -->
+大于三层的 section 显示行的结束。
+
+     <!-- (FlyZhyGG)Argument 1: level of section. -->
+<p>参数 1：section 层数。
+
+     <br><dt><code>begin-underline</code><dd><!-- (FlyZhyGG)Beginning of underlined text. -->
+下划线文本的开始。
+
+     <br><dt><code>end-underline</code><dd><!-- (FlyZhyGG)End of underlined text. -->
+下划线文本的结束。
+
+     <br><dt><code>begin-literal</code><dd><!-- (FlyZhyGG)Beginning of verbatim text.  This includes @verb{|<code>|} tags and -->
+<!-- (FlyZhyGG)=teletype text=. -->
+抄录文本的开始。它包括 <tt>&lt;code></tt> 标签和 =teletype text=。
+
+     <br><dt><code>end-literal</code><dd><!-- (FlyZhyGG)End of verbatim text.  This includes @verb{|<code>|} tags and =teletype -->
+<!-- (FlyZhyGG)text=. -->
+抄录文本的结束。它包括 <tt>&lt;code></tt> 标签和 =teletype text=。
+
+     <br><dt><code>begin-emph</code><dd><!-- (FlyZhyGG)Beginning of the first level of emphasized text. -->
+第一层强调文本的开始。
+
+     <br><dt><code>end-emph</code><dd><!-- (FlyZhyGG)End of the first level of emphasized text. -->
+第一层强调文本的结束。
+
+     <br><dt><code>begin-more-emph</code><dd><!-- (FlyZhyGG)Beginning of the second level of emphasized text. -->
+第二层强调文本的开始。
+
+     <br><dt><code>end-more-emph</code><dd><!-- (FlyZhyGG)End of the second level of emphasized text. -->
+第二层强调文本的结束。
+
+     <br><dt><code>begin-most-emph</code><dd><!-- (FlyZhyGG)Beginning of the third (and final) level of emphasized text. -->
+第三层（最后）级强调文本的开始。
+
+     <br><dt><code>end-most-emph</code><dd><!-- (FlyZhyGG)End of the third (and final) level of emphasized text. -->
+第三层（最后）级强调文本的结束。
+
+     <br><dt><code>begin-verse</code><dd><!-- (FlyZhyGG)Beginning of verse text. -->
+诗的开始。
+
+     <br><dt><code>verse-space</code><dd><!-- (FlyZhyGG)String used to each space that is further indented than the beginning of -->
+<!-- (FlyZhyGG)the verse. -->
+用于比诗的开始进一步被缩进的每个空白的字符串。
+
+     <br><dt><code>begin-verse-line</code><dd><!-- (FlyZhyGG)Beginning of a line of verse. -->
+诗的一行的开始。
+
+     <br><dt><code>empty-verse-line</code><dd><!-- (FlyZhyGG)End of a line of verse. -->
+诗的一行的结束。
+
+     <br><dt><code>begin-last-stanza-line</code><dd><!-- (FlyZhyGG)Beginning of the last line of a verse stanza. -->
+一个诗章最后行的开始。
+
+     <br><dt><code>end-last-stanza-line</code><dd><!-- (FlyZhyGG)End of the last line of a verse stanza. -->
+一个诗章最后行的结束。
+
+     <br><dt><code>end-verse</code><dd><!-- (FlyZhyGG)End of verse text. -->
+诗的结束。
+
+     <br><dt><code>begin-example</code><dd><!-- (FlyZhyGG)Beginning of an example region.  To make use of this, an -->
+<!-- (FlyZhyGG)@samp{<example>} tag is needed. -->
+一个实例区域的开始。要使用这个字符串，一个 `<samp><span class="samp">&lt;example&gt;</span></samp>' 标签是必须的。
+
+     <br><dt><code>end-example</code><dd><!-- (FlyZhyGG)End of an example region.  To make use of this, an @samp{</example>} tag -->
+<!-- (FlyZhyGG)is needed. -->
+一个实例区域的结束。要使用这个字符串，一个 `<samp><span class="samp">&lt;/example&gt;</span></samp>' 标签是必须的。
+
+     <br><dt><code>begin-center</code><dd><!-- (FlyZhyGG)Begin a centered line. -->
+开始一个居中的行。
+
+     <br><dt><code>end-center</code><dd><!-- (FlyZhyGG)End a centered line. -->
+结束一个居中的行。
+
+     <br><dt><code>begin-quote</code><dd><!-- (FlyZhyGG)Begin a quoted region. -->
+开始一个引用的区域。
+
+     <br><dt><code>end-quote</code><dd><!-- (FlyZhyGG)End a quoted region. -->
+结束一个引用的区域。
+
+     <br><dt><code>begin-uli</code><dd><!-- (FlyZhyGG)Begin an unordered list. -->
+开始一个无序列表。
+
+     <br><dt><code>end-uli</code><dd><!-- (FlyZhyGG)End an unordered list. -->
+结束一个无序列表。
+
+     <br><dt><code>begin-uli-item</code><dd><!-- (FlyZhyGG)Begin an unordered list item. -->
+开始一个无序列表项。
+
+     <br><dt><code>end-uli-item</code><dd><!-- (FlyZhyGG)End an unordered list item. -->
+结束一个无序列表项。
+
+     <br><dt><code>begin-oli</code><dd><!-- (FlyZhyGG)Begin an ordered list. -->
+开始一个有序列表。
+
+     <br><dt><code>end-oli</code><dd><!-- (FlyZhyGG)End an ordered list. -->
+结束一个有序列表。
+
+     <br><dt><code>begin-oli-item</code><dd><!-- (FlyZhyGG)Begin an ordered list item. -->
+开始一个有序列表项。
+
+     <br><dt><code>end-oli-item</code><dd><!-- (FlyZhyGG)End an ordered list item. -->
+结束一个有序列表项。
+
+     <br><dt><code>begin-dl</code><dd><!-- (FlyZhyGG)Begin a definition list. -->
+开始一个定义列表。
+
+     <br><dt><code>end-dl</code><dd><!-- (FlyZhyGG)End a definition list. -->
+结束一个定义列表。
+
+     <br><dt><code>begin-dl-item</code><dd><!-- (FlyZhyGG)Begin a definition list item. -->
+开始一个定义列表项。
+
+     <br><dt><code>end-dl-item</code><dd><!-- (FlyZhyGG)End a definition list item. -->
+结束一个定义列表项。
+
+     <br><dt><code>begin-ddt</code><dd><!-- (FlyZhyGG)Begin a definition list term. -->
+开始一个定义列表的术语。
+
+     <br><dt><code>end-ddt</code><dd><!-- (FlyZhyGG)End a definition list term. -->
+结束一个定义列表的术语。
+
+     <br><dt><code>begin-dde</code><dd><!-- (FlyZhyGG)Begin a definition list entry. -->
+开始一个定义列表条目。
+
+     <br><dt><code>end-dde</code><dd><!-- (FlyZhyGG)End a definition list entry. -->
+结束一个定义列表条目。
+
+     <br><dt><code>begin-table</code><dd><!-- (FlyZhyGG)Begin a table. -->
+开始一个表格。
+
+     <br><dt><code>end-table</code><dd><!-- (FlyZhyGG)End a table. -->
+结束一个表格。
+
+     <br><dt><code>begin-table-group</code><dd><!-- (FlyZhyGG)Begin a table grouping. -->
+开始一个表格组。
+
+     <br><dt><code>end-table-group</code><dd><!-- (FlyZhyGG)End a table grouping. -->
+结束一个表格组。
+
+     <br><dt><code>begin-table-row</code><dd><!-- (FlyZhyGG)Begin a table row. -->
+开始一个表格行。
+
+     <br><dt><code>end-table-row</code><dd><!-- (FlyZhyGG)End a table row. -->
+结束一个表格行。
+
+     <br><dt><code>begin-table-entry</code><dd><!-- (FlyZhyGG)Begin a table entry. -->
+开始一个表格条目。
+
+     <br><dt><code>end-table-entry</code><dd><!-- (FlyZhyGG)End a table entry. -->
+结束一个表格条目。
+
+</dl>
+
+   </body></html>
+

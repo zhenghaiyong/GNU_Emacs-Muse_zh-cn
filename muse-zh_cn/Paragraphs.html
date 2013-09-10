@@ -1,0 +1,87 @@
+<html lang="zh">
+<head>
+<title>Paragraphs - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="prev" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="next" href="Headings.html#Headings" title="Headings">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Paragraphs"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Headings.html#Headings">Headings</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@section Paragraphs: centering and quoting -->
+<h3 class="section">8.1 段落：居中和引用</h3>
+
+<p><a name="index-paragraphs-11"></a>
+<!-- (FlyZhyGG)Paragraphs in Muse must be separated by a blank line. -->
+在 Muse 中段落必须通过一个空行来隔开。
+
+   <p><a name="index-paragraphs_002c-centered-12"></a><!-- (FlyZhyGG)@subheading Centered paragraphs and quotations -->
+
+<h4 class="subheading">段落居中和引用</h4>
+
+<!-- (FlyZhyGG)A line that begins with six or more columns of whitespace (either tabs -->
+<!-- (FlyZhyGG)or spaces) indicates a centered paragraph.  Alternatively, you can use -->
+<!-- (FlyZhyGG)the @verb{|<center>|} tag to surround regions that are to be published as -->
+<!-- (FlyZhyGG)centered paragraphs. -->
+<p>以六个或者更多的空白字元（Tab 或者空格）开始的一行表示一个居中的段落。
+另外，你也可以使用 <tt>&lt;center></tt> 标签使得其包含的区域被发布为居中的段落。
+
+   <p><a name="index-paragraphs_002c-quoted-13"></a><a name="index-quotations-14"></a><!-- (FlyZhyGG)But if a line begins with whitespace, though less than six columns, it -->
+<!-- (FlyZhyGG)indicates a quoted paragraph.  Alternatively, you can use the -->
+<!-- (FlyZhyGG)@verb{|<quote>|} tag to surround regions that are to be published as -->
+<!-- (FlyZhyGG)quoted paragraphs. -->
+但是如果一行以空白字元开始，但空白字元不足六个，这表示一个引用的段落。
+另外，你也可以使用 <tt>&lt;quote></tt> 标签使得起包含的区域被发布为引用的段落。
+
+   <p><a name="index-examples-15"></a><a name="index-monospace_002c-rendering-blocks-16"></a><a name="index-HTML_002c-rendering-blocks-in-monospace-17"></a><!-- (FlyZhyGG)@subheading Literal paragraphs -->
+
+<h4 class="subheading">抄录段落</h4>
+
+<!-- (FlyZhyGG)The @verb{|<example>|} tag is used for examples, where whitespace should -->
+<!-- (FlyZhyGG)be preserved, the text rendered in monospace, and any characters special -->
+<!-- (FlyZhyGG)to the output style escaped. -->
+<p><tt>&lt;example></tt> 标签用于示例，其中空白应该被保留，等宽间距文本，且输出
+风格的任意特殊字符都被转义。
+
+   <p><a name="index-literal-text-18"></a><a name="index-HTML_002c-inserting-a-raw-block-19"></a><!-- (FlyZhyGG)There is also the @verb{|<literal>|} tag, which causes a marked block to -->
+<!-- (FlyZhyGG)be entirely left alone.  This can be used for inserting a hand-coded -->
+<!-- (FlyZhyGG)HTML blocks into HTML output, for example. -->
+还有一个 <tt>&lt;literal></tt> 标签，作用是使得所标记的块全部原样输出。比如
+这可以用来插入一段手编的 HTML 代码到 HTML 输出。
+
+   </body></html>
+

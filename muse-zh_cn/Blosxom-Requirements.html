@@ -1,0 +1,95 @@
+<html lang="zh">
+<head>
+<title>Blosxom Requirements - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Blosxom.html#Blosxom" title="Blosxom">
+<link rel="prev" href="Blosxom.html#Blosxom" title="Blosxom">
+<link rel="next" href="Blosxom-Entries.html#Blosxom-Entries" title="Blosxom Entries">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Blosxom-Requirements"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Blosxom-Entries.html#Blosxom-Entries">Blosxom Entries</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Blosxom.html#Blosxom">Blosxom</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Blosxom.html#Blosxom">Blosxom</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@subsection Other tools needed for the Blosxom style -->
+<h4 class="subsection">9.1.1 Blosxom 风格需要的其他工具</h4>
+
+<!-- (FlyZhyGG)You will need to have @command{pyblosxom.cgi} or @command{blosxom.cgi} -->
+<!-- (FlyZhyGG)installed on a machine that you have upload access to. -->
+<p>你需要在一个你具有上传访问权限的机器上安装 <samp><span class="command">pyblosxom.cgi</span></samp> 或
+<samp><span class="command">blosxom.cgi</span></samp>。
+
+<!-- (FlyZhyGG)The following additional components are required in order to make the -->
+<!-- (FlyZhyGG)date of blog entries display as something sensible. -->
+<p>为了使得 blog 条目的日期能够合理的显示，下面这些额外的组件是必须的。
+
+     <ol type=1 start=1>
+<li><!-- (FlyZhyGG)A script to gather date directives from the entire blog tree into a -->
+<!-- (FlyZhyGG)single file.  The file must associate a blog entry with a date. -->
+一个从整个 blog 树中聚合日期指令到一个单独文件的脚本，这个文件与带有日期
+的 blog 条目一定相关联。
+
+     <li><!-- (FlyZhyGG)A plugin for (py)blosxom that reads this file. -->
+一个可以读这个文件的 （py）blosxom 插件。
+        </ol>
+
+<!-- (FlyZhyGG)These 2 things are provided for @command{pyblosxom.cgi} in the -->
+<!-- (FlyZhyGG)@file{contrib/pyblosxom} subdirectory.  @file{getstamps.py} provides the -->
+<!-- (FlyZhyGG)former service, while @file{hardcodedates.py} provides the latter -->
+<!-- (FlyZhyGG)service.  Eventually it is hoped that a @command{blosxom.cgi} plugin and -->
+<!-- (FlyZhyGG)script will be found/written. -->
+<p>在 <samp><span class="file">contrib/pyblosxom</span></samp> 子目录中为 <samp><span class="command">pyblosxom.cgi</span></samp> 提供这两个组件。
+<samp><span class="file">getstamps.py</span></samp> 提供前面的服务，而 <samp><span class="file">hardcodedates.py</span></samp> 提供后面的服务。
+最后期望找出或写出一个 <samp><span class="command">blosxom.cgi</span></samp> 插件和脚本。
+
+<!-- (FlyZhyGG)Here is a sample listing from my @file{timestamps} file, which maps -->
+<!-- (FlyZhyGG)each file to a date.  This can really be in any format, as long as your -->
+<!-- (FlyZhyGG)date-gathering script and your plugin can both understand it. -->
+<p>下面是在我的 <samp><span class="file">timestamps</span></samp> 文件中的一个例子列表，其中每个文件与一个
+日期相对应。其实这可以是任意格式，只要你的日期聚合脚本和插件都能够解析。
+
+<pre class="example">     2005-04-01-14-16 personal/paper_cranes
+     2005-03-21 personal/spring_break_over
+     2004-10-24 personal/finished_free_culture
+</pre>
+   <!-- (FlyZhyGG)The script @file{contrib/pyblosxom/make-blog} demonstrates how to call -->
+<!-- (FlyZhyGG)@file{getstamps.py}.  Note that you will need to set the current -->
+<!-- (FlyZhyGG)directory to where your Muse files are, execute @file{getstamps.py}, and -->
+<!-- (FlyZhyGG)then move the generated timestamps file to your publishing directory. -->
+<p><samp><span class="file">contrib/pyblosxom/make-blog</span></samp> 脚本示范了怎样调用 <samp><span class="file">getstamps.py</span></samp>。
+注意你需要设置当前目录为你的 Muse 文件所在的目录，执行 <samp><span class="file">gestamps.py</span></samp>，
+然后移动生成的时间戳文件到你的发布目录中。
+
+   </body></html>
+

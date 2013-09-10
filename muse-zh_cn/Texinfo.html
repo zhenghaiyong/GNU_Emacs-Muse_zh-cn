@@ -1,0 +1,122 @@
+<html lang="zh">
+<head>
+<title>Texinfo - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Publishing-Styles.html#Publishing-Styles" title="Publishing Styles">
+<link rel="prev" href="Poem.html#Poem" title="Poem">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Texinfo"></a>
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Poem.html#Poem">Poem</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Publishing-Styles.html#Publishing-Styles">Publishing Styles</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@section Publish entries to Texinfo format or PDF -->
+<h3 class="section">9.8 发布条目到 Texinfo 格式或者 PDF</h3>
+
+<!-- (FlyZhyGG)Rules for publishing a Muse file as a Texinfo article. -->
+<p>发布一个 Muse 文件为一个 Texinfo 文章的规则。
+
+<!-- (FlyZhyGG)@subheading Styles provided -->
+<h4 class="subheading">提供的风格</h4>
+
+     
+<a name="index-publishing-styles_002c-texi-97"></a>
+<dl><dt><code>texi</code><dd><!-- (FlyZhyGG)Publish a file in Texinfo form. -->
+以 Texinfo 形式发布一个文件。
+
+     <p><a name="index-publishing-styles_002c-texi-98"></a><br><dt><code>info</code><dd><!-- (FlyZhyGG)Generate an Info file from a Muse file. -->
+由一个 Muse 文件生成一个 Info 文件。
+
+     <p><a name="index-publishing-styles_002c-info_002dpdf-99"></a><br><dt><code>info-pdf</code><dd><!-- (FlyZhyGG)Publish a file in PDF form. -->
+以 PDF 形式发布一个文件。
+
+</dl>
+
+<!-- (FlyZhyGG)@subheading Options provided -->
+<h4 class="subheading">提供的选项</h4>
+
+     <dl>
+<dt><code>muse-texinfo-process-natively</code><dd><!-- (FlyZhyGG)If non-nil, use the Emacs `texinfmt' module to make Info files. -->
+如果该选项非空，使用 Emacs 的 'texinfmt' 模块生成 Info 文件。
+
+     <br><dt><code>muse-texinfo-extension</code><dd><!-- (FlyZhyGG)Default file extension for publishing Texinfo files. -->
+发布 Texinfo 文件默认的扩展名。
+
+     <br><dt><code>muse-texinfo-info-extension</code><dd><!-- (FlyZhyGG)Default file extension for publishing Info files. -->
+发布 Info 文件默认的扩展名。
+
+     <br><dt><code>muse-texinfo-pdf-extension</code><dd><!-- (FlyZhyGG)Default file extension for publishing PDF files. -->
+发布 PDF 文件默认的扩展名。
+
+     <br><dt><code>muse-texinfo-header</code><dd><!-- (FlyZhyGG)Text to prepend to a Muse page being published as Texinfo. -->
+一个 Muse 页面被发布为 Texinfo 时加在前面的文本。
+
+     <!-- (FlyZhyGG)This may be text or a filename. -->
+<!-- (FlyZhyGG)It may contain @verb{|<lisp>|} markup tags. -->
+<p>这可以是文本或者一个文件名，还可以包含 <tt>&lt;lisp></tt> 标记的标签。
+
+     <br><dt><code>muse-texinfo-footer</code><dd><!-- (FlyZhyGG)Text to append to a Muse page being published as Texinfo. -->
+一个 Muse 页面被发布为 Texinfo 时附在后面的文本。
+
+     <!-- (FlyZhyGG)This may be text or a filename. -->
+<!-- (FlyZhyGG)It may contain @verb{|<lisp>|} markup tags. -->
+<p>这可以是文本或者一个文件名，还可以包含 <tt>&lt;lisp></tt> 标记的标签。
+
+     <br><dt><code>muse-texinfo-markup-regexps</code><dd><!-- (FlyZhyGG)List of markup rules for publishing a Muse page to Texinfo. -->
+发布一个 Muse 页面到 Texinfo 的标记规则表。
+
+     <!-- (FlyZhyGG)For more on the structure of this list, -->
+<!-- (FlyZhyGG)@xref{muse-publish-markup-regexps}. -->
+<p>关于这个列表构成的更多信息，参阅 <a href="muse_002dpublish_002dmarkup_002dregexps.html#muse_002dpublish_002dmarkup_002dregexps">muse-publish-markup-regexps</a>。
+
+     <br><dt><code>muse-texinfo-markup-functions</code><dd><!-- (FlyZhyGG)An alist of style types to custom functions for that kind of text. -->
+为该风格文本定制函数的风格样式表。
+
+     <!-- (FlyZhyGG)For more on the structure of this list, see -->
+<!-- (FlyZhyGG)@xref{muse-publish-markup-functions}. -->
+<p>关于这个列表构成的更多信息，参阅 <a href="muse_002dpublish_002dmarkup_002dfunctions.html#muse_002dpublish_002dmarkup_002dfunctions">muse-publish-markup-functions</a>。
+
+     <br><dt><code>muse-texinfo-markup-strings</code><dd><!-- (FlyZhyGG)Strings used for marking up text. -->
+标记文本的字符串。
+
+     <!-- (FlyZhyGG)These cover the most basic kinds of markup, the handling of which -->
+<!-- (FlyZhyGG)differs little between the various styles. -->
+<p>这些字符串涵盖最基本的标记类，它们在各种风格之间的操作差别很小。
+
+     <br><dt><code>muse-texinfo-markup-specials</code><dd><!-- (FlyZhyGG)A table of characters which must be represented specially. -->
+必须被特殊表示的字符列表。
+
+</dl>
+
+   </body></html>
+

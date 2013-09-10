@@ -1,0 +1,104 @@
+<html lang="zh">
+<head>
+<title>Book - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Publishing-Styles.html#Publishing-Styles" title="Publishing Styles">
+<link rel="prev" href="Blosxom.html#Blosxom" title="Blosxom">
+<link rel="next" href="DocBook.html#DocBook" title="DocBook">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Book"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="DocBook.html#DocBook">DocBook</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Blosxom.html#Blosxom">Blosxom</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Publishing-Styles.html#Publishing-Styles">Publishing Styles</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@section Publishing entries into a compilation -->
+<h3 class="section">9.2 发布条目到编辑物</h3>
+
+<!-- (FlyZhyGG)This publishing style is used to output ``books'' in LaTeX or PDF -->
+<!-- (FlyZhyGG)format. -->
+<p>这个发布风格被用于输出 LaTeX 或者 PDF 格式的“书”。
+
+<!-- (FlyZhyGG)Each page will become a separate chapter in the book, unless the style -->
+<!-- (FlyZhyGG)keyword @option{:nochapters} is used, in which case they are all run -->
+<!-- (FlyZhyGG)together as if one giant chapter. -->
+<p>如果不使用关键字 <samp><span class="option">:nochapters</span></samp> 每一个页面将会成为书中一个独立的章，
+否则，它们就会象庞大的一章那样在一起。
+
+<!-- (FlyZhyGG)You will need to call the @code{muse-book-publish-project} function in -->
+<!-- (FlyZhyGG)order to publish this style.  An example of this may be found in John -->
+<!-- (FlyZhyGG)Wiegley's configuration file at @file{examples/johnw/muse-johnw.el}. -->
+<p>为发布这种风格你需要调用 <code>muse-book-publish-project</code> 函数。在 John Wiegley
+的配置文件 <samp><span class="file">examples/johnw/muse-johnw.el</span></samp> 中可以找到这样的一个例子。
+
+<!-- (FlyZhyGG)@subheading Styles provided -->
+<h4 class="subheading">提供的风格</h4>
+
+     
+<a name="index-publishing-styles_002c-book_002dlatex-73"></a>
+<dl><dt><code>book-latex</code><dd><!-- (FlyZhyGG)Publish a book in LaTeX form.  The header and footer are different than -->
+<!-- (FlyZhyGG)the normal LaTeX publishing mode. -->
+以 LaTeX 形式发布一本书。页眉和页脚与正常的 LaTeX 发布模式不同。
+
+     <p><a name="index-publishing-styles_002c-book_002dpdf-74"></a><br><dt><code>book-pdf</code><dd><!-- (FlyZhyGG)Publish a book in PDF form.  The header and footer are different than -->
+<!-- (FlyZhyGG)the normal PDF publishing mode. -->
+以 PDF 形式发布一本书。页眉和页脚与正常的 PDF 发布模式不同。
+
+</dl>
+
+<!-- (FlyZhyGG)@subheading Options provided -->
+<h4 class="subheading">提供的选项</h4>
+
+     <dl>
+<dt><code>muse-book-before-publish-hook</code><dd><!-- (FlyZhyGG)A hook run in the book buffer before it is marked up. -->
+被标记前运行在书的 buffer 中的一个 hook。
+
+     <br><dt><code>muse-book-after-publish-hook</code><dd><!-- (FlyZhyGG)A hook run in the book buffer after it is marked up. -->
+被标记后运行在书的 buffer 中的一个 hook。
+
+     <br><dt><code>muse-book-latex-header</code><dd><!-- (FlyZhyGG)Header used for publishing books to LaTeX. -->
+发布书到 LaTeX 使用的页眉。
+
+     <!-- (FlyZhyGG)This may be text or a filename. -->
+<p>这可以是文本或者一个文件名。
+
+     <br><dt><code>muse-book-latex-footer</code><dd><!-- (FlyZhyGG)Footer used for publishing books to LaTeX. -->
+发布书到 LaTeX 使用的页脚。
+
+     <!-- (FlyZhyGG)This may be text or a filename. -->
+<p>这可以是文本或者一个文件名。
+
+</dl>
+
+   </body></html>
+

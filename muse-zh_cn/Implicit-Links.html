@@ -1,0 +1,116 @@
+<html lang="zh">
+<head>
+<title>Implicit Links - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="prev" href="Explicit-Links.html#Explicit-Links" title="Explicit Links">
+<link rel="next" href="Images.html#Images" title="Images">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Implicit-Links"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Images.html#Images">Images</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Explicit-Links.html#Explicit-Links">Explicit Links</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@section Bare URLs, WikiNames, and InterWiki links -->
+<h3 class="section">8.10 无修饰的 URL，WikiNames 和 InteWiki 链接</h3>
+
+<p><a name="index-links_002c-implicit-43"></a><a name="index-links_002c-raw-44"></a>
+<a name="index-URLs-45"></a><a name="index-Email-addresses-46"></a>
+<!-- (FlyZhyGG)A URL or email address encountered in the input text is published as a -->
+<!-- (FlyZhyGG)hyperlink.  These kind of links are called @dfn{implicit links} because -->
+<!-- (FlyZhyGG)they are not separated from the rest of the Muse document in any way. -->
+输入文本中的一个 URL 或者 email 地址被发布为一个超链接，这种链接被称做
+<dfn>implicit links</dfn>，因为不管怎样它们与 Muse 文档的其他部分没有分离。
+
+<!-- (FlyZhyGG)Some characters in URLs will prevent Muse from recognizing them as -->
+<!-- (FlyZhyGG)implicit links. If you want to link to a URL containing spaces or any of -->
+<!-- (FlyZhyGG)the characters ``][,"'`()<>^'', you will have to make the link -->
+<!-- (FlyZhyGG)explicit. The punctuation characters ``.,;:'' are also not recognized as -->
+<!-- (FlyZhyGG)part of a URL when they appear at its end. For information on how to -->
+<!-- (FlyZhyGG)make an explicit link, see @ref{Explicit Links,,Hyperlinks and email -->
+<!-- (FlyZhyGG)addresses with descriptions}. -->
+<p>URL 中的一些字符会禁止 Muse 把它们当作 implicit links，如果你想要链接一个
+包含空格或者“][,"'`()&lt;&gt;^”中任一个字符的 URL，那么你必须使用 explicit links，
+当“.,;:”这些标点符号出现在一个 URL 的末尾时它们也不会被看做是这个 URL 的
+一部分。关于如何写一个 explicit link 参见
+<a href="Explicit-Links.html#Explicit-Links">Hyperlinks and email addresses with descriptions</a>。
+
+   <p><a name="index-WikiNames-47"></a><!-- (FlyZhyGG)If the @command{muse-wiki} module is loaded, another form of implicit -->
+<!-- (FlyZhyGG)link will be made available.  WikiNames, which are typed in CamelCase, -->
+<!-- (FlyZhyGG)are highlighted and published as links, provided that the file they -->
+<!-- (FlyZhyGG)refer to exists. -->
+如果 <samp><span class="command">muse-wiki</span></samp> 模块被加载，另一种 implicit link 的形式就可用了。
+以 CamelCase 形式输入的 Wikinames 被高亮显示并发布为链接，这提供给该文件
+一种引用其他存在文件的方式。
+
+<!-- (FlyZhyGG)Customization of WikiName recognition may be accomplished by editing the -->
+<!-- (FlyZhyGG)@code{muse-wiki-wikiword-regexp} option and subsequently running -->
+<!-- (FlyZhyGG)@code{(muse-configure-highlighting 'muse-colors-markupmuse-colors-markup)}. -->
+<!-- (FlyZhyGG)If you use the Customize interface, the latter will be done -->
+<!-- (FlyZhyGG)automatically. -->
+<p>通过编辑 <code>muse-wiki-wikiword-regexp</code> 选项接着运行
+<code>(muse-configure-highlighting 'muse-colors-markupmuse-colors-markup)</code>
+就可以完成 WikiName 认可定制。如果你使用定制界面，后面的部分会自动完成。
+
+   <p><a name="index-InterWiki-links-48"></a><a name="index-inter_002dproject-links-49"></a><!-- (FlyZhyGG)The @command{muse-wiki} module also allows for InterWiki links.  These -->
+<!-- (FlyZhyGG)are similar to WikiWords, but they specify both the project and page of -->
+<!-- (FlyZhyGG)a file.  The names of your project entries in @code{muse-project-alist} -->
+<!-- (FlyZhyGG)will be used as InterWiki names by default.  Several examples follow. -->
+<samp><span class="command">muse-wiki</span></samp> 模式也允许 InterWiki links，这与 WikiWords 很相似，
+但 InterWiki links 不但可以指定某个项目，而且也可以指定某个文件页面。
+默认情况下在 <code>muse-project-alist</code> 中定义的项目条目名将被用于 InterWiki 名。
+下面是几个例子。
+
+<pre class="example">     Blog::DocumentingMuse
+     Projects#EmacsMuse
+     Website
+</pre>
+   <!-- (FlyZhyGG)In the first case, the interwiki delimiter is @samp{::}, @samp{Blog} is -->
+<!-- (FlyZhyGG)the project name, and @samp{DocumentingMuse} is the page name.  In the -->
+<!-- (FlyZhyGG)second example, @samp{#} is the interwiki delimiter.  If the name of a -->
+<!-- (FlyZhyGG)project occurs by itself in text, like the third case, it will be -->
+<!-- (FlyZhyGG)colorized and published as a link to the default page of the given -->
+<!-- (FlyZhyGG)project. -->
+<p>第一种情况，interwiki 分隔符是 `<samp><span class="samp">::</span></samp>'，`<samp><span class="samp">Blog</span></samp>' 为项目名，
+`<samp><span class="samp">DocumentingMuse</span></samp>' 为页面名；第二种情况，`<samp><span class="samp">#</span></samp>' 是 interwiki
+分隔符。象第三种情况这样，如果一个项目名单独出现在文本中，
+那么它会被加色并发布为一个指向该工程默认页面的一个链接。
+
+<!-- (FlyZhyGG)Customization of interwiki links may be accomplished by editing the -->
+<!-- (FlyZhyGG)@code{muse-wiki-interwiki-alist} option. -->
+<p>通过编辑 <code>muse-wiki-interwiki-alist</code> 选项可以完成 interwiki links
+的定制。
+
+   </body></html>
+

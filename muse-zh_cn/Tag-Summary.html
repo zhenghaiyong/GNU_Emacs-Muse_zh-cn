@@ -1,0 +1,273 @@
+<html lang="zh">
+<head>
+<title>Tag Summary - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="prev" href="Comments.html#Comments" title="Comments">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Tag-Summary"></a>
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Comments.html#Comments">Comments</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@section Tags that Muse recognizes -->
+<h3 class="section">8.15 Muse 可识别的标签</h3>
+
+<p><a name="index-tags-65"></a><a name="index-inserting-files-at-publish-time-66"></a><a name="index-publishing_002c-including-markup-in-headers-and-footers-67"></a><a name="index-publishing_002c-inserting-files-68"></a>
+<!-- (FlyZhyGG)Muse has several built-in tags that may prove useful during publishing. -->
+<!-- (FlyZhyGG)@xref{muse-publish-markup-tags}, to see how to customize the tags that -->
+<!-- (FlyZhyGG)Muse uses, as well as make your own tags. -->
+在发布过程中 Muse 有几个内嵌标签证明非常有用。参阅 <a href="muse_002dpublish_002dmarkup_002dtags.html#muse_002dpublish_002dmarkup_002dtags">muse-publish-markup-tags</a>
+来了解怎样定制 Muse 使用的标签和怎样制作你自己的标签。
+
+<!-- (FlyZhyGG)@subheading Syntax -->
+<h4 class="subheading">语法</h4>
+
+<!-- (FlyZhyGG)If a tag takes arguments, it will look like this, where ``tagname'' is -->
+<!-- (FlyZhyGG)the name of the tag. -->
+<p>如果一个标签带有参数，那么它就会看起来象下面这样，其中“tagname”是标签名。
+
+<pre class="example">     &lt;tagname arg1="string1" arg2="string2"&gt;
+</pre>
+   <!-- (FlyZhyGG)If you want the tag to look like it came straight from an XHTML -->
+<!-- (FlyZhyGG)document, you can alternatively do the following. -->
+<p>如果你想要一个标签看起来更象来自一个标准的 XHTML 文档，作为选择你可以照
+下面这样做。
+
+<pre class="example">     &lt;tagname arg1="string1" arg2="string2" /&gt;
+</pre>
+   <!-- (FlyZhyGG)If a tag surrounds some text, it will look like this. -->
+<p>如果一个标签包围一些文本，那么它看起来象下面这样。
+
+<pre class="example">     &lt;tagname&gt;Some text&lt;/tagname&gt;
+</pre>
+   <!-- (FlyZhyGG)If a tag surrounds a large region, it will look like this. -->
+<p>如果一个标签包围一大块区域，那么它看起来象下面这样。
+
+<pre class="example">     &lt;tagname&gt;
+     Some text.
+     Some more text.
+     &lt;/tagname&gt;
+</pre>
+   <!-- (FlyZhyGG)@subheading Tag listing -->
+<h4 class="subheading">标签列表</h4>
+
+<!-- (FlyZhyGG)This is the complete list of tags that Muse accepts, including those -->
+<!-- (FlyZhyGG)that were mentioned in previous sections. -->
+<p>下面是 Muse 所采用的完整的标签列表，其中包括前面章节中所提到的那些标签。
+
+     <dl>
+<dt>`<samp><span class="samp">&lt;class&gt;</span></samp>'<dd><!-- (FlyZhyGG)If publishing to HTML, surround the given text with a @verb{|<span>|} -->
+<!-- (FlyZhyGG)tag.  It takes one argument called ``name'' that specifies the class -->
+<!-- (FlyZhyGG)attribute of the @verb{|<span>|} tag. -->
+如果发布成 HTML 格式，用一个 <tt>&lt;span></tt> 标签包围给定的文本。它带有
+一个名为“name”的参数指定 <tt>&lt;span></tt> 标签的类属性。
+
+     <!-- (FlyZhyGG)If publishing to a different format, do nothing extra to the text. -->
+<p>如果发布成其他的格式，那么对文本没有任何作用。
+
+     <br><dt>`<samp><span class="samp">&lt;code&gt;</span></samp>'<dd><!-- (FlyZhyGG)Treat the text surrounded by the tag as if they were enclosed in equal -->
+<!-- (FlyZhyGG)signs, that is, make it monospace. -->
+被这个标签包围的文本被看作由同等大小的符号围住，也就是说，使得文本等宽。
+
+     <br><dt>`<samp><span class="samp">&lt;command&gt;</span></samp>'<dd><!-- (FlyZhyGG)Run a command on the region, replacing the region with the result of the -->
+<!-- (FlyZhyGG)command.  The command is specified with the ``interp'' argument.  If no -->
+<!-- (FlyZhyGG)value for ``interp'' is given, pass the entire region to the shell. -->
+在一个区域上运行一个命令，使用命令的结果来代替该区域。该命令带有“interp”
+参数，如果“interp”没有赋值，传递整个区域给 shell。
+
+     <!-- (FlyZhyGG)The ``markup'' argument controls how this section is marked up. -->
+<p>“markup”参数控制这块区域是怎样被标记。
+
+     <!-- (FlyZhyGG)If it is omitted, publish the region with the normal Muse rules. -->
+<p>如果它被省略，那么使用正常的 Muse 规则发布这个区域。
+
+     <!-- (FlyZhyGG)If "nil", do not mark up the region at all, but prevent Muse from -->
+<!-- (FlyZhyGG)further interpreting it. -->
+<p>如果是“nil”，那么根本不标记这个区域，但也禁止 Muse 进一步解释它。
+
+     <!-- (FlyZhyGG)If "example", treat the region as if it was surrounded by the -->
+<!-- (FlyZhyGG)@verb{|<example>|} tag. -->
+<p>如果是“example”，那么这个区域就象被 <tt>&lt;example></tt> 标签包围那样被处理。
+
+     <!-- (FlyZhyGG)If "verse", treat the region as if it was surrounded by the -->
+<!-- (FlyZhyGG)@verb{|<verse>|} tag, to preserve newlines. -->
+<p>如果是“verse”，那么这个区域就象被 <tt>&lt;verse></tt> 标签包围那样被处理，
+保留其中的新行。
+
+     <!-- (FlyZhyGG)Otherwise, it should be the name of a function to call, with the buffer -->
+<!-- (FlyZhyGG)narrowed to the region. -->
+<p>否则，它应是要调用的一个函数名，带有一个被限定在这个区域的 buffer。
+
+     <br><dt>`<samp><span class="samp">&lt;comment&gt;</span></samp>'<dd><!-- (FlyZhyGG)Treat the entire region as a comment.  If the option -->
+<!-- (FlyZhyGG)@var{muse-publish-comments-p} is nil, delete the region, otherwise -->
+<!-- (FlyZhyGG)publish it using the comment syntax of the current publishing style. -->
+整个区域被当作注释。如果选项 <var>muse-publish-comments-p</var> 值为空，发布时
+删除该区域，否则，使用当前发布风格的注释语法发布它。
+
+     <br><dt>`<samp><span class="samp">&lt;contents&gt;</span></samp>'<dd><!-- (FlyZhyGG)Publish a Table of Contents.  This will either be inserted in-place or -->
+<!-- (FlyZhyGG)at the beginning of the document, depending on your publishing style. -->
+<!-- (FlyZhyGG)It does not have a delimiting tag. -->
+发布一个目录。依赖于你要发布的风格，它将被插入到适当的位置，或者在文档的
+开始。它没有一个定界标签。
+
+     <!-- (FlyZhyGG)By default, only 2 levels of headings will be included in the generated -->
+<!-- (FlyZhyGG)Table of Contents.  To change this globally, customize the -->
+<!-- (FlyZhyGG)@var{muse-publish-contents-depth} option.  To change this only for the -->
+<!-- (FlyZhyGG)current tag, use the ``depth'' argument. -->
+<p>默认情况下生成的目录中仅仅包含一级和二级标题。定制 <var>muse-publish-contents-depth</var>
+选项来全局地改变它。要想仅仅为当前这个标签改变，使用“depth”参数。
+
+     <br><dt>`<samp><span class="samp">&lt;example&gt;</span></samp>'<dd><!-- (FlyZhyGG)Publish the region in monospace, preserving the newlines in the region. -->
+<!-- (FlyZhyGG)This is useful for snippets of code. -->
+以等宽形式发布一个区域，保留区域中的新行。这对代码摘录很有用。
+
+     <br><dt>`<samp><span class="samp">&lt;include&gt;</span></samp>'<dd><!-- (FlyZhyGG)Insert the given file at the current location during publishing.  The -->
+<!-- (FlyZhyGG)basic use of this tag is as follows, replacing ``included_file'' with -->
+<!-- (FlyZhyGG)the name of the file that you want to include. -->
+发布过程中在当前位置插入给定的文件。这个标签基本用法如下，其中“included_file”
+由你想要 include 的文件名替代。
+
+     <pre class="example">          &lt;include file="included_file"&gt;
+     </pre>
+     <!-- (FlyZhyGG)The ``markup'' argument controls how this section is marked up. -->
+<p>“markup”参数控制这块区域是怎样被标记。
+
+     <!-- (FlyZhyGG)If it is omitted, publish the included text with the normal Muse -->
+<!-- (FlyZhyGG)rules. -->
+<p>如果它被省略，那么使用正常的 Muse 规则发布被包括的文本。
+
+     <!-- (FlyZhyGG)If "nil", do not mark up the included text at all. -->
+<p>如果是“nil”，那么根本不标记被包括的文本。
+
+     <!-- (FlyZhyGG)If "example", treat the included text as if it was surrounded by the -->
+<!-- (FlyZhyGG)@verb{|<example>|} tag. -->
+<p>如果是“example”，那么被包括的文本就象被 <tt>&lt;example></tt> 标签包围那样
+被处理。
+
+     <!-- (FlyZhyGG)If "verse", treat the included text as if it was surrounded by the -->
+<!-- (FlyZhyGG)@verb{|<verse>|} tag, to preserve newlines. -->
+<p>如果是“verse”，那么被包括的文本就象被 <tt>&lt;verse></tt> 标签包围那样被处理，
+保留其中的新行。
+
+     <!-- (FlyZhyGG)Otherwise, it should be the name of a function to call after inserting -->
+<!-- (FlyZhyGG)the file with the buffer narrowed to the section inserted. -->
+<p>否则，它应是插入文件后要调用的一个函数名，带有一个被限定在被插入区域的 buffer。
+
+     <br><dt>`<samp><span class="samp">&lt;lisp&gt;</span></samp>'<dd><!-- (FlyZhyGG)Evaluate the Emacs Lisp expressions between the initial and ending tags. -->
+<!-- (FlyZhyGG)The result is then inserted into the document, so you do not need to -->
+<!-- (FlyZhyGG)explicitly call @code{insert}.  All text properties are removed from the -->
+<!-- (FlyZhyGG)resulting text. -->
+对该标签起始和结束部分的 Emacs Lisp 表达式赋值，然后结果被插入到文档中，
+因此你不必显式的调用 <code>insert</code>。结果文本中的所有文本属性被去掉。
+
+     <!-- (FlyZhyGG)This tag takes the ``markup'' argument.  See the description of -->
+<!-- (FlyZhyGG)@verb{|<command>|} for details. -->
+<p>这个标签带有“markup”参数，参见 <tt>&lt;command></tt> 的描述查看细节。
+
+     <br><dt>`<samp><span class="samp">&lt;literal&gt;</span></samp>'<dd><!-- (FlyZhyGG)Make sure that the text enclosed by this tag is published without -->
+<!-- (FlyZhyGG)escaping it in any way.  This is useful for inserting markup directly -->
+<!-- (FlyZhyGG)into the published document, when Muse does not provide the desired -->
+<!-- (FlyZhyGG)functionality. -->
+确定此标签所包围的文本不会以任何方式被转义的形式被发布，当 Muse 没有提供
+期望的功能时，对于直接插入标记到所发布文档中非常有用。
+
+     <br><dt>`<samp><span class="samp">&lt;markup&gt;</span></samp>'<dd><!-- (FlyZhyGG)Mark up the text between the initial and ending tags.  The markup -->
+<!-- (FlyZhyGG)command to use may be specified by the ``function'' argument.  The -->
+<!-- (FlyZhyGG)standard Muse markup routines are used by default if no ``function'' -->
+<!-- (FlyZhyGG)argument is provided. -->
+标记该标签起始到结束之间的文本。要使用的 markup 命令可以由“function”参数
+指定。如果没有提供“function”参数，默认情况下就使用标准的 Muse markup 规则。
+
+     <!-- (FlyZhyGG)This is useful for marking up regions in headers and footers.  One -->
+<!-- (FlyZhyGG)example that comes to mind is generating a published index of all of the -->
+<!-- (FlyZhyGG)files in the current project by doing the following. -->
+<p>这在页眉和页脚中标记区域时非常有用。记忆中的一个例子就是通过下面的操作生成
+一个当前项目下的所有文件的发布索引。
+
+     <pre class="example">          &lt;markup&gt;&lt;lisp&gt;(muse-index-as-string t t)&lt;/lisp&gt;&lt;/markup&gt;
+     </pre>
+     <br><dt>`<samp><span class="samp">&lt;perl&gt;</span></samp>'<dd><!-- (FlyZhyGG)Run the @command{perl} language interpreter on the region, replacing the -->
+<!-- (FlyZhyGG)region with the result of the command. -->
+对一个区域执行 <samp><span class="command">perl</span></samp> 语言解释器，用命令结果替代该区域。
+
+     <!-- (FlyZhyGG)This tag takes the ``markup'' argument.  See the description of -->
+<!-- (FlyZhyGG)@verb{|<command>|} for details. -->
+<p>这个标签带有“markup”参数，参见 <tt>&lt;command></tt> 的描述查看细节。
+
+     <br><dt>`<samp><span class="samp">&lt;python&gt;</span></samp>'<dd><!-- (FlyZhyGG)Run the @command{python} language interpreter on the region, replacing -->
+<!-- (FlyZhyGG)the region with the result of the command. -->
+对一个区域执行 <samp><span class="command">python</span></samp> 语言解释器，用命令结果替代该区域。
+
+     <!-- (FlyZhyGG)This tag takes the ``markup'' argument.  See the description of -->
+<!-- (FlyZhyGG)@verb{|<command>|} for details. -->
+<p>这个标签带有“markup”参数，参见 <tt>&lt;command></tt> 的描述查看细节。
+
+     <br><dt>`<samp><span class="samp">&lt;quote&gt;</span></samp>'<dd><!-- (FlyZhyGG)Publish the region as a blockquote.  This will either be inserted -->
+<!-- (FlyZhyGG)in-place or at the beginning of the document, depending on your -->
+<!-- (FlyZhyGG)publishing style.  It does not have a delimiting tag. -->
+发布一个区域为一个引用块，依赖于你要发布的风格，它将被插入到适当的位置，
+或者在文档的开始。它没有一个定界标签。
+
+     <br><dt>`<samp><span class="samp">&lt;ruby&gt;</span></samp>'<dd><!-- (FlyZhyGG)Run the @command{ruby} language interpreter on the region, replacing the -->
+<!-- (FlyZhyGG)region with the result of the command. -->
+对一个区域执行 <samp><span class="command">ruby</span></samp> 语言解释器，用命令结果替代该区域。
+
+     <!-- (FlyZhyGG)This tag takes the ``markup'' argument.  See the description of -->
+<!-- (FlyZhyGG)@verb{|<command>|} for details. -->
+<p>这个标签带有“markup”参数，参见 <tt>&lt;command></tt> 的描述查看细节。
+
+     <br><dt>`<samp><span class="samp">&lt;verbatim&gt;</span></samp>'<dd><!-- (FlyZhyGG)This is used when you want to prevent Muse from trying to interpret some -->
+<!-- (FlyZhyGG)markup.  Surround the markup in @verb{|<verbatim>|} and -->
+<!-- (FlyZhyGG)@verb{|</verbatim>|}, and it will not be interpreted. -->
+当你想要禁止 Muse 试图解释一些标记时使用该标签，使用 <tt>&lt;verbatim></tt> 和
+<tt>&lt;/verbatim></tt> 包围标记，那么它将不会被解释。
+
+     <!-- (FlyZhyGG)This tag was used often in previous versions of Muse because they did -->
+<!-- (FlyZhyGG)not support whole-document escaping of specials.  Now, it will only be -->
+<!-- (FlyZhyGG)needed for other tags, and perhaps footnotes as well. -->
+<p>在前面的 Muse 版本中这个标签使用很频繁因为那些版本不支持整个文档的特殊转义。
+现在，这个标签仅仅为其他标签需要，或许在脚注中需要。
+
+     <br><dt>`<samp><span class="samp">&lt;verse&gt;</span></samp>'<dd><!-- (FlyZhyGG)Preserve the newlines in the region.  In formats like HTML, newlines are -->
+<!-- (FlyZhyGG)removed by default, hence the need for this tag.  In other publishing -->
+<!-- (FlyZhyGG)styles, this tag may cause the text to be indented slightly in a way -->
+<!-- (FlyZhyGG)that looks nice for poetry and prose. -->
+保留一个区域中的新行。在象 HTML 这样的格式中，新行被默认的去掉，因此需要
+这个标签。在其他的发布风格中，这个标签可能会使得文本略微缩进，这样对诗和
+散文而言，排版看起来更好看。
+
+   </dl>
+
+   </body></html>
+

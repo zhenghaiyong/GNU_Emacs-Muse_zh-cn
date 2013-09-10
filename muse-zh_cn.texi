@@ -1,0 +1,4297 @@
+\input texinfo @c -*-texinfo-*-
+@c %**start of header
+@setfilename muse-zh_cn.info
+@settitle Muse
+@documentlanguage zh
+@documentencoding utf-8
+@c %**end of header
+
+@dircategory Emacs
+@direntry
+* Muse: (muse). Authoring and publishing environment for Emacs.
+@c (FlyZhyGG)* Muse：（muse）。 基于 Emacs 的写作和发布平台。
+@end direntry
+
+@syncodeindex fn cp
+
+@copying
+@c (FlyZhyGG)This manual is for the Emacs Muse version 3.02.92 (3.03 RC2).
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright @copyright{} 2004, 2005, 2006 Free Software Foundation, Inc.
+
+@quotation
+@c (FlyZhyGG)Permission is granted to copy, distribute and/or modify this document
+@c (FlyZhyGG)under the terms of the GNU General Public License.
+基于 GNU 通用公共许可证（General Public Licese）的条款
+任何人有权复制，发布和/或修改本文档。
+@end quotation
+@c (FlyZhyGG)[Translator]: Zheng Haiyong@email{zhenghaiyong@@gmail.com} @url{http://ipl.ouc.edu.cn/~zhenghaiyong}
+[翻译]：郑海永(Zheng Haiyong) @email{zhenghaiyong@@gmail.com} @url{http://ipl.ouc.edu.cn/~zhenghaiyong}
+@end copying
+
+@titlepage
+@c (FlyZhyGG)@title Muse manual
+@c (FlyZhyGG)@subtitle an authoring and publishing environment
+@c (FlyZhyGG)@subtitle for GNU Emacs and XEmacs
+@title Muse 手册
+@subtitle 一个基于 GNU Emacs 和 XEmacs 的
+@subtitle 写作和发布平台
+
+@c The following two commands
+@c start the copyright page.
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@c So the toc is printed at the start
+@contents
+
+@ifnottex
+@node Top, Preface, (dir), (dir)
+@comment  node-name,  next,  previous,  up
+@top Muse
+
+@insertcopying
+@end ifnottex
+
+@menu
+@c (FlyZhyGG)* Preface::                     About the documentation.
+* Preface::                      关于本文档。
+@c (FlyZhyGG)* 前言::                         关于本文档。
+@c (FlyZhyGG)* Introduction::                What is Muse?
+* Introduction::                 什么是 Muse？
+@c (FlyZhyGG)* 介绍::                         什么是 Muse？
+@c (FlyZhyGG)* Obtaining Muse::              How to get Muse releases and development
+@c (FlyZhyGG)                                  changes.
+* Obtaining Muse::               怎样获得 Muse 发行及开发更新。
+@c (FlyZhyGG)* 获取::                         怎样获得 Muse 发行及开发更新。
+@c (FlyZhyGG)* Installation::                Compiling and installing Muse.
+* Installation::                 编译和安装 Muse。
+@c (FlyZhyGG)* 安装::                         编译和安装 Muse。
+@c (FlyZhyGG)* Getting Started::             Settings for Muse.
+* Getting Started::              配置 Muse。
+@c (FlyZhyGG)* 开始::                         配置 Muse。
+@c (FlyZhyGG)* Projects::                    Creating and managing Muse projects.
+* Projects::                     创建和管理 Muse 项目。
+@c (FlyZhyGG)* 项目::                         创建和管理 Muse 项目。
+@c (FlyZhyGG)* Keystroke Summary::           Keys used in Muse mode.
+* Keystroke Summary::            Muse 模式中使用的快捷键。
+@c (FlyZhyGG)* 热键概要::                     Muse 模式中使用的快捷键。
+@c (FlyZhyGG)* Markup Rules::                Rules for using markup.
+* Markup Rules::                 使用标记的规则。
+@c (FlyZhyGG)* 标记规则::                     使用标记的规则。
+@c (FlyZhyGG)* Publishing Styles::           Publishing various types of documents.
+* Publishing Styles::            发布不同类型的文档。
+@c (FlyZhyGG)* 发布风格::                     发布不同类型的文档。
+@c (FlyZhyGG)* Extending Muse::              Making your own publishing styles.
+* Extending Muse::               制作你自己的发布风格。
+@c (FlyZhyGG)* 扩展 Muse::                    制作你自己的发布风格。
+@c (FlyZhyGG)* Getting Help and Reporting Bugs::  
+* Getting Help and Reporting Bugs::
+@c (FlyZhyGG)* 获得帮助和报告 bug::
+@c (FlyZhyGG)* History::                     History of this document.
+* History::                      本文档的历史。
+@c (FlyZhyGG)* 历史::                         本文档的历史。
+@c (FlyZhyGG)* Contributors::                Contributors to this documentation.
+* Contributors::                 本文档的贡献者。
+@c (FlyZhyGG)* 贡献者::                       本文档的贡献者。
+@c (FlyZhyGG)* GNU General Public License::  The license for this manual and Muse.
+* GNU General Public License::   本手册和 Muse 的许可证。
+@c (FlyZhyGG)* GNU 通用公共许可证::           本手册和 Muse 的许可证。
+@c (FlyZhyGG)* Concept Index::               Search for terms.
+* Concept Index::                查找术语。
+@c (FlyZhyGG)* 概念索引::                     查找术语。
+
+@detailmenu
+@c (FlyZhyGG) --- The Detailed Node Listing ---
+ --- 详细节点列表 ---
+
+@c (FlyZhyGG)How to Get Muse Releases and Development Changes
+怎样获得 Muse 发行及开发更新
+
+@c (FlyZhyGG)* Releases::                    Released versions of Muse.
+* Releases::                     Muse 的发行版本。
+@c (FlyZhyGG)* 发行::                         Muse 的发行版本。
+@c (FlyZhyGG)* Development::                 Latest unreleased development changes.
+* Development::                  最新的未发行的开发更新。
+@c (FlyZhyGG)* 开发::                         最新的未发行的开发更新。
+
+@c (FlyZhyGG)Rules for Using Markup
+使用标记的规则
+
+@c (FlyZhyGG)* Paragraphs::                  Paragraphs: centering and quoting.
+* Paragraphs::                   段落：居中和引用。
+@c (FlyZhyGG)* 段落::                         段落：居中和引用。
+@c (FlyZhyGG)* Headings::                    Levels of headings.
+* Headings::                     标题的层次。
+@c (FlyZhyGG)* 标题::                         标题的层次。
+@c (FlyZhyGG)* Directives::                  Directives at the beginning of a
+@c (FlyZhyGG)                                  document.
+* Directives::                   文档开始处的指令。
+@c (FlyZhyGG)* 指令::                         文档开始处的指令。
+@c (FlyZhyGG)* Emphasizing Text::            Bold, italicized, and underlined text.
+* Emphasizing Text::             粗体，斜体和下划线文本。
+@c (FlyZhyGG)* 强调文本::                     粗体，斜体和下划线文本。
+@c (FlyZhyGG)* Footnotes::                   Making notes to be shown at the end.
+* Footnotes::                    在最后显示注解。
+@c (FlyZhyGG)* 脚注::                         在最后显示注解。
+@c (FlyZhyGG)* Verse::                       Indicating poetic stanzas.
+* Verse::                        显示诗章。
+@c (FlyZhyGG)* 诗体::                          显示诗章。
+@c (FlyZhyGG)* Lists::                       Lists of items.
+* Lists::                        项的列表。
+@c (FlyZhyGG)* 列表::                         项的列表。
+@c (FlyZhyGG)* Tables::                      Generation of data tables.
+* Tables::                       数据表的生成。
+@c (FlyZhyGG)* 表::                           数据表的生成。
+@c (FlyZhyGG)* Explicit Links::              Hyperlinks and email addresses with
+@c (FlyZhyGG)                                  descriptions.
+* Explicit Links::               带描述的超级链接和邮件地址。
+@c (FlyZhyGG)* 外显链接::                     带描述的超级链接和邮件地址。
+@c (FlyZhyGG)* Implicit Links::              Bare URLs, WikiNames, and InterWiki
+@c (FlyZhyGG)                                  links.
+* Implicit Links::               无修饰的 URL，WikiNames 和 InteWiki 链接。
+@c (FlyZhyGG)* 隐含链接::                     无修饰的 URL，WikiNames 和 InteWiki 链接。
+@c (FlyZhyGG)* Images::                      Publishing and displaying images.
+* Images::                       发布和显示图片。
+@c (FlyZhyGG)* 图::                           发布和显示图片。
+@c (FlyZhyGG)* Horizontal Rules and Anchors::  Inserting a horizontal line or anchor.
+* Horizontal Rules and Anchors:: 插入一个水平线或锚。
+@c (FlyZhyGG)* 水平线和锚::                 插入一个水平线或锚。
+@c (FlyZhyGG)* Embedded Lisp::               Evaluating Emacs Lisp code in documents
+@c (FlyZhyGG)                                  for extensibility.
+* Embedded Lisp::                在文档中为扩展而执行 Emacs Lisp 代码。
+@c (FlyZhyGG)* 嵌入的 Lisp::                  在文档中为扩展而执行 Emacs Lisp 代码。
+@c (FlyZhyGG)* Comments::                    Lines to omit from published output.
+* Comments::                     发布输出时被省略的行。
+@c (FlyZhyGG)* 注释::                         发布输出时被省略的行。
+@c (FlyZhyGG)* Tag Summary::                 Tags that Muse recognizes.
+* Tag Summary::                  Muse 可识别的标签。
+@c (FlyZhyGG)* 标签概要::                     Muse 可识别的标签。
+
+@c (FlyZhyGG)Publishing Various Types of Documents
+发布不同类型的文档
+
+@c (FlyZhyGG)* Blosxom::                     Integrating Muse and pyblosxom.cgi.
+* Blosxom::                      集成 Muse 和 pyblosxom.cgi。
+@c (FlyZhyGG)* Book::                        Publishing entries into a compilation.
+* Book::                         发布条目到编辑物。
+@c (FlyZhyGG)* DocBook::                     Publishing in DocBook XML form.
+* DocBook::                      以 DocBook XML 形式发布。
+@c (FlyZhyGG)* HTML::                        Publishing in HTML or XHTML form.
+* HTML::                         以 HTML 或者 XHTML 形式发布。
+@c (FlyZhyGG)* Journal::                     Keeping a journal or blog.
+* Journal::                      写日记或者博客。
+@c (FlyZhyGG)* LaTeX::                       Publishing LaTeX documents.
+* LaTeX::                        发布 LaTeX 文档。
+@c (FlyZhyGG)* Poem::                        Publish a poem to LaTex or PDF.
+* Poem::                         发布诗到 LaTeX 或者 PDF。
+@c (FlyZhyGG)* Texinfo::                     Publish entries to Texinfo format or PDF.
+* Texinfo::                      发布条目到 Texinfo 格式或者 PDF 。
+
+@c (FlyZhyGG)Integrating Muse and pyblosxom.cgi
+集成 Muse 和 pyblosxom.cgi
+
+@c (FlyZhyGG)* Blosxom Requirements::        Other tools needed for the Blosxom style.
+* Blosxom Requirements::         Blosxom 风格需要的其他工具。
+@c (FlyZhyGG)* Blosxom 要求::                 Blosxom 风格需要的其他工具。
+@c (FlyZhyGG)* Blosxom Entries::             Format of a Blosxom entry and automation.
+* Blosxom Entries::              一个 Blosxom 条目的格式和自动操作。
+@c (FlyZhyGG)* Blosxom 条目::                 一个 Blosxom 条目的格式和自动操作。
+@c (FlyZhyGG)* Blosxom Options::             Blosxom styles and options provided.
+* Blosxom Options::              提供的 Blosxom 风格和选项。
+@c (FlyZhyGG)* Blosxom 选项::                 提供的 Blosxom 风格和选项。
+
+@c (FlyZhyGG)Making your own publishing styles
+制作你自己的发布风格
+
+@c (FlyZhyGG)* Common Elements::             Common functionality shared by styles.
+* Common Elements::              风格共有的通用功能。
+@c (FlyZhyGG)* 通用元素::                     风格共有的通用功能。
+@c (FlyZhyGG)* Deriving Styles::             Deriving a new style from an existing
+@c (FlyZhyGG)                                  one.
+* Deriving Styles::              从一个存在的风格中派生一个新的风格。
+@c (FlyZhyGG)* 派生风格::                     从一个存在的风格中派生一个新的风格。
+
+@c (FlyZhyGG)Common functionality shared by styles
+风格共有的通用功能
+
+@c (FlyZhyGG)* Markup Functions::            Specifying functions to marking up text.
+* Markup Functions::             用来标记文本的指定函数。
+@c (FlyZhyGG)* 标记函数::                     用来标记文本的指定函数。
+@c (FlyZhyGG)* Markup Regexps::              Markup rules for publishing.
+* Markup Regexps::               发布的标记规则。
+@c (FlyZhyGG)* 标记正则表达式::               发布的标记规则。
+@c (FlyZhyGG)* Markup Strings::              Strings specific to a publishing style.
+* Markup Strings::               特别针对一个发布风格的字符串。
+@c (FlyZhyGG)* 标记字符串::                   特别针对一个发布风格的字符串。
+@c (FlyZhyGG)* Markup Tags::                 Tag specifications for special markup.
+* Markup Tags::                  为特殊标记的标签详述。
+@c (FlyZhyGG)* 标记标签::                     为特殊标记的标签详述。
+@c (FlyZhyGG)* Style Elements::              Parameters used for defining styles.
+* Style Elements::               定义风格使用的参数。
+@c (FlyZhyGG)* 风格元素::                     定义风格使用的参数。
+
+@end detailmenu
+@end menu
+
+@node Preface, Introduction, Top, Top
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@chapter About the documentation
+@chapter 关于本文档
+
+@c (FlyZhyGG)This document describes Muse, which was written by John Wiegley
+@c (FlyZhyGG)and is now maintained by Michael Olson.  Several versions of it are
+@c (FlyZhyGG)available on-line.
+本文档描述了 Muse，它由 John Wiegley 所写，现在由 Michael Olson 维护。
+本文档有下面几种在线版本可用。
+
+@itemize @bullet
+@item PDF: http://www.mwolson.org/static/doc/muse.pdf
+@item HTML (single file): http://www.mwolson.org/static/doc/muse.html
+@item HTML (multiple files): http://www.mwolson.org/static/doc/muse/
+@end itemize
+
+@node Introduction, Obtaining Muse, Preface, Top
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@chapter What is Muse?
+@chapter 什么是 Muse？
+
+@c (FlyZhyGG)Emacs Muse is an authoring and publishing environment for Emacs.  It
+@c (FlyZhyGG)simplifies the process of writing documents and publishing them to
+@c (FlyZhyGG)various output formats.
+Emacs Muse 是一个基于 Emacs 的写作和发布平台。它简化了文档编辑过程，
+并且可以选择多种格式进行发布。
+
+@c (FlyZhyGG)Muse consists of two main parts: an enhanced text-mode for authoring
+@c (FlyZhyGG)documents and navigating within Muse projects, and a set of publishing
+@c (FlyZhyGG)styles for generating different kinds of output.
+Muse 包括两个主要部分：
+一个增强的 text 模式，用来编辑文档和在 Muse 工程中随意浏览文档；
+一组发布策略，用来产生各种不同的格式输出。
+
+@c (FlyZhyGG)This idea is not in any way new. Numerous systems exist -- even one
+@c (FlyZhyGG)other for Emacs itself (Bhl Mode). What Muse adds to the picture is a
+@c (FlyZhyGG)more modular environment, with a rather simple core, in which "styles"
+@c (FlyZhyGG)are derived from to create new styles. Much of Muse's overall
+@c (FlyZhyGG)functionality is optional. For example, you can use the publisher
+@c (FlyZhyGG)without the major-mode, or the mode without doing any publishing; or if
+@c (FlyZhyGG)you don't load the Texinfo or LaTeX modules, those styles won't be
+@c (FlyZhyGG)available.
+然而这种思想并不新颖，有大量类似的系统存在 ── 甚至 Emacs 本身就有另外一个 
+（Bhl Mode）。Muse 所增色的地方是一个更加模块化的平台，带有一个相当简单的核心，
+在这个平台上“风格”可被派生而生成新的风格。Muse 全部的功能中大部分是可选的。
+比如，你可以不在 major-mode 下使用发布功能，或者在 major-mode 下但不做任何发布；
+又或者如果你不加载 Texinfo 或 LaTeX 模块，那么相应的那些风格就不可用。
+
+@c (FlyZhyGG)The Muse codebase is a departure from emacs-wiki.el version 2.44. The
+@c (FlyZhyGG)code has been restructured and rewritten, especially its publishing
+@c (FlyZhyGG)functions. The focus in this revision is on the authoring and publishing
+@c (FlyZhyGG)aspects, and the "wikiness" has been removed as a default behavior
+@c (FlyZhyGG)(available in the optional @file{muse-wiki} module). CamelCase words are
+@c (FlyZhyGG)no longer special by default.
+Muse 代码基于 emacs-wiki.el 版本 2.44，但代码已经重新组织和改写，特别是那些发布
+函数。此次修订的重点在写作和发布方面，Wiki 部分作为其中一个默认的行为
+（在可选的 @file{muse-wiki} 模式中）。在默认情况下 CamelCase 词组（每个单词的
+第一个字母都大写，其它小写）不再特殊对待。
+
+@node Obtaining Muse, Installation, Introduction, Top
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@chapter How to Get Muse Releases and Development Changes
+@chapter 怎样获得 Muse 发行及开发更新
+
+@menu
+@c (FlyZhyGG)* Releases::                    Released versions of Muse.
+* Releases::                     Muse 的发行版本。
+@c (FlyZhyGG)* 发行::                         Muse 的发行版本。
+@c (FlyZhyGG)* Development::                 Latest unreleased development changes.
+* Development::                  最新的未发行的开发更新。
+@c (FlyZhyGG)* 开发::                         最新的未发行的开发更新。
+@end menu
+
+@node Releases, Development, Obtaining Muse, Obtaining Muse
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Released versions of Muse
+@section Muse 的发行版本
+
+@c (FlyZhyGG)Choose to install a release if you want to minimize risk.
+如果你想承担最小的风险，那么选择安装一个发行版。
+
+@c (FlyZhyGG)Errors are corrected in development first.  User-visible changes will be
+@c (FlyZhyGG)announced on the @email{muse-el-discuss@@gna.org} mailing list.
+@c (FlyZhyGG)@xref{Getting Help and Reporting Bugs}.
+错误被首先在开发中更正。用户可见的修正将公布在 @email{muse-el-discuss@@gna.org} 
+邮件列表中。@xref{Getting Help and Reporting Bugs}。
+@c (FlyZhyGG)@xref{获得帮助和报告 bug}
+
+@cindex releases, Debian package
+@cindex Debian package for Muse
+@c (FlyZhyGG)Debian and Ubuntu users can get Muse via apt-get.  The @file{muse-el}
+@c (FlyZhyGG)package is available both at Michael Olson's APT repository and the
+@c (FlyZhyGG)official Debian and Ubuntu repositories.  To make use of the former, add
+@c (FlyZhyGG)the following line to your @file{/etc/apt/sources.list} file and run
+@c (FlyZhyGG)@code{apt-get install muse}.
+Debian 和 Ubuntu 用户可以通过 apt-get 获得 Muse。@file{muse-el} 包在 
+Michael Olson 的 APT 仓库及官方 Debian 和 Ubuntu 仓库都可用。要使用 
+Michael Olson 的 APT 仓库，添加下面一行到你的 @file{/etc/apt/sources.list} 
+文件并运行 @code{apt-get install muse}。
+
+@example
+deb http://www.mwolson.org/debian/ ./
+@end example
+
+@cindex releases, from source
+@c (FlyZhyGG)Alternatively, you can download the latest release from
+@c (FlyZhyGG)@uref{http://www.mwolson.org/static/dist/muse/} .
+另外，你也可以从 @uref{http://www.mwolson.org/static/dist/muse/} 
+下载最新的发行版。
+
+@node Development,  , Releases, Obtaining Muse
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Latest unreleased development changes
+@section 最新的未发行的开发更新
+@cindex development
+
+@c (FlyZhyGG)Choose the development version if you want to live on the bleeding edge
+@c (FlyZhyGG)of Muse development or try out new features before release.
+如果你想要追求 Muse 开发的最新技术或者在发行前尝试新特色，那么选择开发版本。
+
+@cindex arch revision control system, using
+@c (FlyZhyGG)The Arch revision control system allows you to retrieve previous
+@c (FlyZhyGG)versions and select specific features and bug fixes.  If you would like
+@c (FlyZhyGG)to contribute to Muse development, it is highly recommended that you use
+@c (FlyZhyGG)Arch, but this is not a requirement.
+Arch 修正控制系统允许你找回以前的版本，从而选择某些指定的特色和 bug 修复。
+如果你想帮助 Muse 开发，强烈推荐使用 Arch，但这并不是一个必要条件。
+
+@c (FlyZhyGG)If you are new to Arch, you might find this tutorial helpful:
+@c (FlyZhyGG)@uref{http://www.mwolson.org/projects/ArchTutorial.html}.
+如果 Arch 对你来说是陌生的，你可能会认为下面这篇手册很有帮助：
+@uref{http://www.mwolson.org/projects/ArchTutorial.html}。
+
+@c (FlyZhyGG)Downloading the Muse module with Arch and staying up-to-date involves
+@c (FlyZhyGG)the following steps.
+使用 Arch 下载 Muse 模块，并参照下面步骤保持最新。
+
+@enumerate
+@c (FlyZhyGG)@item Install arch.
+@item 安装 arch。
+
+@itemize @bullet
+@c (FlyZhyGG)@item Debian and Ubuntu: @kbd{apt-get install tla}.
+@c (FlyZhyGG)@item Other distributions: see @uref{http://regexps.srparish.net/www/}.
+@item Debian 和 Ubuntu：@kbd{apt-install tla}。
+@item 其他发行版本：参见 @uref{http://regexps.srparish.net/www/}。
+@end itemize
+
+@c (FlyZhyGG)@item Register the archive.
+@item 注册存档。
+@example
+tla register-archive -f http://www.mwolson.org/archives/2005
+@end example
+
+@c (FlyZhyGG)@item Download the Muse package.
+@item 下载 Muse 包。
+@example
+@c (FlyZhyGG)# Download Muse into the @file{muse} directory.
+# 下载 Muse 到 @file{muse} 目录。
+tla get mwolson@@gnu.org--2005/muse--main--1.0 muse
+@end example
+
+@c (FlyZhyGG)@item List upstream changes that are missing from your local copy.
+@item 列出你本地拷贝中错过的上游更改。
+@c (FlyZhyGG)Do this whenever you want to see whether new changes have been committed
+@c (FlyZhyGG)to Muse.
+每当你想要查看 Muse 是否有新的更改被提交，做这一步。
+
+@example
+@c (FlyZhyGG)# Change to the source directory you are interested in.
+# 进入你关心的源目录。
+cd muse/
+
+@c (FlyZhyGG)# Display the summary of changes.
+# 显示更改概要。
+tla missing --summary
+@end example
+
+@cindex updating Muse with Arch
+@c (FlyZhyGG)@item Update to the latest version by replaying missing changes.
+@item 重写错过的更改，更新 Muse 到最新版本。
+@example
+cd muse
+tla replay
+@end example
+
+@end enumerate
+
+@c (FlyZhyGG)There are other ways to interact with the Muse archive.
+与 Muse 归档交互还有一些其他的方法。
+
+@itemize
+@c (FlyZhyGG)@item Browse arch repository: @uref{http://www.mwolson.org/archives/}
+@c (FlyZhyGG)@item Latest development snapshot: @uref{http://www.mwolson.org/static/dist/muse-latest.tar.gz}
+@item 浏览 arch 存储库：@uref{http://www.mwolson.org/archives/}
+@item 最新开发快照：@uref{http://www.mwolson.org/static/dist/muse-latest.tar.gz}
+@end itemize
+
+@c (FlyZhyGG)The latest development snapshot will be kept up-to-date since it is
+@c (FlyZhyGG)updated at the same time as the Arch repository.
+最新开发快照与 Arch 存储库同时被更新，因此它始终保持最新。
+
+@node Installation, Getting Started, Obtaining Muse, Top
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@chapter Compiling and Installing Muse
+@chapter 编译和安装 Muse
+
+@c (FlyZhyGG)Muse may be compiled and installed on your machine.
+Muse 可以在你的机器上被编译并安装。
+
+@c (FlyZhyGG)@subheading Compilation
+@subheading 编译
+
+@c (FlyZhyGG)This is an optional step, since Emacs Lisp source code does not
+@c (FlyZhyGG)necessarily have to be byte-compiled.  It will yield a speed increase,
+@c (FlyZhyGG)though.
+这是一个可选的步骤，因为 Emacs Lisp 源代码没有必要必须进行字节编译。
+但这样做可以产生速度的提升。
+
+@c (FlyZhyGG)A working copy of Emacs or XEmacs is needed in order to compile the
+@c (FlyZhyGG)Emacs Muse.  By default, the program that is installed with the name
+@c (FlyZhyGG)@command{emacs} will be used.
+为了编译 Emacs Muse，一个Emacs 或 XEmacs 的工作副本是必须的。
+默认情况下，安装时命名为 @command{emacs} 的程序将被使用。
+
+@c (FlyZhyGG)If you want to use the @command{xemacs} binary to perform the
+@c (FlyZhyGG)compilation, you would need to edit @file{Makefile.defs} in the
+@c (FlyZhyGG)top-level directory as follows.  You can put either a full path to an
+@c (FlyZhyGG)Emacs or XEmacs binary or just the command name, as long as it is in the
+@c (FlyZhyGG)@env{PATH}.
+如果你想要使用二进制文件 @command{xemacs} 来执行编译，你需要象下面这样编辑 
+顶层目录中的 @file{Makefile.defs} 文件。你可以输入 Emacs 或者 XEmacs 二进制文件
+所在的全路径，或者只要其全路径在环境变量 @env{PATH} 中就可以仅仅输入命令名。
+
+@example
+EMACS    = xemacs
+SITEFLAG = -no-site-file
+@end example
+
+@c (FlyZhyGG)Running @code{make} should compile the Muse source files in the
+@c (FlyZhyGG)@file{lisp} directory.
+运行 @code{make} 就会编译 @file{lisp} 目录中的 Muse 源文件。
+
+@c (FlyZhyGG)@subheading Installation
+@subheading 安装
+
+@c (FlyZhyGG)Muse may be installed into your file hierarchy by doing the following.
+通过下述操作 Muse 可以被安装到你的文件层次结构中。
+
+@c (FlyZhyGG)Edit the @file{Makefile.defs} file so that @env{ELISPDIR} points to
+@c (FlyZhyGG)where you want the source and compiled Muse files to be installed and
+@c (FlyZhyGG)@env{INFODIR} indicates where to put the Muse manual.  Of course, you
+@c (FlyZhyGG)will want to edit @env{EMACS} and @env{SITEFLAG} as shown in the
+@c (FlyZhyGG)Compilation section if you are using XEmacs.
+编辑 @file{Makefile.defs} 文件使得 @env{ELISPDIR} 指向你想要的 Muse 源文件
+和编译文件的安装路径， @env{INFODIR} 表示 Muse 手册的安装路径。当然，
+如果你使用 XEmacs 你需要如编译部分所说的那样编辑 @env{EMACS} 和 @env{SITEFLAG}。
+
+@c (FlyZhyGG)If you are installing Muse on a Debian or Ubuntu system, you might want
+@c (FlyZhyGG)to change the value of @env{INSTALLINFO} as specified in
+@c (FlyZhyGG)@file{Makefile.defs}.
+如果你在一个 Debian 或者 Ubuntu 系统中安装 Muse，你可能需要按照文件 
+@file{Makefile.defs} 中的说明更改变量 @env{INSTALLINFO} 的值。
+
+@c (FlyZhyGG)If you wish to install Muse to different locations than the defaults
+@c (FlyZhyGG)specify, edit @file{Makefile.defs} accordingly.
+如果你想要安装 Muse 到一个非默认指定的位置，那么如前所说，编辑 
+@file{Makefile.defs} 文件。
+
+@c (FlyZhyGG)Run @code{make} as a normal user.
+然后以普通用户身份运行 @code{make}。
+
+@c (FlyZhyGG)Run @code{make install} as the root user if you have chosen installation
+@c (FlyZhyGG)locations that require this.
+如果你选择的安装位置要求必须 root 用户，那么以 root 身份运行 
+@code{make install}。
+
+
+@node Getting Started, Projects, Installation, Top
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@chapter Getting Started
+@chapter 开始
+@cindex settings
+
+@c (FlyZhyGG)To use Muse, add the directory containing its files to your
+@c (FlyZhyGG)@code{load-path} variable, in your @file{.emacs} file.  Then, load in
+@c (FlyZhyGG)the authoring mode, and the styles you wish to publish to.  An example
+@c (FlyZhyGG)follows.
+要使用 Muse，添加包含 Muse 文件的目录到你的 @code{load-path} 变量中，
+它一般在你的 @file{.emacs} 文件中定义。然后，加载写作模式和你想要发布的
+文档风格。下面是一个例子。
+
+@lisp
+(add-to-list 'load-path "<path to Muse>")
+
+(require 'muse-mode)     ; load authoring mode
+
+(require 'muse-html)     ; load publishing styles I use
+(require 'muse-latex)
+(require 'muse-texinfo)
+(require 'muse-docbook)
+@end lisp
+
+@c (FlyZhyGG)Once loaded, the command @kbd{M-x muse-publish-this-file} will publish
+@c (FlyZhyGG)an input document to any available style.  If you enable
+@c (FlyZhyGG)@file{muse-mode} within a buffer, by typing @kbd{M-x muse-mode}, this
+@c (FlyZhyGG)command will be bound to @kbd{C-c C-t}.
+一旦 Muse 模式被加载，命令 @kbd{M-x muse-publish-this-file} 将发布一个
+输入文档为任意可用的风格。如果你想在一个 buffer 中启用 @file{muse-mode}，
+那么输入 @kbd{M-x muse-mode}，它被绑定到 @kbd{C-c C-t}。
+
+@c (FlyZhyGG)If the currently opened file is part of a defined project in
+@c (FlyZhyGG)@code{muse-project-alist}, it may be published using @kbd{C-c C-p}.
+如果当前打开的文件属于 @code{muse-project-alist} 中一个定义的项目，
+那么可以使用 @kbd{C-c C-p} 来发布它。
+
+@c (FlyZhyGG)You should also type @kbd{M-x customize-group}, and give the name
+@c (FlyZhyGG)@samp{muse}.  Each of the options has its own documentation.
+你也可以输入 @kbd{M-x customize-group}，然后给出名 @samp{muse}。每一个选项
+都有它自己的文档。
+
+
+@node Projects, Keystroke Summary, Getting Started, Top
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@chapter Creating and Managing Muse Projects
+@chapter 创建和管理 Muse 项目
+@cindex projects
+
+@c (FlyZhyGG)Often you will want to publish all the files within a directory to a
+@c (FlyZhyGG)particular set of output styles automatically.  To support, Muse
+@c (FlyZhyGG)allows for the creations of "projects".  Here is a sample project, to
+@c (FlyZhyGG)be defined in your @file{.emacs} file.
+通常你希望自动将一个目录中的所有文件发布为一组特定的输出风格，为此，
+Muse 允许创建“项目”。下面是一个定义在你的 @file{.emacs} 文件中的项目范例。
+
+@lisp
+(require 'muse-project)
+
+(setq muse-project-alist
+      '(("website"			; my various writings
+         ("~/Pages" :default "index")
+         (:base "html" :path "~/public_html")
+         (:base "pdf" :path "~/public_html/pdf"))))
+@end lisp
+
+@c (FlyZhyGG)The above defines a project named "website", whose files are located
+@c (FlyZhyGG)in the directory @file{~/Pages}.  The default page to visit is
+@c (FlyZhyGG)@file{index}.  When this project is published, each page will be
+@c (FlyZhyGG)output as HTML to the directory @file{~/public_html}, and as PDF to
+@c (FlyZhyGG)the directory @file{~/public_html/pdf}.  Within any project page, you
+@c (FlyZhyGG)may create a link to other pages using the syntax @samp{[[pagename]]}.
+上面定义了一个名为“website”的项目，该项目所有的文件都位于目录 
+@file{~/Pages} 下，默认的访问页为 @file{index}。当该项目被发布时，每一页
+将会以 HTML 格式输出到 @file{~/public_html} 目录中，并以 PDF 格式输出到 
+@file{~/public_html/pdf} 目录中。在项目中的任一页中，你可以使用语法 
+@samp{[[pagename]]} 创建到其他页的链接。
+
+@c (FlyZhyGG)By default, Muse expects all project files to have the file extension
+@c (FlyZhyGG)@file{.muse}. Files without this extension will not be associated with
+@c (FlyZhyGG)Muse mode and will not be considered part of any project, even if they
+@c (FlyZhyGG)are within a project directory.
+默认情况下 Muse 要求所有的项目文件具有扩展名 @file{.muse}，不具有这个扩展名
+的文件将不会被关联到 Muse 模式，也将不会被看作任何项目的一部分，即使这些
+文件确确实实在一个项目目录中。
+
+@c (FlyZhyGG)If you don't want to use @file{.muse}, you can customize the extension
+@c (FlyZhyGG)by setting the value of @code{muse-file-extension}.
+如果你不想使用扩展名 @file{.muse}，你可以通过设置 @code{muse-file-extension} 
+的值来自定义扩展名。
+
+@c (FlyZhyGG)If you don't want to use any extension at all, and want Muse to
+@c (FlyZhyGG)autodetect project files based on their location, then add the following
+@c (FlyZhyGG)to your Muse settings file.
+如果你不想使用任何扩展名，而是想要 Muse 基于项目文件位置自动探测项目文件，
+那么在你的 Muse 设置文件中加入下面两行。
+
+@lisp
+(setq muse-file-extension nil
+      muse-mode-auto-p t)
+@end lisp
+
+@c (FlyZhyGG)If you would like to include only some files from a directory in a Muse
+@c (FlyZhyGG)project, you may use a regexp in place of @file{~/Pages} in the example.
+如果你想要仅仅包括一个目录中的几个文件，那么你需要使用一个正则表达式代替
+例子中的 @file{~/Pages}。
+
+@c PRE3_03: Give more examples
+@c PRE3_03: Describe :set and other options fully
+
+@node Keystroke Summary, Markup Rules, Projects, Top
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@chapter Keys Used in Muse Mode
+@chapter Muse 模式中使用的快捷键
+@cindex keystrokes
+
+@c (FlyZhyGG)This is a summary of keystrokes available in every Muse buffer.
+这是在每一个 Muse buffer 中可用的快捷键概要。
+
+@table @kbd
+
+@item C-c C-a (`muse-index')
+@c (FlyZhyGG)Display an index of all known Muse pages.
+显示所有已知 Muse 页面的索引。
+
+@item C-c C-b (`muse-find-backlinks')
+@c (FlyZhyGG)Find all pages that link to this page.
+找出所有引用了当前页的页面。
+
+@item C-c C-c (`muse-follow-name-at-point')
+@c (FlyZhyGG)Visit the link at point.
+访问当前位置处的链接。
+
+@item C-c C-e (`muse-edit-link-at-point')
+@c (FlyZhyGG)Edit link at point.
+编辑当前位置处的链接。
+
+@item C-c C-f (`muse-project-find-file')
+@c (FlyZhyGG)Open another Muse page.  Prompt for the name.
+打开另一个 Muse 页面。提示输入文件名。
+
+@item C-c C-i (`muse-insert-tag')
+@c (FlyZhyGG)Insert a tag interactively.
+交互地插入一个标签。
+
+@item C-c C-l (`font-lock-mode')
+@c (FlyZhyGG)Toggle font lock / highlighting for the current buffer.
+对当前 buffer 触发 font lock / highlighting（语法高亮）。
+
+@item C-c C-p (`muse-project-publish')
+@c (FlyZhyGG)Publish any Muse pages that have changed.
+发布所有更改了的 Muse 页面。
+
+@item C-c C-s (`muse-search')
+@c (FlyZhyGG)Find text in all files of the current project.
+在当前项目的所有文件中查找文本。
+
+@item C-c C-t (`muse-project-publish-this-file')
+@c (FlyZhyGG)Publish the currently-visited file.  Prompt for the style if the current
+@c (FlyZhyGG)file can be published using more than one style.
+发布当前访问的文件。如果当前文件可以被使用不止一种风格发布，提示输入风格。
+
+@item C-c C-T (`muse-publish-this-file')
+@c (FlyZhyGG)Publish the currently-visited file.  Prompt for both the style and
+@c (FlyZhyGG)output directory.
+发布当前访问的文件。提示风格和输出目录。
+
+@item C-c C-v (`muse-browse-result')
+@c (FlyZhyGG)Show the published result of this page.
+显示当前页面的发布结果。
+
+@item C-c = (`muse-what-changed')
+@c (FlyZhyGG)Diff this page against the last backup version.
+将当前页面与最近备份版本比较。
+
+@item C-c TAB l (`muse-insert-relative-link-to-file')
+@c (FlyZhyGG)Insert a link to a file interactively.
+交互地插入一个链接到一个文件中。
+
+@item C-c TAB t (`muse-insert-tag')
+@c (FlyZhyGG)Insert a tag interactively.
+交互地插入一个标签。
+
+@item C-c TAB u (`muse-insert-url')
+@c (FlyZhyGG)Insert a URL interactively.
+交互地插入一个 URL。
+
+@item TAB
+@c (FlyZhyGG)Move to the next Wiki reference.
+移动光标到下一个 Wiki 链接。
+
+@item S-TAB
+@c (FlyZhyGG)Move to the previous Wiki reference.
+移动光标到上一个 Wiki 链接。
+
+@item M-TAB
+@c (FlyZhyGG)Complete the name of a page from the current project at point.
+补齐当前位置来自当前项目的一个页面的名字。
+
+@item M-RET
+@c (FlyZhyGG)Insert a new list item at point, indenting properly.
+在当前位置插入一个新的列表项，同时正确缩进。
+
+@item C-<
+@c (FlyZhyGG)Decrease the indentation of the list item at point.
+减少当前位置列表项的缩进。
+
+@item C->
+@c (FlyZhyGG)Increase the indentation of the list item at point.
+增加当前位置列表项的缩进。
+
+@end table
+
+
+@node Markup Rules, Publishing Styles, Keystroke Summary, Top
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@chapter Rules for Using Markup
+@chapter 使用标记的规则
+@cindex markup
+
+@c (FlyZhyGG)A Muse document uses special, contextual markup rules to determine how
+@c (FlyZhyGG)to format the output result.  For example, if a paragraph is indented,
+@c (FlyZhyGG)Muse assumes it should be quoted.
+一个 Muse 文档使用特别的、文脉上的标记规则来决定怎样格式化输出结果。例如，
+如果一个段落被缩进了，Muse 就认为它应该被引用。
+
+@c (FlyZhyGG)There are not too many markup rules, and all of them strive to be as
+@c (FlyZhyGG)simple as possible so that you can focus on document creation, rather
+@c (FlyZhyGG)than formatting.
+并没有太多的标记规则，而且所有的标记规则力争简单以便让使用者更加专注于
+文档创作，而不是格式。
+
+@menu
+@c (FlyZhyGG)* Paragraphs::                  Paragraphs: centering and quoting.
+* Paragraphs::                   段落：居中和引用。
+@c (FlyZhyGG)* Headings::                    Levels of headings.
+* Headings::                     标题的层次。
+@c (FlyZhyGG)* Directives::                  Directives at the beginning of a
+@c (FlyZhyGG)                                  document.
+* Directives::                   文档开始处的指令。
+@c (FlyZhyGG)* Emphasizing Text::            Bold, italicized, and underlined text.
+* Emphasizing Text::             粗体，斜体和下划线文本。
+@c (FlyZhyGG)* Footnotes::                   Making notes to be shown at the end.
+* Footnotes::                    在最后显示注解。
+@c (FlyZhyGG)* Verse::                       Indicating poetic stanzas.
+* Verse::                        显示诗章。
+@c (FlyZhyGG)* Lists::                       Lists of items.
+* Lists::                        项的列表。
+@c (FlyZhyGG)* Tables::                      Generation of data tables.
+* Tables::                       数据表的生成。
+@c (FlyZhyGG)* Explicit Links::              Hyperlinks and email addresses with
+@c (FlyZhyGG)                                  descriptions.
+* Explicit Links::               带描述的超级链接和邮件地址。
+@c (FlyZhyGG)* Implicit Links::              Bare URLs, WikiNames, and InterWiki
+@c (FlyZhyGG)                                  links.
+* Implicit Links::               无修饰的 URL，WikiNames 和 InteWiki 链接。
+@c (FlyZhyGG)* Images::                      Publishing and displaying images.
+* Images::                       发布和显示图片。
+@c (FlyZhyGG)* Horizontal Rules and Anchors::  Inserting a horizontal line or anchor.
+* Horizontal Rules and Anchors:: 插入一个水平线或锚。
+@c (FlyZhyGG)* Embedded Lisp::               Evaluating Emacs Lisp code in documents
+@c (FlyZhyGG)                                  for extensibility.
+* Embedded Lisp::                在文档中为扩展而执行 Emacs Lisp 代码。
+@c (FlyZhyGG)* Comments::                    Lines to omit from published output.
+* Comments::                     发布输出时被省略的行。
+@c (FlyZhyGG)* Tag Summary::                 Tags that Muse recognizes.
+* Tag Summary::                  Muse 可识别的标签。
+@end menu
+
+@node Paragraphs, Headings, Markup Rules, Markup Rules
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Paragraphs: centering and quoting
+@section 段落：居中和引用
+@cindex paragraphs
+
+@c (FlyZhyGG)Paragraphs in Muse must be separated by a blank line.
+在 Muse 中段落必须通过一个空行来隔开。
+
+@cindex paragraphs, centered
+@c (FlyZhyGG)@subheading Centered paragraphs and quotations
+@subheading 段落居中和引用
+
+@c (FlyZhyGG)A line that begins with six or more columns of whitespace (either tabs
+@c (FlyZhyGG)or spaces) indicates a centered paragraph.  Alternatively, you can use
+@c (FlyZhyGG)the @verb{|<center>|} tag to surround regions that are to be published as
+@c (FlyZhyGG)centered paragraphs.
+以六个或者更多的空白字元（Tab 或者空格）开始的一行表示一个居中的段落。
+另外，你也可以使用 @verb{|<center>|} 标签使得其包含的区域被发布为居中的段落。
+
+@cindex paragraphs, quoted
+@cindex quotations
+@c (FlyZhyGG)But if a line begins with whitespace, though less than six columns, it
+@c (FlyZhyGG)indicates a quoted paragraph.  Alternatively, you can use the
+@c (FlyZhyGG)@verb{|<quote>|} tag to surround regions that are to be published as
+@c (FlyZhyGG)quoted paragraphs.
+但是如果一行以空白字元开始，但空白字元不足六个，这表示一个引用的段落。
+另外，你也可以使用 @verb{|<quote>|} 标签使得起包含的区域被发布为引用的段落。
+
+@cindex examples
+@cindex monospace, rendering blocks
+@cindex HTML, rendering blocks in monospace
+@c (FlyZhyGG)@subheading Literal paragraphs
+@subheading 抄录段落
+
+@c (FlyZhyGG)The @verb{|<example>|} tag is used for examples, where whitespace should
+@c (FlyZhyGG)be preserved, the text rendered in monospace, and any characters special
+@c (FlyZhyGG)to the output style escaped.
+@verb{|<example>|} 标签用于示例，其中空白应该被保留，等宽间距文本，且输出
+风格的任意特殊字符都被转义。
+
+@cindex literal text
+@cindex HTML, inserting a raw block
+@c (FlyZhyGG)There is also the @verb{|<literal>|} tag, which causes a marked block to
+@c (FlyZhyGG)be entirely left alone.  This can be used for inserting a hand-coded
+@c (FlyZhyGG)HTML blocks into HTML output, for example.
+还有一个 @verb{|<literal>|} 标签，作用是使得所标记的块全部原样输出。比如
+这可以用来插入一段手编的 HTML 代码到 HTML 输出。
+
+@node Headings, Directives, Paragraphs, Markup Rules
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Levels of headings
+@section 标题的层次
+@cindex headings
+
+@c (FlyZhyGG)A heading becomes a chapter or section in printed output -- depending on
+@c (FlyZhyGG)the style.  To indicate a heading, start a new paragraph with one or
+@c (FlyZhyGG)more asterices, followed by a space and the heading title.  Then begin
+@c (FlyZhyGG)another paragraph to enter the text for that section.
+依赖于输出风格一个标题会成为打印输出的一章或者一节。以一个或几个星号开始
+一个新的段落，后面跟一个空格和标题题目，来表示一个标题。然后另起一段输入
+这部分的正文。
+
+@c (FlyZhyGG)All levels of headings will be published.  Most publishing styles only
+@c (FlyZhyGG)distinguish the between the first 4 levels, however.
+所有层次的标题都将会被发布，然而，大部分发布风格仅仅会区分头四个层次。
+
+@example
+* First level
+
+** Second level
+
+*** Third level
+
+**** Fourth level
+@end example
+
+@node Directives, Emphasizing Text, Headings, Markup Rules
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Directives at the beginning of a document
+@section 文档开始处的指令
+@cindex directives
+
+@c (FlyZhyGG)Directives are lines beginning with the @samp{#} character that come
+@c (FlyZhyGG)before any paragraphs or sections in the document.  Directives are of
+@c (FlyZhyGG)the form ``#directive content of directive''.  You can use any
+@c (FlyZhyGG)combination of uppercase and lowercase letters for directives, even if
+@c (FlyZhyGG)the directive is not in the list below.
+文档中全部的段落或者区段前以 @samp{#} 开始的行是指令。指令的格式为 
+“#directive content of directive”。你可以使用任意大小写字母的组合作为指令，
+即使它没有在下面列出。
+
+@c (FlyZhyGG)The @code{muse-publishing-directive} function may be used in header and
+@c (FlyZhyGG)footer text to access directives.  For example, to access the
+@c (FlyZhyGG)@samp{#title} directive, use @code{(muse-publishing-directive "title")}.
+@code{muse-publishing-directive} 函数可以被用于页眉和页脚来存取指令。例如，
+使用 @code{(muse-publishing-directive "title")} 来存取 @samp{#title} 指令。
+
+@c (FlyZhyGG)The following is a list of directives that Muse uses.
+下面是 Muse 使用的指令表。
+
+@table @code
+@cindex #author
+@item #author
+@c (FlyZhyGG)The author of this document.
+该文档的作者。
+
+@c (FlyZhyGG)If this is not specified, Muse will attempt to figure it out from the
+@c (FlyZhyGG)@code{user-full-name} variable.
+如果它没有被指定，Muse 将试图从变量 @code{user-full-name} 来推断它。
+
+@cindex #date
+@item #date
+@c (FlyZhyGG)The date that the document was last modified.
+文档最近更新的日期。
+
+@c (FlyZhyGG)This is used by publishing styles that are able to embed the date
+@c (FlyZhyGG)information.
+它由那些能够嵌入日期信息的发布风格使用。
+
+@cindex #desc
+@item #desc
+@c (FlyZhyGG)A short description of this document.
+该文档的一个简短的描述。
+
+@c (FlyZhyGG)This is used by the @code{journal} publishing style to embed information
+@c (FlyZhyGG)inside of an RSS/RDF feed.
+它被 @code{journal} 发布风格用来在一个 RSS/RDF 源内部嵌入信息。
+
+@cindex #title
+@item #title
+@c (FlyZhyGG)The title of this document.
+该文档的题目。
+
+@c (FlyZhyGG)If this is not specified, the name of the file is used.
+如果它没有被指定，那么将使用文件名作为文档题目。
+
+@end table
+
+@node Emphasizing Text, Footnotes, Directives, Markup Rules
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Bold, italicized, and underlined text
+@section 粗体，斜体和下划线文本
+@cindex emphasizing text
+@cindex underlining text
+@cindex italicizing text
+@cindex verbatim text
+@cindex monospace, rendering words
+
+@c (FlyZhyGG)To emphasize text, surround it with certain specially recognized
+@c (FlyZhyGG)characters.
+使用某些特别地认可的字符包围文本以强调文本。
+
+@example
+*emphasis*
+**strong emphasis**
+***very strong emphasis***
+_underlined_
+=verbatim and monospace=
+@end example
+
+@cindex WYSIWYG
+@c (FlyZhyGG)While editing a Muse document in Muse mode, these forms of emphasis will
+@c (FlyZhyGG)be highlighted in a WYSIWYG manner.  Each of these forms may span
+@c (FlyZhyGG)multiple lines.
+当在 Muse 模式下编辑一个 Muse 文档时，这些强调形式将会以一种所见即所得
+（WYSIWYG）的方式高亮显示。每种形式可跨越多行。
+
+@c (FlyZhyGG)Verbatim text will be colored as gray by default.  To change this,
+@c (FlyZhyGG)customize @code{muse-verbatim-face}.
+抄录（verbatim）文本默认情况下被灰色显示，定制 @code{muse-verbatim-face} 
+来改变它。
+
+@c (FlyZhyGG)You can also use the @verb{|<code>|} tag to indicate verbatim and
+@c (FlyZhyGG)monospace text.  This is handy for regions that have an ``='' in them.
+你也可以使用 @verb{|<code>|} 标签来表示抄录（verbatim）和等宽（monospace）
+文本，这在本身含有“=”的区域中很方便。
+
+@node Footnotes, Verse, Emphasizing Text, Markup Rules
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Making notes to be shown at the end
+@section 在最后显示注解
+@cindex footnotes
+
+@c (FlyZhyGG)A footnote reference is simply a number in square brackets.  To define
+@c (FlyZhyGG)the footnote, place this definition at the bottom of your file.
+@c (FlyZhyGG)@samp{footnote-mode} can be used to greatly facilitate the creation of
+@c (FlyZhyGG)these kinds of footnotes.
+一个脚注引用就是简单的一个在方括号中的数字，在你的文件底部放置脚注的注解
+来定义它。@samp{footnote-mode} 可以被用来非常方便的生成这种脚注。
+
+@c (FlyZhyGG)Footnotes are defined by the same number in brackets occurring at the
+@c (FlyZhyGG)beginning of a line.  Use footnote-mode's @kbd{C-c ! a} command, to very
+@c (FlyZhyGG)easily insert footnotes while typing.  Use @kbd{C-x C-x} to return to
+@c (FlyZhyGG)the point of insertion.
+脚注由行首方括号内的相同数字所定义，在输入的时候使用 footnote-mode 的 
+@kbd{C-c ! a} 命令会很容易的插入脚注，使用 @kbd{C-x C-x} 便返回插入点。
+
+@node Verse, Lists, Footnotes, Markup Rules
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Indicating poetic stanzas
+@section 显示诗章
+@cindex verses
+@cindex poetry
+
+@c (FlyZhyGG)Poetry requires that whitespace be preserved, but without resorting to
+@c (FlyZhyGG)monospace.  To indicate this, use the following markup, reminiscent of
+@c (FlyZhyGG)email quotations.
+诗要求空白字元被保留，但不采取等宽。为显示诗使用下面的标签，它让我们想起 
+email 引用的方式。
+
+@example
+> A line of Emacs verse;
+>   forgive its being so terse.
+@end example
+
+@c (FlyZhyGG)You can also use the @verb{|<verse>|} tag, if you prefer.
+你也可以使用 @verb{|<verse>|} 标签，如果你喜欢。
+
+@example
+<verse>
+A line of Emacs verse;
+  forgive its being so terse.
+</verse>
+@end example
+
+@cindex verses, multiple stanzas
+@c (FlyZhyGG)Multiple stanzas may be included in one set of @verb{|<verse>|} tags, as
+@c (FlyZhyGG)follows.
+多个章节可以被一组 @verb{|<verse>|} 标签包括，如下所示。
+
+@example
+<verse>
+A line of Emacs verse;
+  forgive its being so terse.
+
+In terms of terse verse,
+  you could do worse.
+</verse>
+@end example
+
+@node Lists, Tables, Verse, Markup Rules
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Lists of items
+@section 项的列表
+@cindex lists
+
+@c (FlyZhyGG)Lists are given using special characters at the beginning of a line.
+@c (FlyZhyGG)Whitespace must occur before bullets or numbered items, to distinguish
+@c (FlyZhyGG)from the possibility of those characters occurring in a real sentence.
+列表是由行首使用的特殊字符产生，在符号列表项或数字列表项前必须有一个空白字元用于
+区别那些字符可能确实出现在一个句子中的情况。
+
+@cindex lists, bullets
+@c (FlyZhyGG)These are rendered as a bullet list.
+下面生成一个符号列表。
+
+@example
+- bullet item one
+- bullet item two
+@end example
+
+@cindex lists, enumerated
+@c (FlyZhyGG)An enumerated list follows.
+然后一个枚举列表。
+
+@example
+1. Enum item one
+2. Enum item two
+@end example
+
+@cindex lists, definitions
+@c (FlyZhyGG)Here is a definition list.
+这里是一个定义列表。
+
+@example
+Term1 ::
+  This is a first definition
+  And it has two lines;
+  no, make that three.
+
+Term2 ::
+  This is a second definition
+@end example
+
+@node Tables, Explicit Links, Lists, Markup Rules
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Generation of data tables
+@section 数据表的生成
+@cindex tables
+
+@cindex tables, simple
+@c (FlyZhyGG)Only very simple tables are supported.  The syntax is as follows.
+Muse 仅仅支持很简单的表格，语法如下。
+
+@example
+Double bars  || Separate header fields
+
+Single bars   | Separate body fields
+Here are more | body fields
+
+Triple bars ||| Separate footer fields
+@end example
+
+@c (FlyZhyGG)Some publishing styles require header fields to come first, then footer
+@c (FlyZhyGG)fields, and then the body fields.  You can use any order for these
+@c (FlyZhyGG)sections that you like, and Muse will re-order them for you at
+@c (FlyZhyGG)publish-time.
+一些发布风格要求首先是表头，紧跟着是表底，然后才是表体。你可以对这些部分
+使用你喜欢的任意顺序，Muse 在发布时将会为你重新排序。
+
+@c (FlyZhyGG)If you wish to disable table generation for one Muse file, add the
+@c (FlyZhyGG)directive @samp{#disable-tables t} to the top of the file.
+如果你想禁用一个 Muse 文件的表格生成，添加指令 @samp{#disable-tables t}
+到文件的顶部。
+
+@node Explicit Links, Implicit Links, Tables, Markup Rules
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Hyperlinks and email addresses with descriptions
+@section 带描述的超级链接和邮件地址
+@cindex links, explicit
+
+@c (FlyZhyGG)A hyperlink can reference a URL, or another page within a Muse
+@c (FlyZhyGG)project.  In addition, descriptive text can be specified, which should
+@c (FlyZhyGG)be displayed rather than the link text in output styles that supports
+@c (FlyZhyGG)link descriptions.  The syntax is as follows.
+一个超级链接可以引用一个 URL或者某个 Muse 项目中的其他页面。另外，描述文本
+可以被指定并在支持链接描述的输出风格中显示，而不是显示链接文本。
+
+@example
+[[link target][link description]]
+[[link target without description]]
+@end example
+
+@c (FlyZhyGG)Thus, the current maintainer's homepage for Muse can be found
+@c (FlyZhyGG)@samp{[[http://www.mwolson.org/projects/EmacsMuse.html][here]]},
+@c (FlyZhyGG)or at @samp{[[http://www.mwolson.org/projects/EmacsMuse.html]]}.
+因而，当前 Muse 维护者的主页可以从 
+@samp{[[http://www.mwolson.org/projects/EmacsMuse.html][here]]}，
+或者 @samp{[[http://www.mwolson.org/projects/EmacsMuse.html]]} 找到。
+
+@node Implicit Links, Images, Explicit Links, Markup Rules
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Bare URLs, WikiNames, and InterWiki links
+@section 无修饰的 URL，WikiNames 和 InteWiki 链接
+@cindex links, implicit
+@cindex links, raw
+
+@cindex URLs
+@cindex Email addresses
+
+@c (FlyZhyGG)A URL or email address encountered in the input text is published as a
+@c (FlyZhyGG)hyperlink.  These kind of links are called @dfn{implicit links} because
+@c (FlyZhyGG)they are not separated from the rest of the Muse document in any way.
+输入文本中的一个 URL 或者 email 地址被发布为一个超链接，这种链接被称做 
+@dfn{implicit links}，因为不管怎样它们与 Muse 文档的其他部分没有分离。
+
+@c (FlyZhyGG)Some characters in URLs will prevent Muse from recognizing them as
+@c (FlyZhyGG)implicit links. If you want to link to a URL containing spaces or any of
+@c (FlyZhyGG)the characters ``][,"'`()<>^'', you will have to make the link
+@c (FlyZhyGG)explicit. The punctuation characters ``.,;:'' are also not recognized as
+@c (FlyZhyGG)part of a URL when they appear at its end. For information on how to
+@c (FlyZhyGG)make an explicit link, see @ref{Explicit Links,,Hyperlinks and email
+@c (FlyZhyGG)addresses with descriptions}.
+URL 中的一些字符会禁止 Muse 把它们当作 implicit links，如果你想要链接一个
+包含空格或者“][,"'`()<>^”中任一个字符的 URL，那么你必须使用 explicit links，
+当“.,;:”这些标点符号出现在一个 URL 的末尾时它们也不会被看做是这个 URL 的
+一部分。关于如何写一个 explicit link 参见 
+@ref{Explicit Links,,Hyperlinks and email addresses with descriptions}。
+
+@cindex WikiNames
+@c (FlyZhyGG)If the @command{muse-wiki} module is loaded, another form of implicit
+@c (FlyZhyGG)link will be made available.  WikiNames, which are typed in CamelCase,
+@c (FlyZhyGG)are highlighted and published as links, provided that the file they
+@c (FlyZhyGG)refer to exists.
+如果 @command{muse-wiki} 模块被加载，另一种 implicit link 的形式就可用了。
+以 CamelCase 形式输入的 Wikinames 被高亮显示并发布为链接，这提供给该文件 
+一种引用其他存在文件的方式。
+
+@c (FlyZhyGG)Customization of WikiName recognition may be accomplished by editing the
+@c (FlyZhyGG)@code{muse-wiki-wikiword-regexp} option and subsequently running
+@c (FlyZhyGG)@code{(muse-configure-highlighting 'muse-colors-markupmuse-colors-markup)}.
+@c (FlyZhyGG)If you use the Customize interface, the latter will be done
+@c (FlyZhyGG)automatically.
+通过编辑 @code{muse-wiki-wikiword-regexp} 选项接着运行 
+@code{(muse-configure-highlighting 'muse-colors-markupmuse-colors-markup)} 
+就可以完成 WikiName 认可定制。如果你使用定制界面，后面的部分会自动完成。
+
+@cindex InterWiki links
+@cindex inter-project links
+@c (FlyZhyGG)The @command{muse-wiki} module also allows for InterWiki links.  These
+@c (FlyZhyGG)are similar to WikiWords, but they specify both the project and page of
+@c (FlyZhyGG)a file.  The names of your project entries in @code{muse-project-alist}
+@c (FlyZhyGG)will be used as InterWiki names by default.  Several examples follow.
+@command{muse-wiki} 模式也允许 InterWiki links，这与 WikiWords 很相似，
+但 InterWiki links 不但可以指定某个项目，而且也可以指定某个文件页面。
+默认情况下在 @code{muse-project-alist} 中定义的项目条目名将被用于 InterWiki 名。
+下面是几个例子。
+
+@example
+Blog::DocumentingMuse
+Projects#EmacsMuse
+Website
+@end example
+
+@c (FlyZhyGG)In the first case, the interwiki delimiter is @samp{::}, @samp{Blog} is
+@c (FlyZhyGG)the project name, and @samp{DocumentingMuse} is the page name.  In the
+@c (FlyZhyGG)second example, @samp{#} is the interwiki delimiter.  If the name of a
+@c (FlyZhyGG)project occurs by itself in text, like the third case, it will be
+@c (FlyZhyGG)colorized and published as a link to the default page of the given
+@c (FlyZhyGG)project.
+第一种情况，interwiki 分隔符是 @samp{::}，@samp{Blog} 为项目名，
+@samp{DocumentingMuse} 为页面名；第二种情况，@samp{#} 是 interwiki 
+分隔符。象第三种情况这样，如果一个项目名单独出现在文本中，
+那么它会被加色并发布为一个指向该工程默认页面的一个链接。
+
+@c (FlyZhyGG)Customization of interwiki links may be accomplished by editing the
+@c (FlyZhyGG)@code{muse-wiki-interwiki-alist} option.
+通过编辑 @code{muse-wiki-interwiki-alist} 选项可以完成 interwiki links 
+的定制。
+
+@node Images, Horizontal Rules and Anchors, Implicit Links, Markup Rules
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Publishing and displaying images
+@section 发布和显示图片
+@cindex images
+@cindex links, with images
+@c (FlyZhyGG)@subheading Image links
+@subheading 图片链接
+
+@c (FlyZhyGG)Links to images may be used in either the target or the description, or
+@c (FlyZhyGG)both.  Thus, the following code will publish as a clickable image that
+@c (FlyZhyGG)points to @url{http://www.mwolson.org/}.
+指向图片的链接可以被用于目标或者描述中，也可以两者都使用。所以，下面的
+代码会发布一个指向 @url{http://www.mwolson.org/} 可点击的图片。
+
+@example
+[[http://www.mwolson.org/][/static/logos/site-logo.png]]
+@end example
+
+@cindex images, displaying
+@cindex images, local
+@c (FlyZhyGG)@subheading Displaying images in Muse mode
+@subheading 在 Muse 模式中显示图片
+@c (FlyZhyGG)If a link to a locally-available image is encountered in the link
+@c (FlyZhyGG)description, Muse mode will attempt to display it if your version of
+@c (FlyZhyGG)Emacs permits this.
+如果在链接描述中遇到一个指向本地可用图片的链接，并且你的 Emacs 版本允许
+图片显示，那么 Muse 模式会试图显示它。
+
+@c (FlyZhyGG)This behavior may be toggled with @kbd{C-c C-i}, or disabled permanently
+@c (FlyZhyGG)by setting the @code{muse-colors-inline-images} option to @code{nil}.
+这个行为可以由 @kbd{C-c C-i} 触发，或者通过设置选项 
+@code{muse-colors-inline-images} 为 @code{nil} 来永久禁止此功能。
+
+@c (FlyZhyGG)The method for finding images may be altered by customizing the
+@c (FlyZhyGG)@code{muse-colors-inline-image-method} option.  One useful value for
+@c (FlyZhyGG)this option is @code{muse-colors-use-publishing-directory}, which tells
+@c (FlyZhyGG)Muse mode to look in the directory where the current file will be
+@c (FlyZhyGG)published.  The default is to look in the current directory.  Relative
+@c (FlyZhyGG)paths like @samp{../pics/} should work for either setting.
+通过定制 @code{muse-colors-inline-image-method} 选项可以 Muse 改变查找图片
+的方式。这个选项的一个有用的值为 @code{muse-colors-use-publishing-directory}，
+它告诉 Muse 模式去查找当前文件将要被发布的目录。默认情况下是在当前目录下
+查找。对于任一设置类似 @samp{../pic/} 这样的相对路径应该是有效的。
+
+@c (FlyZhyGG)Eventually, it is hoped that Muse will be able to copy images from the a
+@c (FlyZhyGG)``source'' directory to a publishing directory by customizing
+@c (FlyZhyGG)@code{muse-project-alist}, but this has not been implemented yet.
+最后，我们希望通过定制 @code{muse-project-alist} Muse 能够从一个“源”目录
+复制图片到一个发布目录中，但这个功能尚未完成。
+
+@cindex images, without descriptions
+@cindex images, inlined
+@c (FlyZhyGG)@subheading Publishing simple images
+@subheading 发布简单的图片
+@c (FlyZhyGG)The following example will display correctly and publish correctly if a
+@c (FlyZhyGG)@acronym{PNG} file called @file{TestLogo.png} exists in the
+@c (FlyZhyGG)@file{../pics/} directory.  If text is on the same line as the picture,
+@c (FlyZhyGG)it will remain so in the output.
+如果在 @file{../pics/} 目录中存在一个叫做 @file{TestLogo.png} 的文件，那么
+下面的这个例子将会正确显示和发布。如果文本与图片在同一行，那么在输出
+中也是如此。
+
+@example
+[[../myimage.png]]
+@end example
+
+@cindex images, captions
+@c (FlyZhyGG)@subheading Publishing images with captions
+@subheading 发布带题目的图片
+@c (FlyZhyGG)If you want to add a caption to an image, use the following syntax.
+@c (FlyZhyGG)This will center the image (if the output format supports it) and add a
+@c (FlyZhyGG)centered caption below the picture.  Formats that do not support
+@c (FlyZhyGG)centering the image will instead leave it against the left margin.
+如果你想要为一幅图片添加标题，使用下面的语法。它将图片居中（如果所发布的
+格式支持该功能）并在图片下面添加一个居中的标题。对于那些不支持图片居中的
+格式将以图片紧靠左边界来代替。
+
+@example
+[[../pics/mycat.png][My cat Dexter]]
+@end example
+
+@c (FlyZhyGG)Images with captions may only occur in their own paragraphs, with no
+@c (FlyZhyGG)text on the same line.  Otherwise, the published output will not be
+@c (FlyZhyGG)syntactically correct.
+带有标题的图片仅可以自成一段，在同一行不允许有文本。否则，发布的输出句法
+上是错误的。
+
+@node Horizontal Rules and Anchors, Embedded Lisp, Images, Markup Rules
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Inserting a horizontal line or anchor
+@section 插入一个水平线或锚
+
+@cindex horizontal rules
+@cindex dashes
+@c (FlyZhyGG)@subheading Horizontal Rules
+@subheading 水平线
+
+@c (FlyZhyGG)Four or more dashes indicate a horizontal rule.  Be sure to put blank
+@c (FlyZhyGG)lines around it, or it will be considered part of the proceeding or
+@c (FlyZhyGG)following paragraph!
+四个或者更多的破折号（-）表示一个水平线。确保其前后都是空行，否则它将被
+看作是前面或后面段落的一部分。
+
+@cindex anchors
+@cindex links, with target on same page
+@c (FlyZhyGG)@subheading Anchors
+@subheading 锚
+
+@c (FlyZhyGG)If you begin a line with "#anchor" -- where "anchor" can be any word
+@c (FlyZhyGG)that doesn't contain whitespace -- it defines an anchor at that point
+@c (FlyZhyGG)into the document.  This point can be referenced using "page#anchor" as
+@c (FlyZhyGG)the target in a Muse link.
+如果你以“#anchor”开始一行 ── 其中“anchor”可以是任意不包含空白字元的
+单词 ── 那么它在所在位置定义了一个进入文档内部的锚。在一个 Muse 链接中
+使用“page#anchor”作为目标就可以引用这个锚点。
+
+@node Embedded Lisp, Comments, Horizontal Rules and Anchors, Markup Rules
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Evaluating Emacs Lisp code in documents for extensibility
+@section 在文档中为扩展而执行 Emacs Lisp 代码
+@cindex lisp, embedded
+
+@c (FlyZhyGG)Arbitrary kinds of markup can be achieved using the @verb{|<lisp>|} tag,
+@c (FlyZhyGG)which is the only Muse tag supported in a style's header and footer
+@c (FlyZhyGG)text.  With the @verb{|<lisp>|} tag, you may generated whatever output
+@c (FlyZhyGG)text you wish.  The inserted output will get marked up, if the
+@c (FlyZhyGG)@verb{|<lisp>|} tag appears within the main text of the document.
+使用 @verb{|<lisp>|} 标签可以得到任意种类的标记，它也是仅有的在一个风格的页眉
+和页脚文本中支持的 Muse 标签。使用 @verb{|<lisp>|} 标签你可以生成任意你想要的输出。
+如果 @verb{|<lisp>|} 标签出现在文档正文内部，那么插入的输出将会被标记出。
+
+@example
+<lisp>(concat "This form gets " "inserted")</lisp>
+@end example
+
+@cindex lisp, and insert command
+@c (FlyZhyGG)Note that you should not use the @code{insert} command within a set of
+@c (FlyZhyGG)@verb{|<lisp>|} tags, since the return value from the @verb{|<lisp>|}
+@c (FlyZhyGG)tags will be automatically inserted into the document.
+注意不能在一组 @verb{|<lisp>|} 标签中使用 @code{insert} 命令，因为这样的话 
+@verb{|<lisp>|} 标签的返回值将被自动插入文档中。
+
+@node Comments, Tag Summary, Embedded Lisp, Markup Rules
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Lines to omit from published output
+@section 发布输出时被省略的行
+@cindex comments
+@cindex publishing, omitting lines
+
+@c (FlyZhyGG)Use the following syntax to indicate a comment.  Comments will not be
+@c (FlyZhyGG)published.
+使用下面的语法来表示一个注释，注释将不会被发布。
+
+@example
+; Comment text goes here.
+@end example
+
+@c (FlyZhyGG)That is, only a semi-colon at the beginning of a line, followed by a
+@c (FlyZhyGG)literal space, will cause that line to be treated as a comment.
+也就是说，仅仅行首一个分号，紧跟一个文字空白，就使得这一行被当作注释了。
+
+@node Tag Summary, , Comments, Markup Rules
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Tags that Muse recognizes
+@section Muse 可识别的标签
+@cindex tags
+@cindex inserting files at publish time
+@cindex publishing, including markup in headers and footers
+@cindex publishing, inserting files
+
+@c (FlyZhyGG)Muse has several built-in tags that may prove useful during publishing.
+@c (FlyZhyGG)@xref{muse-publish-markup-tags}, to see how to customize the tags that
+@c (FlyZhyGG)Muse uses, as well as make your own tags.
+在发布过程中 Muse 有几个内嵌标签证明非常有用。@xref{muse-publish-markup-tags} 
+来了解怎样定制 Muse 使用的标签和怎样制作你自己的标签。
+
+@c (FlyZhyGG)@subheading Syntax
+@subheading 语法
+
+@c (FlyZhyGG)If a tag takes arguments, it will look like this, where ``tagname'' is
+@c (FlyZhyGG)the name of the tag.
+如果一个标签带有参数，那么它就会看起来象下面这样，其中“tagname”是标签名。
+
+@example
+<tagname arg1="string1" arg2="string2">
+@end example
+
+@c (FlyZhyGG)If you want the tag to look like it came straight from an XHTML
+@c (FlyZhyGG)document, you can alternatively do the following.
+如果你想要一个标签看起来更象来自一个标准的 XHTML 文档，作为选择你可以照
+下面这样做。
+
+@example
+<tagname arg1="string1" arg2="string2" />
+@end example
+
+@c (FlyZhyGG)If a tag surrounds some text, it will look like this.
+如果一个标签包围一些文本，那么它看起来象下面这样。
+
+@example
+<tagname>Some text</tagname>
+@end example
+
+@c (FlyZhyGG)If a tag surrounds a large region, it will look like this.
+如果一个标签包围一大块区域，那么它看起来象下面这样。
+
+@example
+<tagname>
+Some text.
+Some more text.
+</tagname>
+@end example
+
+@c (FlyZhyGG)@subheading Tag listing
+@subheading 标签列表
+
+@c (FlyZhyGG)This is the complete list of tags that Muse accepts, including those
+@c (FlyZhyGG)that were mentioned in previous sections.
+下面是 Muse 所采用的完整的标签列表，其中包括前面章节中所提到的那些标签。
+
+@table @samp
+
+@item <class>
+@c (FlyZhyGG)If publishing to HTML, surround the given text with a @verb{|<span>|}
+@c (FlyZhyGG)tag.  It takes one argument called ``name'' that specifies the class
+@c (FlyZhyGG)attribute of the @verb{|<span>|} tag.
+如果发布成 HTML 格式，用一个 @verb{|<span>|} 标签包围给定的文本。它带有
+一个名为“name”的参数指定 @verb{|<span>|} 标签的类属性。
+
+@c (FlyZhyGG)If publishing to a different format, do nothing extra to the text.
+如果发布成其他的格式，那么对文本没有任何作用。
+
+@item <code>
+@c (FlyZhyGG)Treat the text surrounded by the tag as if they were enclosed in equal
+@c (FlyZhyGG)signs, that is, make it monospace.
+被这个标签包围的文本被看作由同等大小的符号围住，也就是说，使得文本等宽。
+
+@item <command>
+@c (FlyZhyGG)Run a command on the region, replacing the region with the result of the
+@c (FlyZhyGG)command.  The command is specified with the ``interp'' argument.  If no
+@c (FlyZhyGG)value for ``interp'' is given, pass the entire region to the shell.
+在一个区域上运行一个命令，使用命令的结果来代替该区域。该命令带有“interp”
+参数，如果“interp”没有赋值，传递整个区域给 shell。
+
+@c (FlyZhyGG)The ``markup'' argument controls how this section is marked up.
+“markup”参数控制这块区域是怎样被标记。
+
+@c (FlyZhyGG)If it is omitted, publish the region with the normal Muse rules.
+如果它被省略，那么使用正常的 Muse 规则发布这个区域。
+
+@c (FlyZhyGG)If "nil", do not mark up the region at all, but prevent Muse from
+@c (FlyZhyGG)further interpreting it.
+如果是“nil”，那么根本不标记这个区域，但也禁止 Muse 进一步解释它。
+
+@c (FlyZhyGG)If "example", treat the region as if it was surrounded by the
+@c (FlyZhyGG)@verb{|<example>|} tag.
+如果是“example”，那么这个区域就象被 @verb{|<example>|} 标签包围那样被处理。
+
+@c (FlyZhyGG)If "verse", treat the region as if it was surrounded by the
+@c (FlyZhyGG)@verb{|<verse>|} tag, to preserve newlines.
+如果是“verse”，那么这个区域就象被 @verb{|<verse>|} 标签包围那样被处理，
+保留其中的新行。
+
+@c (FlyZhyGG)Otherwise, it should be the name of a function to call, with the buffer
+@c (FlyZhyGG)narrowed to the region.
+否则，它应是要调用的一个函数名，带有一个被限定在这个区域的 buffer。
+
+@item <comment>
+@c (FlyZhyGG)Treat the entire region as a comment.  If the option
+@c (FlyZhyGG)@var{muse-publish-comments-p} is nil, delete the region, otherwise
+@c (FlyZhyGG)publish it using the comment syntax of the current publishing style.
+整个区域被当作注释。如果选项 @var{muse-publish-comments-p} 值为空，发布时
+删除该区域，否则，使用当前发布风格的注释语法发布它。
+
+@item <contents>
+@c (FlyZhyGG)Publish a Table of Contents.  This will either be inserted in-place or
+@c (FlyZhyGG)at the beginning of the document, depending on your publishing style.
+@c (FlyZhyGG)It does not have a delimiting tag.
+发布一个目录。依赖于你要发布的风格，它将被插入到适当的位置，或者在文档的
+开始。它没有一个定界标签。
+
+@c (FlyZhyGG)By default, only 2 levels of headings will be included in the generated
+@c (FlyZhyGG)Table of Contents.  To change this globally, customize the
+@c (FlyZhyGG)@var{muse-publish-contents-depth} option.  To change this only for the
+@c (FlyZhyGG)current tag, use the ``depth'' argument.
+默认情况下生成的目录中仅仅包含一级和二级标题。定制 @var{muse-publish-contents-depth} 
+选项来全局地改变它。要想仅仅为当前这个标签改变，使用“depth”参数。
+
+@item <example>
+@c (FlyZhyGG)Publish the region in monospace, preserving the newlines in the region.
+@c (FlyZhyGG)This is useful for snippets of code.
+以等宽形式发布一个区域，保留区域中的新行。这对代码摘录很有用。
+
+@item <include>
+@c (FlyZhyGG)Insert the given file at the current location during publishing.  The
+@c (FlyZhyGG)basic use of this tag is as follows, replacing ``included_file'' with
+@c (FlyZhyGG)the name of the file that you want to include.
+发布过程中在当前位置插入给定的文件。这个标签基本用法如下，其中“included_file”
+由你想要 include 的文件名替代。
+
+@example
+<include file="included_file">
+@end example
+
+@c (FlyZhyGG)The ``markup'' argument controls how this section is marked up.
+“markup”参数控制这块区域是怎样被标记。
+
+@c (FlyZhyGG)If it is omitted, publish the included text with the normal Muse
+@c (FlyZhyGG)rules.
+如果它被省略，那么使用正常的 Muse 规则发布被包括的文本。
+
+@c (FlyZhyGG)If "nil", do not mark up the included text at all.
+如果是“nil”，那么根本不标记被包括的文本。
+
+@c (FlyZhyGG)If "example", treat the included text as if it was surrounded by the
+@c (FlyZhyGG)@verb{|<example>|} tag.
+如果是“example”，那么被包括的文本就象被 @verb{|<example>|} 标签包围那样
+被处理。
+
+@c (FlyZhyGG)If "verse", treat the included text as if it was surrounded by the
+@c (FlyZhyGG)@verb{|<verse>|} tag, to preserve newlines.
+如果是“verse”，那么被包括的文本就象被 @verb{|<verse>|} 标签包围那样被处理，
+保留其中的新行。
+
+@c (FlyZhyGG)Otherwise, it should be the name of a function to call after inserting
+@c (FlyZhyGG)the file with the buffer narrowed to the section inserted.
+否则，它应是插入文件后要调用的一个函数名，带有一个被限定在被插入区域的 buffer。
+
+@item <lisp>
+@c (FlyZhyGG)Evaluate the Emacs Lisp expressions between the initial and ending tags.
+@c (FlyZhyGG)The result is then inserted into the document, so you do not need to
+@c (FlyZhyGG)explicitly call @code{insert}.  All text properties are removed from the
+@c (FlyZhyGG)resulting text.
+对该标签起始和结束部分的 Emacs Lisp 表达式赋值，然后结果被插入到文档中，
+因此你不必显式的调用 @code{insert}。结果文本中的所有文本属性被去掉。
+
+@c (FlyZhyGG)This tag takes the ``markup'' argument.  See the description of
+@c (FlyZhyGG)@verb{|<command>|} for details.
+这个标签带有“markup”参数，参见 @verb{|<command>|} 的描述查看细节。
+
+@item <literal>
+@c (FlyZhyGG)Make sure that the text enclosed by this tag is published without
+@c (FlyZhyGG)escaping it in any way.  This is useful for inserting markup directly
+@c (FlyZhyGG)into the published document, when Muse does not provide the desired
+@c (FlyZhyGG)functionality.
+确定此标签所包围的文本不会以任何方式被转义的形式被发布，当 Muse 没有提供
+期望的功能时，对于直接插入标记到所发布文档中非常有用。
+
+@item <markup>
+@c (FlyZhyGG)Mark up the text between the initial and ending tags.  The markup
+@c (FlyZhyGG)command to use may be specified by the ``function'' argument.  The
+@c (FlyZhyGG)standard Muse markup routines are used by default if no ``function''
+@c (FlyZhyGG)argument is provided.
+标记该标签起始到结束之间的文本。要使用的 markup 命令可以由“function”参数
+指定。如果没有提供“function”参数，默认情况下就使用标准的 Muse markup 规则。
+
+@c (FlyZhyGG)This is useful for marking up regions in headers and footers.  One
+@c (FlyZhyGG)example that comes to mind is generating a published index of all of the
+@c (FlyZhyGG)files in the current project by doing the following.
+这在页眉和页脚中标记区域时非常有用。记忆中的一个例子就是通过下面的操作生成
+一个当前项目下的所有文件的发布索引。
+
+@example
+<markup><lisp>(muse-index-as-string t t)</lisp></markup>
+@end example
+
+@item <perl>
+@c (FlyZhyGG)Run the @command{perl} language interpreter on the region, replacing the
+@c (FlyZhyGG)region with the result of the command.
+对一个区域执行 @command{perl} 语言解释器，用命令结果替代该区域。
+
+@c (FlyZhyGG)This tag takes the ``markup'' argument.  See the description of
+@c (FlyZhyGG)@verb{|<command>|} for details.
+这个标签带有“markup”参数，参见 @verb{|<command>|} 的描述查看细节。
+
+@item <python>
+@c (FlyZhyGG)Run the @command{python} language interpreter on the region, replacing
+@c (FlyZhyGG)the region with the result of the command.
+对一个区域执行 @command{python} 语言解释器，用命令结果替代该区域。
+
+@c (FlyZhyGG)This tag takes the ``markup'' argument.  See the description of
+@c (FlyZhyGG)@verb{|<command>|} for details.
+这个标签带有“markup”参数，参见 @verb{|<command>|} 的描述查看细节。
+
+@item <quote>
+@c (FlyZhyGG)Publish the region as a blockquote.  This will either be inserted
+@c (FlyZhyGG)in-place or at the beginning of the document, depending on your
+@c (FlyZhyGG)publishing style.  It does not have a delimiting tag.
+发布一个区域为一个引用块，依赖于你要发布的风格，它将被插入到适当的位置，
+或者在文档的开始。它没有一个定界标签。
+
+@item <ruby>
+@c (FlyZhyGG)Run the @command{ruby} language interpreter on the region, replacing the
+@c (FlyZhyGG)region with the result of the command.
+对一个区域执行 @command{ruby} 语言解释器，用命令结果替代该区域。
+
+@c (FlyZhyGG)This tag takes the ``markup'' argument.  See the description of
+@c (FlyZhyGG)@verb{|<command>|} for details.
+这个标签带有“markup”参数，参见 @verb{|<command>|} 的描述查看细节。
+
+@item <verbatim>
+@c (FlyZhyGG)This is used when you want to prevent Muse from trying to interpret some
+@c (FlyZhyGG)markup.  Surround the markup in @verb{|<verbatim>|} and
+@c (FlyZhyGG)@verb{|</verbatim>|}, and it will not be interpreted.
+当你想要禁止 Muse 试图解释一些标记时使用该标签，使用 @verb{|<verbatim>|} 和 
+@verb{|</verbatim>|} 包围标记，那么它将不会被解释。
+
+@c (FlyZhyGG)This tag was used often in previous versions of Muse because they did
+@c (FlyZhyGG)not support whole-document escaping of specials.  Now, it will only be
+@c (FlyZhyGG)needed for other tags, and perhaps footnotes as well.
+在前面的 Muse 版本中这个标签使用很频繁因为那些版本不支持整个文档的特殊转义。
+现在，这个标签仅仅为其他标签需要，或许在脚注中需要。
+
+@item <verse>
+@c (FlyZhyGG)Preserve the newlines in the region.  In formats like HTML, newlines are
+@c (FlyZhyGG)removed by default, hence the need for this tag.  In other publishing
+@c (FlyZhyGG)styles, this tag may cause the text to be indented slightly in a way
+@c (FlyZhyGG)that looks nice for poetry and prose.
+保留一个区域中的新行。在象 HTML 这样的格式中，新行被默认的去掉，因此需要
+这个标签。在其他的发布风格中，这个标签可能会使得文本略微缩进，这样对诗和
+散文而言，排版看起来更好看。
+
+@end table
+
+@node Publishing Styles, Extending Muse, Markup Rules, Top
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@chapter Publishing Various Types of Documents
+@chapter 发布不同类型的文档
+@cindex publishing styles
+
+@c (FlyZhyGG)One of the principle features of Muse is the ability to publish a simple
+@c (FlyZhyGG)input text to a variety of different output styles.  Muse also makes it
+@c (FlyZhyGG)easy to create new styles, or derive from an existing style.
+Muse 的一个基本特色是它能够把一个简单的输入文本发布成种种不同风格的输出。
+Muse 也使得创建一个新的风格或者从一个存在的风格中派生新风格变得容易。
+
+@menu
+@c (FlyZhyGG)* Blosxom::                     Integrating Muse and pyblosxom.cgi.
+* Blosxom::                      集成 Muse 和 pyblosxom.cgi。
+@c (FlyZhyGG)* Book::                        Publishing entries into a compilation.
+* Book::                         发布条目到编辑物。
+@c (FlyZhyGG)* DocBook::                     Publishing in DocBook XML form.
+* DocBook::                      以 DocBook XML 形式发布。
+@c (FlyZhyGG)* HTML::                        Publishing in HTML or XHTML form.
+* HTML::                         以 HTML 或者 XHTML 形式发布。
+@c (FlyZhyGG)* Journal::                     Keeping a journal or blog.
+* Journal::                      写日记或者博客。
+@c (FlyZhyGG)* LaTeX::                       Publishing LaTeX documents.
+* LaTeX::                        发布 LaTeX 文档。
+@c (FlyZhyGG)* Poem::                        Publish a poem to LaTex or PDF.
+* Poem::                         发布诗到 LaTeX 或者 PDF。
+@c (FlyZhyGG)* Texinfo::                     Publish entries to Texinfo format or PDF.
+* Texinfo::                      发布条目到 Texinfo 格式或者 PDF 。
+@end menu
+
+@node Blosxom, Book, Publishing Styles, Publishing Styles
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Integrating Muse and pyblosxom.cgi
+@section 集成 Muse 和 pyblosxom.cgi
+@cindex blog, one-file-per-entry style
+
+@c (FlyZhyGG)The Blosxom publishing style publishes a tree of categorised files to a
+@c (FlyZhyGG)mirrored tree of stories to be served by blosxom.cgi or pyblosxom.cgi.
+@c (FlyZhyGG)In other words, each blog entry corresponds with one file.
+Blosxom 发布格式发布一个归类文件树为一个文章的镜像树，并由 blosxom.cgi 或 
+pyblosxom.cgi 提供服务。换句话说，每个 blog 条目与一个文件相对应。
+
+@menu
+@c (FlyZhyGG)* Blosxom Requirements::        Other tools needed for the Blosxom style.
+* Blosxom Requirements::         Blosxom 风格需要的其他工具。
+@c (FlyZhyGG)* Blosxom Entries::             Format of a Blosxom entry and automation.
+* Blosxom Entries::              一个 Blosxom 条目的格式和自动操作。
+@c (FlyZhyGG)* Blosxom Options::             Blosxom styles and options provided.
+* Blosxom Options::              提供的 Blosxom 风格和选项。
+@end menu
+
+@node Blosxom Requirements, Blosxom Entries, Blosxom, Blosxom
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@subsection Other tools needed for the Blosxom style
+@subsection Blosxom 风格需要的其他工具
+
+@c (FlyZhyGG)You will need to have @command{pyblosxom.cgi} or @command{blosxom.cgi}
+@c (FlyZhyGG)installed on a machine that you have upload access to.
+你需要在一个你具有上传访问权限的机器上安装 @command{pyblosxom.cgi} 或 
+@command{blosxom.cgi}。
+
+@c (FlyZhyGG)The following additional components are required in order to make the
+@c (FlyZhyGG)date of blog entries display as something sensible.
+为了使得 blog 条目的日期能够合理的显示，下面这些额外的组件是必须的。
+
+@enumerate
+@item
+@c (FlyZhyGG)A script to gather date directives from the entire blog tree into a
+@c (FlyZhyGG)single file.  The file must associate a blog entry with a date.
+一个从整个 blog 树中聚合日期指令到一个单独文件的脚本，这个文件与带有日期
+的 blog 条目一定相关联。
+
+@item
+@c (FlyZhyGG)A plugin for (py)blosxom that reads this file.
+一个可以读这个文件的 （py）blosxom 插件。
+@end enumerate
+
+@c (FlyZhyGG)These 2 things are provided for @command{pyblosxom.cgi} in the
+@c (FlyZhyGG)@file{contrib/pyblosxom} subdirectory.  @file{getstamps.py} provides the
+@c (FlyZhyGG)former service, while @file{hardcodedates.py} provides the latter
+@c (FlyZhyGG)service.  Eventually it is hoped that a @command{blosxom.cgi} plugin and
+@c (FlyZhyGG)script will be found/written.
+在 @file{contrib/pyblosxom} 子目录中为 @command{pyblosxom.cgi} 提供这两个组件。
+@file{getstamps.py} 提供前面的服务，而 @file{hardcodedates.py} 提供后面的服务。
+最后期望找出或写出一个 @command{blosxom.cgi} 插件和脚本。
+
+@c (FlyZhyGG)Here is a sample listing from my @file{timestamps} file, which maps
+@c (FlyZhyGG)each file to a date.  This can really be in any format, as long as your
+@c (FlyZhyGG)date-gathering script and your plugin can both understand it.
+下面是在我的 @file{timestamps} 文件中的一个例子列表，其中每个文件与一个
+日期相对应。其实这可以是任意格式，只要你的日期聚合脚本和插件都能够解析。
+
+@example
+2005-04-01-14-16 personal/paper_cranes
+2005-03-21 personal/spring_break_over
+2004-10-24 personal/finished_free_culture
+@end example
+
+@c (FlyZhyGG)The script @file{contrib/pyblosxom/make-blog} demonstrates how to call
+@c (FlyZhyGG)@file{getstamps.py}.  Note that you will need to set the current
+@c (FlyZhyGG)directory to where your Muse files are, execute @file{getstamps.py}, and
+@c (FlyZhyGG)then move the generated timestamps file to your publishing directory.
+@file{contrib/pyblosxom/make-blog} 脚本示范了怎样调用 @file{getstamps.py}。
+注意你需要设置当前目录为你的 Muse 文件所在的目录，执行 @file{gestamps.py}，
+然后移动生成的时间戳文件到你的发布目录中。
+
+@node Blosxom Entries, Blosxom Options, Blosxom Requirements, Blosxom
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@subsection Format of a Blosxom entry and automation
+@subsection 一个 Blosxom 条目的格式和自动操作
+
+@c (FlyZhyGG)Each Blosxom file must include `#date yyyy-mm-dd', or optionally the
+@c (FlyZhyGG)longer `#date yyyy-mm-dd-hh-mm', a title (using the #title directive),
+@c (FlyZhyGG)plus whatever normal content is desired.
+每一个 Blosxom 文件必须包含 `#date yyyy-mm-dd' 或者可选的长格式 
+`#date yyyy-mm-dd-hh-mm'，一个题目（使用 #title 指令）加上任意内容的正文。
+
+@c (FlyZhyGG)The date directive is not used directly by @command{pyblosxom.cgi} or
+@c (FlyZhyGG)this program.  You need to have the two additional items from the former
+@c (FlyZhyGG)section to make use of this feature.
+日期指令不会直接由 @command{pyblosxom.cgi} 或者这个程序所使用。你需要有
+上一节中提到的那两个额外组件来使用这个特色。
+
+@c (FlyZhyGG)There is a function called @code{muse-blosxom-new-entry} that will
+@c (FlyZhyGG)automate the process of making a new blog entry.  To make use of it, do
+@c (FlyZhyGG)the following.
+有一个名为 @code{muse-blosxom-new-entry} 的函数可以使得生成一个新的 blog 条目
+的过程自动化。照下面所做来使用它。
+
+@itemize @bullet
+@item
+@c (FlyZhyGG)Customize @code{muse-blosxom-base-directory} to the location that your
+@c (FlyZhyGG)blog entries are stored.
+定制 @code{muse-blosxom-base-directory} 为你的 blog 条目存储的位置。
+
+@item
+@c (FlyZhyGG)Assign the @code{muse-blosxom-new-entry} function to a key sequence.  I
+@c (FlyZhyGG)use the following code to assign this function to @kbd{C-c p l'}.
+绑定 @code{muse-blosxom-new-entry} 函数到一个键序列。我使用下面的代码绑定这个
+函数到 @kbd{C-c p l'}。
+
+@example
+(global-set-key "\C-cpl" 'muse-blosxom-new-entry)
+@end example
+
+@item
+@c (FlyZhyGG)You should create your directory structure ahead of time under your base
+@c (FlyZhyGG)directory.  These directories, which correspond with category names, may
+@c (FlyZhyGG)be nested.
+你应该预先在你的基目录下创建目录结构。这些目录与分类名一致，并且可以嵌套。
+
+@item
+@c (FlyZhyGG)When you enter this key sequence, you will be prompted for the category
+@c (FlyZhyGG)of your entry and its title.  Upon entering this information, a new file
+@c (FlyZhyGG)will be created that corresponds with the title, but in lowercase
+@c (FlyZhyGG)letters and having special characters converted to underscores.  The
+@c (FlyZhyGG)title and date directives will be inserted automatically.
+当你输入这个键序列，你会被提示输入条目分类和题目。键入这些信息后，一个新
+文件被创建，这个文件名与输入的题目一致，但全部为小写字母并且特殊字符被转
+换为下划线。同时，题目和日期指令被自动插入。
+@end itemize
+
+@node Blosxom Options, , Blosxom Entries, Blosxom
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@subsection Blosxom styles and options provided
+@subsection 提供的 Blosxom 风格和选项
+
+@c (FlyZhyGG)The following styles and options are available in the Blosxom publishing
+@c (FlyZhyGG)style.
+在 Blosxom 发布风格中下面的风格和选项可用。
+
+@c (FlyZhyGG)@subheading Styles provided
+@subheading 提供的风格
+
+@table @code
+
+@cindex publishing styles, blosxom-html
+@item blosxom-html
+@c (FlyZhyGG)Publish Blosxom entries in HTML form.
+以 HTML 形式发布 Blosxom 条目。
+
+@cindex publishing styles, blosxom-xhtml
+@item blosxom-xhtml
+@c (FlyZhyGG)Publish Blosxom entries in XHTML form.
+以 XHTML 形式发布 Blosxom 条目。
+
+@end table
+
+@c (FlyZhyGG)@subheading Options provided
+@subheading 提供的选项
+
+@table @code
+
+@item muse-blosxom-extension
+@c (FlyZhyGG)Default file extension for publishing Blosxom files.
+发布 Blosxom 文件的默认扩展名。
+
+@item muse-blosxom-header
+@c (FlyZhyGG)Header used for publishing Blosxom files.
+发布 Blosxom 文件使用的页眉。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-blosxom-footer
+@c (FlyZhyGG)Footer used for publishing Blosxom files.
+发布 Blosxom 文件使用的页脚。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-blosxom-base-directory
+@c (FlyZhyGG)Base directory of blog entries, used by @code{muse-blosxom-new-entry}.
+blog 条目的基目录，被 @code{muse-blosxom-new-entry} 使用。
+
+@c (FlyZhyGG)This is the top-level directory where your blog entries may be found
+@c (FlyZhyGG)locally.
+这是你的 blog 条目本地能找到的顶层目录。
+
+@end table
+
+@node Book, DocBook, Blosxom, Publishing Styles
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Publishing entries into a compilation
+@section 发布条目到编辑物
+
+@c (FlyZhyGG)This publishing style is used to output ``books'' in LaTeX or PDF
+@c (FlyZhyGG)format.
+这个发布风格被用于输出 LaTeX 或者 PDF 格式的“书”。
+
+@c (FlyZhyGG)Each page will become a separate chapter in the book, unless the style
+@c (FlyZhyGG)keyword @option{:nochapters} is used, in which case they are all run
+@c (FlyZhyGG)together as if one giant chapter.
+如果不使用关键字 @option{:nochapters} 每一个页面将会成为书中一个独立的章，
+否则，它们就会象庞大的一章那样在一起。
+
+@c (FlyZhyGG)You will need to call the @code{muse-book-publish-project} function in
+@c (FlyZhyGG)order to publish this style.  An example of this may be found in John
+@c (FlyZhyGG)Wiegley's configuration file at @file{examples/johnw/muse-johnw.el}.
+为发布这种风格你需要调用 @code{muse-book-publish-project} 函数。在 John Wiegley 
+的配置文件 @file{examples/johnw/muse-johnw.el} 中可以找到这样的一个例子。
+
+@c (FlyZhyGG)@subheading Styles provided
+@subheading 提供的风格
+
+@table @code
+
+@cindex publishing styles, book-latex
+@item book-latex
+@c (FlyZhyGG)Publish a book in LaTeX form.  The header and footer are different than
+@c (FlyZhyGG)the normal LaTeX publishing mode.
+以 LaTeX 形式发布一本书。页眉和页脚与正常的 LaTeX 发布模式不同。
+
+@cindex publishing styles, book-pdf
+@item book-pdf
+@c (FlyZhyGG)Publish a book in PDF form.  The header and footer are different than
+@c (FlyZhyGG)the normal PDF publishing mode.
+以 PDF 形式发布一本书。页眉和页脚与正常的 PDF 发布模式不同。
+
+@end table
+
+@c (FlyZhyGG)@subheading Options provided
+@subheading 提供的选项
+
+@table @code
+
+@item muse-book-before-publish-hook
+@c (FlyZhyGG)A hook run in the book buffer before it is marked up.
+被标记前运行在书的 buffer 中的一个 hook。
+
+@item muse-book-after-publish-hook
+@c (FlyZhyGG)A hook run in the book buffer after it is marked up.
+被标记后运行在书的 buffer 中的一个 hook。
+
+@item muse-book-latex-header
+@c (FlyZhyGG)Header used for publishing books to LaTeX.
+发布书到 LaTeX 使用的页眉。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-book-latex-footer
+@c (FlyZhyGG)Footer used for publishing books to LaTeX.
+发布书到 LaTeX 使用的页脚。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@end table
+
+@node DocBook, HTML, Book, Publishing Styles
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Publishing in DocBook XML form
+@section 以 DocBook XML 形式发布
+
+@c (FlyZhyGG)This publishing style is used to generate DocBook XML files.
+这种发布风格被用于生成 DocBook XML 文件。
+
+@c (FlyZhyGG)@subheading Styles provided
+@subheading 提供的风格
+
+@table @code
+
+@cindex publishing styles, docbook
+@item docbook
+
+@end table
+
+@c (FlyZhyGG)@subheading Options provided
+@subheading 提供的选项
+
+@table @code
+
+@item muse-docbook-extension
+@c (FlyZhyGG)Default file extension for publishing DocBook XML files.
+发布 DocBook XML 文件的默认扩展名。
+
+@item muse-docbook-header
+@c (FlyZhyGG)Header used for publishing DocBook XML files.
+发布 DocBook XML 文件使用的页眉。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-docbook-footer
+@c (FlyZhyGG)Footer used for publishing DocBook XML files.
+发布 DocBook XML 文件使用的页脚。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-docbook-markup-regexps
+@c (FlyZhyGG)List of markup rules for publishing a Muse page to DocBook XML.
+发布一个 Muse 页面到 DocBook XML 的标记规则表。
+
+@item muse-docbook-markup-functions
+@c (FlyZhyGG)An alist of style types to custom functions for that kind of text.
+为该风格文本定制函数的风格样式列表。
+
+@item muse-docbook-markup-strings
+@c (FlyZhyGG)Strings used for marking up text.
+标记文本使用的字符串。
+
+@c (FlyZhyGG)These cover the most basic kinds of markup, the handling of which
+@c (FlyZhyGG)differs little between the various styles.
+这些字符串涵盖最基本的标记类，它们在各种风格之间的操作差别很小。
+
+@item muse-docbook-markup-specials
+@c (FlyZhyGG)A table of characters which must be represented specially.
+必须被特殊表示的字符列表。
+
+@item muse-docbook-encoding-default
+@c (FlyZhyGG)The default Emacs buffer encoding to use in published files.
+@c (FlyZhyGG)This will be used if no special characters are found.
+在发布文件中使用的默认 Emacs buffer 编码。如果没有发现特殊字符，该选项将
+被使用。
+
+@item muse-docbook-charset-default
+@c (FlyZhyGG)The default DocBook XML charset to use if no translation is
+@c (FlyZhyGG)found in @code{muse-docbook-encoding-map}.
+在 @code{muse-docbook-encoding-map} 中如果没有找到转换，使用默认的 DocBook XML 
+字符集。
+
+@item muse-docbook-encoding-map
+@c (FlyZhyGG)An alist mapping emacs coding systems to appropriate DocBook charsets.
+@c (FlyZhyGG)Use the base name of the coding system (i.e. without the -unix).
+映射 emacs 编码系统到合适 DocBook 字符集的一个列表。使用编码系统的基名
+（例如，没有 -unix）。
+
+@end table
+
+@node HTML, Journal, DocBook, Publishing Styles
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Publishing in HTML or XHTML form
+@section 以 HTML 或者 XHTML 形式发布
+
+@c (FlyZhyGG)This publishing style is capable of producing HTML or XHTML documents.
+这种发布风格能够生成 HTML 或 XHTML 文档。
+
+@c (FlyZhyGG)@subheading Styles provided
+@subheading 提供的风格
+
+@table @code
+
+@cindex publishing styles, html
+@item html
+@c (FlyZhyGG)Supports publishing to HTML 4.0 and HTML 4.01, Strict or Transitional.
+支持发布 Strict 或 Transitional 的 HTML 4.0 和 HTML 4.01。
+
+@item xhtml
+@c (FlyZhyGG)Supports publishing to XHTML 1.0 and XHTML 1.1, Strict or Transitional.
+支持发布 Strict 或 Transitional 的 XHTML 1.0 和 XHTML 1.1。
+
+@end table
+
+@c (FlyZhyGG)@subheading Options provided
+@subheading 提供的选项
+
+@c (FlyZhyGG)If an HTML option does not have a corresponding XHTML option, it will
+@c (FlyZhyGG)be used for both of these publishing styles.
+如果一个 HTML 选项没有一个相应的 XHTML 选项，它将被用于这两种发布风格。
+
+@table @code
+
+@item muse-html-extension
+@c (FlyZhyGG)Default file extension for publishing HTML files.
+发布 HTML 文件默认的扩展名。
+
+@item muse-xhtml-extension
+@c (FlyZhyGG)Default file extension for publishing XHTML files.
+发布 XHTML 文件默认的扩展名。
+
+@item muse-html-style-sheet
+@c (FlyZhyGG)Store your stylesheet definitions here.
+在这里存储你的样式表定义。
+
+@c (FlyZhyGG)This is used in @code{muse-html-header}.  You can put raw CSS in here or
+@c (FlyZhyGG)a @verb{|<link>|} tag to an external stylesheet.  This text may contain
+@c (FlyZhyGG)@verb{|<lisp>|} markup tags.
+这被用于 @code{muse-html-header}。你可以在这里放置原始的 CSS 或者放置一个
+@verb{|<link>|} 标签链接到一个外部的样式表。文本中可以包含 @verb{|<lisp>|} 
+标记的标签。
+
+@c (FlyZhyGG)If you are using XHTML, make sure to close the @verb{|<link>|} tag
+@c (FlyZhyGG)properly.
+如果你使用 XHTML，确保适当地关闭了 @verb{|<link>|} 标签。
+
+@item muse-html-header
+@c (FlyZhyGG)Header used for publishing HTML files.
+发布 HTML 文件使用的页眉。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-html-footer
+@c (FlyZhyGG)Footer used for publishing HTML files.
+发布 HTML 文件使用的页脚。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-xhtml-header
+@c (FlyZhyGG)Header used for publishing XHTML files.
+发布 XHTML 文件使用的页眉。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-xhtml-footer
+@c (FlyZhyGG)Footer used for publishing XHTML files.
+发布 XHTML 文件使用的页脚。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-html-anchor-on-word
+@c (FlyZhyGG)When true, anchors surround the closest word.
+如果该选项为真，锚包围最靠近的单词。
+
+@c (FlyZhyGG)This allows you to select them in a browser (i.e. for pasting), but has
+@c (FlyZhyGG)the side-effect of marking up headers in multiple colors if your header
+@c (FlyZhyGG)style is different from your link style.
+这允许你在一个浏览器中选择它们（比如，for pasting），但如果你的页眉风格和
+你的链接风格不同就会产生以多种颜色标记页眉的副面效果。
+
+@item muse-html-table-attributes
+@c (FlyZhyGG)The attribute to be used with HTML @verb{|<table>|} tags.
+HTML 的 @verb{|<table>|} 标签所使用的属性。
+
+@c (FlyZhyGG)If you want to make more-complicated tables in HTML, surround the HTML
+@c (FlyZhyGG)with the @verb{|literal|} tag, so that it does not get escaped.
+如果你想要在 HTML 中制作更加复杂的表格，用 @verb{|literal|} 标签包围 HTML 
+代码，这样它们就不会被转义。
+
+@item muse-html-markup-regexps
+@c (FlyZhyGG)List of markup rules for publishing a Muse page to HTML.
+发布一个 Muse 页面到 HTML 的标记规则表。
+
+@item muse-html-markup-functions
+@c (FlyZhyGG)An alist of style types to custom functions for that kind of text.
+为该风格文本定制函数的风格样式列表。
+
+@item muse-html-markup-strings
+@c (FlyZhyGG)Strings used for marking up text as HTML.
+HTML 标记文本使用的字符串。
+
+@c (FlyZhyGG)These cover the most basic kinds of markup, the handling of which
+@c (FlyZhyGG)differs little between the various styles.
+这些字符串涵盖最基本的标记类，它们在各种风格之间的操作差别很小。
+
+@item muse-xhtml-markup-strings
+@c (FlyZhyGG)Strings used for marking up text as XHTML.
+XHTML 标记文本使用的字符串。
+
+@c (FlyZhyGG)These cover the most basic kinds of markup, the handling of which
+@c (FlyZhyGG)differs little between the various styles.
+这些字符串涵盖最基本的标记类，它们在各种风格之间的操作差别很小。
+
+@item muse-html-markup-tags
+@c (FlyZhyGG)A list of tag specifications, for specially marking up HTML.
+@c (FlyZhyGG)@xref{muse-publish-markup-tags}, for more information.
+特别地标记 HTML 的标签详表。@xref{muse-publish-markup-tags} 获取更多信息。
+
+@item muse-html-markup-specials
+@c (FlyZhyGG)A table of characters which must be represented specially.  By default,
+@c (FlyZhyGG)this includes @samp{"}, @samp{<}, @samp{>}, and @samp{&}.
+必须被特别表示的字符表。默认情况下包括 @samp{"}，@samp{<}，@samp{>} 和 @samp{&}。
+
+@item muse-html-meta-http-equiv
+@c (FlyZhyGG)The http-equiv attribute used for the HTML @verb{|<meta>|} tag.
+HTML @verb{|<meta>|} 标签使用的 http-equiv 属性。
+
+@item muse-html-meta-content-type
+@c (FlyZhyGG)The content type used for the HTML @verb{|<meta>|} tag.
+HTML @verb{|<meta>|} 标签使用的内容类型。
+
+@c (FlyZhyGG)If you are striving for XHTML 1.1 compliance, you may want to change
+@c (FlyZhyGG)this to ``application/xhtml+xml''.
+如果你正在努力遵守 XHTML 1.1 标准，修改这个选项为 “application/xhtml+xml”。
+
+@item muse-html-meta-content-encoding
+@c (FlyZhyGG)The charset to append to the HTML @verb{|<meta>|} tag.
+添加到 HTML @verb{|<meta>|} 标签中的字符集。
+
+@c (FlyZhyGG)If set to the symbol 'detect, use @code{muse-html-encoding-map} to try
+@c (FlyZhyGG)and determine the HTML charset from emacs's coding.  If set to a string,
+@c (FlyZhyGG)this string will be used to force a particular charset.
+如果设置该选项为符号 'detect，就使用 @code{muse-html-encoding-map} 从 emacs 的
+编码中试图并决定 HTML 的字符集；如果设置该选项为一个字符串，就会强制使用
+这个字符串作为特定的字符集。
+
+@item muse-html-charset-default
+@c (FlyZhyGG)The default HTML meta charset to use if no translation is found in
+@c (FlyZhyGG)@code{muse-html-encoding-map}.
+如果在 @code{muse-html-encoding-map} 中没有找到转换，使用默认的 HTML meta 字符。
+
+@item muse-html-encoding-default
+@c (FlyZhyGG)The default Emacs buffer encoding to use in published files.
+@c (FlyZhyGG)This will be used if no special characters are found.
+在发布的文件中使用默认的 Emacs buffer 编码。如果没有发现特殊字符，该选项将
+被使用。
+
+@item muse-html-encoding-map
+@c (FlyZhyGG)An alist mapping emacs coding systems to appropriate HTML charsets.
+@c (FlyZhyGG)Use the base name of the coding system (i.e. without the -unix).
+映射 emacs 编码系统到合适 DocBook 字符集的一个列表。使用编码系统的基名
+（例如，没有 -unix）。
+
+@end table
+
+@node Journal, LaTeX, HTML, Publishing Styles
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Keeping a journal or blog
+@section 写日记或者博客
+@cindex journal
+@cindex blog, journal style
+
+@c (FlyZhyGG)The module facilitates the keeping and publication of a journal.  When
+@c (FlyZhyGG)publishing to HTML, it assumes the form of a web log, or blog.
+这个模块便于日志的撰写和发布，当发布成 HTML 时，它假定以网络日志或者博客
+的形式发布。
+
+@c (FlyZhyGG)The input format for each entry is as follows.
+下面是每一个条目的输入格式。
+
+@example
+* 20040317: Title of entry
+
+text for the entry.
+
+<qotd>
+"You know who you are. It comes down to a simple gut check: You
+either love what you do or you don't. Period." -- P. Bronson
+</qotd>
+@end example
+
+@c (FlyZhyGG)The "qotd", or Quote of the Day, is entirely optional.  When generated
+@c (FlyZhyGG)to HTML, this entry is rendered as the following.
+“quod”部分或者说当天的引述，完全是可选的。生成 HTML 后这个条目会产生
+下面的输出。
+
+@example
+<div class="entry">
+  <div class="entry-qotd">
+    <h3>Quote of the Day:</h3>
+    <p>"You know who you are. It comes down to a simple gut
+      check: You either love what you do or you don't. Period."
+      -- P. Bronson</p>
+  </div>
+  <div class="entry-body">
+    <div class="entry-head">
+      <div class="entry-date">
+        <span class="date">March 17, 2004</span>
+      </div>
+      <div class="entry-title">
+        <h2>Title of entry</h2>
+      </div>
+    </div>
+    <div class="entry-text">
+      <p>Text for the entry.</p>
+    </div>
+  </div>
+</div>
+@end example
+
+@c (FlyZhyGG)The plurality of "div" tags makes it possible to display the entries in
+@c (FlyZhyGG)any form you wish, using a CSS style.
+大量的“div”标签使得以任意你想要的形式显示条目成为可能，这使用了一个 CSS 
+设计。
+
+@c (FlyZhyGG)Also, an .RDF file can be generated from your journal by publishing it
+@c (FlyZhyGG)with the "rdf" style.  It uses the first two sentences of the first
+@c (FlyZhyGG)paragraph of each entry as its "description", and auto-generates tags
+@c (FlyZhyGG)for linking to the various entries.
+而且，通过发布你的日志为“.rdf”风格，一个 .RDF 文件就可以被生成。它使用
+每个条目的第一段的前两句话作为它的“描述”，并自动生成链接到各个条目的
+标签。
+
+@c (FlyZhyGG)@subheading Styles provided
+@subheading 提供的风格
+
+@table @code
+
+@cindex publishing styles, journal-html
+@item journal-html
+@c (FlyZhyGG)Publish journal entries as an HTML document.
+发布日志条目为一个 HTML 文档。
+
+@cindex publishing styles, journal-xhtml
+@item journal-xhtml
+@c (FlyZhyGG)Publish journal entries as an XHTML document.
+发布日志条目为一个 XHTML 文档。
+
+@cindex publishing styles, journal-latex
+@item journal-latex
+@c (FlyZhyGG)Publish journal entries as a LaTeX document.
+发布日志条目为一个 LaTeX 文档。
+
+@cindex publishing styles, journal-pdf
+@item journal-pdf
+@c (FlyZhyGG)Publish journal entries as a PDF document.
+发布日志条目为一个 PDF 文档。
+
+@cindex publishing styles, journal-book-latex
+@item journal-book-latex
+@c (FlyZhyGG)Publish journal entries as a LaTeX book.
+发布日志条目为一个 LaTeX 书。
+
+@cindex publishing styles, journal-book-pdf
+@item journal-book-pdf
+@c (FlyZhyGG)Publish journal entries as a PDF book.
+发布日志条目为一个 PDF 书。
+
+@cindex publishing styles, journal-rdf
+@cindex publishing styles, RSS 1.0
+@item journal-rdf
+@c (FlyZhyGG)Publish journal entries as an RDF file (RSS 1.0).
+发布日志条目为一个 RDF 文件 （RSS 1.0）。
+
+@cindex publishing styles, journal-rss
+@cindex publishing styles, RSS 2.0
+@item journal-rss
+@c (FlyZhyGG)Publish journal entries as an RSS file (RSS 2.0).
+发布日志条目为一个 RSS 文件 （RSS 2.0）。
+
+@end table
+
+@c (FlyZhyGG)@subheading Options provided
+@subheading 提供的选项
+
+@table @code
+
+@item muse-journal-heading-regexp
+@c (FlyZhyGG)A regexp that matches a journal heading.
+匹配日志标题的正则表达式。
+
+@c (FlyZhyGG)Paren group 1 is the ISO date, group 2 is the optional category, and
+@c (FlyZhyGG)group 3 is the optional heading for the entry.
+父组 1 是 ISO 日期，父组 2 是可选的分类，父组 3 是条目可选的标题。
+
+@item muse-journal-date-format
+@c (FlyZhyGG)Date format to use for journal entries.
+日志条目使用的日期格式。
+
+@item muse-journal-html-heading-regexp
+@c (FlyZhyGG)A regexp that matches a journal heading from an HTML document.
+一个 HTML 文档中匹配日志标题的正则表达式。
+
+@c (FlyZhyGG)Paren group 1 is the ISO date, group 2 is the optional category, and
+@c (FlyZhyGG)group 3 is the optional heading for the entry.
+父组 1 是 ISO 日期，父组 2 是可选的分类，父组 3 是条目可选的标题。
+
+@item muse-journal-html-entry-template
+@c (FlyZhyGG)Template used to publish individual journal entries as HTML.
+以 HTML 格式发布个人日志条目使用的模板。
+
+@item muse-journal-latex-section
+@c (FlyZhyGG)Template used to publish a LaTeX section.
+发布一个 LaTeX 节（section）使用的模板。
+
+@item muse-journal-latex-subsection
+@c (FlyZhyGG)Template used to publish a LaTeX subsection.
+发布一个 LaTeX 子节（subsection）使用的模板。
+
+@item muse-journal-latex-markup-tags
+@c (FlyZhyGG)A list of tag specifications, for specially marking up LaTeX.
+一个专门标记 LaTeX 的标签详表。
+
+@c (FlyZhyGG)@xref{muse-publish-markup-tags}, for more information.
+@xref{muse-publish-markup-tags} 获取更多信息。
+
+@item muse-journal-rdf-extension
+@c (FlyZhyGG)Default file extension for publishing RDF (RSS 1.0) files.
+发布 RDF （RSS 1.0）文件默认的扩展名。
+
+@item muse-journal-rdf-base-url
+@c (FlyZhyGG)The base URL of the website referenced by the RDF file.
+RDF 文件引用的网站基本 URL。
+
+@item muse-journal-rdf-header
+@c (FlyZhyGG)Header used for publishing RDF (RSS 1.0) files.
+发布 RDF （RSS 1.0）文件使用的页眉。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-journal-rdf-footer
+@c (FlyZhyGG)Footer used for publishing RDF (RSS 1.0) files.
+发布 RDF （RSS 1.0）文件使用的页脚。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-journal-rdf-date-format
+@c (FlyZhyGG)Date format to use for RDF entries.
+RDF 条目使用的日期格式。
+
+@item muse-journal-rdf-entry-template
+@c (FlyZhyGG)Template used to publish individual journal entries as RDF.
+以 RDF 格式发布个人日志条目使用的模板。
+
+@item muse-journal-rdf-summarize-entries
+@c (FlyZhyGG)If non-nil, include only summaries in the RDF file, not the full data.
+如果该选项非空，那么在 RDF 文件中仅仅包括摘要，而不是全部数据。
+
+@item muse-journal-rss-extension
+@c (FlyZhyGG)Default file extension for publishing RSS 2.0 files.
+发布 RSS 2.0 文件默认的扩展名。
+
+@item muse-journal-rss-base-url
+@c (FlyZhyGG)The base URL of the website referenced by the RSS file.
+RSS 文件引用的网站基本 URL。
+
+@item muse-journal-rss-header
+@c (FlyZhyGG)Header used for publishing RSS 2.0 files.
+发布 RSS 2.0 文件使用的页眉。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-journal-rss-footer
+@c (FlyZhyGG)Footer used for publishing RSS 2.0 files.
+发布 RSS 2.0 文件使用的页脚。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-journal-rss-date-format
+@c (FlyZhyGG)Date format to use for RSS 2.0 entries.
+RSS 2.0 条目使用的日期格式。
+
+@item muse-journal-rss-entry-template
+@c (FlyZhyGG)Template used to publish individual journal entries as RSS 2.0.
+以 RSS 2.0 格式发布个人日志条目使用的模板。
+
+@item muse-journal-rss-enclosure-types-alist
+@c (FlyZhyGG)File types that are accepted as RSS enclosures.
+RSS 附件所认可的文件类型。
+
+@c (FlyZhyGG)This is an alist that maps file extension to content type.
+这是一个映射文件扩展名到内容类型的列表。
+
+@c (FlyZhyGG)Useful for podcasting.
+这对于 podcasting 来说很有用。（podcasting 是一种网络录音或者类似的网络音讯软件）
+
+@item muse-journal-rss-summarize-entries
+@c (FlyZhyGG)If non-nil, include only summaries in the RSS file, not the full data.
+如果该选项非空，那么在 RSS 文件中仅仅包括摘要，而不是全部数据。
+
+@c (FlyZhyGG)Many RSS subscribers find this annoying.
+很多 RSS 订阅者感觉这个功能令人讨厌。
+
+@item muse-journal-rss-markup-regexps
+@c (FlyZhyGG)List of markup rules for publishing a Muse journal page to RSS.
+发布一个 Muse 日志页面为 RSS 的标记规则表。
+
+@c (FlyZhyGG)For more information on the structure of this list,
+@c (FlyZhyGG)@xref{muse-publish-markup-regexps}.
+关于这个列表构成的更多信息，@xref{muse-publish-markup-regexps}。
+
+@item muse-journal-rss-markup-functions
+@c (FlyZhyGG)An alist of style types to custom functions for that kind of text.
+为该风格文本定制函数的风格样式列表。
+
+@c (FlyZhyGG)For more on the structure of this list,
+@c (FlyZhyGG)@xref{muse-publish-markup-functions}.
+关于这个列表构成的更多信息，@xref{muse-publish-markup-functions}。
+
+@end table
+
+@node LaTeX, Poem, Journal, Publishing Styles
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Publishing LaTeX documents
+@section 发布 LaTeX 文档
+
+@c (FlyZhyGG)This publishing style is capable of producing LaTeX or PDF documents.
+这个发布风格可以生成 LaTeX 或者 PDF 文档。
+
+@c (FlyZhyGG)If you wish to publish PDF documents, you will need to have a good TeX
+@c (FlyZhyGG)installation.  For Debian and Ubuntu, this can be accomplished by
+@c (FlyZhyGG)installing the ``tetex-bin'' and ``tetex-extra'' packages.  TeX fonts
+@c (FlyZhyGG)are also a must.
+如果你想要发布 PDF 文档，你需要有一个安装好的 TeX。对于 Debian 和 Ubuntu 
+可以安装“tetex-bin”和“tetex-extra”包。TeX 字体也是必须的。
+
+@c (FlyZhyGG)@subheading Styles provided
+@subheading 提供的风格
+
+@table @code
+
+@cindex publishing styles, latex
+@item latex
+@c (FlyZhyGG)Publish a LaTeX document.
+发布一个 LaTeX 文档。
+
+@cindex publishing styles, pdf
+@item pdf
+@c (FlyZhyGG)Publish a PDF document, using an external LaTeX document conversion
+@c (FlyZhyGG)tool.
+使用一个外部的 LaTeX 文档转换工具，发布一个 PDF 文档。
+
+@cindex publishing styles, latexcjk
+@item latexcjk
+@c (FlyZhyGG)Publish a LaTeX document with CJK (Chinese) encodings.
+发布一个 CJK（中文）编码的 LaTeX 文档。
+
+@cindex publishing styles, pdfcjk
+@item pdfcjk
+@c (FlyZhyGG)Publish a PDF document with CJK (Chinese) encodings, using an external
+@c (FlyZhyGG)LaTeX document conversion tool.
+使用一个外部的 LaTeX 文档转换工具，发布一个 CJK（中文）编码的 PDF 文档。
+
+@end table
+
+@c (FlyZhyGG)@subheading Options provided
+@subheading 提供的选项
+
+@table @code
+
+@item muse-latex-extension
+@c (FlyZhyGG)Default file extension for publishing LaTeX files.
+发布 LaTeX 文件默认的扩展名。
+
+@item muse-latex-pdf-extension
+@c (FlyZhyGG)Default file extension for publishing LaTeX files to PDF.
+发布 LaTeX 文件到 PDF 默认的扩展名。
+
+@item muse-latex-header
+@c (FlyZhyGG)Header used for publishing LaTeX files.
+发布 LaTeX 文件使用的页眉。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-latex-footer
+@c (FlyZhyGG)Footer used for publishing LaTeX files.
+发布 LaTeX 文件使用的页脚。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-latexcjk-header
+@c (FlyZhyGG)Header used for publishing LaTeX files (CJK).
+发布 LaTeX 文件（CJK）使用的页眉。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-latexcjk-footer
+@c (FlyZhyGG)Footer used for publishing LaTeX files (CJK).
+发布 LaTeX 文件（CJK）使用的页脚。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-latex-markup-regexps
+@c (FlyZhyGG)List of markup regexps for identifying regions in a Muse page.
+在一个 Muse 页面中用来识别区域的标记正则表达式表。
+
+@c (FlyZhyGG)For more on the structure of this list,
+@c (FlyZhyGG)@xref{muse-publish-markup-regexps}.
+关于这个列表构成的更多信息，@xref{muse-publish-markup-regexps}。
+
+@item muse-latex-markup-functions
+@c (FlyZhyGG)An alist of style types to custom functions for that kind of text.
+为该风格文本定制函数的风格样式列表。
+
+@c (FlyZhyGG)For more on the structure of this list,
+@c (FlyZhyGG)@xref{muse-publish-markup-functions}.
+关于这个列表构成的更多信息，@xref{muse-publish-markup-functions}。
+
+@item muse-latex-markup-strings
+@c (FlyZhyGG)Strings used for marking up text.
+标记文本使用的字符串。
+
+@c (FlyZhyGG)These cover the most basic kinds of markup, the handling of which
+@c (FlyZhyGG)differs little between the various styles.
+这些字符串涵盖最基本的标记类，它们在各种风格之间的操作差别很小。
+
+@item muse-latexcjk-encoding-map
+@c (FlyZhyGG)An alist mapping emacs coding systems to appropriate CJK codings.
+@c (FlyZhyGG)Use the base name of the coding system (ie, without the -unix).
+映射 emacs 编码系统到合适 CJK 编码的一个列表。使用编码系统的基名（例如，
+没有 -unix）。
+
+@item muse-latexcjk-encoding-default
+@c (FlyZhyGG)The default Emacs buffer encoding to use in published files.
+在发布文件中使用默认的 Emacs buffer 编码。
+
+@c (FlyZhyGG)This will be used if no special characters are found.
+如果没有发现特殊字符，该选项将被使用。
+
+@item muse-latex-markup-specials-example
+@c (FlyZhyGG)A table of characters which must be represented specially.
+@c (FlyZhyGG)These are applied to @verb{|example>|} regions.
+必须被特殊表示的字符列表，用于 @verb{|example|} 区域。
+
+@c (FlyZhyGG)With the default interpretation of @verb{|<example>|} regions, no
+@c (FlyZhyGG)specials need to be escaped.
+在 @verb{|<example>|} 区域的缺省解释下，没有需要被转义的特别字符。
+
+@item muse-latex-markup-specials-document
+@c (FlyZhyGG)A table of characters which must be represented specially.
+@c (FlyZhyGG)These are applied to the entire document, sans already-escaped
+@c (FlyZhyGG)regions.
+必须被特殊表示的字符列表，用于整个文档中（除去已经被转义的区域）。
+
+@item muse-latex-markup-specials-literal
+@c (FlyZhyGG)A table of characters which must be represented specially.
+@c (FlyZhyGG)This applies to =monospaced text= and @verb{|<code>|} regions.
+必须被特殊表示的字符列表，用于 =monospaced text= 和 @verb{|<code>|} 区域。
+
+@item muse-latex-markup-specials-url
+@c (FlyZhyGG)A table of characters which must be represented specially.
+@c (FlyZhyGG)These are applied to URLs.
+必须被特殊表示的字符列表，用于 URL。
+
+@item muse-latex-permit-contents-tag
+@c (FlyZhyGG)If nil, ignore @verb{|<contents>|} tags.  Otherwise, insert table of
+@c (FlyZhyGG)contents.
+如果该选项为空，省略 @verb{|<contents>|} 标签；否则，插入目录。
+
+@c (FlyZhyGG)Most of the time, it is best to have a table of contents on the
+@c (FlyZhyGG)first page, with a new page immediately following.  To make this
+@c (FlyZhyGG)work with documents published in both HTML and LaTeX, we need to
+@c (FlyZhyGG)ignore the @verb{|<contents>|} tag.
+大多数时候，最好在第一页有一个目录，紧跟其后一个新页。为了让这个设置在
+发布到 HTML 和 LaTeX 文档时都能够工作，我们需要省略 @verb{|<contents>|} 标签。
+
+@c (FlyZhyGG)If you don't agree with this, then set this option to non-nil,
+@c (FlyZhyGG)and it will do what you expect.
+如果你不赞成这样，那么设置这个选项非空，你就会得到你所期望的了。
+
+@end table
+
+@node Poem, Texinfo, LaTeX, Publishing Styles
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Publish a poem to LaTex or PDF
+@section 发布诗到 LaTeX 或 PDF
+
+@c (FlyZhyGG)The @code{muse-poem} module makes it easy to attractively publish and
+@c (FlyZhyGG)reference poems in the following format, using the "memoir" module for
+@c (FlyZhyGG)LaTeX publishing.  It will also markup poems for every other output
+@c (FlyZhyGG)style, though none are nearly as pretty.
+@c (ConfusedByFlyZhyGG)
+@code{muse-poem} 模块使得以下面的格式发布和引用诗变得简单，使用“memoir”
+模块发布 LaTeX。它也可以为每个其他输出风格标记诗章，尽管没有一个能象下面
+的这样漂亮。
+
+@example
+Title
+
+
+Body of poem
+
+
+Annotations, history, notes, etc.
+@end example
+
+@c (FlyZhyGG)Once a poem is written in this format, just publish it to PDF using the
+@c (FlyZhyGG)@code{poem-pdf} style.  To make an inlined reference to a poem that
+@c (FlyZhyGG)you've written -- for example, from a blog page -- there is a "poem" tag
+@c (FlyZhyGG)defined by this module.
+一旦以这种格式写作一首诗，就可以使用 @code{poem-pdf} 风格来发布成 PDF。
+用这个模块定义的“poem”标签为你写的诗做一个内部引用（比如，从一个 
+blog 页面）。
+
+@example
+<poem title="name.of.poem.page">
+@end example
+
+@c (FlyZhyGG)Let's assume the template above was called @file{name.of.poem.page};
+@c (FlyZhyGG)then the above tag would result in this inclusion.
+我们假设上面的那个模板被命名为 @file{name.of.poem.page}，那么上面的这个
+标签就会产生下面的内容。
+
+@example
+** Title
+
+> Body of poem
+@end example
+
+@c (FlyZhyGG)John Wiegley uses this module for publishing all of the poems on his
+@c (FlyZhyGG)website, which are at
+@c (FlyZhyGG)@uref{http://www.newartisans.com/johnw/poems.html}.
+John Wiegley 使用这个模块来发布他的网站 @uref{http://www.newartisans.com/johnw/poems.html}
+上的所有的诗。
+
+@c (FlyZhyGG)@subheading Styles provided
+@subheading 提供的风格
+
+@table @code
+
+@cindex publishing styles, poem-latex
+@item poem-latex
+@c (FlyZhyGG)Publish a poem in LaTeX form.
+以 LaTeX 形式发布一首诗。
+
+@cindex publishing styles, poem-pdf
+@item poem-pdf
+@c (FlyZhyGG)Publish a poem to a PDF document.
+发布一首诗到一个 PDF 文档。
+
+@cindex publishing styles, chapbook-latex
+@item chapbook-latex
+@c (FlyZhyGG)Publish a book of poems in LaTeX form.
+以 LaTeX 形式发布一本诗集。
+
+@cindex publishing styles, chapbook-pdf
+@item chapbook-pdf
+@c (FlyZhyGG)Publish a book of poems to a PDF document.
+发布一本诗集到一个 PDF 文档。
+
+@end table
+
+@c (FlyZhyGG)@subheading Options provided
+@subheading 提供的选项
+
+@table @code
+
+@item muse-poem-latex-header
+@c (FlyZhyGG)Header used for publishing LaTeX poems.
+发布 LaTeX 诗使用的页眉。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-poem-latex-footer
+@c (FlyZhyGG)Footer used for publishing LaTeX files.
+发布 LaTeX 文件使用的页脚。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-poem-markup-strings
+@c (FlyZhyGG)Strings used for marking up poems.
+标记诗使用的字符串。
+
+@c (FlyZhyGG)These cover the most basic kinds of markup, the handling of which
+@c (FlyZhyGG)differs little between the various styles.
+这些字符串涵盖最基本的标记类，它们在各种风格之间的操作差别很小。
+
+@item muse-chapbook-latex-header
+@c (FlyZhyGG)Header used for publishing a book of poems in LaTeX form.
+以 LaTeX 形式发布一本诗集使用的页眉。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-chapbook-latex-footer
+@c (FlyZhyGG)Footer used for publishing a book of poems in LaTeX form.
+以 LaTeX 形式发布一本诗集使用的页脚。
+
+@c (FlyZhyGG)This may be text or a filename.
+这可以是文本或者一个文件名。
+
+@item muse-poem-chapbook-strings
+@c (FlyZhyGG)Strings used for marking up books of poems.
+标记诗集使用的字符串。
+
+@c (FlyZhyGG)These cover the most basic kinds of markup, the handling of which
+@c (FlyZhyGG)differs little between the various styles.
+这些字符串涵盖最基本的标记类，它们在各种风格之间的操作差别很小。
+
+@end table
+
+@node Texinfo, , Poem, Publishing Styles
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Publish entries to Texinfo format or PDF
+@section 发布条目到 Texinfo 格式或者 PDF
+
+@c (FlyZhyGG)Rules for publishing a Muse file as a Texinfo article.
+发布一个 Muse 文件为一个 Texinfo 文章的规则。
+
+@c (FlyZhyGG)@subheading Styles provided
+@subheading 提供的风格
+
+@table @code
+
+@cindex publishing styles, texi
+@item texi
+@c (FlyZhyGG)Publish a file in Texinfo form.
+以 Texinfo 形式发布一个文件。
+
+@cindex publishing styles, texi
+@item info
+@c (FlyZhyGG)Generate an Info file from a Muse file.
+由一个 Muse 文件生成一个 Info 文件。
+
+@cindex publishing styles, info-pdf
+@item info-pdf
+@c (FlyZhyGG)Publish a file in PDF form.
+以 PDF 形式发布一个文件。
+
+@end table
+
+@c (FlyZhyGG)@subheading Options provided
+@subheading 提供的选项
+
+@table @code
+
+@item muse-texinfo-process-natively
+@c (FlyZhyGG)If non-nil, use the Emacs `texinfmt' module to make Info files.
+如果该选项非空，使用 Emacs 的 'texinfmt' 模块生成 Info 文件。
+
+@item muse-texinfo-extension
+@c (FlyZhyGG)Default file extension for publishing Texinfo files.
+发布 Texinfo 文件默认的扩展名。
+
+@item muse-texinfo-info-extension
+@c (FlyZhyGG)Default file extension for publishing Info files.
+发布 Info 文件默认的扩展名。
+
+@item muse-texinfo-pdf-extension
+@c (FlyZhyGG)Default file extension for publishing PDF files.
+发布 PDF 文件默认的扩展名。
+
+@item muse-texinfo-header
+@c (FlyZhyGG)Text to prepend to a Muse page being published as Texinfo.
+一个 Muse 页面被发布为 Texinfo 时加在前面的文本。
+
+@c (FlyZhyGG)This may be text or a filename.
+@c (FlyZhyGG)It may contain @verb{|<lisp>|} markup tags.
+这可以是文本或者一个文件名，还可以包含 @verb{|<lisp>|} 标记的标签。
+
+@item muse-texinfo-footer
+@c (FlyZhyGG)Text to append to a Muse page being published as Texinfo.
+一个 Muse 页面被发布为 Texinfo 时附在后面的文本。
+
+@c (FlyZhyGG)This may be text or a filename.
+@c (FlyZhyGG)It may contain @verb{|<lisp>|} markup tags.
+这可以是文本或者一个文件名，还可以包含 @verb{|<lisp>|} 标记的标签。
+
+@item muse-texinfo-markup-regexps
+@c (FlyZhyGG)List of markup rules for publishing a Muse page to Texinfo.
+发布一个 Muse 页面到 Texinfo 的标记规则表。
+
+@c (FlyZhyGG)For more on the structure of this list,
+@c (FlyZhyGG)@xref{muse-publish-markup-regexps}.
+关于这个列表构成的更多信息，@xref{muse-publish-markup-regexps}。
+
+@item muse-texinfo-markup-functions
+@c (FlyZhyGG)An alist of style types to custom functions for that kind of text.
+为该风格文本定制函数的风格样式表。
+
+@c (FlyZhyGG)For more on the structure of this list, see
+@c (FlyZhyGG)@xref{muse-publish-markup-functions}.
+关于这个列表构成的更多信息，@xref{muse-publish-markup-functions}。
+
+@item muse-texinfo-markup-strings
+@c (FlyZhyGG)Strings used for marking up text.
+标记文本的字符串。
+
+@c (FlyZhyGG)These cover the most basic kinds of markup, the handling of which
+@c (FlyZhyGG)differs little between the various styles.
+这些字符串涵盖最基本的标记类，它们在各种风格之间的操作差别很小。
+
+@item muse-texinfo-markup-specials
+@c (FlyZhyGG)A table of characters which must be represented specially.
+必须被特殊表示的字符列表。
+
+@end table
+
+
+@node Extending Muse, Getting Help and Reporting Bugs, Publishing Styles, Top
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@chapter Making your own publishing styles
+@chapter 制作你自己的发布风格
+
+@menu
+@c (FlyZhyGG)* Common Elements::             Common functionality shared by styles.
+* Common Elements::              风格共有的通用功能。
+@c (FlyZhyGG)* Deriving Styles::             Deriving a new style from an existing
+@c (FlyZhyGG)                                  one.
+* Deriving Styles::              从一个存在的风格中派生一个新的风格。
+@end menu
+
+@node Common Elements, Deriving Styles, , Extending Muse
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Common functionality shared by styles
+@section 风格共有的通用功能
+@cindex publishing styles, common
+
+@menu
+@c (FlyZhyGG)* Markup Functions::            Specifying functions to marking up text.
+* Markup Functions::             用来标记文本的指定函数。
+@c (FlyZhyGG)* Markup Regexps::              Markup rules for publishing.
+* Markup Regexps::               发布的标记规则。
+@c (FlyZhyGG)* Markup Strings::              Strings specific to a publishing style.
+* Markup Strings::               特别针对一个发布风格的字符串。
+@c (FlyZhyGG)* Markup Tags::                 Tag specifications for special markup.
+* Markup Tags::                  为特殊标记的标签详述。
+@c (FlyZhyGG)* Style Elements::              Parameters used for defining styles.
+* Style Elements::               定义风格使用的参数。
+@end menu
+
+@node Markup Functions, Markup Regexps, , Common Elements
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@subsection Specifying functions to mark up text
+@subsection 用来标记文本的指定函数
+@cindex publishing, markup functions
+
+@anchor{muse-publish-markup-functions}
+@code{muse-publish-markup-functions}
+
+@c (FlyZhyGG)An alist of style types to custom functions for that kind of text.
+为该风格文本定制函数的风格样式表。
+
+@c (FlyZhyGG)This is used by publishing styles to attempt to minimize the amount of
+@c (FlyZhyGG)custom regexps that each has to define.  @file{muse-publish} provides
+@c (FlyZhyGG)rules for the most common types of markup.
+发布风格使用该选项试图将必须定义的自定义正则表达式的数量减到最少。
+@file{muse-publish} 为最常用的标记类型提供规则。
+
+@c (FlyZhyGG)Each member of the list is of the following form.
+列表中的每个成员具有如下的形式。
+
+@example
+(SYMBOL FUNCTION)
+@end example
+
+@itemize @bullet
+@item SYMBOL
+@c (FlyZhyGG)Describes the type of text to associate with this rule.
+@c (FlyZhyGG)@code{muse-publish-markup-regexps} maps regexps to these symbols.
+描述了关联这个规则的文本的样式。@code{muse-publish-markup-regexps} 映射
+正则表达式到这些符号。
+
+@item FUNCTION
+@c (FlyZhyGG)Function to use to mark up this kind of rule if no suitable function is
+@c (FlyZhyGG)found through the @option{:functions} tag of the current style.
+通过当前风格的 @option{:functions} 标签没有找到合适的函数的条件下，用来
+标记这类规则的函数。
+@end itemize
+
+@node Markup Regexps, Markup Strings, Markup Functions, Common Elements
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@subsection Markup rules for publishing
+@subsection 发布的标记规则
+@cindex publishing, markup regexps
+@cindex publishing, rules
+
+@anchor{muse-publish-markup-regexps}
+@code{muse-publish-markup-regexps}
+
+@c (FlyZhyGG)List of markup rules for publishing a page with Muse.
+用 Muse 发布一个页面的标记规则表。
+
+@c (FlyZhyGG)The rules given in this variable are invoked first, followed by whatever
+@c (FlyZhyGG)rules are specified by the current style.
+由这个变量给出的规则首先奏效，然后是当前风格指定的任意规则。
+
+@c (FlyZhyGG)Each member of the list is either a function, or a list of the following
+@c (FlyZhyGG)form.
+列表中的每个成员是一个函数或者一个下面这种形式的列表。
+
+@example
+(REGEXP/SYMBOL TEXT-BEGIN-GROUP REPLACEMENT-TEXT/FUNCTION/SYMBOL)
+@end example
+
+@itemize @bullet
+@item REGEXP
+@c (FlyZhyGG)A regular expression, or symbol whose value is a regular expression,
+@c (FlyZhyGG)which is searched for using `re-search-forward'.
+一个正则表达式，或者值为正则表达式的符号，使用 're-search-forward' 来搜索。
+
+@item TEXT-BEGIN-GROUP
+@c (FlyZhyGG)The matching group within that regexp which denotes the beginning of the
+@c (FlyZhyGG)actual text to be marked up.
+在那个正则表达式内部的匹配组，它指示被标记的实际文本的开始。
+
+@item REPLACEMENT-TEXT
+@c (FlyZhyGG)A string that will be passed to `replace-match'.
+一个要被传递给 'replace-match' 的字符串。
+
+@c (FlyZhyGG)If it is not a string, but a function, it will be called to determine
+@c (FlyZhyGG)what the replacement text should be (it must return a string).  If it is
+@c (FlyZhyGG)a symbol, the value of that symbol should be a string.
+如果它不是一个字符串，而是一个函数，那么它将被调用来决定替代文本应该是什么
+（该函数必须返回一个字符串）。如果它是一个符号，那么该符号的值应该是一个字符串。
+@end itemize
+
+@c (FlyZhyGG)The replacements are done in order, one rule at a time.  Writing
+@c (FlyZhyGG)the regular expressions can be a tricky business.  Note that case
+@c (FlyZhyGG)is never ignored.  `case-fold-search' is always bound to nil
+@c (FlyZhyGG)while processing the markup rules.
+替代被顺序执行，每次一个规则。写正则表达式可以是一件很需要技巧的事情。
+注意有种情形从不会被忽略，在处理标记规则时 'case-fold-search' 总是被赋值为空。
+
+@c (FlyZhyGG)@subheading Publishing order
+@subheading 发布顺序
+
+@c (FlyZhyGG)This is the order that the publishing rules are consulted, by default.
+@c (FlyZhyGG)This may be changed by customizing @code{muse-publish-markup-regexps}.
+下面是发布规则被查阅的默认顺序，通过自定义 @code{muse-publish-markup-regexps} 
+可以改变这个默认设置。
+
+@table @code
+
+@item trailing and leading whitespace
+@c (FlyZhyGG)Remove trailing and leading whitespace from a file.
+删除一个文件中开头和结尾的空白字元。
+
+@item directive
+@samp{#directive}
+
+@c (FlyZhyGG)This is only recognized at the beginning of a file.
+它仅仅在文件开头被识别。
+
+@item tag
+@samp{<tag>}
+
+@item comment
+@samp{; comment}
+
+@item anchor
+@samp{#anchor}
+
+@item explicit links
+@c (FlyZhyGG)Prevent emphasis characters in explicit links from being marked up.
+禁止外显链接中的强调字符被标记。
+
+@c (FlyZhyGG)Don't actually publish them here, just add a special no-emphasis text
+@c (FlyZhyGG)property.
+事实上不会在这里发布它们，而是仅仅添加一个专门的非强调文本属性。
+
+@item word
+@c (FlyZhyGG)Whitespace-delimited word, possibly with emphasis characters.
+空白字元间隔词，可能与强调字符一起。
+
+@c (FlyZhyGG)This function is responsible for marking up emphasis and escaping some
+@c (FlyZhyGG)specials.
+这个函数负责标记强调和转义一些特殊字符。
+
+@item emdash
+@samp{--}
+
+@c (FlyZhyGG)2-wide dash
+两个 - 宽的破折号
+
+@item heading
+@samp{** Heading}
+
+@c (FlyZhyGG)Outline-mode style headings.
+Outline-mode 风格标题。
+
+@item enddots
+@samp{....}
+
+@c (FlyZhyGG)These are ellipses with a dot at end.
+这些是省略号加最末尾的句点。
+
+@item dots
+@samp{...}
+
+@c (FlyZhyGG)Ellipses.
+省略号。
+
+@item rule
+@samp{----}
+
+@c (FlyZhyGG)Horizontal rule or section separator.
+水平线或者节分隔线。
+
+@item fn-sep
+@samp{Footnotes:}
+
+@c (FlyZhyGG)beginning of footnotes section
+脚注部分的开始
+
+@item footnote
+@samp{[1]}
+
+@c (FlyZhyGG)Footnote definition or reference.  If at beginning of line, it is a
+@c (FlyZhyGG)definition.
+脚注定义或者引用。如果在一行的开始，就是一个定义。
+
+@item list
+@itemize @bullet
+@item
+@samp{ 1. }
+
+@item
+@samp{ - }
+
+@item
+@samp{term :: }
+@end itemize
+
+@c (FlyZhyGG)Numbered list, item list, or term definition list.
+有序列表，简单列表或者术语定义列表。
+
+@item quote
+@c (FlyZhyGG)spaces before beginning of text
+文本开始前的空格
+
+@c (FlyZhyGG)Blockquotes.
+块引用。
+
+@item verse
+@samp{> verse text}
+
+@item table
+@samp{table | cells}
+
+@item link
+@samp{[[explicit][links]]}
+
+@item url
+@samp{http://example.com/}
+
+@item email
+@samp{bare-email@@example.com}
+
+@end table
+
+@node Markup Strings, Markup Tags, Markup Regexps, Common Elements
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@subsection Strings specific to a publishing style
+@subsection 特别针对一个发布风格的字符串
+@cindex publishing, markup strings
+
+@c (FlyZhyGG)@dfn{Markup strings} are strings used for marking up text for a
+@c (FlyZhyGG)particular style.
+@dfn{Markup strings} 是一个特定风格标记文本使用的字符串。
+
+@c (FlyZhyGG)These cover the most basic kinds of markup, the handling of which
+@c (FlyZhyGG)differs little between the various styles.
+这些字符串涵盖最基本的标记类，它们在各种风格之间的操作差别很小。
+
+@c (FlyZhyGG)@subheading Available markup strings
+@subheading 可用的标记字符串
+
+@table @code
+
+@item image-with-desc
+@c (FlyZhyGG)An image and a description.
+一个图片和一个描述。
+
+@c (FlyZhyGG)Argument 1: image without extension.  Argument 2: image extension.
+@c (FlyZhyGG)Argument 3: description.
+参数 1：不带扩展名的图片；参数 2：图片扩展名；参数 3：描述。
+
+@item image
+@c (FlyZhyGG)An inlined image.
+一个直接插入的图片。
+
+@c (FlyZhyGG)Argument 1: image without extension.  Argument 2: image extension.
+参数 1：不带扩展名的图片；参数 2：图片扩展名。
+
+@item image-link
+@c (FlyZhyGG)A link to an image.
+到一个图片的一个链接。
+
+@c (FlyZhyGG)Argument 1: link.  Argument 2: image without extension.
+@c (FlyZhyGG)Argument 3: image extension.
+参数 1：链接；参数 2：不带扩展名的图片；参数 3：图片扩展名。
+
+@item anchor-ref
+@c (FlyZhyGG)A reference to an anchor on the current page.
+到当前页面一个锚的引用。
+
+@c (FlyZhyGG)Argument 1: anchor name.  Argument 2: description if one exists, or the
+@c (FlyZhyGG)original link otherwise.
+参数 1：锚名；参数 2：如果存在就是描述，否则是原始的链接。
+
+@item url
+@c (FlyZhyGG)A URL without a description.
+不带描述的一个 URL。
+
+@c (FlyZhyGG)Argument 1: URL.
+参数 1：URL。
+
+@item link
+@c (FlyZhyGG)A link with a description.
+带描述的一个链接。
+
+@c (FlyZhyGG)Argument 1: link.  Argument 2: description if one exists, or the
+@c (FlyZhyGG)original link otherwise.
+参数 1：链接；参数 2：如果存在就是描述，否则是原始的链接。
+
+@item link-and-anchor
+@c (FlyZhyGG)A link to a page with an anchor, and a description.
+到含有锚的一个页面链接和一个描述。
+
+@c (FlyZhyGG)Argument 1: link.  Argument 2: anchor name.
+@c (FlyZhyGG)Argument 3: description if one exists, or the original link otherwise.
+参数 1：链接；参数 2：锚名；参数 3：如果存在就是描述，否则是原始的链接。
+
+@item email-addr
+@c (FlyZhyGG)A link to an email address.
+到一个 email 地址的一个链接。
+
+@c (FlyZhyGG)Argument 1: email address.  Argument 2: email address.
+参数 1：email 地址；参数 2：email 地址。
+
+@item emdash
+@c (FlyZhyGG)A 2-length dash.
+两个 - 长的破折号。
+
+@c (FlyZhyGG)Argument 1: Initial whitespace.  Argument 2: Terminating whitespace.
+参数 1：起始的空白字元；参数 2：终止的空白字元。
+
+@item comment-begin
+@c (FlyZhyGG)Beginning of a comment.
+注释的开始。
+
+@item comment-end
+@c (FlyZhyGG)End of a comment.
+注释的结束。
+
+@item rule
+@c (FlyZhyGG)A horizontal line or space.
+一个水平线或者空白。
+
+@item no-break-space
+@c (FlyZhyGG)A space that separates two words which are not to be separated.
+一个分离两个不会被分开的单词的间隔。
+
+@item footnote
+@c (FlyZhyGG)Beginning of footnote.
+脚注的开始。
+
+@item footnote-end
+@c (FlyZhyGG)End of footnote.
+脚注的结束。
+
+@item footnotemark
+@c (FlyZhyGG)Mark a reference for the current footnote.
+为当前脚注标记一个引用。
+
+@c (FlyZhyGG)Argument 1: number of this footnote.
+参数 1：该脚注的数字标号。
+
+@item footnotemark-end
+@c (FlyZhyGG)End of a reference for the current footnote.
+当前脚注引用的结束。
+
+@item footnotetext
+@c (FlyZhyGG)Indicate the text of the current footnote.
+显示当前脚注的文本。
+
+@c (FlyZhyGG)Argument 1: number of this footnote.
+参数 1：该脚注的数字标号。
+
+@item footnotetext-end
+@c (FlyZhyGG)End of a footnote text line.
+脚注文本行的结束。
+
+@item fn-sep
+@c (FlyZhyGG)Text used to replace ``Footnotes:'' line.
+用来替代“Footnotes:”行的文本。
+
+@item dots
+@c (FlyZhyGG)3 dots.
+三个点。
+
+@item enddots
+@c (FlyZhyGG)4 dots.
+四个点。
+
+@item part
+@c (FlyZhyGG)Beginning of a part indicator line.  This is used by book publishing.
+一个 part 显示行的开始，用于书的发布。
+
+@item part-end
+@c (FlyZhyGG)End of a part indicator line.  This is used by book publishing.
+一个 part 显示行的结束，用于书的发布。
+
+@item chapter
+@c (FlyZhyGG)Beginning of a chapter indicator line.  This is used by book publishing.
+一个 chapter 显示行的开始，用于书的发布。
+
+@item chapter-end
+@c (FlyZhyGG)End of a chapter indicator line.  This is used by book publishing.
+一个 chapter 显示行的结束，用于书的发布。
+
+@item section
+@c (FlyZhyGG)Beginning of level 1 section indicator line.
+第一层 section 显示行的开始。
+
+@c (FlyZhyGG)Argument 1: level of section; always 1.
+参数 1：section 层数；总是1。
+
+@item section-end
+@c (FlyZhyGG)End of level 1 section indicator line.
+第一层 section 显示行的结束。
+
+@c (FlyZhyGG)Argument 1: level of section; always 1.
+参数 1：section 层数；总是1.
+
+@item subsection
+@c (FlyZhyGG)Beginning of level 2 section indicator line.
+第二层 section 显示行的开始。
+
+@c (FlyZhyGG)Argument 1: level of section; always 2.
+参数 1：section 层数；总是2。
+
+@item subsection-end
+@c (FlyZhyGG)End of level 2 section indicator line.
+第二层 section 显示行的结束。
+
+@c (FlyZhyGG)Argument 1: level of section; always 2.
+参数 1：section 层数；总是2。
+
+@item subsubsection
+@c (FlyZhyGG)Beginning of level 3 section indicator line.
+第三层 section 显示行的开始。
+
+@c (FlyZhyGG)Argument 1: level of section; always 3.
+参数 1：section 层数；总是3。
+
+@item subsubsection-end
+@c (FlyZhyGG)End of level 3 section indicator line.
+第三层 section 显示行的结束。
+
+@c (FlyZhyGG)Argument 1: level of section; always 3.
+参数 1：section 层数；总是3。
+
+@item section-other
+@c (FlyZhyGG)Beginning of section indicator line, where level is greater than 3.
+大于三层的 section 显示行的开始。
+
+@c (FlyZhyGG)Argument 1: level of section.
+参数 1：section 层数。
+
+@item section-other-end
+@c (FlyZhyGG)End of section indicator line, where level is greater than 3.
+大于三层的 section 显示行的结束。
+
+@c (FlyZhyGG)Argument 1: level of section.
+参数 1：section 层数。
+
+@item begin-underline
+@c (FlyZhyGG)Beginning of underlined text.
+下划线文本的开始。
+
+@item end-underline
+@c (FlyZhyGG)End of underlined text.
+下划线文本的结束。
+
+@item begin-literal
+@c (FlyZhyGG)Beginning of verbatim text.  This includes @verb{|<code>|} tags and
+@c (FlyZhyGG)=teletype text=.
+抄录文本的开始。它包括 @verb{|<code>|} 标签和 =teletype text=。
+
+@item end-literal
+@c (FlyZhyGG)End of verbatim text.  This includes @verb{|<code>|} tags and =teletype
+@c (FlyZhyGG)text=.
+抄录文本的结束。它包括 @verb{|<code>|} 标签和 =teletype text=。
+
+@item begin-emph
+@c (FlyZhyGG)Beginning of the first level of emphasized text.
+第一层强调文本的开始。
+
+@item end-emph
+@c (FlyZhyGG)End of the first level of emphasized text.
+第一层强调文本的结束。
+
+@item begin-more-emph
+@c (FlyZhyGG)Beginning of the second level of emphasized text.
+第二层强调文本的开始。
+
+@item end-more-emph
+@c (FlyZhyGG)End of the second level of emphasized text.
+第二层强调文本的结束。
+
+@item begin-most-emph
+@c (FlyZhyGG)Beginning of the third (and final) level of emphasized text.
+第三层（最后）级强调文本的开始。
+
+@item end-most-emph
+@c (FlyZhyGG)End of the third (and final) level of emphasized text.
+第三层（最后）级强调文本的结束。
+
+@item begin-verse
+@c (FlyZhyGG)Beginning of verse text.
+诗的开始。
+
+@item verse-space
+@c (FlyZhyGG)String used to each space that is further indented than the beginning of
+@c (FlyZhyGG)the verse.
+用于比诗的开始进一步被缩进的每个空白的字符串。
+
+@item begin-verse-line
+@c (FlyZhyGG)Beginning of a line of verse.
+诗的一行的开始。
+
+@item empty-verse-line
+@c (FlyZhyGG)End of a line of verse.
+诗的一行的结束。
+
+@item begin-last-stanza-line
+@c (FlyZhyGG)Beginning of the last line of a verse stanza.
+一个诗章最后行的开始。
+
+@item end-last-stanza-line
+@c (FlyZhyGG)End of the last line of a verse stanza.
+一个诗章最后行的结束。
+
+@item end-verse
+@c (FlyZhyGG)End of verse text.
+诗的结束。
+
+@item begin-example
+@c (FlyZhyGG)Beginning of an example region.  To make use of this, an
+@c (FlyZhyGG)@samp{<example>} tag is needed.
+一个实例区域的开始。要使用这个字符串，一个 @samp{<example>} 标签是必须的。
+
+@item end-example
+@c (FlyZhyGG)End of an example region.  To make use of this, an @samp{</example>} tag
+@c (FlyZhyGG)is needed.
+一个实例区域的结束。要使用这个字符串，一个 @samp{</example>} 标签是必须的。
+
+@item begin-center
+@c (FlyZhyGG)Begin a centered line.
+开始一个居中的行。
+
+@item end-center
+@c (FlyZhyGG)End a centered line.
+结束一个居中的行。
+
+@item begin-quote
+@c (FlyZhyGG)Begin a quoted region.
+开始一个引用的区域。
+
+@item end-quote
+@c (FlyZhyGG)End a quoted region.
+结束一个引用的区域。
+
+@item begin-uli
+@c (FlyZhyGG)Begin an unordered list.
+开始一个无序列表。
+
+@item end-uli
+@c (FlyZhyGG)End an unordered list.
+结束一个无序列表。
+
+@item begin-uli-item
+@c (FlyZhyGG)Begin an unordered list item.
+开始一个无序列表项。
+
+@item end-uli-item
+@c (FlyZhyGG)End an unordered list item.
+结束一个无序列表项。
+
+@item begin-oli
+@c (FlyZhyGG)Begin an ordered list.
+开始一个有序列表。
+
+@item end-oli
+@c (FlyZhyGG)End an ordered list.
+结束一个有序列表。
+
+@item begin-oli-item
+@c (FlyZhyGG)Begin an ordered list item.
+开始一个有序列表项。
+
+@item end-oli-item
+@c (FlyZhyGG)End an ordered list item.
+结束一个有序列表项。
+
+@item begin-dl
+@c (FlyZhyGG)Begin a definition list.
+开始一个定义列表。
+
+@item end-dl
+@c (FlyZhyGG)End a definition list.
+结束一个定义列表。
+
+@item begin-dl-item
+@c (FlyZhyGG)Begin a definition list item.
+开始一个定义列表项。
+
+@item end-dl-item
+@c (FlyZhyGG)End a definition list item.
+结束一个定义列表项。
+
+@item begin-ddt
+@c (FlyZhyGG)Begin a definition list term.
+开始一个定义列表的术语。
+
+@item end-ddt
+@c (FlyZhyGG)End a definition list term.
+结束一个定义列表的术语。
+
+@item begin-dde
+@c (FlyZhyGG)Begin a definition list entry.
+开始一个定义列表条目。
+
+@item end-dde
+@c (FlyZhyGG)End a definition list entry.
+结束一个定义列表条目。
+
+@item begin-table
+@c (FlyZhyGG)Begin a table.
+开始一个表格。
+
+@item end-table
+@c (FlyZhyGG)End a table.
+结束一个表格。
+
+@item begin-table-group
+@c (FlyZhyGG)Begin a table grouping.
+开始一个表格组。
+
+@item end-table-group
+@c (FlyZhyGG)End a table grouping.
+结束一个表格组。
+
+@item begin-table-row
+@c (FlyZhyGG)Begin a table row.
+开始一个表格行。
+
+@item end-table-row
+@c (FlyZhyGG)End a table row.
+结束一个表格行。
+
+@item begin-table-entry
+@c (FlyZhyGG)Begin a table entry.
+开始一个表格条目。
+
+@item end-table-entry
+@c (FlyZhyGG)End a table entry.
+结束一个表格条目。
+
+@end table
+
+@node Markup Tags, Style Elements, Markup Strings, Common Elements
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@subsection Tag specifications for special markup
+@subsection 特别标记的标签详述
+@cindex publishing, markup tags
+
+@anchor{muse-publish-markup-tags}
+@code{muse-publish-markup-tags}
+
+@c (FlyZhyGG)A list of tag specifications, for specially marking up text.
+一个专门标记文本的标签详表。
+
+@c (FlyZhyGG)XML-style tags are the best way to add custom markup to Muse.  This is
+@c (FlyZhyGG)easily accomplished by customizing this list of markup tags.
+XML 风格的标签是最好的添加定制标记到 Muse 的方法，通过自定义这个标记标签
+列表很容易就可以完成。
+
+@c (FlyZhyGG)For each entry, the name of the tag is given, whether it expects a
+@c (FlyZhyGG)closing tag and/or an optional set of attributes, whether it is
+@c (FlyZhyGG)nestable, and a function that performs whatever action is desired within
+@c (FlyZhyGG)the delimited region.
+对每个条目来说，不论标签要求一个关闭标签和/或一个可选的属性集，也不论标签
+是可嵌套的，它的名字被给出，并且在限定区域内执行任意动作的函数被需求。
+
+@c (FlyZhyGG)The tags themselves are deleted during publishing, before the function
+@c (FlyZhyGG)is called.  The function is called with three arguments, the beginning
+@c (FlyZhyGG)and end of the region surrounded by the tags.  If properties are
+@c (FlyZhyGG)allowed, they are passed as a third argument in the form of an alist.
+@c (FlyZhyGG)The `end' argument to the function is always a marker.
+发布过程中在函数调用前标签本身会被删除，函数被调用带有三个参数，标签所包围
+区域的开始和结束，如果属性允许，那么它们就会以一个列表的形式作为第三个参数
+被传递。函数“结束”的参数总是一个标记。
+
+@c (FlyZhyGG)Point is always at the beginning of the region within the tags, when the
+@c (FlyZhyGG)function is called.  Wherever point is when the function finishes is
+@c (FlyZhyGG)where tag markup will resume.
+当函数被调用时，point 总是在标签内部区域的开始，当函数结束时 point 在哪里，
+标签标记就会在哪里恢复。
+
+@c (FlyZhyGG)These tag rules are processed once at the beginning of markup, and once
+@c (FlyZhyGG)at the end, to catch any tags which may have been inserted in-between.
+这些标签规则在标记开始被处理一次，在结束时又被处理一次，这样做是为了
+捕获那些可能被插入到其他标签中间的标签。
+
+@node Style Elements, , Markup Tags, Common Elements
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@subsection Parameters used for defining styles
+@subsection 定义风格使用的参数
+@cindex publishing, style elements
+
+@c (FlyZhyGG)Style elements are tags that define a style.  Use
+@c (FlyZhyGG)@code{muse-define-style} to create a new style.
+风格元素是定义一个风格的标签。使用 @code{muse-define-style} 来创建一个新
+的风格。
+
+@example
+(muse-define-style DERIVED-NAME BASE-NAME STYLE-PARAMETERS)
+@end example
+
+@c (FlyZhyGG)@subheading Usable elements
+@subheading 可用的元素
+
+@table @option
+
+@item :suffix
+@c (FlyZhyGG)File extension to use for publishing files with this style.
+以这种风格发布文件使用的文件扩展名。
+
+@item :link-suffix
+@c (FlyZhyGG)File extension to use for publishing links to Muse files with this
+@c (FlyZhyGG)style.
+以这种风格发布到 Muse 文件的链接使用的文件扩展名。
+
+@item :osuffix
+@c (FlyZhyGG)File extension to use for publishing second-stage files with this style.
+以这种风格发布第二阶段文件使用的文件扩展名。
+
+@c (FlyZhyGG)For example, PDF publishing generates a LaTeX file first, then a PDF
+@c (FlyZhyGG)from that LaTeX file.
+例如，PDF 发布首先生成一个 LaTeX 文件，然后通过这个 LaTeX 文件生成 PDF 文件。
+
+@item :regexps
+@c (FlyZhyGG)List of markup rules for publishing a page with Muse.
+使用 Muse 发布一个页面的标记规则表。
+@c (FlyZhyGG)@xref{muse-publish-markup-regexps}.
+@xref{muse-publish-markup-regexps}。
+
+@item :functions
+@c (FlyZhyGG)An alist of style types to custom functions for that kind of text.
+@c (FlyZhyGG)@xref{muse-publish-markup-functions}.
+为该风格文本定制函数的风格样式表，@xref{muse-publish-markup-functions}。
+
+@item :strings
+@c (FlyZhyGG)Strings used for marking up text with this style.
+这个风格标记文本使用的字符串。
+
+@c (FlyZhyGG)These cover the most basic kinds of markup, the handling of which
+@c (FlyZhyGG)differs little between the various styles.
+这些字符串涵盖最基本的标记类，它们在各种风格之间的操作差别很小。
+
+@item :tags
+@c (FlyZhyGG)A list of tag specifications, used for handling extra tags.
+@c (FlyZhyGG)@xref{muse-publish-markup-tags}.
+处理特别标签使用的标签详表，@xref{muse-publish-markup-tags}。
+
+@item :specials
+@c (FlyZhyGG)A table of characters which must be represented specially.
+必须被特殊表示的字符表。
+
+@item :before
+@c (FlyZhyGG)A function that is to be executed on the newly-created publishing buffer
+@c (FlyZhyGG)(or the current region) before any publishing occurs.
+任何发布动作发生前在新生成的发布 buffer（或当前区域）里要被执行的一个函数。
+
+@c (FlyZhyGG)This is used to set extra parameters that direct the publishing process.
+这被用于设置管理发布过程的额外参数。
+
+@item :before-end
+@c (FlyZhyGG)A function that is to be executed on the publishing buffer (or the
+@c (FlyZhyGG)current region) immediately after applying all of the markup regexps.
+应用所有的标记正则表达式后在发布 buffer（或者当前区域）里立即要被执行的一个
+函数。
+
+@c (FlyZhyGG)This is used to fix the order of table elements (header, footer, body)
+@c (FlyZhyGG)in XML-ish styles.
+这被用于修复在类 XML 类型文件中表格元素的顺序（表头，表底，表体）。
+
+@item :after
+@c (FlyZhyGG)A function that is to be executed on the publishing buffer after
+@c (FlyZhyGG):before-end, and immediately after inserting the header and footer.
+插入页眉和页脚后，在 :before-end 后的发布 buffer 里立即要被执行的一个函数。
+
+@c (FlyZhyGG)This is used for generating the table of contents as well as setting the
+@c (FlyZhyGG)file coding system.
+这被用于生成目录和设置文件编码系统。
+
+@item :final
+@c (FlyZhyGG)A function that is to be executed after saving the published file, but
+@c (FlyZhyGG)while still in its buffer.
+保存发布文件后，但仍旧在其 buffer 中要被执行的一个函数。
+
+@c (FlyZhyGG)This is used for generating second-stage documents like PDF files from
+@c (FlyZhyGG)just-published LaTeX files.
+这被用于生成象从刚刚被发布的 LaTeX 文件生成 PDF 文件这样的第二阶段文档。
+
+@item :header
+@c (FlyZhyGG)Header used for publishing files of this style.
+发布这种风格文件使用的页眉。
+
+@c (FlyZhyGG)This may be a variable, text, or a filename.  It is inserted at the
+@c (FlyZhyGG)beginning of a file, after evaluating the publishing markup.
+这可以是一个变量，文本或者一个文件名。它被插入在文件的开始，赋值发布标记后。
+
+@item :footer
+@c (FlyZhyGG)Footer used for publishing files of this style.
+发布这种风格文件使用的页脚。
+
+@c (FlyZhyGG)This may be a variable, text, or a filename.  It is inserted at the end
+@c (FlyZhyGG)of a file, after evaluating the publishing markup.
+这可以是一个变量，文本或者一个文件名。它被插入在文件的结尾，赋值发布标记后。
+
+@item :style-sheet
+@c (FlyZhyGG)Style sheet used for publishing files of this style.
+发布这种风格使用的样式表。
+
+@c (FlyZhyGG)This may be a variable or text.  It is used in the header of HTML and
+@c (FlyZhyGG)XHTML based publishing styles.
+这可以是一个变量或者文本。它被用于基于 HTML 和 XHTML 发布风格的页眉。
+
+@item :browser
+@c (FlyZhyGG)The function used to browse the published result of files of this style.
+用于浏览这种风格文件发布结果的函数。
+
+@end table
+
+@node Deriving Styles, , Common Elements, Extending Muse
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@section Deriving a new style from an existing one
+@section 从一个存在的风格中派生一个新的风格
+@cindex publishing styles, deriving
+
+@c (FlyZhyGG)To create a new style from an existing one, use @code{muse-derive-style}
+@c (FlyZhyGG)as follows.  This is a good way to fix something you don't like about a
+@c (FlyZhyGG)particular publishing style, or to personalize it.
+下面使用 @code{muse-derive-style} 来从一个存在的风格生成一个新的风格。
+这对于修改一个独有发布风格中你不喜欢的地方或者个性化这个发布风格是一个
+好的方法。
+
+@example
+(muse-derive-style DERIVED-NAME BASE-NAME STYLE-PARAMETERS)
+@end example
+
+@c (FlyZhyGG)The derived name is a string defining the new style, such as "my-html".
+@c (FlyZhyGG)The base name must identify an existing style, such as "html" -- if you
+@c (FlyZhyGG)have loaded @file{muse-html}.  The style parameters are the same as
+@c (FlyZhyGG)those used to create a style, except that they override whatever
+@c (FlyZhyGG)definitions exist in the base style.  However, some definitions only
+@c (FlyZhyGG)partially override.  The following parameters support partial
+@c (FlyZhyGG)overriding.
+DERIVED-NAME 是定义新风格的一个字符串，比如“my-html”。BASE-NAME 必须是
+一个存在的风格，比如“html”（如果你加载了 @file{muse-html}）。
+STYLE-PARAMETERS 与用来创建一个风格的参数相同，只是它们去掉了基风格中存在
+的所有定义。但是，一些定义仅仅部分弃除。下面的这些参数支持部分弃除。
+
+@c (FlyZhyGG)@xref{Style Elements}, for a complete list of all parameters.
+@xref{Style Elements}，获取所有参数的完整列表。
+
+@table @option
+
+@item :functions
+@c (FlyZhyGG)If a markup function is not found in the derived style's function list,
+@c (FlyZhyGG)the base style's function list will be queried.
+如果一个标记函数在派生的风格函数表中没有被找到，那么基风格的函数表将会被查询。
+
+@item :regexps
+@c (FlyZhyGG)All regexps in the current style and the base style(s) will be used.
+当前风格和基风格（可能不止一个）中的所有正则表达式都将会被使用。
+
+@item :strings
+@c (FlyZhyGG)If a markup string is not found in the derived style's string list, the
+@c (FlyZhyGG)base style's string list will be queried.
+如果一个标记字符串在派生的风格字符串表中没有被找到，那么基风格的字符串表将会
+被查询。
+
+@end table
+
+
+@node Getting Help and Reporting Bugs, History, Extending Muse, Top
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@chapter Getting Help and Reporting Bugs
+@chapter 获得帮助和报告 bug
+@cindex help, getting
+@cindex bugs, reporting
+
+@c (FlyZhyGG)After you have read this guide, if you still have questions about
+@c (FlyZhyGG)Muse, or if you have bugs to report, there are several places you can
+@c (FlyZhyGG)go.
+阅读完这个手册后，对于 Muse 如果你仍然有疑问，或者有 bug 要报告，有这么
+几个地方你可以去。
+
+@itemize @bullet
+
+@item
+@c (FlyZhyGG)@uref{http://www.emacswiki.org/cgi-bin/wiki/MuseMode} is the
+@c (FlyZhyGG)emacswiki.org page, and anyone may add tips, hints, or bug descriptions
+@c (FlyZhyGG)to it.
+@uref{http://www.emacswiki.org/cgi-bin/wiki/MuseMode}
+是 emacswiki.org 页面，在那里任何人都可以添加小技巧，小提示或者 bug 描述。
+
+@item
+@c (FlyZhyGG)@uref{http://www.mwolson.org/projects/EmacsMuse.html} is the web page
+@c (FlyZhyGG)that Michael Olson (the current maintainer) made for Muse.
+@uref{http://www.mwolson.org/projects/EmacsMuse.html} 
+是 Michael Olson（当前的 Muse 维护者）为 Muse 做的网页。
+
+@item
+@c (FlyZhyGG)Muse has four mailing lists.
+Muse 有四个邮件列表。
+
+@table @samp
+
+@item muse-el-announce
+@c (FlyZhyGG)Low-traffic list for Muse-related announcements.
+Muse 相关公告的简要通信列表。
+
+@c (FlyZhyGG)You can join this mailing list (@email{muse-el-announce@@gna.org})
+@c (FlyZhyGG)using the subscription form at
+@c (FlyZhyGG)@url{http://mail.gna.org/listinfo/muse-el-announce/}.  This
+@c (FlyZhyGG)mailing list is also available via Gmane (@url{http://gmane.org/}). The
+@c (FlyZhyGG)group is called @samp{gmane.emacs.muse.announce}.
+你可以从 @url{http://mail.gna.org/listinfo/muse-el-announce/} 订阅加入这个
+邮件列表（@email{muse-el-announce@@gna.org}）。这个邮件列表在 Gmane
+（@url{http://gmane.org/}）上也可用，邮件组叫做 @samp{gmane.emacs.muse.announce}。
+
+@item muse-el-discuss
+@c (FlyZhyGG)Discussion, bugfixes, suggestions, tips, and the like for Muse.
+@c (FlyZhyGG)This mailing list also includes the content of muse-el-announce.
+有关Muse的讨论、bug修补、建议、技巧等。这个邮件列表也包括 muse-el-announce 
+的内容。
+
+@c (FlyZhyGG)You can join this mailing list (@email{muse-el-discuss@@gna.org})
+@c (FlyZhyGG)using the subscription form at
+@c (FlyZhyGG)@url{http://mail.gna.org/listinfo/muse-el-discuss/}.  This mailing
+@c (FlyZhyGG)list is also available via Gmane with the identifier
+@c (FlyZhyGG)@samp{gmane.emacs.muse.general}.
+你可以从 @url{http://mail.gna.org/listinfo/muse-el-discuss/} 订阅加入这个
+邮件列表（@email{muse-el-discuss@@gna.org}）。这个邮件列表在 Gmane 上也
+可用，邮件组叫做 @samp{gmane.emacs.muse.general}。
+
+@item muse-el-commits
+@c (FlyZhyGG)Log messages for changes committed to Muse.
+已提交过修改的日志信息。
+
+@c (FlyZhyGG)You can join this mailing list (@email{muse-el-commits@@gna.org}) using
+@c (FlyZhyGG)the subscription form at
+@c (FlyZhyGG)@url{http://mail.gna.org/listinfo/muse-el-commits/}.  This mailing list
+@c (FlyZhyGG)is also available via Gmane with the identifier
+@c (FlyZhyGG)@samp{gmane.emacs.muse.cvs}.
+你可以从 @url{http://mail.gna.org/listinfo/muse-el-commits/} 订阅加入这个
+邮件列表（@email{muse-el-commits@@gna.org}）。这个邮件列表在 Gmane 上也
+可用，邮件组叫做 @samp{gmane.emacs.muse.cvs}。
+
+@item muse-el-internationalization
+@c (FlyZhyGG)Discussion of translation of the Muse website and documentation into
+@c (FlyZhyGG)many languages.
+关于 Muse 网站和文档翻译的讨论。
+
+@c (FlyZhyGG)You can join this mailing list
+@c (FlyZhyGG)(@email{muse-el-internationalization@@gna.org}) using the subscription
+@c (FlyZhyGG)form at @url{http://mail.gna.org/listinfo/internationalization/}.  This
+@c (FlyZhyGG)mailing list is also available via Gmane with the identifier
+@c (FlyZhyGG)@samp{gmane.emacs.muse.internationalization}.
+你可以从 @url{http://mail.gna.org/listinfo/internationalization/} 订阅加入
+这个邮件列表（@email{muse-el-internationalization@@gna.org}）。这个邮件列
+表在 Gmane 上也可用，邮件组叫做 @samp{gmane.emacs.muse.internationalization}。
+
+@end table
+
+@item
+@c (FlyZhyGG)You can visit the IRC Freenode channel @samp{#emacs}. Many of the
+@c (FlyZhyGG)contributors are frequently around and willing to answer your
+@c (FlyZhyGG)questions.  The @samp{#muse} channel is also available for
+@c (FlyZhyGG)Muse-specific help, and its current maintainer hangs out there.
+你可以访问 Freenode 的 IRC 频道 @samp{#emacs}。许多贡献者经常出现在那里并
+非常愿意回答你的问题。要获得专门 Muse 方面的帮助，可以访问 @samp{#muse} 
+频道，当前的 Muse 维护者会在那里出现。
+
+@item
+@c (FlyZhyGG)The maintainer of Emacs Muse, Michael Olson, may be contacted at
+@c (FlyZhyGG)@email{mwolson@@gnu.org}.  He can be rather slow at answering email, so
+@c (FlyZhyGG)it is often better to use the muse-el-discuss mailing list.
+可以通过 @email{mwolson@@gnu.org} 来联系 Emacs Muse 的维护者 ── Michael Olson。
+他回复你的 email 可能会很慢，因此通常来说使用 muse-el-discuss 邮件列表会更好。
+
+@end itemize
+
+@node History, Contributors, Getting Help and Reporting Bugs, Top
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@chapter History of This Document
+@chapter 本文档的历史
+@cindex history, of Muse
+
+@itemize
+@item 2004
+@c (FlyZhyGG)John Wiegley started Muse upon realizing that EmacsWiki had some serious
+@c (FlyZhyGG)limitations. Around February 2004, he started making "emacs-wiki version
+@c (FlyZhyGG)3.00 APLHA", which eventually became known as Muse.
+当John Wiegley意识到 EmacsWiki 有一些很严重的局限点，他决心改写它。大概在 2004 
+年二月份，他开始开发“emacs-wiki version 3.00 APLHA”，也就是后来众所周知的 
+Emacs Muse。
+
+@c (FlyZhyGG)Most of those who frequent the emacs-wiki mailing list continued to use
+@c (FlyZhyGG)emacs-wiki, mainly because Planner hasn't been ported over to it.
+主要由于 Planner 还没有被移植到 Muse 的原因，多数经常访问 emacs-wiki 邮件
+列表的用户仍然使用 emacs-wiki。
+
+@c (FlyZhyGG)As of 2004-12-01, Michael Olson became the maintainer of Muse, as per
+@c (FlyZhyGG)John Wiegley's request.
+大概在 2004 年 12 月 1 日，在 John Wiegley 的请求下，Michael Olson 成为了 Muse 
+的维护者。
+
+@item 2005
+@c (FlyZhyGG)Michael Olson overhauled this document and added many new sections in
+@c (FlyZhyGG)preparation for the first release of Muse (3.01).
+Michael Olson 仔细检查了这个文档，并为准备第一个 Muse 发行版（3.01）添加了
+一些新的部分。
+
+@end itemize
+
+@node Contributors, GNU General Public License, History, Top
+@comment  node-name,  next,  previous,  up
+@c (FlyZhyGG)@chapter Contributors to This Documentation
+@chapter 本文档的贡献者
+@cindex contributors
+
+@c (FlyZhyGG)The first draft of this document was taken from the emacs-wiki texinfo
+@c (FlyZhyGG)manual.  Michael Olson adapted it for Muse and added most of its
+@c (FlyZhyGG)content.
+这个文档的第一个草稿来自 emack-wiki 的 texinfo 手册。Michael Olson 为 Muse 
+改写了它并增添了很多关于 Muse 的内容。
+
+@c (FlyZhyGG)John Sullivan did a majority of the work on the emacs-wiki texinfo
+@c (FlyZhyGG)manual.
+emacs-wiki 的 texinfo 手册的大部分工作是由 John Sullivan 完成的。
+
+@c (FlyZhyGG)While Sacha Chua maintained emacs-wiki, she worked quite a bit on the
+@c (FlyZhyGG)emacs-wiki texinfo manual.
+而 Sacha Chua 维护着 emacs-wiki，她在 emacs-wiki 的 texinfo 手册上也付出了很多。
+
+@node GNU General Public License, Concept Index, Contributors, Top
+@comment  node-name,  next,  previous,  up
+@appendix GNU GENERAL PUBLIC LICENSE
+@center Version 2, June 1991
+@cindex GPL
+@cindex GNU General Public License
+
+@c This file is intended to be included in another file.
+
+@display
+Copyright @copyright{} 1989, 1991 Free Software Foundation, Inc.
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
+@end display
+
+@appendixsec Preamble
+
+  The licenses for most software are designed to take away your
+freedom to share and change it.  By contrast, the GNU General Public
+License is intended to guarantee your freedom to share and change free
+software---to make sure the software is free for all its users.  This
+General Public License applies to most of the Free Software
+Foundation's software and to any other program whose authors commit to
+using it.  (Some other Free Software Foundation software is covered by
+the GNU Library General Public License instead.)  You can apply it to
+your programs, too.
+
+  When we speak of free software, we are referring to freedom, not
+price.  Our General Public Licenses are designed to make sure that you
+have the freedom to distribute copies of free software (and charge for
+this service if you wish), that you receive source code or can get it
+if you want it, that you can change the software or use pieces of it
+in new free programs; and that you know you can do these things.
+
+  To protect your rights, we need to make restrictions that forbid
+anyone to deny you these rights or to ask you to surrender the rights.
+These restrictions translate to certain responsibilities for you if you
+distribute copies of the software, or if you modify it.
+
+  For example, if you distribute copies of such a program, whether
+gratis or for a fee, you must give the recipients all the rights that
+you have.  You must make sure that they, too, receive or can get the
+source code.  And you must show them these terms so they know their
+rights.
+
+  We protect your rights with two steps: (1) copyright the software, and
+(2) offer you this license which gives you legal permission to copy,
+distribute and/or modify the software.
+
+  Also, for each author's protection and ours, we want to make certain
+that everyone understands that there is no warranty for this free
+software.  If the software is modified by someone else and passed on, we
+want its recipients to know that what they have is not the original, so
+that any problems introduced by others will not reflect on the original
+authors' reputations.
+
+  Finally, any free program is threatened constantly by software
+patents.  We wish to avoid the danger that redistributors of a free
+program will individually obtain patent licenses, in effect making the
+program proprietary.  To prevent this, we have made it clear that any
+patent must be licensed for everyone's free use or not licensed at all.
+
+  The precise terms and conditions for copying, distribution and
+modification follow.
+
+@iftex
+@appendixsec TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+@end iftex
+@ifinfo
+@center TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+@end ifinfo
+
+@enumerate 0
+@item
+This License applies to any program or other work which contains
+a notice placed by the copyright holder saying it may be distributed
+under the terms of this General Public License.  The ``Program'', below,
+refers to any such program or work, and a ``work based on the Program''
+means either the Program or any derivative work under copyright law:
+that is to say, a work containing the Program or a portion of it,
+either verbatim or with modifications and/or translated into another
+language.  (Hereinafter, translation is included without limitation in
+the term ``modification''.)  Each licensee is addressed as ``you''.
+
+Activities other than copying, distribution and modification are not
+covered by this License; they are outside its scope.  The act of
+running the Program is not restricted, and the output from the Program
+is covered only if its contents constitute a work based on the
+Program (independent of having been made by running the Program).
+Whether that is true depends on what the Program does.
+
+@item
+You may copy and distribute verbatim copies of the Program's
+source code as you receive it, in any medium, provided that you
+conspicuously and appropriately publish on each copy an appropriate
+copyright notice and disclaimer of warranty; keep intact all the
+notices that refer to this License and to the absence of any warranty;
+and give any other recipients of the Program a copy of this License
+along with the Program.
+
+You may charge a fee for the physical act of transferring a copy, and
+you may at your option offer warranty protection in exchange for a fee.
+
+@item
+You may modify your copy or copies of the Program or any portion
+of it, thus forming a work based on the Program, and copy and
+distribute such modifications or work under the terms of Section 1
+above, provided that you also meet all of these conditions:
+
+@enumerate a
+@item
+You must cause the modified files to carry prominent notices
+stating that you changed the files and the date of any change.
+
+@item
+You must cause any work that you distribute or publish, that in
+whole or in part contains or is derived from the Program or any
+part thereof, to be licensed as a whole at no charge to all third
+parties under the terms of this License.
+
+@item
+If the modified program normally reads commands interactively
+when run, you must cause it, when started running for such
+interactive use in the most ordinary way, to print or display an
+announcement including an appropriate copyright notice and a
+notice that there is no warranty (or else, saying that you provide
+a warranty) and that users may redistribute the program under
+these conditions, and telling the user how to view a copy of this
+License.  (Exception: if the Program itself is interactive but
+does not normally print such an announcement, your work based on
+the Program is not required to print an announcement.)
+@end enumerate
+
+These requirements apply to the modified work as a whole.  If
+identifiable sections of that work are not derived from the Program,
+and can be reasonably considered independent and separate works in
+themselves, then this License, and its terms, do not apply to those
+sections when you distribute them as separate works.  But when you
+distribute the same sections as part of a whole which is a work based
+on the Program, the distribution of the whole must be on the terms of
+this License, whose permissions for other licensees extend to the
+entire whole, and thus to each and every part regardless of who wrote it.
+
+Thus, it is not the intent of this section to claim rights or contest
+your rights to work written entirely by you; rather, the intent is to
+exercise the right to control the distribution of derivative or
+collective works based on the Program.
+
+In addition, mere aggregation of another work not based on the Program
+with the Program (or with a work based on the Program) on a volume of
+a storage or distribution medium does not bring the other work under
+the scope of this License.
+
+@item
+You may copy and distribute the Program (or a work based on it,
+under Section 2) in object code or executable form under the terms of
+Sections 1 and 2 above provided that you also do one of the following:
+
+@enumerate a
+@item
+Accompany it with the complete corresponding machine-readable
+source code, which must be distributed under the terms of Sections
+1 and 2 above on a medium customarily used for software interchange; or,
+
+@item
+Accompany it with a written offer, valid for at least three
+years, to give any third party, for a charge no more than your
+cost of physically performing source distribution, a complete
+machine-readable copy of the corresponding source code, to be
+distributed under the terms of Sections 1 and 2 above on a medium
+customarily used for software interchange; or,
+
+@item
+Accompany it with the information you received as to the offer
+to distribute corresponding source code.  (This alternative is
+allowed only for noncommercial distribution and only if you
+received the program in object code or executable form with such
+an offer, in accord with Subsection b above.)
+@end enumerate
+
+The source code for a work means the preferred form of the work for
+making modifications to it.  For an executable work, complete source
+code means all the source code for all modules it contains, plus any
+associated interface definition files, plus the scripts used to
+control compilation and installation of the executable.  However, as a
+special exception, the source code distributed need not include
+anything that is normally distributed (in either source or binary
+form) with the major components (compiler, kernel, and so on) of the
+operating system on which the executable runs, unless that component
+itself accompanies the executable.
+
+If distribution of executable or object code is made by offering
+access to copy from a designated place, then offering equivalent
+access to copy the source code from the same place counts as
+distribution of the source code, even though third parties are not
+compelled to copy the source along with the object code.
+
+@item
+You may not copy, modify, sublicense, or distribute the Program
+except as expressly provided under this License.  Any attempt
+otherwise to copy, modify, sublicense or distribute the Program is
+void, and will automatically terminate your rights under this License.
+However, parties who have received copies, or rights, from you under
+this License will not have their licenses terminated so long as such
+parties remain in full compliance.
+
+@item
+You are not required to accept this License, since you have not
+signed it.  However, nothing else grants you permission to modify or
+distribute the Program or its derivative works.  These actions are
+prohibited by law if you do not accept this License.  Therefore, by
+modifying or distributing the Program (or any work based on the
+Program), you indicate your acceptance of this License to do so, and
+all its terms and conditions for copying, distributing or modifying
+the Program or works based on it.
+
+@item
+Each time you redistribute the Program (or any work based on the
+Program), the recipient automatically receives a license from the
+original licensor to copy, distribute or modify the Program subject to
+these terms and conditions.  You may not impose any further
+restrictions on the recipients' exercise of the rights granted herein.
+You are not responsible for enforcing compliance by third parties to
+this License.
+
+@item
+If, as a consequence of a court judgment or allegation of patent
+infringement or for any other reason (not limited to patent issues),
+conditions are imposed on you (whether by court order, agreement or
+otherwise) that contradict the conditions of this License, they do not
+excuse you from the conditions of this License.  If you cannot
+distribute so as to satisfy simultaneously your obligations under this
+License and any other pertinent obligations, then as a consequence you
+may not distribute the Program at all.  For example, if a patent
+license would not permit royalty-free redistribution of the Program by
+all those who receive copies directly or indirectly through you, then
+the only way you could satisfy both it and this License would be to
+refrain entirely from distribution of the Program.
+
+If any portion of this section is held invalid or unenforceable under
+any particular circumstance, the balance of the section is intended to
+apply and the section as a whole is intended to apply in other
+circumstances.
+
+It is not the purpose of this section to induce you to infringe any
+patents or other property right claims or to contest validity of any
+such claims; this section has the sole purpose of protecting the
+integrity of the free software distribution system, which is
+implemented by public license practices.  Many people have made
+generous contributions to the wide range of software distributed
+through that system in reliance on consistent application of that
+system; it is up to the author/donor to decide if he or she is willing
+to distribute software through any other system and a licensee cannot
+impose that choice.
+
+This section is intended to make thoroughly clear what is believed to
+be a consequence of the rest of this License.
+
+@item
+If the distribution and/or use of the Program is restricted in
+certain countries either by patents or by copyrighted interfaces, the
+original copyright holder who places the Program under this License
+may add an explicit geographical distribution limitation excluding
+those countries, so that distribution is permitted only in or among
+countries not thus excluded.  In such case, this License incorporates
+the limitation as if written in the body of this License.
+
+@item
+The Free Software Foundation may publish revised and/or new versions
+of the General Public License from time to time.  Such new versions will
+be similar in spirit to the present version, but may differ in detail to
+address new problems or concerns.
+
+Each version is given a distinguishing version number.  If the Program
+specifies a version number of this License which applies to it and ``any
+later version'', you have the option of following the terms and conditions
+either of that version or of any later version published by the Free
+Software Foundation.  If the Program does not specify a version number of
+this License, you may choose any version ever published by the Free Software
+Foundation.
+
+@item
+If you wish to incorporate parts of the Program into other free
+programs whose distribution conditions are different, write to the author
+to ask for permission.  For software which is copyrighted by the Free
+Software Foundation, write to the Free Software Foundation; we sometimes
+make exceptions for this.  Our decision will be guided by the two goals
+of preserving the free status of all derivatives of our free software and
+of promoting the sharing and reuse of software generally.
+
+@iftex
+@heading NO WARRANTY
+@end iftex
+@ifinfo
+@center NO WARRANTY
+@end ifinfo
+
+@item
+BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO WARRANTY
+FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW.  EXCEPT WHEN
+OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES
+PROVIDE THE PROGRAM ``AS IS'' WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED
+OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  THE ENTIRE RISK AS
+TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU.  SHOULD THE
+PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING,
+REPAIR OR CORRECTION.
+
+@item
+IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR
+REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES,
+INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING
+OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED
+TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY
+YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER
+PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGES.
+@end enumerate
+
+@iftex
+@heading END OF TERMS AND CONDITIONS
+@end iftex
+@ifinfo
+@center END OF TERMS AND CONDITIONS
+@end ifinfo
+
+@page
+@appendixsec Appendix: How to Apply These Terms to Your New Programs
+
+  If you develop a new program, and you want it to be of the greatest
+possible use to the public, the best way to achieve this is to make it
+free software which everyone can redistribute and change under these terms.
+
+  To do so, attach the following notices to the program.  It is safest
+to attach them to the start of each source file to most effectively
+convey the exclusion of warranty; and each file should have at least
+the ``copyright'' line and a pointer to where the full notice is found.
+
+@smallexample
+@var{one line to give the program's name and a brief idea of what it does.}
+Copyright (C) @var{yyyy}  @var{name of author}
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+@end smallexample
+
+Also add information on how to contact you by electronic and paper mail.
+
+If the program is interactive, make it output a short notice like this
+when it starts in an interactive mode:
+
+@smallexample
+Gnomovision version 69, Copyright (C) 19@var{yy} @var{name of author}
+Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+This is free software, and you are welcome to redistribute it
+under certain conditions; type `show c' for details.
+@end smallexample
+
+The hypothetical commands @samp{show w} and @samp{show c} should show
+the appropriate parts of the General Public License.  Of course, the
+commands you use may be called something other than @samp{show w} and
+@samp{show c}; they could even be mouse-clicks or menu items---whatever
+suits your program.
+
+You should also get your employer (if you work as a programmer) or your
+school, if any, to sign a ``copyright disclaimer'' for the program, if
+necessary.  Here is a sample; alter the names:
+
+@example
+Yoyodyne, Inc., hereby disclaims all copyright interest in the program
+`Gnomovision' (which makes passes at compilers) written by James Hacker.
+
+@var{signature of Ty Coon}, 1 April 1989
+Ty Coon, President of Vice
+@end example
+
+This General Public License does not permit incorporating your program into
+proprietary programs.  If your program is a subroutine library, you may
+consider it more useful to permit linking proprietary applications with the
+library.  If this is what you want to do, use the GNU Library General
+Public License instead of this License.
+
+
+@node Concept Index,  , GNU General Public License, Top
+@comment  node-name,  next,  previous,  up
+@unnumbered Index
+
+@printindex cp
+
+@bye
+

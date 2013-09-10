@@ -1,0 +1,3189 @@
+这是 muse-zh_cn.info，由 makeinfo 版本 4.8 从 muse-zh_cn.texi
+生成。
+
+INFO-DIR-SECTION Emacs
+START-INFO-DIR-ENTRY
+* Muse: (muse). Authoring and publishing environment for Emacs.
+END-INFO-DIR-ENTRY
+
+   本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+   Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com>
+`http://ipl.ouc.edu.cn/~zhenghaiyong'
+
+
+File: muse-zh_cn.info,  Node: Top,  Next: Preface,  Prev: (dir),  Up: (dir)
+
+Muse
+****
+
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+   Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com>
+`http://ipl.ouc.edu.cn/~zhenghaiyong'
+
+* Menu:
+
+* Preface::                      关于本文档。
+* Introduction::                 什么是 Muse？
+* Obtaining Muse::               怎� �获得 Muse 发行及开发更新。
+* Installation::                 编译和安装 Muse。
+* Getting Started::              配置 Muse。
+* Projects::                     创建和管理 Muse 项目。
+* Keystroke Summary::            Muse 模式中使用的快捷键。
+* Markup Rules::                 使用� �记的规则。
+* Publishing Styles::            发布不同类型的文档。
+* Extending Muse::               制作� 自己的发布风� �。
+* Getting Help and Reporting Bugs::
+* History::                      本文档的历史。
+* Contributors::                 本文档的贡献者。
+* GNU General Public License::   本手册和 Muse 的许可证。
+* Concept Index::                查找术语。
+
+ --- 详细节点列表 ---
+
+怎� �获得 Muse 发行及开发更新
+
+* Releases::                     Muse 的发行版本。
+* Development::                  最新的未发行的开发更新。
+
+使用� �记的规则
+
+* Paragraphs::                   段落：居中和引用。
+* Headings::                     � �题的层次。
+* Directives::                   文档开始处的指令。
+* Emphasizing Text::             粗体，斜体和下划线文本。
+* Footnotes::                    在最后显示注解。
+* Verse::                        显示诗� 。
+* Lists::                        项的列表。
+* Tables::                       数据表的生成。
+* Explicit Links::               带描述的超级链接和邮件地址。
+* Implicit Links::               � 修饰的 URL，WikiNames 和 InteWiki 链接。
+* Images::                       发布和显示图片。
+* Horizontal Rules and Anchors:: 插入一个水平线或锚。
+* Embedded Lisp::                在文档中为扩展而执行 Emacs Lisp 代� �。
+* Comments::                     发布输出时被省略的行。
+* Tag Summary::                  Muse 可识别的� �签。
+
+发布不同类型的文档
+
+* Blosxom::                      集成 Muse 和 pyblosxom.cgi。
+* Book::                         发布条目到编辑物。
+* DocBook::                      以 DocBook XML 形式发布。
+* HTML::                         以 HTML 或者 XHTML 形式发布。
+* Journal::                      写日记或者博客。
+* LaTeX::                        发布 LaTeX 文档。
+* Poem::                         发布诗到 LaTeX 或者 PDF。
+* Texinfo::                      发布条目到 Texinfo � �式或者 PDF 。
+
+集成 Muse 和 pyblosxom.cgi
+
+* Blosxom Requirements::         Blosxom 风� �需要的其他工具。
+* Blosxom Entries::              一个 Blosxom 条目的� �式和自动操作。
+* Blosxom Options::              提供的 Blosxom 风� �和选项。
+
+制作� 自己的发布风� �
+
+* Common Elements::              风� �共有的通用功能。
+* Deriving Styles::              从一个存在的风� �中派生一个新的风� �。
+
+风� �共有的通用功能
+
+* Markup Functions::             用来� �记文本的指定函数。
+* Markup Regexps::               发布的� �记规则。
+* Markup Strings::               特别针对一个发布风� �的字符串。
+* Markup Tags::                  为特殊� �记的� �签详述。
+* Style Elements::               定义风� �使用的参数。
+
+
+File: muse-zh_cn.info,  Node: Preface,  Next: Introduction,  Prev: Top,  Up: Top
+
+1 关于本文档
+*****************
+
+本文档描述了 Muse，它由 John Wiegley 所写，现在由
+Michael Olson 维护。 本文档有下面� 种在线版本可用。
+
+   * PDF: http://www.mwolson.org/static/doc/muse.pdf
+
+   * HTML (single file): http://www.mwolson.org/static/doc/muse.html
+
+   * HTML (multiple files): http://www.mwolson.org/static/doc/muse/
+
+
+File: muse-zh_cn.info,  Node: Introduction,  Next: Obtaining Muse,  Prev: Preface,  Up: Top
+
+2 什么是 Muse？
+*******************
+
+Emacs Muse 是一个基于 Emacs
+的写作和发布平台。它简化了文档编辑过程，
+并且可以选择多种� �式进行发布。
+
+   Muse 包括两个主要部分： 一个增强的 text
+模式，用来编辑文档和在 Muse 工程中随意浏览文档；
+一组发布策略，用来产生各种不同的� �式输出。
+
+   然而这种思想并不新颖，有大量类似的系统存在
+── 甚至 Emacs 本身就有另外一个 （Bhl Mode）。Muse
+所增色的地方是一个更� 模块化的平台，带有一个相当简单的� �心，
+在这个平台上“风� �”可被派生而生成新的风� �。Muse
+全部的功能中大部分是可选的。 比如，� 可以不在
+major-mode 下使用发布功能，或者在 major-mode
+下但不做任何发布； 又或者如果� 不� 载 Texinfo 或
+LaTeX 模块，那么相应的那些风� �就不可用。
+
+   Muse 代� �基于 emacs-wiki.el 版本
+2.44，但代� �已经重新组织和改写，特别是那些发布
+函数。此次修订的重点在写作和发布方面，Wiki
+部分作为其中一个默认的行为 （在可选的 `muse-wiki'
+模式中）。在默认情况下 CamelCase 词组（每个单词的
+第一个字母都大写，其它小写）不再特殊对待。
+
+
+File: muse-zh_cn.info,  Node: Obtaining Muse,  Next: Installation,  Prev: Introduction,  Up: Top
+
+3 怎� �获得 Muse 发行及开发更新
+*****************************************
+
+* Menu:
+
+* Releases::                     Muse 的发行版本。
+* Development::                  最新的未发行的开发更新。
+
+
+File: muse-zh_cn.info,  Node: Releases,  Next: Development,  Prev: Obtaining Muse,  Up: Obtaining Muse
+
+3.1 Muse 的发行版本
+========================
+
+如果� 想承担最小的风险，那么选择安装一个发行版。
+
+错误被首先在开发中更正。用户可见的修正将公布在
+<muse-el-discuss@gna.org> 邮件列表中。*Note Getting Help and
+Reporting Bugs::。
+
+   Debian 和 Ubuntu 用户可以通过 apt-get 获得 Muse。`muse-el'
+包在 Michael Olson 的 APT 仓库及官方 Debian 和 Ubuntu
+仓库都可用。要使用 Michael Olson 的 APT
+仓库，添� 下面一行到� 的 `/etc/apt/sources.list'
+文件并运行 `apt-get install muse'。
+
+     deb http://www.mwolson.org/debian/ ./
+
+   另外，� 也可以从 `http://www.mwolson.org/static/dist/muse/'
+下载最新的发行版。
+
+
+File: muse-zh_cn.info,  Node: Development,  Prev: Releases,  Up: Obtaining Muse
+
+3.2 最新的未发行的开发更新
+=====================================
+
+如果� 想要追求 Muse
+开发的最新技术或者在发行前尝试新特色，那么选择开发版本。
+
+   Arch
+修正控制系统允许� 找回以前的版本，从而选择某些指定的特色和
+bug 修复。 如果� 想帮助 Muse 开发，强烈推荐使用
+Arch，但这并不是一个必要条件。
+
+   如果 Arch
+对� 来说是陌生的，� 可能会认为下面这篇手册很有帮助：
+`http://www.mwolson.org/projects/ArchTutorial.html'。
+
+   使用 Arch 下载 Muse 模块，并参照下面步骤保持最新。
+
+  1. 安装 arch。
+
+        * Debian 和 Ubuntu：`apt-install tla'。
+
+        * 其他发行版本：参见
+          `http://regexps.srparish.net/www/'。
+
+  2. 注册存档。
+          tla register-archive -f http://www.mwolson.org/archives/2005
+
+  3. 下载 Muse 包。
+          # 下载 Muse 到 `muse' 目录。
+          tla get mwolson@gnu.org--2005/muse--main--1.0 muse
+
+  4. 列出� 本地拷贝中错过的上游更改。
+     每当� 想要查看 Muse
+     是否有新的更改被提交，做这一步。
+
+          # 进入� 关心的源目录。
+          cd muse/
+
+          # 显示更改概要。
+          tla missing --summary
+
+  5. 重写错过的更改，更新 Muse 到最新版本。
+          cd muse
+          tla replay
+
+
+   与 Muse 归档交互还有一些其他的方法。
+
+   * 浏览 arch 存储库：`http://www.mwolson.org/archives/'
+
+   *
+     最新开发快照：`http://www.mwolson.org/static/dist/muse-latest.tar.gz'
+
+   最新开发快照与 Arch
+存储库同时被更新，� 此它始终保持最新。
+
+
+File: muse-zh_cn.info,  Node: Installation,  Next: Getting Started,  Prev: Obtaining Muse,  Up: Top
+
+4 编译和安装 Muse
+**********************
+
+Muse 可以在� 的机器上被编译并安装。
+
+编译
+------
+
+这是一个可选的步骤，� 为 Emacs Lisp
+源代� �没有必要必须进行字节编译。
+但这� �做可以产生速度的提升。
+
+   为了编译 Emacs Muse，一个Emacs 或 XEmacs
+的工作副本是必须的。 默认情况下，安装时命名为
+`emacs' 的程序将被使用。
+
+   如果� 想要使用二进制文件 `xemacs'
+来执行编译，� 需要象下面这� �编辑 顶层目录中的
+`Makefile.defs' 文件。� 可以输入 Emacs 或者 XEmacs
+二进制文件
+所在的全路径，或者只要其全路径在环境变量 `PATH'
+中就可以仅仅输入命令名。
+
+     EMACS    = xemacs
+     SITEFLAG = -no-site-file
+
+   运行 `make' 就会编译 `lisp' 目录中的 Muse 源文件。
+
+安装
+------
+
+通过下述操作 Muse 可以被安装到� 的文件层次结构中。
+
+   编辑 `Makefile.defs' 文件使得 `ELISPDIR' 指向� 想要的
+Muse 源文件 和编译文件的安装路径， `INFODIR' 表示 Muse
+手册的安装路径。当然， 如果� 使用 XEmacs
+� 需要如编译部分所说的那� �编辑 `EMACS' 和 `SITEFLAG'。
+
+   如果� 在一个 Debian 或者 Ubuntu 系统中安装
+Muse，� 可能需要按照文件 `Makefile.defs'
+中的说明更改变量 `INSTALLINFO' 的值。
+
+   如果� 想要安装 Muse
+到一个非默认指定的位置，那么如前所说，编辑
+`Makefile.defs' 文件。
+
+   然后以普通用户身份运行 `make'。
+
+   如果� 选择的安装位置要求必须 root 用户，那么以
+root 身份运行 `make install'。
+
+
+File: muse-zh_cn.info,  Node: Getting Started,  Next: Projects,  Prev: Installation,  Up: Top
+
+5 开始
+********
+
+要使用 Muse，添� 包含 Muse 文件的目录到� 的 `load-path'
+变量中， 它一般在� 的 `.emacs'
+文件中定义。然后，� 载写作模式和� 想要发布的
+文档风� �。下面是一个例子。
+
+     (add-to-list 'load-path "<path to Muse>")
+
+     (require 'muse-mode)     ; load authoring mode
+
+     (require 'muse-html)     ; load publishing styles I use
+     (require 'muse-latex)
+     (require 'muse-texinfo)
+     (require 'muse-docbook)
+
+   一旦 Muse 模式被� 载，命令 `M-x muse-publish-this-file'
+将发布一个
+输入文档为任意可用的风� �。如果� 想在一个 buffer
+中启用 `muse-mode'， 那么输入 `M-x muse-mode'，它被绑定到
+`C-c C-t'。
+
+   如果当前打开的文件属于 `muse-project-alist'
+中一个定义的项目， 那么可以使用 `C-c C-p' 来发布它。
+
+   � 也可以输入 `M-x customize-group'，然后给出名
+`muse'。每一个选项 都有它自己的文档。
+
+
+File: muse-zh_cn.info,  Node: Projects,  Next: Keystroke Summary,  Prev: Getting Started,  Up: Top
+
+6 创建和管理 Muse 项目
+*****************************
+
+通常� 希望自动将一个目录中的所有文件发布为一组特定的输出风� �，为此，
+Muse 允许创建“项目”。下面是一个定义在� 的 `.emacs'
+文件中的项目范例。
+
+     (require 'muse-project)
+
+     (setq muse-project-alist
+           '(("website"			; my various writings
+              ("~/Pages" :default "index")
+              (:base "html" :path "~/public_html")
+              (:base "pdf" :path "~/public_html/pdf"))))
+
+上面定义了一个名为“website”的项目，该项目所有的文件都位于目录
+`~/Pages' 下，默认的访问页为
+`index'。当该项目被发布时，每一页 将会以 HTML
+� �式输出到 `~/public_html' 目录中，并以 PDF � �式输出到
+`~/public_html/pdf'
+目录中。在项目中的任一页中，� 可以使用语法
+`[[pagename]]' 创建到其他页的链接。
+
+   默认情况下 Muse 要求所有的项目文件具有扩展名
+`.muse'，不具有这个扩展名 的文件将不会被关联到 Muse
+模式，也将不会被看作任何项目的一部分，即使这些
+文件确确实实在一个项目目录中。
+
+   如果� 不想使用扩展名 `.muse'，� 可以通过设置
+`muse-file-extension' 的值来自定义扩展名。
+
+   如果� 不想使用任何扩展名，而是想要 Muse
+基于项目文件位置自动探测项目文件， 那么在� 的
+Muse 设置文件中� 入下面两行。
+
+     (setq muse-file-extension nil
+           muse-mode-auto-p t)
+
+如果� 想要仅仅包括一个目录中的� 个文件，那么� 需要使用一个正则表达式代替
+例子中的 `~/Pages'。
+
+
+File: muse-zh_cn.info,  Node: Keystroke Summary,  Next: Markup Rules,  Prev: Projects,  Up: Top
+
+7 Muse 模式中使用的快捷键
+**********************************
+
+这是在每一个 Muse buffer 中可用的快捷键概要。
+
+`C-c C-a (`muse-index')'
+     显示所有已知 Muse 页面的索引。
+
+`C-c C-b (`muse-find-backlinks')'
+     找出所有引用了当前页的页面。
+
+`C-c C-c (`muse-follow-name-at-point')'
+     访问当前位置处的链接。
+
+`C-c C-e (`muse-edit-link-at-point')'
+     编辑当前位置处的链接。
+
+`C-c C-f (`muse-project-find-file')'
+     打开另一个 Muse 页面。提示输入文件名。
+
+`C-c C-i (`muse-insert-tag')'
+     交互地插入一个� �签。
+
+`C-c C-l (`font-lock-mode')'
+     对当前 buffer 触发 font lock /
+     highlighting（语法高亮）。
+
+`C-c C-p (`muse-project-publish')'
+     发布所有更改了的 Muse 页面。
+
+`C-c C-s (`muse-search')'
+     在当前项目的所有文件中查找文本。
+
+`C-c C-t (`muse-project-publish-this-file')'
+     发布当前访问的文件。如果当前文件可以被使用不止一种风� �发布，提示输入风� �。
+
+`C-c C-T (`muse-publish-this-file')'
+     发布当前访问的文件。提示风� �和输出目录。
+
+`C-c C-v (`muse-browse-result')'
+     显示当前页面的发布结果。
+
+`C-c = (`muse-what-changed')'
+     将当前页面与最近备份版本比较。
+
+`C-c TAB l (`muse-insert-relative-link-to-file')'
+     交互地插入一个链接到一个文件中。
+
+`C-c TAB t (`muse-insert-tag')'
+     交互地插入一个� �签。
+
+`C-c TAB u (`muse-insert-url')'
+     交互地插入一个 URL。
+
+`TAB'
+     移动光� �到下一个 Wiki 链接。
+
+`S-TAB'
+     移动光� �到上一个 Wiki 链接。
+
+`M-TAB'
+     补齐当前位置来自当前项目的一个页面的名字。
+
+`M-RET'
+     在当前位置插入一个新的列表项，同时正确缩进。
+
+`C-<'
+     减少当前位置列表项的缩进。
+
+`C->'
+     增� 当前位置列表项的缩进。
+
+
+
+File: muse-zh_cn.info,  Node: Markup Rules,  Next: Publishing Styles,  Prev: Keystroke Summary,  Up: Top
+
+8 使用� �记的规则
+***********************
+
+一个 Muse
+文档使用特别的、文脉上的� �记规则来决定怎� �� �式化输出结果。例如，
+如果一个段落被缩进了，Muse 就认为它应该被引用。
+
+并没有太多的� �记规则，而且所有的� �记规则力争简单以便让使用者更� 专注于
+文档创作，而不是� �式。
+
+* Menu:
+
+* Paragraphs::                   段落：居中和引用。
+* Headings::                     � �题的层次。
+* Directives::                   文档开始处的指令。
+* Emphasizing Text::             粗体，斜体和下划线文本。
+* Footnotes::                    在最后显示注解。
+* Verse::                        显示诗� 。
+* Lists::                        项的列表。
+* Tables::                       数据表的生成。
+* Explicit Links::               带描述的超级链接和邮件地址。
+* Implicit Links::               � 修饰的 URL，WikiNames 和 InteWiki 链接。
+* Images::                       发布和显示图片。
+* Horizontal Rules and Anchors:: 插入一个水平线或锚。
+* Embedded Lisp::                在文档中为扩展而执行 Emacs Lisp 代� �。
+* Comments::                     发布输出时被省略的行。
+* Tag Summary::                  Muse 可识别的� �签。
+
+
+File: muse-zh_cn.info,  Node: Paragraphs,  Next: Headings,  Prev: Markup Rules,  Up: Markup Rules
+
+8.1 段落：居中和引用
+============================
+
+在 Muse 中段落必须通过一个空行来隔开。
+
+段落居中和引用
+---------------------
+
+以六个或者更多的空白字元（Tab
+或者空� �）开始的一行表示一个居中的段落。
+另外，� 也可以使用 <center>
+� �签使得其包含的区域被发布为居中的段落。
+
+但是如果一行以空白字元开始，但空白字元不足六个，这表示一个引用的段落。
+另外，� 也可以使用 <quote>
+� �签使得起包含的区域被发布为引用的段落。
+
+抄录段落
+------------
+
+<example>
+� �签用于示例，其中空白应该被保留，等宽间距文本，且输出
+风� �的任意特殊字符都被转义。
+
+   还有一个 <literal>
+� �签，作用是使得所� �记的块全部原� �输出。比如
+这可以用来插入一段手编的 HTML 代� �到 HTML 输出。
+
+
+File: muse-zh_cn.info,  Node: Headings,  Next: Directives,  Prev: Paragraphs,  Up: Markup Rules
+
+8.2 � �题的层次
+===================
+
+依赖于输出风� �一个� �题会成为打印输出的一� 或者一节。以一个或� 个星号开始
+一个新的段落，后面跟一个空� �和� �题题目，来表示一个� �题。然后另起一段输入
+这部分的正文。
+
+所有层次的� �题都将会被发布，然而，大部分发布风� �仅仅会区分头四个层次。
+
+     * First level
+
+     ** Second level
+
+     *** Third level
+
+     **** Fourth level
+
+
+File: muse-zh_cn.info,  Node: Directives,  Next: Emphasizing Text,  Prev: Headings,  Up: Markup Rules
+
+8.3 文档开始处的指令
+============================
+
+文档中全部的段落或者区段前以 `#'
+开始的行是指令。指令的� �式为 “#directive content of
+directive”。� 可以使用任意大小写字母的组合作为指令，
+即使它没有在下面列出。
+
+   `muse-publishing-directive'
+函数可以被用于页眉和页脚来存取指令。例如， 使用
+`(muse-publishing-directive "title")' 来存取 `#title' 指令。
+
+   下面是 Muse 使用的指令表。
+
+`#author'
+     该文档的作者。
+
+     如果它没有被指定，Muse 将试图从变量
+     `user-full-name' 来推断它。
+
+`#date'
+     文档最近更新的日期。
+
+     它由那些能够嵌入日期信息的发布风� �使用。
+
+`#desc'
+     该文档的一个简短的描述。
+
+     它被 `journal' 发布风� �用来在一个 RSS/RDF
+     源内部嵌入信息。
+
+`#title'
+     该文档的题目。
+
+     如果它没有被指定，那么将使用文件名作为文档题目。
+
+
+
+File: muse-zh_cn.info,  Node: Emphasizing Text,  Next: Footnotes,  Prev: Directives,  Up: Markup Rules
+
+8.4 粗体，斜体和下划线文本
+=====================================
+
+使用某些特别地认可的字符包围文本以强调文本。
+
+     *emphasis*
+     **strong emphasis**
+     ***very strong emphasis***
+     _underlined_
+     =verbatim and monospace=
+
+   当在 Muse 模式下编辑一个 Muse
+文档时，这些强调形式将会以一种所见即所得
+（WYSIWYG）的方式高亮显示。每种形式可跨越多行。
+
+   抄录（verbatim）文本默认情况下被灰色显示，定制
+`muse-verbatim-face' 来改变它。
+
+   � 也可以使用 <code>
+� �签来表示抄录（verbatim）和等宽（monospace）
+文本，这在本身含有“=”的区域中很方便。
+
+
+File: muse-zh_cn.info,  Node: Footnotes,  Next: Verse,  Prev: Emphasizing Text,  Up: Markup Rules
+
+8.5 在最后显示注解
+=========================
+
+一个脚注引用就是简单的一个在方括号中的数字，在� 的文件底部放置脚注的注解
+来定义它。`footnote-mode'
+可以被用来非常方便的生成这种脚注。
+
+脚注由行首方括号内的相同数字所定义，在输入的时候使用
+footnote-mode 的 `C-c ! a' 命令会很容易的插入脚注，使用
+`C-x C-x' 便返回插入点。
+
+
+File: muse-zh_cn.info,  Node: Verse,  Next: Lists,  Prev: Footnotes,  Up: Markup Rules
+
+8.6 显示诗� 
+================
+
+诗要求空白字元被保留，但不采取等宽。为显示诗使用下面的� �签，它让我们想起
+email 引用的方式。
+
+     > A line of Emacs verse;
+     >   forgive its being so terse.
+
+   � 也可以使用 <verse> � �签，如果� 喜欢。
+
+     <verse>
+     A line of Emacs verse;
+       forgive its being so terse.
+     </verse>
+
+   多个� 节可以被一组 <verse> � �签包括，如下所示。
+
+     <verse>
+     A line of Emacs verse;
+       forgive its being so terse.
+
+     In terms of terse verse,
+       you could do worse.
+     </verse>
+
+
+File: muse-zh_cn.info,  Node: Lists,  Next: Tables,  Prev: Verse,  Up: Markup Rules
+
+8.7 项的列表
+================
+
+列表是由行首使用的特殊字符产生，在符号列表项或数字列表项前必须有一个空白字元用于
+区别那些字符可能确实出现在一个句子中的情况。
+
+   下面生成一个符号列表。
+
+     - bullet item one
+     - bullet item two
+
+   然后一个枚举列表。
+
+     1. Enum item one
+     2. Enum item two
+
+   这里是一个定义列表。
+
+     Term1 ::
+       This is a first definition
+       And it has two lines;
+       no, make that three.
+
+     Term2 ::
+       This is a second definition
+
+
+File: muse-zh_cn.info,  Node: Tables,  Next: Explicit Links,  Prev: Lists,  Up: Markup Rules
+
+8.8 数据表的生成
+======================
+
+Muse 仅仅支持很简单的表� �，语法如下。
+
+     Double bars  || Separate header fields
+
+     Single bars   | Separate body fields
+     Here are more | body fields
+
+     Triple bars ||| Separate footer fields
+
+一些发布风� �要求首先是表头，紧跟着是表底，然后才是表体。� 可以对这些部分
+使用� 喜欢的任意顺序，Muse
+在发布时将会为� 重新排序。
+
+   如果� 想禁用一个 Muse 文件的表� �生成，添� 指令
+`#disable-tables t' 到文件的顶部。
+
+
+File: muse-zh_cn.info,  Node: Explicit Links,  Next: Implicit Links,  Prev: Tables,  Up: Markup Rules
+
+8.9 带描述的超级链接和邮件地址
+===========================================
+
+一个超级链接可以引用一个 URL或者某个 Muse
+项目中的其他页面。另外，描述文本
+可以被指定并在支持链接描述的输出风� �中显示，而不是显示链接文本。
+
+     [[link target][link description]]
+     [[link target without description]]
+
+   � 而，当前 Muse 维护者的主页可以从
+`[[http://www.mwolson.org/projects/EmacsMuse.html][here]]'， 或者
+`[[http://www.mwolson.org/projects/EmacsMuse.html]]' 找到。
+
+
+File: muse-zh_cn.info,  Node: Implicit Links,  Next: Images,  Prev: Explicit Links,  Up: Markup Rules
+
+8.10 � 修饰的 URL，WikiNames 和 InteWiki 链接
+=====================================================
+
+输入文本中的一个 URL 或者 email
+地址被发布为一个超链接，这种链接被称做 "implicit
+links"，� 为不管怎� �它们与 Muse
+文档的其他部分没有分离。
+
+   URL 中的一些字符会禁止 Muse 把它们当作 implicit
+links，如果� 想要链接一个
+包含空� �或者“][,"'`()<>^”中任一个字符的
+URL，那么� 必须使用 explicit links，
+当“.,;:”这些� �点符号出现在一个 URL
+的末尾时它们也不会被看做是这个 URL 的
+一部分。关于如何写一个 explicit link 参见 *Note Hyperlinks
+and email addresses with descriptions: Explicit Links.。
+
+   如果 `muse-wiki' 模块被� 载，另一种 implicit link
+的形式就可用了。 以 CamelCase 形式输入的 Wikinames
+被高亮显示并发布为链接，这提供给该文件
+一种引用其他存在文件的方式。
+
+   通过编辑 `muse-wiki-wikiword-regexp' 选项接着运行
+`(muse-configure-highlighting 'muse-colors-markupmuse-colors-markup)'
+就可以完成 WikiName
+认可定制。如果� 使用定制界面，后面的部分会自动完成。
+
+   `muse-wiki' 模式也允许 InterWiki links，这与 WikiWords
+很相似， 但 InterWiki links
+不但可以指定某个项目，而且也可以指定某个文件页面。
+默认情况下在 `muse-project-alist'
+中定义的项目条目名将被用于 InterWiki 名。
+下面是� 个例子。
+
+     Blog::DocumentingMuse
+     Projects#EmacsMuse
+     Website
+
+   第一种情况，interwiki 分隔符是 `::'，`Blog'
+为项目名， `DocumentingMuse' 为页面名；第二种情况，`#'
+是 interwiki
+分隔符。象第三种情况这� �，如果一个项目名单独出现在文本中，
+那么它会被� 色并发布为一个指向该工程默认页面的一个链接。
+
+   通过编辑 `muse-wiki-interwiki-alist' 选项可以完成
+interwiki links 的定制。
+
+
+File: muse-zh_cn.info,  Node: Images,  Next: Horizontal Rules and Anchors,  Prev: Implicit Links,  Up: Markup Rules
+
+8.11 发布和显示图片
+==========================
+
+图片链接
+------------
+
+指向图片的链接可以被用于目� �或者描述中，也可以两者都使用。所以，下面的
+代� �会发布一个指向 `http://www.mwolson.org/'
+可点击的图片。
+
+     [[http://www.mwolson.org/][/static/logos/site-logo.png]]
+
+在 Muse 模式中显示图片
+------------------------------
+
+如果在链接描述中遇到一个指向本地可用图片的链接，并且� 的
+Emacs 版本允许 图片显示，那么 Muse
+模式会试图显示它。
+
+   这个行为可以由 `C-c C-i' 触发，或者通过设置选项
+`muse-colors-inline-images' 为 `nil' 来永久禁止此功能。
+
+   通过定制 `muse-colors-inline-image-method' 选项可以 Muse
+改变查找图片 的方式。这个选项的一个有用的值为
+`muse-colors-use-publishing-directory'， 它告诉 Muse
+模式去查找当前文件将要被发布的目录。默认情况下是在当前目录下
+查找。对于任一设置类似 `../pic/'
+这� �的相对路径应该是有效的。
+
+   最后，我们希望通过定制 `muse-project-alist' Muse
+能够从一个“源”目录
+复制图片到一个发布目录中，但这个功能尚未完成。
+
+发布简单的图片
+---------------------
+
+如果在 `../pics/' 目录中存在一个叫做 `TestLogo.png'
+的文件，那么
+下面的这个例子将会正确显示和发布。如果文本与图片在同一行，那么在输出
+中也是如此。
+
+     [[../myimage.png]]
+
+发布带题目的图片
+------------------------
+
+如果� 想要为一幅图片添� � �题，使用下面的语法。它将图片居中（如果所发布的
+� �式支持该功能）并在图片下面添� 一个居中的� �题。对于那些不支持图片居中的
+� �式将以图片紧� 左边界来代替。
+
+     [[../pics/mycat.png][My cat Dexter]]
+
+带有� �题的图片仅可以自成一段，在同一行不允许有文本。否则，发布的输出句法
+上是错误的。
+
+
+File: muse-zh_cn.info,  Node: Horizontal Rules and Anchors,  Next: Embedded Lisp,  Prev: Images,  Up: Markup Rules
+
+8.12 插入一个水平线或锚
+================================
+
+水平线
+---------
+
+四个或者更多的� �折号（-）表示一个水平线。确保其前后都是空行，否则它将被
+看作是前面或后面段落的一部分。
+
+锚
+---
+
+如果� 以“#anchor”开始一行 ──
+其中“anchor”可以是任意不包含空白字元的 单词 ──
+那么它在所在位置定义了一个进入文档内部的锚。在一个
+Muse 链接中
+使用“page#anchor”作为目� �就可以引用这个锚点。
+
+
+File: muse-zh_cn.info,  Node: Embedded Lisp,  Next: Comments,  Prev: Horizontal Rules and Anchors,  Up: Markup Rules
+
+8.13 在文档中为扩展而执行 Emacs Lisp 代� �
+=====================================================
+
+使用 <lisp>
+� �签可以得到任意种类的� �记，它也是仅有的在一个风� �的页眉
+和页脚文本中支持的 Muse � �签。使用 <lisp>
+� �签� 可以生成任意� 想要的输出。 如果 <lisp>
+� �签出现在文档正文内部，那么插入的输出将会被� �记出。
+
+     <lisp>(concat "This form gets " "inserted")</lisp>
+
+   注意不能在一组 <lisp> � �签中使用 `insert'
+命令，� 为这� �的话 <lisp>
+� �签的返回值将被自动插入文档中。
+
+
+File: muse-zh_cn.info,  Node: Comments,  Next: Tag Summary,  Prev: Embedded Lisp,  Up: Markup Rules
+
+8.14 发布输出时被省略的行
+===================================
+
+使用下面的语法来表示一个注释，注释将不会被发布。
+
+     ; Comment text goes here.
+
+也就是说，仅仅行首一个分号，紧跟一个文字空白，就使得这一行被当作注释了。
+
+
+File: muse-zh_cn.info,  Node: Tag Summary,  Prev: Comments,  Up: Markup Rules
+
+8.15 Muse 可识别的� �签
+============================
+
+在发布过程中 Muse 有� 个内嵌� �签证明非常有用。*Note
+muse-publish-markup-tags:: 来了解怎� �定制 Muse
+使用的� �签和怎� �制作� 自己的� �签。
+
+语法
+------
+
+如果一个� �签带有参数，那么它就会看起来象下面这� �，其中“tagname”是� �签名。
+
+     <tagname arg1="string1" arg2="string2">
+
+   如果� 想要一个� �签看起来更象来自一个� �准的
+XHTML 文档，作为选择� 可以照 下面这� �做。
+
+     <tagname arg1="string1" arg2="string2" />
+
+如果一个� �签包围一些文本，那么它看起来象下面这� �。
+
+     <tagname>Some text</tagname>
+
+如果一个� �签包围一大块区域，那么它看起来象下面这� �。
+
+     <tagname>
+     Some text.
+     Some more text.
+     </tagname>
+
+� �签列表
+------------
+
+下面是 Muse
+所采用的完整的� �签列表，其中包括前面� 节中所提到的那些� �签。
+
+`<class>'
+     如果发布成 HTML � �式，用一个 <span>
+     � �签包围给定的文本。它带有
+     一个名为“name”的参数指定 <span> � �签的类属性。
+
+     如果发布成其他的� �式，那么对文本没有任何作用。
+
+`<code>'
+     被这个� �签包围的文本被看作由同等大小的符号围住，也就是说，使得文本等宽。
+
+`<command>'
+     在一个区域上运行一个命令，使用命令的结果来代替该区域。该命令带有“interp”
+     参数，如果“interp”没有赋值，� 递整个区域给
+     shell。
+
+     “markup”参数控制这块区域是怎� �被� �记。
+
+     如果它被省略，那么使用正常的 Muse
+     规则发布这个区域。
+
+     如果是“nil”，那么� �本不� �记这个区域，但也禁止
+     Muse 进一步解释它。
+
+     如果是“example”，那么这个区域就象被 <example>
+     � �签包围那� �被处理。
+
+     如果是“verse”，那么这个区域就象被 <verse>
+     � �签包围那� �被处理， 保留其中的新行。
+
+     否则，它应是要调用的一个函数名，带有一个被限定在这个区域的
+     buffer。
+
+`<comment>'
+     整个区域被当作注释。如果选项 MUSE-PUBLISH-COMMENTS-P
+     值为空，发布时
+     � 除该区域，否则，使用当前发布风� �的注释语法发布它。
+
+`<contents>'
+     发布一个目录。依赖于� 要发布的风� �，它将被插入到适当的位置，或者在文档的
+     开始。它没有一个定界� �签。
+
+     默认情况下生成的目录中仅仅包含一级和二级� �题。定制
+     MUSE-PUBLISH-CONTENTS-DEPTH
+     选项来全局地改变它。要想仅仅为当前这个� �签改变，使用“depth”参数。
+
+`<example>'
+     以等宽形式发布一个区域，保留区域中的新行。这对代� �摘录很有用。
+
+`<include>'
+     发布过程中在当前位置插入给定的文件。这个� �签基本用法如下，其中“included_file”
+     由� 想要 include 的文件名替代。
+
+          <include file="included_file">
+
+     “markup”参数控制这块区域是怎� �被� �记。
+
+     如果它被省略，那么使用正常的 Muse
+     规则发布被包括的文本。
+
+     如果是“nil”，那么� �本不� �记被包括的文本。
+
+     如果是“example”，那么被包括的文本就象被
+     <example> � �签包围那� � 被处理。
+
+     如果是“verse”，那么被包括的文本就象被 <verse>
+     � �签包围那� �被处理， 保留其中的新行。
+
+     否则，它应是插入文件后要调用的一个函数名，带有一个被限定在被插入区域的
+     buffer。
+
+`<lisp>'
+     对该� �签起始和结束部分的 Emacs Lisp
+     表达式赋值，然后结果被插入到文档中，
+     � 此� 不必显式的调用
+     `insert'。结果文本中的所有文本属性被去掉。
+
+     这个� �签带有“markup”参数，参见 <command>
+     的描述查看细节。
+
+`<literal>'
+     确定此� �签所包围的文本不会以任何方式被转义的形式被发布，当
+     Muse 没有提供
+     期望的功能时，对于直接插入� �记到所发布文档中非常有用。
+
+`<markup>'
+     � �记该� �签起始到结束之间的文本。要使用的
+     markup 命令可以由“function”参数
+     指定。如果没有提供“function”参数，默认情况下就使用� �准的
+     Muse markup 规则。
+
+     这在页眉和页脚中� �记区域时非常有用。记忆中的一个例子就是通过下面的操作生成
+     一个当前项目下的所有文件的发布索引。
+
+          <markup><lisp>(muse-index-as-string t t)</lisp></markup>
+
+`<perl>'
+     对一个区域执行 `perl'
+     语言解释器，用命令结果替代该区域。
+
+     这个� �签带有“markup”参数，参见 <command>
+     的描述查看细节。
+
+`<python>'
+     对一个区域执行 `python'
+     语言解释器，用命令结果替代该区域。
+
+     这个� �签带有“markup”参数，参见 <command>
+     的描述查看细节。
+
+`<quote>'
+     发布一个区域为一个引用块，依赖于� 要发布的风� �，它将被插入到适当的位置，
+     或者在文档的开始。它没有一个定界� �签。
+
+`<ruby>'
+     对一个区域执行 `ruby'
+     语言解释器，用命令结果替代该区域。
+
+     这个� �签带有“markup”参数，参见 <command>
+     的描述查看细节。
+
+`<verbatim>'
+     当� 想要禁止 Muse
+     试图解释一些� �记时使用该� �签，使用 <verbatim> 和
+     </verbatim> 包围� �记，那么它将不会被解释。
+
+     在前面的 Muse
+     版本中这个� �签使用很频繁� 为那些版本不支持整个文档的特殊转义。
+     现在，这个� �签仅仅为其他� �签需要，或许在脚注中需要。
+
+`<verse>'
+     保留一个区域中的新行。在象 HTML
+     这� �的� �式中，新行被默认的去掉，� 此需要
+     这个� �签。在其他的发布风� �中，这个� �签可能会使得文本略微缩进，这� �对诗和
+     散文而言，排版看起来更好看。
+
+
+
+File: muse-zh_cn.info,  Node: Publishing Styles,  Next: Extending Muse,  Prev: Markup Rules,  Up: Top
+
+9 发布不同类型的文档
+*****************************
+
+Muse
+的一个基本特色是它能够把一个简单的输入文本发布成种种不同风� �的输出。
+Muse
+也使得创建一个新的风� �或者从一个存在的风� �中派生新风� �变得容易。
+
+* Menu:
+
+* Blosxom::                      集成 Muse 和 pyblosxom.cgi。
+* Book::                         发布条目到编辑物。
+* DocBook::                      以 DocBook XML 形式发布。
+* HTML::                         以 HTML 或者 XHTML 形式发布。
+* Journal::                      写日记或者博客。
+* LaTeX::                        发布 LaTeX 文档。
+* Poem::                         发布诗到 LaTeX 或者 PDF。
+* Texinfo::                      发布条目到 Texinfo � �式或者 PDF 。
+
+
+File: muse-zh_cn.info,  Node: Blosxom,  Next: Book,  Prev: Publishing Styles,  Up: Publishing Styles
+
+9.1 集成 Muse 和 pyblosxom.cgi
+=================================
+
+Blosxom
+发布� �式发布一个归类文件� �为一个文� 的镜像� �，并由
+blosxom.cgi 或 pyblosxom.cgi 提供服务。换句话说，每个 blog
+条目与一个文件相对应。
+
+* Menu:
+
+* Blosxom Requirements::         Blosxom 风� �需要的其他工具。
+* Blosxom Entries::              一个 Blosxom 条目的� �式和自动操作。
+* Blosxom Options::              提供的 Blosxom 风� �和选项。
+
+
+File: muse-zh_cn.info,  Node: Blosxom Requirements,  Next: Blosxom Entries,  Prev: Blosxom,  Up: Blosxom
+
+9.1.1 Blosxom 风� �需要的其他工具
+-----------------------------------------
+
+� 需要在一个� 具有上� 访问权限的机器上安装
+`pyblosxom.cgi' 或 `blosxom.cgi'。
+
+   为了使得 blog
+条目的日期能够合理的显示，下面这些额外的组件是必须的。
+
+  1. 一个从整个 blog
+     � �中聚合日期指令到一个单独文件的脚本，这个文件与带有日期
+     的 blog 条目一定相关联。
+
+  2. 一个可以读这个文件的 （py）blosxom 插件。
+
+   在 `contrib/pyblosxom' 子目录中为 `pyblosxom.cgi'
+提供这两个组件。 `getstamps.py' 提供前面的服务，而
+`hardcodedates.py' 提供后面的服务。
+最后期望找出或写出一个 `blosxom.cgi' 插件和脚本。
+
+   下面是在我的 `timestamps'
+文件中的一个例子列表，其中每个文件与一个
+日期相对应。其实这可以是任意� �式，只要� 的日期聚合脚本和插件都能够解析。
+
+     2005-04-01-14-16 personal/paper_cranes
+     2005-03-21 personal/spring_break_over
+     2004-10-24 personal/finished_free_culture
+
+   `contrib/pyblosxom/make-blog' 脚本示范了怎� �调用
+`getstamps.py'。 注意� 需要设置当前目录为� 的 Muse
+文件所在的目录，执行 `gestamps.py'，
+然后移动生成的时间戳文件到� 的发布目录中。
+
+
+File: muse-zh_cn.info,  Node: Blosxom Entries,  Next: Blosxom Options,  Prev: Blosxom Requirements,  Up: Blosxom
+
+9.1.2 一个 Blosxom 条目的� �式和自动操作
+---------------------------------------------------
+
+每一个 Blosxom 文件必须包含 `#date yyyy-mm-dd'
+或者可选的长� �式 `#date
+yyyy-mm-dd-hh-mm'，一个题目（使用 #title
+指令）� 上任意内容的正文。
+
+   日期指令不会直接由 `pyblosxom.cgi'
+或者这个程序所使用。� 需要有
+上一节中提到的那两个额外组件来使用这个特色。
+
+   有一个名为 `muse-blosxom-new-entry'
+的函数可以使得生成一个新的 blog 条目
+的过程自动化。照下面所做来使用它。
+
+   * 定制 `muse-blosxom-base-directory' 为� 的 blog
+     条目存储的位置。
+
+   * 绑定 `muse-blosxom-new-entry'
+     函数到一个键序列。我使用下面的代� �绑定这个
+     函数到 `C-c p l''。
+
+          (global-set-key "\C-cpl" 'muse-blosxom-new-entry)
+
+   *
+     � 应该预先在� 的基目录下创建目录结构。这些目录与分类名一致，并且可以嵌套。
+
+   *
+     当� 输入这个键序列，� 会被提示输入条目分类和题目。键入这些信息后，一个新
+     文件被创建，这个文件名与输入的题目一致，但全部为小写字母并且特殊字符被转
+     换为下划线。同时，题目和日期指令被自动插入。
+
+
+File: muse-zh_cn.info,  Node: Blosxom Options,  Prev: Blosxom Entries,  Up: Blosxom
+
+9.1.3 提供的 Blosxom 风� �和选项
+---------------------------------------
+
+在 Blosxom 发布风� �中下面的风� �和选项可用。
+
+提供的风� �
+---------------
+
+`blosxom-html'
+     以 HTML 形式发布 Blosxom 条目。
+
+`blosxom-xhtml'
+     以 XHTML 形式发布 Blosxom 条目。
+
+
+提供的选项
+---------------
+
+`muse-blosxom-extension'
+     发布 Blosxom 文件的默认扩展名。
+
+`muse-blosxom-header'
+     发布 Blosxom 文件使用的页眉。
+
+     这可以是文本或者一个文件名。
+
+`muse-blosxom-footer'
+     发布 Blosxom 文件使用的页脚。
+
+     这可以是文本或者一个文件名。
+
+`muse-blosxom-base-directory'
+     blog 条目的基目录，被 `muse-blosxom-new-entry' 使用。
+
+     这是� 的 blog 条目本地能找到的顶层目录。
+
+
+
+File: muse-zh_cn.info,  Node: Book,  Next: DocBook,  Prev: Blosxom,  Up: Publishing Styles
+
+9.2 发布条目到编辑物
+============================
+
+这个发布风� �被用于输出 LaTeX 或者 PDF � �式的“书”。
+
+   如果不使用关键字 `:nochapters'
+每一个页面将会成为书中一个独立的� ，
+否则，它们就会象庞大的一� 那� �在一起。
+
+   为发布这种风� �� 需要调用 `muse-book-publish-project'
+函数。在 John Wiegley 的配置文件
+`examples/johnw/muse-johnw.el' 中可以找到这� �的一个例子。
+
+提供的风� �
+---------------
+
+`book-latex'
+     以 LaTeX 形式发布一本书。页眉和页脚与正常的
+     LaTeX 发布模式不同。
+
+`book-pdf'
+     以 PDF 形式发布一本书。页眉和页脚与正常的 PDF
+     发布模式不同。
+
+
+提供的选项
+---------------
+
+`muse-book-before-publish-hook'
+     被� �记前运行在书的 buffer 中的一个 hook。
+
+`muse-book-after-publish-hook'
+     被� �记后运行在书的 buffer 中的一个 hook。
+
+`muse-book-latex-header'
+     发布书到 LaTeX 使用的页眉。
+
+     这可以是文本或者一个文件名。
+
+`muse-book-latex-footer'
+     发布书到 LaTeX 使用的页脚。
+
+     这可以是文本或者一个文件名。
+
+
+
+File: muse-zh_cn.info,  Node: DocBook,  Next: HTML,  Prev: Book,  Up: Publishing Styles
+
+9.3 以 DocBook XML 形式发布
+================================
+
+这种发布风� �被用于生成 DocBook XML 文件。
+
+提供的风� �
+---------------
+
+`docbook'
+
+提供的选项
+---------------
+
+`muse-docbook-extension'
+     发布 DocBook XML 文件的默认扩展名。
+
+`muse-docbook-header'
+     发布 DocBook XML 文件使用的页眉。
+
+     这可以是文本或者一个文件名。
+
+`muse-docbook-footer'
+     发布 DocBook XML 文件使用的页脚。
+
+     这可以是文本或者一个文件名。
+
+`muse-docbook-markup-regexps'
+     发布一个 Muse 页面到 DocBook XML 的� �记规则表。
+
+`muse-docbook-markup-functions'
+     为该风� �文本定制函数的风� �� �式列表。
+
+`muse-docbook-markup-strings'
+     � �记文本使用的字符串。
+
+     这些字符串涵盖最基本的� �记类，它们在各种风� �之间的操作差别很小。
+
+`muse-docbook-markup-specials'
+     必须被特殊表示的字符列表。
+
+`muse-docbook-encoding-default'
+     在发布文件中使用的默认 Emacs buffer
+     编� �。如果没有发现特殊字符，该选项将 被使用。
+
+`muse-docbook-charset-default'
+     在 `muse-docbook-encoding-map'
+     中如果没有找到转换，使用默认的 DocBook XML
+     字符集。
+
+`muse-docbook-encoding-map'
+     � 射 emacs 编� �系统到合适 DocBook
+     字符集的一个列表。使用编� �系统的基名
+     （例如，没有 -unix）。
+
+
+
+File: muse-zh_cn.info,  Node: HTML,  Next: Journal,  Prev: DocBook,  Up: Publishing Styles
+
+9.4 以 HTML 或者 XHTML 形式发布
+======================================
+
+这种发布风� �能够生成 HTML 或 XHTML 文档。
+
+提供的风� �
+---------------
+
+`html'
+     支持发布 Strict 或 Transitional 的 HTML 4.0 和 HTML 4.01。
+
+`xhtml'
+     支持发布 Strict 或 Transitional 的 XHTML 1.0 和 XHTML 1.1。
+
+
+提供的选项
+---------------
+
+如果一个 HTML 选项没有一个相应的 XHTML
+选项，它将被用于这两种发布风� �。
+
+`muse-html-extension'
+     发布 HTML 文件默认的扩展名。
+
+`muse-xhtml-extension'
+     发布 XHTML 文件默认的扩展名。
+
+`muse-html-style-sheet'
+     在这里存储� 的� �式表定义。
+
+     这被用于
+     `muse-html-header'。� 可以在这里放置原始的 CSS
+     或者放置一个 <link>
+     � �签链接到一个外部的� �式表。文本中可以包含
+     <lisp> � �记的� �签。
+
+     如果� 使用 XHTML，确保适当地关闭了 <link> � �签。
+
+`muse-html-header'
+     发布 HTML 文件使用的页眉。
+
+     这可以是文本或者一个文件名。
+
+`muse-html-footer'
+     发布 HTML 文件使用的页脚。
+
+     这可以是文本或者一个文件名。
+
+`muse-xhtml-header'
+     发布 XHTML 文件使用的页眉。
+
+     这可以是文本或者一个文件名。
+
+`muse-xhtml-footer'
+     发布 XHTML 文件使用的页脚。
+
+     这可以是文本或者一个文件名。
+
+`muse-html-anchor-on-word'
+     如果该选项为真，锚包围最� 近的单词。
+
+     这允许� 在一个浏览器中选择它们（比如，for
+     pasting），但如果� 的页眉风� �和
+     � 的链接风� �不同就会产生以多种颜色� �记页眉的副面效果。
+
+`muse-html-table-attributes'
+     HTML 的 <table> � �签所使用的属性。
+
+     如果� 想要在 HTML 中制作更� 复杂的表� �，用
+     literal � �签包围 HTML
+     代� �，这� �它们就不会被转义。
+
+`muse-html-markup-regexps'
+     发布一个 Muse 页面到 HTML 的� �记规则表。
+
+`muse-html-markup-functions'
+     为该风� �文本定制函数的风� �� �式列表。
+
+`muse-html-markup-strings'
+     HTML � �记文本使用的字符串。
+
+     这些字符串涵盖最基本的� �记类，它们在各种风� �之间的操作差别很小。
+
+`muse-xhtml-markup-strings'
+     XHTML � �记文本使用的字符串。
+
+     这些字符串涵盖最基本的� �记类，它们在各种风� �之间的操作差别很小。
+
+`muse-html-markup-tags'
+     特别地� �记 HTML 的� �签详表。*Note
+     muse-publish-markup-tags:: 获取更多信息。
+
+`muse-html-markup-specials'
+     必须被特别表示的字符表。默认情况下包括
+     `"'，`<'，`>' 和 `&'。
+
+`muse-html-meta-http-equiv'
+     HTML <meta> � �签使用的 http-equiv 属性。
+
+`muse-html-meta-content-type'
+     HTML <meta> � �签使用的内容类型。
+
+     如果� 正在努力遵守 XHTML 1.1
+     � �准，修改这个选项为 “application/xhtml+xml”。
+
+`muse-html-meta-content-encoding'
+     添� 到 HTML <meta> � �签中的字符集。
+
+     如果设置该选项为符号 'detect，就使用
+     `muse-html-encoding-map' 从 emacs 的 编� �中试图并决定
+     HTML
+     的字符集；如果设置该选项为一个字符串，就会强制使用
+     这个字符串作为特定的字符集。
+
+`muse-html-charset-default'
+     如果在 `muse-html-encoding-map'
+     中没有找到转换，使用默认的 HTML meta 字符。
+
+`muse-html-encoding-default'
+     在发布的文件中使用默认的 Emacs buffer
+     编� �。如果没有发现特殊字符，该选项将 被使用。
+
+`muse-html-encoding-map'
+     � 射 emacs 编� �系统到合适 DocBook
+     字符集的一个列表。使用编� �系统的基名
+     （例如，没有 -unix）。
+
+
+
+File: muse-zh_cn.info,  Node: Journal,  Next: LaTeX,  Prev: HTML,  Up: Publishing Styles
+
+9.5 写日记或者博客
+=========================
+
+这个模块便于日志的撰写和发布，当发布成 HTML
+时，它假定以网络日志或者博客 的形式发布。
+
+   下面是每一个条目的输入� �式。
+
+     * 20040317: Title of entry
+
+     text for the entry.
+
+     <qotd>
+     "You know who you are. It comes down to a simple gut check: You
+     either love what you do or you don't. Period." -- P. Bronson
+     </qotd>
+
+“quod”部分或者说当天的引述，完全是可选的。生成
+HTML 后这个条目会产生 下面的输出。
+
+     <div class="entry">
+       <div class="entry-qotd">
+         <h3>Quote of the Day:</h3>
+         <p>"You know who you are. It comes down to a simple gut
+           check: You either love what you do or you don't. Period."
+           -- P. Bronson</p>
+       </div>
+       <div class="entry-body">
+         <div class="entry-head">
+           <div class="entry-date">
+             <span class="date">March 17, 2004</span>
+           </div>
+           <div class="entry-title">
+             <h2>Title of entry</h2>
+           </div>
+         </div>
+         <div class="entry-text">
+           <p>Text for the entry.</p>
+         </div>
+       </div>
+     </div>
+
+大量的“div”� �签使得以任意� 想要的形式显示条目成为可能，这使用了一个
+CSS 设计。
+
+   而且，通过发布� 的日志为“.rdf”风� �，一个 .RDF
+文件就可以被生成。它使用
+每个条目的第一段的前两句话作为它的“描述”，并自动生成链接到各个条目的
+� �签。
+
+提供的风� �
+---------------
+
+`journal-html'
+     发布日志条目为一个 HTML 文档。
+
+`journal-xhtml'
+     发布日志条目为一个 XHTML 文档。
+
+`journal-latex'
+     发布日志条目为一个 LaTeX 文档。
+
+`journal-pdf'
+     发布日志条目为一个 PDF 文档。
+
+`journal-book-latex'
+     发布日志条目为一个 LaTeX 书。
+
+`journal-book-pdf'
+     发布日志条目为一个 PDF 书。
+
+`journal-rdf'
+     发布日志条目为一个 RDF 文件 （RSS 1.0）。
+
+`journal-rss'
+     发布日志条目为一个 RSS 文件 （RSS 2.0）。
+
+
+提供的选项
+---------------
+
+`muse-journal-heading-regexp'
+     匹配日志� �题的正则表达式。
+
+     父组 1 是 ISO 日期，父组 2 是可选的分类，父组 3
+     是条目可选的� �题。
+
+`muse-journal-date-format'
+     日志条目使用的日期� �式。
+
+`muse-journal-html-heading-regexp'
+     一个 HTML 文档中匹配日志� �题的正则表达式。
+
+     父组 1 是 ISO 日期，父组 2 是可选的分类，父组 3
+     是条目可选的� �题。
+
+`muse-journal-html-entry-template'
+     以 HTML � �式发布个人日志条目使用的模板。
+
+`muse-journal-latex-section'
+     发布一个 LaTeX 节（section）使用的模板。
+
+`muse-journal-latex-subsection'
+     发布一个 LaTeX 子节（subsection）使用的模板。
+
+`muse-journal-latex-markup-tags'
+     一个专门� �记 LaTeX 的� �签详表。
+
+     *Note muse-publish-markup-tags:: 获取更多信息。
+
+`muse-journal-rdf-extension'
+     发布 RDF （RSS 1.0）文件默认的扩展名。
+
+`muse-journal-rdf-base-url'
+     RDF 文件引用的网站基本 URL。
+
+`muse-journal-rdf-header'
+     发布 RDF （RSS 1.0）文件使用的页眉。
+
+     这可以是文本或者一个文件名。
+
+`muse-journal-rdf-footer'
+     发布 RDF （RSS 1.0）文件使用的页脚。
+
+     这可以是文本或者一个文件名。
+
+`muse-journal-rdf-date-format'
+     RDF 条目使用的日期� �式。
+
+`muse-journal-rdf-entry-template'
+     以 RDF � �式发布个人日志条目使用的模板。
+
+`muse-journal-rdf-summarize-entries'
+     如果该选项非空，那么在 RDF
+     文件中仅仅包括摘要，而不是全部数据。
+
+`muse-journal-rss-extension'
+     发布 RSS 2.0 文件默认的扩展名。
+
+`muse-journal-rss-base-url'
+     RSS 文件引用的网站基本 URL。
+
+`muse-journal-rss-header'
+     发布 RSS 2.0 文件使用的页眉。
+
+     这可以是文本或者一个文件名。
+
+`muse-journal-rss-footer'
+     发布 RSS 2.0 文件使用的页脚。
+
+     这可以是文本或者一个文件名。
+
+`muse-journal-rss-date-format'
+     RSS 2.0 条目使用的日期� �式。
+
+`muse-journal-rss-entry-template'
+     以 RSS 2.0 � �式发布个人日志条目使用的模板。
+
+`muse-journal-rss-enclosure-types-alist'
+     RSS 附件所认可的文件类型。
+
+     这是一个� 射文件扩展名到内容类型的列表。
+
+     这对于 podcasting 来说很有用。（podcasting
+     是一种网络录音或者类似的网络音讯软件）
+
+`muse-journal-rss-summarize-entries'
+     如果该选项非空，那么在 RSS
+     文件中仅仅包括摘要，而不是全部数据。
+
+     很多 RSS 订阅者感觉这个功能令人讨厌。
+
+`muse-journal-rss-markup-regexps'
+     发布一个 Muse 日志页面为 RSS 的� �记规则表。
+
+     关于这个列表构成的更多信息，*Note
+     muse-publish-markup-regexps::。
+
+`muse-journal-rss-markup-functions'
+     为该风� �文本定制函数的风� �� �式列表。
+
+     关于这个列表构成的更多信息，*Note
+     muse-publish-markup-functions::。
+
+
+
+File: muse-zh_cn.info,  Node: LaTeX,  Next: Poem,  Prev: Journal,  Up: Publishing Styles
+
+9.6 发布 LaTeX 文档
+=======================
+
+这个发布风� �可以生成 LaTeX 或者 PDF 文档。
+
+   如果� 想要发布 PDF 文档，� 需要有一个安装好的
+TeX。对于 Debian 和 Ubuntu
+可以安装“tetex-bin”和“tetex-extra”包。TeX
+字体也是必须的。
+
+提供的风� �
+---------------
+
+`latex'
+     发布一个 LaTeX 文档。
+
+`pdf'
+     使用一个外部的 LaTeX 文档转换工具，发布一个 PDF
+     文档。
+
+`latexcjk'
+     发布一个 CJK（中文）编� �的 LaTeX 文档。
+
+`pdfcjk'
+     使用一个外部的 LaTeX 文档转换工具，发布一个
+     CJK（中文）编� �的 PDF 文档。
+
+
+提供的选项
+---------------
+
+`muse-latex-extension'
+     发布 LaTeX 文件默认的扩展名。
+
+`muse-latex-pdf-extension'
+     发布 LaTeX 文件到 PDF 默认的扩展名。
+
+`muse-latex-header'
+     发布 LaTeX 文件使用的页眉。
+
+     这可以是文本或者一个文件名。
+
+`muse-latex-footer'
+     发布 LaTeX 文件使用的页脚。
+
+     这可以是文本或者一个文件名。
+
+`muse-latexcjk-header'
+     发布 LaTeX 文件（CJK）使用的页眉。
+
+     这可以是文本或者一个文件名。
+
+`muse-latexcjk-footer'
+     发布 LaTeX 文件（CJK）使用的页脚。
+
+     这可以是文本或者一个文件名。
+
+`muse-latex-markup-regexps'
+     在一个 Muse
+     页面中用来识别区域的� �记正则表达式表。
+
+     关于这个列表构成的更多信息，*Note
+     muse-publish-markup-regexps::。
+
+`muse-latex-markup-functions'
+     为该风� �文本定制函数的风� �� �式列表。
+
+     关于这个列表构成的更多信息，*Note
+     muse-publish-markup-functions::。
+
+`muse-latex-markup-strings'
+     � �记文本使用的字符串。
+
+     这些字符串涵盖最基本的� �记类，它们在各种风� �之间的操作差别很小。
+
+`muse-latexcjk-encoding-map'
+     � 射 emacs 编� �系统到合适 CJK
+     编� �的一个列表。使用编� �系统的基名（例如，
+     没有 -unix）。
+
+`muse-latexcjk-encoding-default'
+     在发布文件中使用默认的 Emacs buffer 编� �。
+
+     如果没有发现特殊字符，该选项将被使用。
+
+`muse-latex-markup-specials-example'
+     必须被特殊表示的字符列表，用于 example 区域。
+
+     在 <example>
+     区域的缺省解释下，没有需要被转义的特别字符。
+
+`muse-latex-markup-specials-document'
+     必须被特殊表示的字符列表，用于整个文档中（除去已经被转义的区域）。
+
+`muse-latex-markup-specials-literal'
+     必须被特殊表示的字符列表，用于 =monospaced text=
+     和 <code> 区域。
+
+`muse-latex-markup-specials-url'
+     必须被特殊表示的字符列表，用于 URL。
+
+`muse-latex-permit-contents-tag'
+     如果该选项为空，省略 <contents>
+     � �签；否则，插入目录。
+
+     大多数时候，最好在第一页有一个目录，紧跟其后一个新页。为了让这个设置在
+     发布到 HTML 和 LaTeX
+     文档时都能够工作，我们需要省略 <contents> � �签。
+
+     如果� 不赞成这� �，那么设置这个选项非空，� 就会得到� 所期望的了。
+
+
+
+File: muse-zh_cn.info,  Node: Poem,  Next: Texinfo,  Prev: LaTeX,  Up: Publishing Styles
+
+9.7 发布诗到 LaTeX 或 PDF
+==============================
+
+`muse-poem'
+模块使得以下面的� �式发布和引用诗变得简单，使用“memoir”
+模块发布
+LaTeX。它也可以为每个其他输出风� �� �记诗� ，尽管没有一个能象下面
+的这� �漂亮。
+
+     Title
+
+
+     Body of poem
+
+
+     Annotations, history, notes, etc.
+
+   一旦以这种� �式写作一首诗，就可以使用 `poem-pdf'
+风� �来发布成 PDF。
+用这个模块定义的“poem”� �签为� 写的诗做一个内部引用（比如，从一个
+blog 页面）。
+
+     <poem title="name.of.poem.page">
+
+   我们假设上面的那个模板被命名为
+`name.of.poem.page'，那么上面的这个
+� �签就会产生下面的内容。
+
+     ** Title
+
+     > Body of poem
+
+   John Wiegley 使用这个模块来发布他的网站
+`http://www.newartisans.com/johnw/poems.html' 上的所有的诗。
+
+提供的风� �
+---------------
+
+`poem-latex'
+     以 LaTeX 形式发布一首诗。
+
+`poem-pdf'
+     发布一首诗到一个 PDF 文档。
+
+`chapbook-latex'
+     以 LaTeX 形式发布一本诗集。
+
+`chapbook-pdf'
+     发布一本诗集到一个 PDF 文档。
+
+
+提供的选项
+---------------
+
+`muse-poem-latex-header'
+     发布 LaTeX 诗使用的页眉。
+
+     这可以是文本或者一个文件名。
+
+`muse-poem-latex-footer'
+     发布 LaTeX 文件使用的页脚。
+
+     这可以是文本或者一个文件名。
+
+`muse-poem-markup-strings'
+     � �记诗使用的字符串。
+
+     这些字符串涵盖最基本的� �记类，它们在各种风� �之间的操作差别很小。
+
+`muse-chapbook-latex-header'
+     以 LaTeX 形式发布一本诗集使用的页眉。
+
+     这可以是文本或者一个文件名。
+
+`muse-chapbook-latex-footer'
+     以 LaTeX 形式发布一本诗集使用的页脚。
+
+     这可以是文本或者一个文件名。
+
+`muse-poem-chapbook-strings'
+     � �记诗集使用的字符串。
+
+     这些字符串涵盖最基本的� �记类，它们在各种风� �之间的操作差别很小。
+
+
+
+File: muse-zh_cn.info,  Node: Texinfo,  Prev: Poem,  Up: Publishing Styles
+
+9.8 发布条目到 Texinfo � �式或者 PDF
+============================================
+
+发布一个 Muse 文件为一个 Texinfo 文� 的规则。
+
+提供的风� �
+---------------
+
+`texi'
+     以 Texinfo 形式发布一个文件。
+
+`info'
+     由一个 Muse 文件生成一个 Info 文件。
+
+`info-pdf'
+     以 PDF 形式发布一个文件。
+
+
+提供的选项
+---------------
+
+`muse-texinfo-process-natively'
+     如果该选项非空，使用 Emacs 的 'texinfmt' 模块生成
+     Info 文件。
+
+`muse-texinfo-extension'
+     发布 Texinfo 文件默认的扩展名。
+
+`muse-texinfo-info-extension'
+     发布 Info 文件默认的扩展名。
+
+`muse-texinfo-pdf-extension'
+     发布 PDF 文件默认的扩展名。
+
+`muse-texinfo-header'
+     一个 Muse 页面被发布为 Texinfo 时� 在前面的文本。
+
+     这可以是文本或者一个文件名，还可以包含 <lisp>
+     � �记的� �签。
+
+`muse-texinfo-footer'
+     一个 Muse 页面被发布为 Texinfo 时附在后面的文本。
+
+     这可以是文本或者一个文件名，还可以包含 <lisp>
+     � �记的� �签。
+
+`muse-texinfo-markup-regexps'
+     发布一个 Muse 页面到 Texinfo 的� �记规则表。
+
+     关于这个列表构成的更多信息，*Note
+     muse-publish-markup-regexps::。
+
+`muse-texinfo-markup-functions'
+     为该风� �文本定制函数的风� �� �式表。
+
+     关于这个列表构成的更多信息，*Note
+     muse-publish-markup-functions::。
+
+`muse-texinfo-markup-strings'
+     � �记文本的字符串。
+
+     这些字符串涵盖最基本的� �记类，它们在各种风� �之间的操作差别很小。
+
+`muse-texinfo-markup-specials'
+     必须被特殊表示的字符列表。
+
+
+
+File: muse-zh_cn.info,  Node: Extending Muse,  Next: Getting Help and Reporting Bugs,  Prev: Publishing Styles,  Up: Top
+
+10 制作� 自己的发布风� �
+*********************************
+
+* Menu:
+
+* Common Elements::              风� �共有的通用功能。
+* Deriving Styles::              从一个存在的风� �中派生一个新的风� �。
+
+
+File: muse-zh_cn.info,  Node: Common Elements,  Next: Deriving Styles,  Up: Extending Muse
+
+10.1 风� �共有的通用功能
+================================
+
+* Menu:
+
+* Markup Functions::             用来� �记文本的指定函数。
+* Markup Regexps::               发布的� �记规则。
+* Markup Strings::               特别针对一个发布风� �的字符串。
+* Markup Tags::                  为特殊� �记的� �签详述。
+* Style Elements::               定义风� �使用的参数。
+
+
+File: muse-zh_cn.info,  Node: Markup Functions,  Next: Markup Regexps,  Up: Common Elements
+
+10.1.1 用来� �记文本的指定函数
+----------------------------------------
+
+`muse-publish-markup-functions'
+
+   为该风� �文本定制函数的风� �� �式表。
+
+发布风� �使用该选项试图将必须定义的自定义正则表达式的数量减到最少。
+`muse-publish' 为最常用的� �记类型提供规则。
+
+   列表中的每个成员具有如下的形式。
+
+     (SYMBOL FUNCTION)
+
+   * SYMBOL
+     描述了关联这个规则的文本的� �式。`muse-publish-markup-regexps'
+     � 射 正则表达式到这些符号。
+
+   * FUNCTION 通过当前风� �的 `:functions'
+     � �签没有找到合适的函数的条件下，用来
+     � �记这类规则的函数。
+
+
+File: muse-zh_cn.info,  Node: Markup Regexps,  Next: Markup Strings,  Prev: Markup Functions,  Up: Common Elements
+
+10.1.2 发布的� �记规则
+----------------------------
+
+`muse-publish-markup-regexps'
+
+   用 Muse 发布一个页面的� �记规则表。
+
+由这个变量给出的规则首先奏效，然后是当前风� �指定的任意规则。
+
+列表中的每个成员是一个函数或者一个下面这种形式的列表。
+
+     (REGEXP/SYMBOL TEXT-BEGIN-GROUP REPLACEMENT-TEXT/FUNCTION/SYMBOL)
+
+   * REGEXP
+     一个正则表达式，或者值为正则表达式的符号，使用
+     're-search-forward' 来搜索。
+
+   * TEXT-BEGIN-GROUP
+     在那个正则表达式内部的匹配组，它指示被� �记的实际文本的开始。
+
+   * REPLACEMENT-TEXT 一个要被� 递给 'replace-match'
+     的字符串。
+
+     如果它不是一个字符串，而是一个函数，那么它将被调用来决定替代文本应该是什么
+     （该函数必须返回一个字符串）。如果它是一个符号，那么该符号的值应该是一个字符串。
+
+替代被顺序执行，每次一个规则。写正则表达式可以是一件很需要技巧的事情。
+注意有种情形从不会被忽略，在处理� �记规则时
+'case-fold-search' 总是被赋值为空。
+
+发布顺序
+------------
+
+下面是发布规则被查阅的默认顺序，通过自定义
+`muse-publish-markup-regexps' 可以改变这个默认设置。
+
+`trailing and leading whitespace'
+     � 除一个文件中开头和结尾的空白字元。
+
+`directive'
+     `#directive'
+
+     它仅仅在文件开头被识别。
+
+`tag'
+     `<tag>'
+
+`comment'
+     `; comment'
+
+`anchor'
+     `#anchor'
+
+`explicit links'
+     禁止外显链接中的强调字符被� �记。
+
+     事实上不会在这里发布它们，而是仅仅添� 一个专门的非强调文本属性。
+
+`word'
+     空白字元间隔词，可能与强调字符一起。
+
+     这个函数负责� �记强调和转义一些特殊字符。
+
+`emdash'
+     `--'
+
+     两个 - 宽的� �折号
+
+`heading'
+     `** Heading'
+
+     Outline-mode 风� �� �题。
+
+`enddots'
+     `....'
+
+     这些是省略号� 最末尾的句点。
+
+`dots'
+     `...'
+
+     省略号。
+
+`rule'
+     `----'
+
+     水平线或者节分隔线。
+
+`fn-sep'
+     `Footnotes:'
+
+     脚注部分的开始
+
+`footnote'
+     `[1]'
+
+     脚注定义或者引用。如果在一行的开始，就是一个定义。
+
+`list'
+        * ` 1. '
+
+        * ` - '
+
+        * `term :: '
+
+     有序列表，简单列表或者术语定义列表。
+
+`quote'
+     文本开始前的空� �
+
+     块引用。
+
+`verse'
+     `> verse text'
+
+`table'
+     `table | cells'
+
+`link'
+     `[[explicit][links]]'
+
+`url'
+     `http://example.com/'
+
+`email'
+     `bare-email@example.com'
+
+
+
+File: muse-zh_cn.info,  Node: Markup Strings,  Next: Markup Tags,  Prev: Markup Regexps,  Up: Common Elements
+
+10.1.3 特别针对一个发布风� �的字符串
+-------------------------------------------------
+
+"Markup strings" 是一个特定风� �� �记文本使用的字符串。
+
+这些字符串涵盖最基本的� �记类，它们在各种风� �之间的操作差别很小。
+
+可用的� �记字符串
+------------------------
+
+`image-with-desc'
+     一个图片和一个描述。
+
+     参数 1：不带扩展名的图片；参数
+     2：图片扩展名；参数 3：描述。
+
+`image'
+     一个直接插入的图片。
+
+     参数 1：不带扩展名的图片；参数 2：图片扩展名。
+
+`image-link'
+     到一个图片的一个链接。
+
+     参数 1：链接；参数 2：不带扩展名的图片；参数
+     3：图片扩展名。
+
+`anchor-ref'
+     到当前页面一个锚的引用。
+
+     参数 1：锚名；参数
+     2：如果存在就是描述，否则是原始的链接。
+
+`url'
+     不带描述的一个 URL。
+
+     参数 1：URL。
+
+`link'
+     带描述的一个链接。
+
+     参数 1：链接；参数
+     2：如果存在就是描述，否则是原始的链接。
+
+`link-and-anchor'
+     到含有锚的一个页面链接和一个描述。
+
+     参数 1：链接；参数 2：锚名；参数
+     3：如果存在就是描述，否则是原始的链接。
+
+`email-addr'
+     到一个 email 地址的一个链接。
+
+     参数 1：email 地址；参数 2：email 地址。
+
+`emdash'
+     两个 - 长的� �折号。
+
+     参数 1：起始的空白字元；参数
+     2：终止的空白字元。
+
+`comment-begin'
+     注释的开始。
+
+`comment-end'
+     注释的结束。
+
+`rule'
+     一个水平线或者空白。
+
+`no-break-space'
+     一个分离两个不会被分开的单词的间隔。
+
+`footnote'
+     脚注的开始。
+
+`footnote-end'
+     脚注的结束。
+
+`footnotemark'
+     为当前脚注� �记一个引用。
+
+     参数 1：该脚注的数字� �号。
+
+`footnotemark-end'
+     当前脚注引用的结束。
+
+`footnotetext'
+     显示当前脚注的文本。
+
+     参数 1：该脚注的数字� �号。
+
+`footnotetext-end'
+     脚注文本行的结束。
+
+`fn-sep'
+     用来替代“Footnotes:”行的文本。
+
+`dots'
+     三个点。
+
+`enddots'
+     四个点。
+
+`part'
+     一个 part 显示行的开始，用于书的发布。
+
+`part-end'
+     一个 part 显示行的结束，用于书的发布。
+
+`chapter'
+     一个 chapter 显示行的开始，用于书的发布。
+
+`chapter-end'
+     一个 chapter 显示行的结束，用于书的发布。
+
+`section'
+     第一层 section 显示行的开始。
+
+     参数 1：section 层数；总是1。
+
+`section-end'
+     第一层 section 显示行的结束。
+
+     参数 1：section 层数；总是1.
+
+`subsection'
+     第二层 section 显示行的开始。
+
+     参数 1：section 层数；总是2。
+
+`subsection-end'
+     第二层 section 显示行的结束。
+
+     参数 1：section 层数；总是2。
+
+`subsubsection'
+     第三层 section 显示行的开始。
+
+     参数 1：section 层数；总是3。
+
+`subsubsection-end'
+     第三层 section 显示行的结束。
+
+     参数 1：section 层数；总是3。
+
+`section-other'
+     大于三层的 section 显示行的开始。
+
+     参数 1：section 层数。
+
+`section-other-end'
+     大于三层的 section 显示行的结束。
+
+     参数 1：section 层数。
+
+`begin-underline'
+     下划线文本的开始。
+
+`end-underline'
+     下划线文本的结束。
+
+`begin-literal'
+     抄录文本的开始。它包括 <code> � �签和 =teletype
+     text=。
+
+`end-literal'
+     抄录文本的结束。它包括 <code> � �签和 =teletype
+     text=。
+
+`begin-emph'
+     第一层强调文本的开始。
+
+`end-emph'
+     第一层强调文本的结束。
+
+`begin-more-emph'
+     第二层强调文本的开始。
+
+`end-more-emph'
+     第二层强调文本的结束。
+
+`begin-most-emph'
+     第三层（最后）级强调文本的开始。
+
+`end-most-emph'
+     第三层（最后）级强调文本的结束。
+
+`begin-verse'
+     诗的开始。
+
+`verse-space'
+     用于比诗的开始进一步被缩进的每个空白的字符串。
+
+`begin-verse-line'
+     诗的一行的开始。
+
+`empty-verse-line'
+     诗的一行的结束。
+
+`begin-last-stanza-line'
+     一个诗� 最后行的开始。
+
+`end-last-stanza-line'
+     一个诗� 最后行的结束。
+
+`end-verse'
+     诗的结束。
+
+`begin-example'
+     一个实例区域的开始。要使用这个字符串，一个
+     `<example>' � �签是必须的。
+
+`end-example'
+     一个实例区域的结束。要使用这个字符串，一个
+     `</example>' � �签是必须的。
+
+`begin-center'
+     开始一个居中的行。
+
+`end-center'
+     结束一个居中的行。
+
+`begin-quote'
+     开始一个引用的区域。
+
+`end-quote'
+     结束一个引用的区域。
+
+`begin-uli'
+     开始一个� 序列表。
+
+`end-uli'
+     结束一个� 序列表。
+
+`begin-uli-item'
+     开始一个� 序列表项。
+
+`end-uli-item'
+     结束一个� 序列表项。
+
+`begin-oli'
+     开始一个有序列表。
+
+`end-oli'
+     结束一个有序列表。
+
+`begin-oli-item'
+     开始一个有序列表项。
+
+`end-oli-item'
+     结束一个有序列表项。
+
+`begin-dl'
+     开始一个定义列表。
+
+`end-dl'
+     结束一个定义列表。
+
+`begin-dl-item'
+     开始一个定义列表项。
+
+`end-dl-item'
+     结束一个定义列表项。
+
+`begin-ddt'
+     开始一个定义列表的术语。
+
+`end-ddt'
+     结束一个定义列表的术语。
+
+`begin-dde'
+     开始一个定义列表条目。
+
+`end-dde'
+     结束一个定义列表条目。
+
+`begin-table'
+     开始一个表� �。
+
+`end-table'
+     结束一个表� �。
+
+`begin-table-group'
+     开始一个表� �组。
+
+`end-table-group'
+     结束一个表� �组。
+
+`begin-table-row'
+     开始一个表� �行。
+
+`end-table-row'
+     结束一个表� �行。
+
+`begin-table-entry'
+     开始一个表� �条目。
+
+`end-table-entry'
+     结束一个表� �条目。
+
+
+
+File: muse-zh_cn.info,  Node: Markup Tags,  Next: Style Elements,  Prev: Markup Strings,  Up: Common Elements
+
+10.1.4 特别� �记的� �签详述
+----------------------------------
+
+`muse-publish-markup-tags'
+
+   一个专门� �记文本的� �签详表。
+
+   XML 风� �的� �签是最好的添� 定制� �记到 Muse
+的方法，通过自定义这个� �记� �签
+列表很容易就可以完成。
+
+对每个条目来说，不论� �签要求一个关闭� �签和/或一个可选的属性集，也不论� �签
+是可嵌套的，它的名字被给出，并且在限定区域内执行任意动作的函数被需求。
+
+发布过程中在函数调用前� �签本身会被� 除，函数被调用带有三个参数，� �签所包围
+区域的开始和结束，如果属性允许，那么它们就会以一个列表的形式作为第三个参数
+被� 递。函数“结束”的参数总是一个� �记。
+
+   当函数被调用时，point
+总是在� �签内部区域的开始，当函数结束时 point
+在哪里， � �签� �记就会在哪里恢复。
+
+这些� �签规则在� �记开始被处理一次，在结束时又被处理一次，这� �做是为了
+捕获那些可能被插入到其他� �签中间的� �签。
+
+
+File: muse-zh_cn.info,  Node: Style Elements,  Prev: Markup Tags,  Up: Common Elements
+
+10.1.5 定义风� �使用的参数
+----------------------------------
+
+风� �元� 是定义一个风� �的� �签。使用 `muse-define-style'
+来创建一个新 的风� �。
+
+     (muse-define-style DERIVED-NAME BASE-NAME STYLE-PARAMETERS)
+
+可用的元� 
+---------------
+
+`:suffix'
+     以这种风� �发布文件使用的文件扩展名。
+
+`:link-suffix'
+     以这种风� �发布到 Muse
+     文件的链接使用的文件扩展名。
+
+`:osuffix'
+     以这种风� �发布第二阶段文件使用的文件扩展名。
+
+     例如，PDF 发布首先生成一个 LaTeX
+     文件，然后通过这个 LaTeX 文件生成 PDF 文件。
+
+`:regexps'
+     使用 Muse 发布一个页面的� �记规则表。 *Note
+     muse-publish-markup-regexps::。
+
+`:functions'
+     为该风� �文本定制函数的风� �� �式表，*Note
+     muse-publish-markup-functions::。
+
+`:strings'
+     这个风� �� �记文本使用的字符串。
+
+     这些字符串涵盖最基本的� �记类，它们在各种风� �之间的操作差别很小。
+
+`:tags'
+     处理特别� �签使用的� �签详表，*Note
+     muse-publish-markup-tags::。
+
+`:specials'
+     必须被特殊表示的字符表。
+
+`:before'
+     任何发布动作发生前在新生成的发布
+     buffer（或当前区域）里要被执行的一个函数。
+
+     这被用于设置管理发布过程的额外参数。
+
+`:before-end'
+     应用所有的� �记正则表达式后在发布
+     buffer（或者当前区域）里立即要被执行的一个
+     函数。
+
+     这被用于修复在类 XML
+     类型文件中表� �元� 的顺序（表头，表底，表体）。
+
+`:after'
+     插入页眉和页脚后，在 :before-end 后的发布 buffer
+     里立即要被执行的一个函数。
+
+     这被用于生成目录和设置文件编� �系统。
+
+`:final'
+     保存发布文件后，但仍旧在其 buffer
+     中要被执行的一个函数。
+
+     这被用于生成象从刚刚被发布的 LaTeX 文件生成 PDF
+     文件这� �的第二阶段文档。
+
+`:header'
+     发布这种风� �文件使用的页眉。
+
+     这可以是一个变量，文本或者一个文件名。它被插入在文件的开始，赋值发布� �记后。
+
+`:footer'
+     发布这种风� �文件使用的页脚。
+
+     这可以是一个变量，文本或者一个文件名。它被插入在文件的结尾，赋值发布� �记后。
+
+`:style-sheet'
+     发布这种风� �使用的� �式表。
+
+     这可以是一个变量或者文本。它被用于基于 HTML 和
+     XHTML 发布风� �的页眉。
+
+`:browser'
+     用于浏览这种风� �文件发布结果的函数。
+
+
+
+File: muse-zh_cn.info,  Node: Deriving Styles,  Prev: Common Elements,  Up: Extending Muse
+
+10.2 从一个存在的风� �中派生一个新的风� �
+========================================================
+
+下面使用 `muse-derive-style'
+来从一个存在的风� �生成一个新的风� �。
+这对于修改一个独有发布风� �中� 不喜欢的地方或者个性化这个发布风� �是一个
+好的方法。
+
+     (muse-derive-style DERIVED-NAME BASE-NAME STYLE-PARAMETERS)
+
+   DERIVED-NAME
+是定义新风� �的一个字符串，比如“my-html”。BASE-NAME
+必须是 一个存在的风� �，比如“html”（如果� � 载了
+`muse-html'）。 STYLE-PARAMETERS
+与用来创建一个风� �的参数相同，只是它们去掉了基风� �中存在
+的所有定义。但是，一些定义仅仅部分弃除。下面的这些参数支持部分弃除。
+
+   *Note Style Elements::，获取所有参数的完整列表。
+
+`:functions'
+     如果一个� �记函数在派生的风� �函数表中没有被找到，那么基风� �的函数表将会被查询。
+
+`:regexps'
+     当前风� �和基风� �（可能不止一个）中的所有正则表达式都将会被使用。
+
+`:strings'
+     如果一个� �记字符串在派生的风� �字符串表中没有被找到，那么基风� �的字符串表将会
+     被查询。
+
+
+
+File: muse-zh_cn.info,  Node: Getting Help and Reporting Bugs,  Next: History,  Prev: Extending Muse,  Up: Top
+
+11 获得帮助和报告 bug
+****************************
+
+阅读完这个手册后，对于 Muse
+如果� 仍然有疑问，或者有 bug 要报告，有这么
+� 个地方� 可以去。
+
+   * `http://www.emacswiki.org/cgi-bin/wiki/MuseMode' 是 emacswiki.org
+     页面，在那里任何人都可以添� 小技巧，小提示或者
+     bug 描述。
+
+   * `http://www.mwolson.org/projects/EmacsMuse.html' 是 Michael
+     Olson（当前的 Muse 维护者）为 Muse 做的网页。
+
+   * Muse 有四个邮件列表。
+
+    `muse-el-announce'
+          Muse 相关公告的简要通信列表。
+
+          � 可以从 `http://mail.gna.org/listinfo/muse-el-announce/'
+          订阅� 入这个
+          邮件列表（<muse-el-announce@gna.org>）。这个邮件列表在
+          Gmane （`http://gmane.org/'）上也可用，邮件组叫做
+          `gmane.emacs.muse.announce'。
+
+    `muse-el-discuss'
+          有关Muse的讨论、bug修补、建议、技巧等。这个邮件列表也包括
+          muse-el-announce 的内容。
+
+          � 可以从 `http://mail.gna.org/listinfo/muse-el-discuss/'
+          订阅� 入这个
+          邮件列表（<muse-el-discuss@gna.org>）。这个邮件列表在
+          Gmane 上也 可用，邮件组叫做
+          `gmane.emacs.muse.general'。
+
+    `muse-el-commits'
+          已提交过修改的日志信息。
+
+          � 可以从 `http://mail.gna.org/listinfo/muse-el-commits/'
+          订阅� 入这个
+          邮件列表（<muse-el-commits@gna.org>）。这个邮件列表在
+          Gmane 上也 可用，邮件组叫做
+          `gmane.emacs.muse.cvs'。
+
+    `muse-el-internationalization'
+          关于 Muse 网站和文档翻译的讨论。
+
+          � 可以从
+          `http://mail.gna.org/listinfo/internationalization/'
+          订阅� 入
+          这个邮件列表（<muse-el-internationalization@gna.org>）。这个邮件列
+          表在 Gmane 上也可用，邮件组叫做
+          `gmane.emacs.muse.internationalization'。
+
+
+   * � 可以访问 Freenode 的 IRC 频道
+     `#emacs'。许多贡献者经常出现在那里并
+     非常愿意回答� 的问题。要获得专门 Muse
+     方面的帮助，可以访问 `#muse' 频道，当前的 Muse
+     维护者会在那里出现。
+
+   * 可以通过 <mwolson@gnu.org> 来联系 Emacs Muse 的维护者
+     ── Michael Olson。 他回复� 的 email
+     可能会很慢，� 此通常来说使用 muse-el-discuss
+     邮件列表会更好。
+
+
+
+File: muse-zh_cn.info,  Node: History,  Next: Contributors,  Prev: Getting Help and Reporting Bugs,  Up: Top
+
+12 本文档的历史
+*********************
+
+   * 2004 当John Wiegley意识到 EmacsWiki
+     有一些很严重的局限点，他决心改写它。大概在
+     2004 年二月份，他开始开发“emacs-wiki version 3.00
+     APLHA”，也就是后来众所周知的 Emacs Muse。
+
+     主要由于 Planner 还没有被移植到 Muse
+     的原� ，多数经常访问 emacs-wiki 邮件
+     列表的用户仍然使用 emacs-wiki。
+
+     大概在 2004 年 12 月 1 日，在 John Wiegley
+     的请求下，Michael Olson 成为了 Muse 的维护者。
+
+   * 2005 Michael Olson
+     仔细检查了这个文档，并为准备第一个 Muse
+     发行版（3.01）添� 了 一些新的部分。
+
+
+
+File: muse-zh_cn.info,  Node: Contributors,  Next: GNU General Public License,  Prev: History,  Up: Top
+
+13 本文档的贡献者
+************************
+
+这个文档的第一个草稿来自 emack-wiki 的 texinfo
+手册。Michael Olson 为 Muse 改写了它并增添了很多关于
+Muse 的内容。
+
+   emacs-wiki 的 texinfo 手册的大部分工作是由 John Sullivan
+完成的。
+
+   而 Sacha Chua 维护着 emacs-wiki，她在 emacs-wiki 的 texinfo
+手册上也付出了很多。
+
+
+File: muse-zh_cn.info,  Node: GNU General Public License,  Next: Concept Index,  Prev: Contributors,  Up: Top
+
+Appendix A GNU GENERAL PUBLIC LICENSE
+*************************************
+
+                         Version 2, June 1991
+     Copyright (C) 1989, 1991 Free Software Foundation, Inc.
+     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+     Everyone is permitted to copy and distribute verbatim copies
+     of this license document, but changing it is not allowed.
+
+A.1 Preamble
+============
+
+The licenses for most software are designed to take away your freedom
+to share and change it.  By contrast, the GNU General Public License is
+intended to guarantee your freedom to share and change free
+software--to make sure the software is free for all its users.  This
+General Public License applies to most of the Free Software
+Foundation's software and to any other program whose authors commit to
+using it.  (Some other Free Software Foundation software is covered by
+the GNU Library General Public License instead.)  You can apply it to
+your programs, too.
+
+   When we speak of free software, we are referring to freedom, not
+price.  Our General Public Licenses are designed to make sure that you
+have the freedom to distribute copies of free software (and charge for
+this service if you wish), that you receive source code or can get it
+if you want it, that you can change the software or use pieces of it in
+new free programs; and that you know you can do these things.
+
+   To protect your rights, we need to make restrictions that forbid
+anyone to deny you these rights or to ask you to surrender the rights.
+These restrictions translate to certain responsibilities for you if you
+distribute copies of the software, or if you modify it.
+
+   For example, if you distribute copies of such a program, whether
+gratis or for a fee, you must give the recipients all the rights that
+you have.  You must make sure that they, too, receive or can get the
+source code.  And you must show them these terms so they know their
+rights.
+
+   We protect your rights with two steps: (1) copyright the software,
+and (2) offer you this license which gives you legal permission to copy,
+distribute and/or modify the software.
+
+   Also, for each author's protection and ours, we want to make certain
+that everyone understands that there is no warranty for this free
+software.  If the software is modified by someone else and passed on, we
+want its recipients to know that what they have is not the original, so
+that any problems introduced by others will not reflect on the original
+authors' reputations.
+
+   Finally, any free program is threatened constantly by software
+patents.  We wish to avoid the danger that redistributors of a free
+program will individually obtain patent licenses, in effect making the
+program proprietary.  To prevent this, we have made it clear that any
+patent must be licensed for everyone's free use or not licensed at all.
+
+   The precise terms and conditions for copying, distribution and
+modification follow.
+
+    TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+  0. This License applies to any program or other work which contains a
+     notice placed by the copyright holder saying it may be distributed
+     under the terms of this General Public License.  The "Program",
+     below, refers to any such program or work, and a "work based on
+     the Program" means either the Program or any derivative work under
+     copyright law: that is to say, a work containing the Program or a
+     portion of it, either verbatim or with modifications and/or
+     translated into another language.  (Hereinafter, translation is
+     included without limitation in the term "modification".)  Each
+     licensee is addressed as "you".
+
+     Activities other than copying, distribution and modification are
+     not covered by this License; they are outside its scope.  The act
+     of running the Program is not restricted, and the output from the
+     Program is covered only if its contents constitute a work based on
+     the Program (independent of having been made by running the
+     Program).  Whether that is true depends on what the Program does.
+
+  1. You may copy and distribute verbatim copies of the Program's
+     source code as you receive it, in any medium, provided that you
+     conspicuously and appropriately publish on each copy an appropriate
+     copyright notice and disclaimer of warranty; keep intact all the
+     notices that refer to this License and to the absence of any
+     warranty; and give any other recipients of the Program a copy of
+     this License along with the Program.
+
+     You may charge a fee for the physical act of transferring a copy,
+     and you may at your option offer warranty protection in exchange
+     for a fee.
+
+  2. You may modify your copy or copies of the Program or any portion
+     of it, thus forming a work based on the Program, and copy and
+     distribute such modifications or work under the terms of Section 1
+     above, provided that you also meet all of these conditions:
+
+       a. You must cause the modified files to carry prominent notices
+          stating that you changed the files and the date of any change.
+
+       b. You must cause any work that you distribute or publish, that
+          in whole or in part contains or is derived from the Program
+          or any part thereof, to be licensed as a whole at no charge
+          to all third parties under the terms of this License.
+
+       c. If the modified program normally reads commands interactively
+          when run, you must cause it, when started running for such
+          interactive use in the most ordinary way, to print or display
+          an announcement including an appropriate copyright notice and
+          a notice that there is no warranty (or else, saying that you
+          provide a warranty) and that users may redistribute the
+          program under these conditions, and telling the user how to
+          view a copy of this License.  (Exception: if the Program
+          itself is interactive but does not normally print such an
+          announcement, your work based on the Program is not required
+          to print an announcement.)
+
+     These requirements apply to the modified work as a whole.  If
+     identifiable sections of that work are not derived from the
+     Program, and can be reasonably considered independent and separate
+     works in themselves, then this License, and its terms, do not
+     apply to those sections when you distribute them as separate
+     works.  But when you distribute the same sections as part of a
+     whole which is a work based on the Program, the distribution of
+     the whole must be on the terms of this License, whose permissions
+     for other licensees extend to the entire whole, and thus to each
+     and every part regardless of who wrote it.
+
+     Thus, it is not the intent of this section to claim rights or
+     contest your rights to work written entirely by you; rather, the
+     intent is to exercise the right to control the distribution of
+     derivative or collective works based on the Program.
+
+     In addition, mere aggregation of another work not based on the
+     Program with the Program (or with a work based on the Program) on
+     a volume of a storage or distribution medium does not bring the
+     other work under the scope of this License.
+
+  3. You may copy and distribute the Program (or a work based on it,
+     under Section 2) in object code or executable form under the terms
+     of Sections 1 and 2 above provided that you also do one of the
+     following:
+
+       a. Accompany it with the complete corresponding machine-readable
+          source code, which must be distributed under the terms of
+          Sections 1 and 2 above on a medium customarily used for
+          software interchange; or,
+
+       b. Accompany it with a written offer, valid for at least three
+          years, to give any third party, for a charge no more than your
+          cost of physically performing source distribution, a complete
+          machine-readable copy of the corresponding source code, to be
+          distributed under the terms of Sections 1 and 2 above on a
+          medium customarily used for software interchange; or,
+
+       c. Accompany it with the information you received as to the offer
+          to distribute corresponding source code.  (This alternative is
+          allowed only for noncommercial distribution and only if you
+          received the program in object code or executable form with
+          such an offer, in accord with Subsection b above.)
+
+     The source code for a work means the preferred form of the work for
+     making modifications to it.  For an executable work, complete
+     source code means all the source code for all modules it contains,
+     plus any associated interface definition files, plus the scripts
+     used to control compilation and installation of the executable.
+     However, as a special exception, the source code distributed need
+     not include anything that is normally distributed (in either
+     source or binary form) with the major components (compiler,
+     kernel, and so on) of the operating system on which the executable
+     runs, unless that component itself accompanies the executable.
+
+     If distribution of executable or object code is made by offering
+     access to copy from a designated place, then offering equivalent
+     access to copy the source code from the same place counts as
+     distribution of the source code, even though third parties are not
+     compelled to copy the source along with the object code.
+
+  4. You may not copy, modify, sublicense, or distribute the Program
+     except as expressly provided under this License.  Any attempt
+     otherwise to copy, modify, sublicense or distribute the Program is
+     void, and will automatically terminate your rights under this
+     License.  However, parties who have received copies, or rights,
+     from you under this License will not have their licenses
+     terminated so long as such parties remain in full compliance.
+
+  5. You are not required to accept this License, since you have not
+     signed it.  However, nothing else grants you permission to modify
+     or distribute the Program or its derivative works.  These actions
+     are prohibited by law if you do not accept this License.
+     Therefore, by modifying or distributing the Program (or any work
+     based on the Program), you indicate your acceptance of this
+     License to do so, and all its terms and conditions for copying,
+     distributing or modifying the Program or works based on it.
+
+  6. Each time you redistribute the Program (or any work based on the
+     Program), the recipient automatically receives a license from the
+     original licensor to copy, distribute or modify the Program
+     subject to these terms and conditions.  You may not impose any
+     further restrictions on the recipients' exercise of the rights
+     granted herein.  You are not responsible for enforcing compliance
+     by third parties to this License.
+
+  7. If, as a consequence of a court judgment or allegation of patent
+     infringement or for any other reason (not limited to patent
+     issues), conditions are imposed on you (whether by court order,
+     agreement or otherwise) that contradict the conditions of this
+     License, they do not excuse you from the conditions of this
+     License.  If you cannot distribute so as to satisfy simultaneously
+     your obligations under this License and any other pertinent
+     obligations, then as a consequence you may not distribute the
+     Program at all.  For example, if a patent license would not permit
+     royalty-free redistribution of the Program by all those who
+     receive copies directly or indirectly through you, then the only
+     way you could satisfy both it and this License would be to refrain
+     entirely from distribution of the Program.
+
+     If any portion of this section is held invalid or unenforceable
+     under any particular circumstance, the balance of the section is
+     intended to apply and the section as a whole is intended to apply
+     in other circumstances.
+
+     It is not the purpose of this section to induce you to infringe any
+     patents or other property right claims or to contest validity of
+     any such claims; this section has the sole purpose of protecting
+     the integrity of the free software distribution system, which is
+     implemented by public license practices.  Many people have made
+     generous contributions to the wide range of software distributed
+     through that system in reliance on consistent application of that
+     system; it is up to the author/donor to decide if he or she is
+     willing to distribute software through any other system and a
+     licensee cannot impose that choice.
+
+     This section is intended to make thoroughly clear what is believed
+     to be a consequence of the rest of this License.
+
+  8. If the distribution and/or use of the Program is restricted in
+     certain countries either by patents or by copyrighted interfaces,
+     the original copyright holder who places the Program under this
+     License may add an explicit geographical distribution limitation
+     excluding those countries, so that distribution is permitted only
+     in or among countries not thus excluded.  In such case, this
+     License incorporates the limitation as if written in the body of
+     this License.
+
+  9. The Free Software Foundation may publish revised and/or new
+     versions of the General Public License from time to time.  Such
+     new versions will be similar in spirit to the present version, but
+     may differ in detail to address new problems or concerns.
+
+     Each version is given a distinguishing version number.  If the
+     Program specifies a version number of this License which applies
+     to it and "any later version", you have the option of following
+     the terms and conditions either of that version or of any later
+     version published by the Free Software Foundation.  If the Program
+     does not specify a version number of this License, you may choose
+     any version ever published by the Free Software Foundation.
+
+ 10. If you wish to incorporate parts of the Program into other free
+     programs whose distribution conditions are different, write to the
+     author to ask for permission.  For software which is copyrighted
+     by the Free Software Foundation, write to the Free Software
+     Foundation; we sometimes make exceptions for this.  Our decision
+     will be guided by the two goals of preserving the free status of
+     all derivatives of our free software and of promoting the sharing
+     and reuse of software generally.
+
+                                NO WARRANTY
+ 11. BECAUSE THE PROGRAM IS LICENSED FREE OF CHARGE, THERE IS NO
+     WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE
+     LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+     HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT
+     WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT
+     NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+     FITNESS FOR A PARTICULAR PURPOSE.  THE ENTIRE RISK AS TO THE
+     QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU.  SHOULD THE
+     PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY
+     SERVICING, REPAIR OR CORRECTION.
+
+ 12. IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN
+     WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY
+     MODIFY AND/OR REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE
+     LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL,
+     INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR
+     INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF
+     DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU
+     OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY
+     OTHER PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN
+     ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+                      END OF TERMS AND CONDITIONS
+A.2 Appendix: How to Apply These Terms to Your New Programs
+===========================================================
+
+If you develop a new program, and you want it to be of the greatest
+possible use to the public, the best way to achieve this is to make it
+free software which everyone can redistribute and change under these
+terms.
+
+   To do so, attach the following notices to the program.  It is safest
+to attach them to the start of each source file to most effectively
+convey the exclusion of warranty; and each file should have at least
+the "copyright" line and a pointer to where the full notice is found.
+
+     ONE LINE TO GIVE THE PROGRAM'S NAME AND A BRIEF IDEA OF WHAT IT DOES.
+     Copyright (C) YYYY  NAME OF AUTHOR
+
+     This program is free software; you can redistribute it and/or modify
+     it under the terms of the GNU General Public License as published by
+     the Free Software Foundation; either version 2 of the License, or
+     (at your option) any later version.
+
+     This program is distributed in the hope that it will be useful,
+     but WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU General Public License for more details.
+
+     You should have received a copy of the GNU General Public License along
+     with this program; if not, write to the Free Software Foundation, Inc.,
+     51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+   Also add information on how to contact you by electronic and paper
+mail.
+
+   If the program is interactive, make it output a short notice like
+this when it starts in an interactive mode:
+
+     Gnomovision version 69, Copyright (C) 19YY NAME OF AUTHOR
+     Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+     This is free software, and you are welcome to redistribute it
+     under certain conditions; type `show c' for details.
+
+   The hypothetical commands `show w' and `show c' should show the
+appropriate parts of the General Public License.  Of course, the
+commands you use may be called something other than `show w' and `show
+c'; they could even be mouse-clicks or menu items--whatever suits your
+program.
+
+   You should also get your employer (if you work as a programmer) or
+your school, if any, to sign a "copyright disclaimer" for the program,
+if necessary.  Here is a sample; alter the names:
+
+     Yoyodyne, Inc., hereby disclaims all copyright interest in the program
+     `Gnomovision' (which makes passes at compilers) written by James Hacker.
+
+     SIGNATURE OF TY COON, 1 April 1989
+     Ty Coon, President of Vice
+
+   This General Public License does not permit incorporating your
+program into proprietary programs.  If your program is a subroutine
+library, you may consider it more useful to permit linking proprietary
+applications with the library.  If this is what you want to do, use the
+GNU Library General Public License instead of this License.
+
+
+File: muse-zh_cn.info,  Node: Concept Index,  Prev: GNU General Public License,  Up: Top
+
+Index
+*****
+
+ [index ]
+* Menu:
+
+* #author:                               Directives.           (line 17)
+* #date:                                 Directives.           (line 23)
+* #desc:                                 Directives.           (line 28)
+* #title:                                Directives.           (line 34)
+* Debian package for Muse:               Releases.             (line 12)
+* Email addresses:                       Implicit Links.       (line  6)
+* GNU General Public License:            GNU General Public License.
+                                                               (line  7)
+* GPL:                                   GNU General Public License.
+                                                               (line  7)
+* HTML, inserting a raw block:           Paragraphs.           (line 27)
+* HTML, rendering blocks in monospace:   Paragraphs.           (line 20)
+* InterWiki links:                       Implicit Links.       (line 30)
+* URLs:                                  Implicit Links.       (line  6)
+* WYSIWYG:                               Emphasizing Text.     (line 14)
+* WikiNames:                             Implicit Links.       (line 20)
+* anchors:                               Horizontal Rules and Anchors.
+                                                               (line 12)
+* arch revision control system, using:   Development.          (line  9)
+* blog, journal style:                   Journal.              (line  6)
+* blog, one-file-per-entry style:        Blosxom.              (line  6)
+* bugs, reporting:                       Getting Help and Reporting Bugs.
+                                                               (line  6)
+* comments:                              Comments.             (line  6)
+* contributors:                          Contributors.         (line  6)
+* dashes:                                Horizontal Rules and Anchors.
+                                                               (line  6)
+* development:                           Development.          (line  6)
+* directives:                            Directives.           (line  6)
+* emphasizing text:                      Emphasizing Text.     (line  6)
+* examples:                              Paragraphs.           (line 20)
+* footnotes:                             Footnotes.            (line  6)
+* headings:                              Headings.             (line  6)
+* help, getting:                         Getting Help and Reporting Bugs.
+                                                               (line  6)
+* history, of Muse:                      History.              (line  6)
+* horizontal rules:                      Horizontal Rules and Anchors.
+                                                               (line  6)
+* images:                                Images.               (line  6)
+* images, captions:                      Images.               (line 46)
+* images, displaying:                    Images.               (line 15)
+* images, inlined:                       Images.               (line 36)
+* images, local:                         Images.               (line 15)
+* images, without descriptions:          Images.               (line 36)
+* inserting files at publish time:       Tag Summary.          (line  6)
+* inter-project links:                   Implicit Links.       (line 30)
+* italicizing text:                      Emphasizing Text.     (line  6)
+* journal:                               Journal.              (line  6)
+* keystrokes:                            Keystroke Summary.    (line  6)
+* links, explicit:                       Explicit Links.       (line  6)
+* links, implicit:                       Implicit Links.       (line  6)
+* links, raw:                            Implicit Links.       (line  6)
+* links, with images:                    Images.               (line  6)
+* links, with target on same page:       Horizontal Rules and Anchors.
+                                                               (line 12)
+* lisp, and insert command:              Embedded Lisp.        (line 14)
+* lisp, embedded:                        Embedded Lisp.        (line  6)
+* lists:                                 Lists.                (line  6)
+* lists, bullets:                        Lists.                (line  9)
+* lists, definitions:                    Lists.                (line 19)
+* lists, enumerated:                     Lists.                (line 14)
+* literal text:                          Paragraphs.           (line 27)
+* markup:                                Markup Rules.         (line  6)
+* monospace, rendering blocks:           Paragraphs.           (line 20)
+* monospace, rendering words:            Emphasizing Text.     (line  6)
+* paragraphs:                            Paragraphs.           (line  6)
+* paragraphs, centered:                  Paragraphs.           (line  8)
+* paragraphs, quoted:                    Paragraphs.           (line 16)
+* poetry:                                Verse.                (line  6)
+* projects:                              Projects.             (line  6)
+* publishing styles:                     Publishing Styles.    (line  6)
+* publishing styles, RSS 1.0:            Journal.              (line 74)
+* publishing styles, RSS 2.0:            Journal.              (line 77)
+* publishing styles, blosxom-html:       Blosxom Options.      (line 11)
+* publishing styles, blosxom-xhtml:      Blosxom Options.      (line 14)
+* publishing styles, book-latex:         Book.                 (line 19)
+* publishing styles, book-pdf:           Book.                 (line 23)
+* publishing styles, chapbook-latex:     Poem.                 (line 47)
+* publishing styles, chapbook-pdf:       Poem.                 (line 50)
+* publishing styles, common:             Common Elements.      (line  6)
+* publishing styles, deriving:           Deriving Styles.      (line  6)
+* publishing styles, docbook:            DocBook.              (line 11)
+* publishing styles, html:               HTML.                 (line 11)
+* publishing styles, info-pdf:           Texinfo.              (line 17)
+* publishing styles, journal-book-latex: Journal.              (line 68)
+* publishing styles, journal-book-pdf:   Journal.              (line 71)
+* publishing styles, journal-html:       Journal.              (line 56)
+* publishing styles, journal-latex:      Journal.              (line 62)
+* publishing styles, journal-pdf:        Journal.              (line 65)
+* publishing styles, journal-rdf:        Journal.              (line 74)
+* publishing styles, journal-rss:        Journal.              (line 77)
+* publishing styles, journal-xhtml:      Journal.              (line 59)
+* publishing styles, latex:              LaTeX.                (line 16)
+* publishing styles, latexcjk:           LaTeX.                (line 23)
+* publishing styles, pdf:                LaTeX.                (line 19)
+* publishing styles, pdfcjk:             LaTeX.                (line 26)
+* publishing styles, poem-latex:         Poem.                 (line 41)
+* publishing styles, poem-pdf:           Poem.                 (line 44)
+* publishing styles, texi:               Texinfo.              (line 14)
+* publishing, including markup in headers and footers: Tag Summary.
+                                                               (line  6)
+* publishing, inserting files:           Tag Summary.          (line  6)
+* publishing, markup functions:          Markup Functions.     (line  6)
+* publishing, markup regexps:            Markup Regexps.       (line  6)
+* publishing, markup strings:            Markup Strings.       (line  6)
+* publishing, markup tags:               Markup Tags.          (line  6)
+* publishing, omitting lines:            Comments.             (line  6)
+* publishing, rules:                     Markup Regexps.       (line  6)
+* publishing, style elements:            Style Elements.       (line  6)
+* quotations:                            Paragraphs.           (line 16)
+* releases, Debian package:              Releases.             (line 12)
+* releases, from source:                 Releases.             (line 20)
+* settings:                              Getting Started.      (line  6)
+* tables:                                Tables.               (line  6)
+* tables, simple:                        Tables.               (line  6)
+* tags:                                  Tag Summary.          (line  6)
+* underlining text:                      Emphasizing Text.     (line  6)
+* updating Muse with Arch:               Development.          (line 44)
+* verbatim text:                         Emphasizing Text.     (line  6)
+* verses:                                Verse.                (line  6)
+* verses, multiple stanzas:              Verse.                (line 19)
+
+
+
+Tag Table:
+Node: Top577
+Node: Preface4446
+Node: Introduction4896
+Node: Obtaining Muse6286
+Node: Releases6608
+Node: Development7430
+Node: Installation9188
+Node: Getting Started10918
+Node: Projects11990
+Node: Keystroke Summary13760
+Node: Markup Rules15781
+Node: Paragraphs17218
+Node: Headings18210
+Node: Directives18786
+Node: Emphasizing Text19889
+Node: Footnotes20690
+Node: Verse21220
+Node: Lists21918
+Node: Tables22582
+Node: Explicit Links23247
+Node: Implicit Links23912
+Node: Images25998
+Node: Horizontal Rules and Anchors28105
+Node: Embedded Lisp28749
+Node: Comments29475
+Node: Tag Summary29867
+Node: Publishing Styles36102
+Node: Blosxom37010
+Node: Blosxom Requirements37608
+Node: Blosxom Entries39046
+Node: Blosxom Options40466
+Node: Book41361
+Node: DocBook42639
+Node: HTML44174
+Node: Journal48065
+Node: LaTeX53387
+Node: Poem56686
+Node: Texinfo58825
+Node: Extending Muse60633
+Node: Common Elements60988
+Node: Markup Functions61497
+Ref: muse-publish-markup-functions61675
+Node: Markup Regexps62288
+Ref: muse-publish-markup-regexps62465
+Node: Markup Strings65084
+Node: Markup Tags71243
+Ref: muse-publish-markup-tags71427
+Node: Style Elements72460
+Node: Deriving Styles75196
+Node: Getting Help and Reporting Bugs76533
+Node: History79181
+Node: Contributors80002
+Node: GNU General Public License80496
+Node: Concept Index99741
+
+End Tag Table

@@ -1,0 +1,76 @@
+<html lang="zh">
+<head>
+<title>Emphasizing Text - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="prev" href="Directives.html#Directives" title="Directives">
+<link rel="next" href="Footnotes.html#Footnotes" title="Footnotes">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Emphasizing-Text"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Footnotes.html#Footnotes">Footnotes</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Directives.html#Directives">Directives</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@section Bold, italicized, and underlined text -->
+<h3 class="section">8.4 粗体，斜体和下划线文本</h3>
+
+<p><a name="index-emphasizing-text-26"></a><a name="index-underlining-text-27"></a><a name="index-italicizing-text-28"></a><a name="index-verbatim-text-29"></a><a name="index-monospace_002c-rendering-words-30"></a>
+<!-- (FlyZhyGG)To emphasize text, surround it with certain specially recognized -->
+<!-- (FlyZhyGG)characters. -->
+使用某些特别地认可的字符包围文本以强调文本。
+
+<pre class="example">     *emphasis*
+     **strong emphasis**
+     ***very strong emphasis***
+     _underlined_
+     =verbatim and monospace=
+</pre>
+   <p><a name="index-WYSIWYG-31"></a><!-- (FlyZhyGG)While editing a Muse document in Muse mode, these forms of emphasis will -->
+<!-- (FlyZhyGG)be highlighted in a WYSIWYG manner.  Each of these forms may span -->
+<!-- (FlyZhyGG)multiple lines. -->
+当在 Muse 模式下编辑一个 Muse 文档时，这些强调形式将会以一种所见即所得
+（WYSIWYG）的方式高亮显示。每种形式可跨越多行。
+
+<!-- (FlyZhyGG)Verbatim text will be colored as gray by default.  To change this, -->
+<!-- (FlyZhyGG)customize @code{muse-verbatim-face}. -->
+<p>抄录（verbatim）文本默认情况下被灰色显示，定制 <code>muse-verbatim-face</code>
+来改变它。
+
+<!-- (FlyZhyGG)You can also use the @verb{|<code>|} tag to indicate verbatim and -->
+<!-- (FlyZhyGG)monospace text.  This is handy for regions that have an ``='' in them. -->
+<p>你也可以使用 <tt>&lt;code></tt> 标签来表示抄录（verbatim）和等宽（monospace）
+文本，这在本身含有“=”的区域中很方便。
+
+   </body></html>
+

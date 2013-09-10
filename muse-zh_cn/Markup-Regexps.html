@@ -1,0 +1,198 @@
+<html lang="zh">
+<head>
+<title>Markup Regexps - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Common-Elements.html#Common-Elements" title="Common Elements">
+<link rel="prev" href="Markup-Functions.html#Markup-Functions" title="Markup Functions">
+<link rel="next" href="Markup-Strings.html#Markup-Strings" title="Markup Strings">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Markup-Regexps"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Markup-Strings.html#Markup-Strings">Markup Strings</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Markup-Functions.html#Markup-Functions">Markup Functions</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Common-Elements.html#Common-Elements">Common Elements</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@subsection Markup rules for publishing -->
+<h4 class="subsection">10.1.2 发布的标记规则</h4>
+
+<p><a name="index-publishing_002c-markup-regexps-102"></a><a name="index-publishing_002c-rules-103"></a>
+<a name="muse_002dpublish_002dmarkup_002dregexps"></a>
+<code>muse-publish-markup-regexps</code>
+
+<!-- (FlyZhyGG)List of markup rules for publishing a page with Muse. -->
+<p>用 Muse 发布一个页面的标记规则表。
+
+<!-- (FlyZhyGG)The rules given in this variable are invoked first, followed by whatever -->
+<!-- (FlyZhyGG)rules are specified by the current style. -->
+<p>由这个变量给出的规则首先奏效，然后是当前风格指定的任意规则。
+
+<!-- (FlyZhyGG)Each member of the list is either a function, or a list of the following -->
+<!-- (FlyZhyGG)form. -->
+<p>列表中的每个成员是一个函数或者一个下面这种形式的列表。
+
+<pre class="example">     (REGEXP/SYMBOL TEXT-BEGIN-GROUP REPLACEMENT-TEXT/FUNCTION/SYMBOL)
+</pre>
+     <ul>
+<li>REGEXP
+<!-- (FlyZhyGG)A regular expression, or symbol whose value is a regular expression, -->
+<!-- (FlyZhyGG)which is searched for using `re-search-forward'. -->
+一个正则表达式，或者值为正则表达式的符号，使用 're-search-forward' 来搜索。
+
+     <li>TEXT-BEGIN-GROUP
+<!-- (FlyZhyGG)The matching group within that regexp which denotes the beginning of the -->
+<!-- (FlyZhyGG)actual text to be marked up. -->
+在那个正则表达式内部的匹配组，它指示被标记的实际文本的开始。
+
+     <li>REPLACEMENT-TEXT
+<!-- (FlyZhyGG)A string that will be passed to `replace-match'. -->
+一个要被传递给 'replace-match' 的字符串。
+
+     <!-- (FlyZhyGG)If it is not a string, but a function, it will be called to determine -->
+<!-- (FlyZhyGG)what the replacement text should be (it must return a string).  If it is -->
+<!-- (FlyZhyGG)a symbol, the value of that symbol should be a string. -->
+<p>如果它不是一个字符串，而是一个函数，那么它将被调用来决定替代文本应该是什么
+（该函数必须返回一个字符串）。如果它是一个符号，那么该符号的值应该是一个字符串。
+</ul>
+
+<!-- (FlyZhyGG)The replacements are done in order, one rule at a time.  Writing -->
+<!-- (FlyZhyGG)the regular expressions can be a tricky business.  Note that case -->
+<!-- (FlyZhyGG)is never ignored.  `case-fold-search' is always bound to nil -->
+<!-- (FlyZhyGG)while processing the markup rules. -->
+<p>替代被顺序执行，每次一个规则。写正则表达式可以是一件很需要技巧的事情。
+注意有种情形从不会被忽略，在处理标记规则时 'case-fold-search' 总是被赋值为空。
+
+<!-- (FlyZhyGG)@subheading Publishing order -->
+<h4 class="subheading">发布顺序</h4>
+
+<!-- (FlyZhyGG)This is the order that the publishing rules are consulted, by default. -->
+<!-- (FlyZhyGG)This may be changed by customizing @code{muse-publish-markup-regexps}. -->
+<p>下面是发布规则被查阅的默认顺序，通过自定义 <code>muse-publish-markup-regexps</code>
+可以改变这个默认设置。
+
+     <dl>
+<dt><code>trailing and leading whitespace</code><dd><!-- (FlyZhyGG)Remove trailing and leading whitespace from a file. -->
+删除一个文件中开头和结尾的空白字元。
+
+     <br><dt><code>directive</code><dd>`<samp><span class="samp">#directive</span></samp>'
+
+     <!-- (FlyZhyGG)This is only recognized at the beginning of a file. -->
+<p>它仅仅在文件开头被识别。
+
+     <br><dt><code>tag</code><dd>`<samp><span class="samp">&lt;tag&gt;</span></samp>'
+
+     <br><dt><code>comment</code><dd>`<samp><span class="samp">; comment</span></samp>'
+
+     <br><dt><code>anchor</code><dd>`<samp><span class="samp">#anchor</span></samp>'
+
+     <br><dt><code>explicit links</code><dd><!-- (FlyZhyGG)Prevent emphasis characters in explicit links from being marked up. -->
+禁止外显链接中的强调字符被标记。
+
+     <!-- (FlyZhyGG)Don't actually publish them here, just add a special no-emphasis text -->
+<!-- (FlyZhyGG)property. -->
+<p>事实上不会在这里发布它们，而是仅仅添加一个专门的非强调文本属性。
+
+     <br><dt><code>word</code><dd><!-- (FlyZhyGG)Whitespace-delimited word, possibly with emphasis characters. -->
+空白字元间隔词，可能与强调字符一起。
+
+     <!-- (FlyZhyGG)This function is responsible for marking up emphasis and escaping some -->
+<!-- (FlyZhyGG)specials. -->
+<p>这个函数负责标记强调和转义一些特殊字符。
+
+     <br><dt><code>emdash</code><dd>`<samp><span class="samp">--</span></samp>'
+
+     <!-- (FlyZhyGG)2-wide dash -->
+<p>两个 - 宽的破折号
+
+     <br><dt><code>heading</code><dd>`<samp><span class="samp">** Heading</span></samp>'
+
+     <!-- (FlyZhyGG)Outline-mode style headings. -->
+<p>Outline-mode 风格标题。
+
+     <br><dt><code>enddots</code><dd>`<samp><span class="samp">....</span></samp>'
+
+     <!-- (FlyZhyGG)These are ellipses with a dot at end. -->
+<p>这些是省略号加最末尾的句点。
+
+     <br><dt><code>dots</code><dd>`<samp><span class="samp">...</span></samp>'
+
+     <!-- (FlyZhyGG)Ellipses. -->
+<p>省略号。
+
+     <br><dt><code>rule</code><dd>`<samp><span class="samp">----</span></samp>'
+
+     <!-- (FlyZhyGG)Horizontal rule or section separator. -->
+<p>水平线或者节分隔线。
+
+     <br><dt><code>fn-sep</code><dd>`<samp><span class="samp">Footnotes:</span></samp>'
+
+     <!-- (FlyZhyGG)beginning of footnotes section -->
+<p>脚注部分的开始
+
+     <br><dt><code>footnote</code><dd>`<samp><span class="samp">[1]</span></samp>'
+
+     <!-- (FlyZhyGG)Footnote definition or reference.  If at beginning of line, it is a -->
+<!-- (FlyZhyGG)definition. -->
+<p>脚注定义或者引用。如果在一行的开始，就是一个定义。
+
+     <br><dt><code>list</code><dd>
+          <ul>
+<li>`<samp><span class="samp"> 1. </span></samp>'
+
+          <li>`<samp><span class="samp"> - </span></samp>'
+
+          <li>`<samp><span class="samp">term :: </span></samp>'
+</ul>
+
+     <!-- (FlyZhyGG)Numbered list, item list, or term definition list. -->
+<p>有序列表，简单列表或者术语定义列表。
+
+     <br><dt><code>quote</code><dd><!-- (FlyZhyGG)spaces before beginning of text -->
+文本开始前的空格
+
+     <!-- (FlyZhyGG)Blockquotes. -->
+<p>块引用。
+
+     <br><dt><code>verse</code><dd>`<samp><span class="samp">&gt; verse text</span></samp>'
+
+     <br><dt><code>table</code><dd>`<samp><span class="samp">table | cells</span></samp>'
+
+     <br><dt><code>link</code><dd>`<samp><span class="samp">[[explicit][links]]</span></samp>'
+
+     <br><dt><code>url</code><dd>`<samp><span class="samp">http://example.com/</span></samp>'
+
+     <br><dt><code>email</code><dd>`<samp><span class="samp">bare-email@example.com</span></samp>'
+
+   </dl>
+
+   </body></html>
+

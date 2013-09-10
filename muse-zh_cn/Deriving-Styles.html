@@ -1,0 +1,87 @@
+<html lang="zh">
+<head>
+<title>Deriving Styles - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Extending-Muse.html#Extending-Muse" title="Extending Muse">
+<link rel="prev" href="Common-Elements.html#Common-Elements" title="Common Elements">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Deriving-Styles"></a>
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Common-Elements.html#Common-Elements">Common Elements</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Extending-Muse.html#Extending-Muse">Extending Muse</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@section Deriving a new style from an existing one -->
+<h3 class="section">10.2 从一个存在的风格中派生一个新的风格</h3>
+
+<p><a name="index-publishing-styles_002c-deriving-107"></a>
+<!-- (FlyZhyGG)To create a new style from an existing one, use @code{muse-derive-style} -->
+<!-- (FlyZhyGG)as follows.  This is a good way to fix something you don't like about a -->
+<!-- (FlyZhyGG)particular publishing style, or to personalize it. -->
+下面使用 <code>muse-derive-style</code> 来从一个存在的风格生成一个新的风格。
+这对于修改一个独有发布风格中你不喜欢的地方或者个性化这个发布风格是一个
+好的方法。
+
+<pre class="example">     (muse-derive-style DERIVED-NAME BASE-NAME STYLE-PARAMETERS)
+</pre>
+   <!-- (FlyZhyGG)The derived name is a string defining the new style, such as "my-html". -->
+<!-- (FlyZhyGG)The base name must identify an existing style, such as "html" - if you -->
+<!-- (FlyZhyGG)have loaded @file{muse-html}.  The style parameters are the same as -->
+<!-- (FlyZhyGG)those used to create a style, except that they override whatever -->
+<!-- (FlyZhyGG)definitions exist in the base style.  However, some definitions only -->
+<!-- (FlyZhyGG)partially override.  The following parameters support partial -->
+<!-- (FlyZhyGG)overriding. -->
+<p>DERIVED-NAME 是定义新风格的一个字符串，比如“my-html”。BASE-NAME 必须是
+一个存在的风格，比如“html”（如果你加载了 <samp><span class="file">muse-html</span></samp>）。
+STYLE-PARAMETERS 与用来创建一个风格的参数相同，只是它们去掉了基风格中存在
+的所有定义。但是，一些定义仅仅部分弃除。下面的这些参数支持部分弃除。
+
+<!-- (FlyZhyGG)@xref{Style Elements}, for a complete list of all parameters. -->
+<p>参阅 <a href="Style-Elements.html#Style-Elements">Style Elements</a>，获取所有参数的完整列表。
+
+     <dl>
+<dt><samp><span class="option">:functions</span></samp><dd><!-- (FlyZhyGG)If a markup function is not found in the derived style's function list, -->
+<!-- (FlyZhyGG)the base style's function list will be queried. -->
+如果一个标记函数在派生的风格函数表中没有被找到，那么基风格的函数表将会被查询。
+
+     <br><dt><samp><span class="option">:regexps</span></samp><dd><!-- (FlyZhyGG)All regexps in the current style and the base style(s) will be used. -->
+当前风格和基风格（可能不止一个）中的所有正则表达式都将会被使用。
+
+     <br><dt><samp><span class="option">:strings</span></samp><dd><!-- (FlyZhyGG)If a markup string is not found in the derived style's string list, the -->
+<!-- (FlyZhyGG)base style's string list will be queried. -->
+如果一个标记字符串在派生的风格字符串表中没有被找到，那么基风格的字符串表将会
+被查询。
+
+   </dl>
+
+   </body></html>
+

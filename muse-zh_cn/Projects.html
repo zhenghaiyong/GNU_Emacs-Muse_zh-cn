@@ -1,0 +1,105 @@
+<html lang="zh">
+<head>
+<title>Projects - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Getting-Started.html#Getting-Started" title="Getting Started">
+<link rel="next" href="Keystroke-Summary.html#Keystroke-Summary" title="Keystroke Summary">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Projects"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Keystroke-Summary.html#Keystroke-Summary">Keystroke Summary</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Getting-Started.html#Getting-Started">Getting Started</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@chapter Creating and Managing Muse Projects -->
+<h2 class="chapter">6 创建和管理 Muse 项目</h2>
+
+<p><a name="index-projects-8"></a>
+<!-- (FlyZhyGG)Often you will want to publish all the files within a directory to a -->
+<!-- (FlyZhyGG)particular set of output styles automatically.  To support, Muse -->
+<!-- (FlyZhyGG)allows for the creations of "projects".  Here is a sample project, to -->
+<!-- (FlyZhyGG)be defined in your @file{.emacs} file. -->
+通常你希望自动将一个目录中的所有文件发布为一组特定的输出风格，为此，
+Muse 允许创建“项目”。下面是一个定义在你的 <samp><span class="file">.emacs</span></samp> 文件中的项目范例。
+
+<pre class="lisp">     (require 'muse-project)
+     
+     (setq muse-project-alist
+           '(("website"			; my various writings
+              ("~/Pages" :default "index")
+              (:base "html" :path "~/public_html")
+              (:base "pdf" :path "~/public_html/pdf"))))
+</pre>
+   <!-- (FlyZhyGG)The above defines a project named "website", whose files are located -->
+<!-- (FlyZhyGG)in the directory @file{~/Pages}.  The default page to visit is -->
+<!-- (FlyZhyGG)@file{index}.  When this project is published, each page will be -->
+<!-- (FlyZhyGG)output as HTML to the directory @file{~/public_html}, and as PDF to -->
+<!-- (FlyZhyGG)the directory @file{~/public_html/pdf}.  Within any project page, you -->
+<!-- (FlyZhyGG)may create a link to other pages using the syntax @samp{[[pagename]]}. -->
+<p>上面定义了一个名为“website”的项目，该项目所有的文件都位于目录
+<samp><span class="file">~/Pages</span></samp> 下，默认的访问页为 <samp><span class="file">index</span></samp>。当该项目被发布时，每一页
+将会以 HTML 格式输出到 <samp><span class="file">~/public_html</span></samp> 目录中，并以 PDF 格式输出到
+<samp><span class="file">~/public_html/pdf</span></samp> 目录中。在项目中的任一页中，你可以使用语法
+`<samp><span class="samp">[[pagename]]</span></samp>' 创建到其他页的链接。
+
+<!-- (FlyZhyGG)By default, Muse expects all project files to have the file extension -->
+<!-- (FlyZhyGG)@file{.muse}. Files without this extension will not be associated with -->
+<!-- (FlyZhyGG)Muse mode and will not be considered part of any project, even if they -->
+<!-- (FlyZhyGG)are within a project directory. -->
+<p>默认情况下 Muse 要求所有的项目文件具有扩展名 <samp><span class="file">.muse</span></samp>，不具有这个扩展名
+的文件将不会被关联到 Muse 模式，也将不会被看作任何项目的一部分，即使这些
+文件确确实实在一个项目目录中。
+
+<!-- (FlyZhyGG)If you don't want to use @file{.muse}, you can customize the extension -->
+<!-- (FlyZhyGG)by setting the value of @code{muse-file-extension}. -->
+<p>如果你不想使用扩展名 <samp><span class="file">.muse</span></samp>，你可以通过设置 <code>muse-file-extension</code>
+的值来自定义扩展名。
+
+<!-- (FlyZhyGG)If you don't want to use any extension at all, and want Muse to -->
+<!-- (FlyZhyGG)autodetect project files based on their location, then add the following -->
+<!-- (FlyZhyGG)to your Muse settings file. -->
+<p>如果你不想使用任何扩展名，而是想要 Muse 基于项目文件位置自动探测项目文件，
+那么在你的 Muse 设置文件中加入下面两行。
+
+<pre class="lisp">     (setq muse-file-extension nil
+           muse-mode-auto-p t)
+</pre>
+   <!-- (FlyZhyGG)If you would like to include only some files from a directory in a Muse -->
+<!-- (FlyZhyGG)project, you may use a regexp in place of @file{~/Pages} in the example. -->
+<p>如果你想要仅仅包括一个目录中的几个文件，那么你需要使用一个正则表达式代替
+例子中的 <samp><span class="file">~/Pages</span></samp>。
+
+<!-- PRE3_03: Give more examples -->
+<!-- PRE3_03: Describe :set and other options fully -->
+</body></html>
+

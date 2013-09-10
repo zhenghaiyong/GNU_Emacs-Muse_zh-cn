@@ -1,0 +1,88 @@
+<html lang="zh">
+<head>
+<title>Markup Tags - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Common-Elements.html#Common-Elements" title="Common Elements">
+<link rel="prev" href="Markup-Strings.html#Markup-Strings" title="Markup Strings">
+<link rel="next" href="Style-Elements.html#Style-Elements" title="Style Elements">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Markup-Tags"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Style-Elements.html#Style-Elements">Style Elements</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Markup-Strings.html#Markup-Strings">Markup Strings</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Common-Elements.html#Common-Elements">Common Elements</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@subsection Tag specifications for special markup -->
+<h4 class="subsection">10.1.4 特别标记的标签详述</h4>
+
+<p><a name="index-publishing_002c-markup-tags-105"></a>
+<a name="muse_002dpublish_002dmarkup_002dtags"></a>
+<code>muse-publish-markup-tags</code>
+
+<!-- (FlyZhyGG)A list of tag specifications, for specially marking up text. -->
+<p>一个专门标记文本的标签详表。
+
+<!-- (FlyZhyGG)XML-style tags are the best way to add custom markup to Muse.  This is -->
+<!-- (FlyZhyGG)easily accomplished by customizing this list of markup tags. -->
+<p>XML 风格的标签是最好的添加定制标记到 Muse 的方法，通过自定义这个标记标签
+列表很容易就可以完成。
+
+<!-- (FlyZhyGG)For each entry, the name of the tag is given, whether it expects a -->
+<!-- (FlyZhyGG)closing tag and/or an optional set of attributes, whether it is -->
+<!-- (FlyZhyGG)nestable, and a function that performs whatever action is desired within -->
+<!-- (FlyZhyGG)the delimited region. -->
+<p>对每个条目来说，不论标签要求一个关闭标签和/或一个可选的属性集，也不论标签
+是可嵌套的，它的名字被给出，并且在限定区域内执行任意动作的函数被需求。
+
+<!-- (FlyZhyGG)The tags themselves are deleted during publishing, before the function -->
+<!-- (FlyZhyGG)is called.  The function is called with three arguments, the beginning -->
+<!-- (FlyZhyGG)and end of the region surrounded by the tags.  If properties are -->
+<!-- (FlyZhyGG)allowed, they are passed as a third argument in the form of an alist. -->
+<!-- (FlyZhyGG)The `end' argument to the function is always a marker. -->
+<p>发布过程中在函数调用前标签本身会被删除，函数被调用带有三个参数，标签所包围
+区域的开始和结束，如果属性允许，那么它们就会以一个列表的形式作为第三个参数
+被传递。函数“结束”的参数总是一个标记。
+
+<!-- (FlyZhyGG)Point is always at the beginning of the region within the tags, when the -->
+<!-- (FlyZhyGG)function is called.  Wherever point is when the function finishes is -->
+<!-- (FlyZhyGG)where tag markup will resume. -->
+<p>当函数被调用时，point 总是在标签内部区域的开始，当函数结束时 point 在哪里，
+标签标记就会在哪里恢复。
+
+<!-- (FlyZhyGG)These tag rules are processed once at the beginning of markup, and once -->
+<!-- (FlyZhyGG)at the end, to catch any tags which may have been inserted in-between. -->
+<p>这些标签规则在标记开始被处理一次，在结束时又被处理一次，这样做是为了
+捕获那些可能被插入到其他标签中间的标签。
+
+   </body></html>
+

@@ -1,0 +1,124 @@
+<html lang="zh">
+<head>
+<title>Development - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Obtaining-Muse.html#Obtaining-Muse" title="Obtaining Muse">
+<link rel="prev" href="Releases.html#Releases" title="Releases">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Development"></a>
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Releases.html#Releases">Releases</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Obtaining-Muse.html#Obtaining-Muse">Obtaining Muse</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@section Latest unreleased development changes -->
+<h3 class="section">3.2 最新的未发行的开发更新</h3>
+
+<p><a name="index-development-4"></a>
+<!-- (FlyZhyGG)Choose the development version if you want to live on the bleeding edge -->
+<!-- (FlyZhyGG)of Muse development or try out new features before release. -->
+如果你想要追求 Muse 开发的最新技术或者在发行前尝试新特色，那么选择开发版本。
+
+   <p><a name="index-arch-revision-control-system_002c-using-5"></a><!-- (FlyZhyGG)The Arch revision control system allows you to retrieve previous -->
+<!-- (FlyZhyGG)versions and select specific features and bug fixes.  If you would like -->
+<!-- (FlyZhyGG)to contribute to Muse development, it is highly recommended that you use -->
+<!-- (FlyZhyGG)Arch, but this is not a requirement. -->
+Arch 修正控制系统允许你找回以前的版本，从而选择某些指定的特色和 bug 修复。
+如果你想帮助 Muse 开发，强烈推荐使用 Arch，但这并不是一个必要条件。
+
+<!-- (FlyZhyGG)If you are new to Arch, you might find this tutorial helpful: -->
+<!-- (FlyZhyGG)@uref{http://www.mwolson.org/projects/ArchTutorial.html}. -->
+<p>如果 Arch 对你来说是陌生的，你可能会认为下面这篇手册很有帮助：
+<a href="http://www.mwolson.org/projects/ArchTutorial.html">http://www.mwolson.org/projects/ArchTutorial.html</a>。
+
+<!-- (FlyZhyGG)Downloading the Muse module with Arch and staying up-to-date involves -->
+<!-- (FlyZhyGG)the following steps. -->
+<p>使用 Arch 下载 Muse 模块，并参照下面步骤保持最新。
+
+     <ol type=1 start=1>
+<!-- (FlyZhyGG)@item Install arch. -->
+<li>安装 arch。
+
+          <ul>
+<!-- (FlyZhyGG)@item Debian and Ubuntu: @kbd{apt-get install tla}. -->
+<!-- (FlyZhyGG)@item Other distributions: see @uref{http://regexps.srparish.net/www/}. -->
+<li>Debian 和 Ubuntu：<kbd>apt-install tla</kbd>。
+<li>其他发行版本：参见 <a href="http://regexps.srparish.net/www/">http://regexps.srparish.net/www/</a>。
+</ul>
+
+     <!-- (FlyZhyGG)@item Register the archive. -->
+<li>注册存档。
+     <pre class="example">          tla register-archive -f http://www.mwolson.org/archives/2005
+     </pre>
+     <!-- (FlyZhyGG)@item Download the Muse package. -->
+<li>下载 Muse 包。
+     <pre class="example">          <!-- (FlyZhyGG)# Download Muse into the @file{muse} directory. -->
+          # 下载 Muse 到 <samp><span class="file">muse</span></samp> 目录。
+          tla get mwolson@gnu.org--2005/muse--main--1.0 muse
+     </pre>
+     <!-- (FlyZhyGG)@item List upstream changes that are missing from your local copy. -->
+<li>列出你本地拷贝中错过的上游更改。
+<!-- (FlyZhyGG)Do this whenever you want to see whether new changes have been committed -->
+<!-- (FlyZhyGG)to Muse. -->
+每当你想要查看 Muse 是否有新的更改被提交，做这一步。
+
+     <pre class="example">          <!-- (FlyZhyGG)# Change to the source directory you are interested in. -->
+          # 进入你关心的源目录。
+          cd muse/
+          
+          <!-- (FlyZhyGG)# Display the summary of changes. -->
+          # 显示更改概要。
+          tla missing --summary
+     </pre>
+     <p><a name="index-updating-Muse-with-Arch-6"></a><!-- (FlyZhyGG)@item Update to the latest version by replaying missing changes. -->
+<li>重写错过的更改，更新 Muse 到最新版本。
+     <pre class="example">          cd muse
+          tla replay
+     </pre>
+        </ol>
+
+<!-- (FlyZhyGG)There are other ways to interact with the Muse archive. -->
+<p>与 Muse 归档交互还有一些其他的方法。
+
+     <ul>
+<!-- (FlyZhyGG)@item Browse arch repository: @uref{http://www.mwolson.org/archives/} -->
+<!-- (FlyZhyGG)@item Latest development snapshot: @uref{http://www.mwolson.org/static/dist/muse-latest.tar.gz} -->
+<li>浏览 arch 存储库：<a href="http://www.mwolson.org/archives/">http://www.mwolson.org/archives/</a>
+<li>最新开发快照：<a href="http://www.mwolson.org/static/dist/muse-latest.tar.gz">http://www.mwolson.org/static/dist/muse-latest.tar.gz</a>
+</ul>
+
+<!-- (FlyZhyGG)The latest development snapshot will be kept up-to-date since it is -->
+<!-- (FlyZhyGG)updated at the same time as the Arch repository. -->
+<p>最新开发快照与 Arch 存储库同时被更新，因此它始终保持最新。
+
+   </body></html>
+

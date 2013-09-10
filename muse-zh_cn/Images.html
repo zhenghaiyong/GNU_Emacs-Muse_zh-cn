@@ -1,0 +1,127 @@
+<html lang="zh">
+<head>
+<title>Images - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="prev" href="Implicit-Links.html#Implicit-Links" title="Implicit Links">
+<link rel="next" href="Horizontal-Rules-and-Anchors.html#Horizontal-Rules-and-Anchors" title="Horizontal Rules and Anchors">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Images"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Horizontal-Rules-and-Anchors.html#Horizontal-Rules-and-Anchors">Horizontal Rules and Anchors</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Implicit-Links.html#Implicit-Links">Implicit Links</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@section Publishing and displaying images -->
+<h3 class="section">8.11 发布和显示图片</h3>
+
+<p><a name="index-images-50"></a><a name="index-links_002c-with-images-51"></a><!-- (FlyZhyGG)@subheading Image links -->
+
+<h4 class="subheading">图片链接</h4>
+
+<!-- (FlyZhyGG)Links to images may be used in either the target or the description, or -->
+<!-- (FlyZhyGG)both.  Thus, the following code will publish as a clickable image that -->
+<!-- (FlyZhyGG)points to @url{http://www.mwolson.org/}. -->
+<p>指向图片的链接可以被用于目标或者描述中，也可以两者都使用。所以，下面的
+代码会发布一个指向 <a href="http://www.mwolson.org/">http://www.mwolson.org/</a> 可点击的图片。
+
+<pre class="example">     [[http://www.mwolson.org/][/static/logos/site-logo.png]]
+</pre>
+   <p><a name="index-images_002c-displaying-52"></a><a name="index-images_002c-local-53"></a><!-- (FlyZhyGG)@subheading Displaying images in Muse mode -->
+
+<h4 class="subheading">在 Muse 模式中显示图片</h4>
+
+<!-- (FlyZhyGG)If a link to a locally-available image is encountered in the link -->
+<!-- (FlyZhyGG)description, Muse mode will attempt to display it if your version of -->
+<!-- (FlyZhyGG)Emacs permits this. -->
+<p>如果在链接描述中遇到一个指向本地可用图片的链接，并且你的 Emacs 版本允许
+图片显示，那么 Muse 模式会试图显示它。
+
+<!-- (FlyZhyGG)This behavior may be toggled with @kbd{C-c C-i}, or disabled permanently -->
+<!-- (FlyZhyGG)by setting the @code{muse-colors-inline-images} option to @code{nil}. -->
+<p>这个行为可以由 <kbd>C-c C-i</kbd> 触发，或者通过设置选项
+<code>muse-colors-inline-images</code> 为 <code>nil</code> 来永久禁止此功能。
+
+<!-- (FlyZhyGG)The method for finding images may be altered by customizing the -->
+<!-- (FlyZhyGG)@code{muse-colors-inline-image-method} option.  One useful value for -->
+<!-- (FlyZhyGG)this option is @code{muse-colors-use-publishing-directory}, which tells -->
+<!-- (FlyZhyGG)Muse mode to look in the directory where the current file will be -->
+<!-- (FlyZhyGG)published.  The default is to look in the current directory.  Relative -->
+<!-- (FlyZhyGG)paths like @samp{../pics/} should work for either setting. -->
+<p>通过定制 <code>muse-colors-inline-image-method</code> 选项可以 Muse 改变查找图片
+的方式。这个选项的一个有用的值为 <code>muse-colors-use-publishing-directory</code>，
+它告诉 Muse 模式去查找当前文件将要被发布的目录。默认情况下是在当前目录下
+查找。对于任一设置类似 `<samp><span class="samp">../pic/</span></samp>' 这样的相对路径应该是有效的。
+
+<!-- (FlyZhyGG)Eventually, it is hoped that Muse will be able to copy images from the a -->
+<!-- (FlyZhyGG)``source'' directory to a publishing directory by customizing -->
+<!-- (FlyZhyGG)@code{muse-project-alist}, but this has not been implemented yet. -->
+<p>最后，我们希望通过定制 <code>muse-project-alist</code> Muse 能够从一个“源”目录
+复制图片到一个发布目录中，但这个功能尚未完成。
+
+   <p><a name="index-images_002c-without-descriptions-54"></a><a name="index-images_002c-inlined-55"></a><!-- (FlyZhyGG)@subheading Publishing simple images -->
+
+<h4 class="subheading">发布简单的图片</h4>
+
+<!-- (FlyZhyGG)The following example will display correctly and publish correctly if a -->
+<!-- (FlyZhyGG)@acronym{PNG} file called @file{TestLogo.png} exists in the -->
+<!-- (FlyZhyGG)@file{../pics/} directory.  If text is on the same line as the picture, -->
+<!-- (FlyZhyGG)it will remain so in the output. -->
+<p>如果在 <samp><span class="file">../pics/</span></samp> 目录中存在一个叫做 <samp><span class="file">TestLogo.png</span></samp> 的文件，那么
+下面的这个例子将会正确显示和发布。如果文本与图片在同一行，那么在输出
+中也是如此。
+
+<pre class="example">     [[../myimage.png]]
+</pre>
+   <p><a name="index-images_002c-captions-56"></a><!-- (FlyZhyGG)@subheading Publishing images with captions -->
+
+<h4 class="subheading">发布带题目的图片</h4>
+
+<!-- (FlyZhyGG)If you want to add a caption to an image, use the following syntax. -->
+<!-- (FlyZhyGG)This will center the image (if the output format supports it) and add a -->
+<!-- (FlyZhyGG)centered caption below the picture.  Formats that do not support -->
+<!-- (FlyZhyGG)centering the image will instead leave it against the left margin. -->
+<p>如果你想要为一幅图片添加标题，使用下面的语法。它将图片居中（如果所发布的
+格式支持该功能）并在图片下面添加一个居中的标题。对于那些不支持图片居中的
+格式将以图片紧靠左边界来代替。
+
+<pre class="example">     [[../pics/mycat.png][My cat Dexter]]
+</pre>
+   <!-- (FlyZhyGG)Images with captions may only occur in their own paragraphs, with no -->
+<!-- (FlyZhyGG)text on the same line.  Otherwise, the published output will not be -->
+<!-- (FlyZhyGG)syntactically correct. -->
+<p>带有标题的图片仅可以自成一段，在同一行不允许有文本。否则，发布的输出句法
+上是错误的。
+
+   </body></html>
+

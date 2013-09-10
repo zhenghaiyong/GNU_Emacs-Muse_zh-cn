@@ -1,0 +1,123 @@
+<html lang="zh">
+<head>
+<title>Keystroke Summary - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Projects.html#Projects" title="Projects">
+<link rel="next" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Keystroke-Summary"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Projects.html#Projects">Projects</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@chapter Keys Used in Muse Mode -->
+<h2 class="chapter">7 Muse 模式中使用的快捷键</h2>
+
+<p><a name="index-keystrokes-9"></a>
+<!-- (FlyZhyGG)This is a summary of keystrokes available in every Muse buffer. -->
+这是在每一个 Muse buffer 中可用的快捷键概要。
+
+     <dl>
+<dt><kbd>C-c C-a (`muse-index')</kbd><dd><!-- (FlyZhyGG)Display an index of all known Muse pages. -->
+显示所有已知 Muse 页面的索引。
+
+     <br><dt><kbd>C-c C-b (`muse-find-backlinks')</kbd><dd><!-- (FlyZhyGG)Find all pages that link to this page. -->
+找出所有引用了当前页的页面。
+
+     <br><dt><kbd>C-c C-c (`muse-follow-name-at-point')</kbd><dd><!-- (FlyZhyGG)Visit the link at point. -->
+访问当前位置处的链接。
+
+     <br><dt><kbd>C-c C-e (`muse-edit-link-at-point')</kbd><dd><!-- (FlyZhyGG)Edit link at point. -->
+编辑当前位置处的链接。
+
+     <br><dt><kbd>C-c C-f (`muse-project-find-file')</kbd><dd><!-- (FlyZhyGG)Open another Muse page.  Prompt for the name. -->
+打开另一个 Muse 页面。提示输入文件名。
+
+     <br><dt><kbd>C-c C-i (`muse-insert-tag')</kbd><dd><!-- (FlyZhyGG)Insert a tag interactively. -->
+交互地插入一个标签。
+
+     <br><dt><kbd>C-c C-l (`font-lock-mode')</kbd><dd><!-- (FlyZhyGG)Toggle font lock / highlighting for the current buffer. -->
+对当前 buffer 触发 font lock / highlighting（语法高亮）。
+
+     <br><dt><kbd>C-c C-p (`muse-project-publish')</kbd><dd><!-- (FlyZhyGG)Publish any Muse pages that have changed. -->
+发布所有更改了的 Muse 页面。
+
+     <br><dt><kbd>C-c C-s (`muse-search')</kbd><dd><!-- (FlyZhyGG)Find text in all files of the current project. -->
+在当前项目的所有文件中查找文本。
+
+     <br><dt><kbd>C-c C-t (`muse-project-publish-this-file')</kbd><dd><!-- (FlyZhyGG)Publish the currently-visited file.  Prompt for the style if the current -->
+<!-- (FlyZhyGG)file can be published using more than one style. -->
+发布当前访问的文件。如果当前文件可以被使用不止一种风格发布，提示输入风格。
+
+     <br><dt><kbd>C-c C-T (`muse-publish-this-file')</kbd><dd><!-- (FlyZhyGG)Publish the currently-visited file.  Prompt for both the style and -->
+<!-- (FlyZhyGG)output directory. -->
+发布当前访问的文件。提示风格和输出目录。
+
+     <br><dt><kbd>C-c C-v (`muse-browse-result')</kbd><dd><!-- (FlyZhyGG)Show the published result of this page. -->
+显示当前页面的发布结果。
+
+     <br><dt><kbd>C-c = (`muse-what-changed')</kbd><dd><!-- (FlyZhyGG)Diff this page against the last backup version. -->
+将当前页面与最近备份版本比较。
+
+     <br><dt><kbd>C-c TAB l (`muse-insert-relative-link-to-file')</kbd><dd><!-- (FlyZhyGG)Insert a link to a file interactively. -->
+交互地插入一个链接到一个文件中。
+
+     <br><dt><kbd>C-c TAB t (`muse-insert-tag')</kbd><dd><!-- (FlyZhyGG)Insert a tag interactively. -->
+交互地插入一个标签。
+
+     <br><dt><kbd>C-c TAB u (`muse-insert-url')</kbd><dd><!-- (FlyZhyGG)Insert a URL interactively. -->
+交互地插入一个 URL。
+
+     <br><dt><kbd>TAB</kbd><dd><!-- (FlyZhyGG)Move to the next Wiki reference. -->
+移动光标到下一个 Wiki 链接。
+
+     <br><dt><kbd>S-TAB</kbd><dd><!-- (FlyZhyGG)Move to the previous Wiki reference. -->
+移动光标到上一个 Wiki 链接。
+
+     <br><dt><kbd>M-TAB</kbd><dd><!-- (FlyZhyGG)Complete the name of a page from the current project at point. -->
+补齐当前位置来自当前项目的一个页面的名字。
+
+     <br><dt><kbd>M-RET</kbd><dd><!-- (FlyZhyGG)Insert a new list item at point, indenting properly. -->
+在当前位置插入一个新的列表项，同时正确缩进。
+
+     <br><dt><kbd>C-&lt;</kbd><dd><!-- (FlyZhyGG)Decrease the indentation of the list item at point. -->
+减少当前位置列表项的缩进。
+
+     <br><dt><kbd>C-&gt;</kbd><dd><!-- (FlyZhyGG)Increase the indentation of the list item at point. -->
+增加当前位置列表项的缩进。
+
+   </dl>
+
+   </body></html>
+

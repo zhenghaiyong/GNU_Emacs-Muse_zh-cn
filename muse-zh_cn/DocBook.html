@@ -1,0 +1,112 @@
+<html lang="zh">
+<head>
+<title>DocBook - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Publishing-Styles.html#Publishing-Styles" title="Publishing Styles">
+<link rel="prev" href="Book.html#Book" title="Book">
+<link rel="next" href="HTML.html#HTML" title="HTML">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="DocBook"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="HTML.html#HTML">HTML</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Book.html#Book">Book</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Publishing-Styles.html#Publishing-Styles">Publishing Styles</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@section Publishing in DocBook XML form -->
+<h3 class="section">9.3 以 DocBook XML 形式发布</h3>
+
+<!-- (FlyZhyGG)This publishing style is used to generate DocBook XML files. -->
+<p>这种发布风格被用于生成 DocBook XML 文件。
+
+<!-- (FlyZhyGG)@subheading Styles provided -->
+<h4 class="subheading">提供的风格</h4>
+
+     
+<a name="index-publishing-styles_002c-docbook-75"></a>
+<dl><dt><code>docbook</code><dd>
+</dl>
+
+<!-- (FlyZhyGG)@subheading Options provided -->
+<h4 class="subheading">提供的选项</h4>
+
+     <dl>
+<dt><code>muse-docbook-extension</code><dd><!-- (FlyZhyGG)Default file extension for publishing DocBook XML files. -->
+发布 DocBook XML 文件的默认扩展名。
+
+     <br><dt><code>muse-docbook-header</code><dd><!-- (FlyZhyGG)Header used for publishing DocBook XML files. -->
+发布 DocBook XML 文件使用的页眉。
+
+     <!-- (FlyZhyGG)This may be text or a filename. -->
+<p>这可以是文本或者一个文件名。
+
+     <br><dt><code>muse-docbook-footer</code><dd><!-- (FlyZhyGG)Footer used for publishing DocBook XML files. -->
+发布 DocBook XML 文件使用的页脚。
+
+     <!-- (FlyZhyGG)This may be text or a filename. -->
+<p>这可以是文本或者一个文件名。
+
+     <br><dt><code>muse-docbook-markup-regexps</code><dd><!-- (FlyZhyGG)List of markup rules for publishing a Muse page to DocBook XML. -->
+发布一个 Muse 页面到 DocBook XML 的标记规则表。
+
+     <br><dt><code>muse-docbook-markup-functions</code><dd><!-- (FlyZhyGG)An alist of style types to custom functions for that kind of text. -->
+为该风格文本定制函数的风格样式列表。
+
+     <br><dt><code>muse-docbook-markup-strings</code><dd><!-- (FlyZhyGG)Strings used for marking up text. -->
+标记文本使用的字符串。
+
+     <!-- (FlyZhyGG)These cover the most basic kinds of markup, the handling of which -->
+<!-- (FlyZhyGG)differs little between the various styles. -->
+<p>这些字符串涵盖最基本的标记类，它们在各种风格之间的操作差别很小。
+
+     <br><dt><code>muse-docbook-markup-specials</code><dd><!-- (FlyZhyGG)A table of characters which must be represented specially. -->
+必须被特殊表示的字符列表。
+
+     <br><dt><code>muse-docbook-encoding-default</code><dd><!-- (FlyZhyGG)The default Emacs buffer encoding to use in published files. -->
+<!-- (FlyZhyGG)This will be used if no special characters are found. -->
+在发布文件中使用的默认 Emacs buffer 编码。如果没有发现特殊字符，该选项将
+被使用。
+
+     <br><dt><code>muse-docbook-charset-default</code><dd><!-- (FlyZhyGG)The default DocBook XML charset to use if no translation is -->
+<!-- (FlyZhyGG)found in @code{muse-docbook-encoding-map}. -->
+在 <code>muse-docbook-encoding-map</code> 中如果没有找到转换，使用默认的 DocBook XML
+字符集。
+
+     <br><dt><code>muse-docbook-encoding-map</code><dd><!-- (FlyZhyGG)An alist mapping emacs coding systems to appropriate DocBook charsets. -->
+<!-- (FlyZhyGG)Use the base name of the coding system (i.e. without the -unix). -->
+映射 emacs 编码系统到合适 DocBook 字符集的一个列表。使用编码系统的基名
+（例如，没有 -unix）。
+
+</dl>
+
+   </body></html>
+

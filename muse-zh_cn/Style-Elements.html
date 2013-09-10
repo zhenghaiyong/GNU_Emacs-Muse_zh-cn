@@ -1,0 +1,154 @@
+<html lang="zh">
+<head>
+<title>Style Elements - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Common-Elements.html#Common-Elements" title="Common Elements">
+<link rel="prev" href="Markup-Tags.html#Markup-Tags" title="Markup Tags">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Style-Elements"></a>
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Markup-Tags.html#Markup-Tags">Markup Tags</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Common-Elements.html#Common-Elements">Common Elements</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@subsection Parameters used for defining styles -->
+<h4 class="subsection">10.1.5 定义风格使用的参数</h4>
+
+<p><a name="index-publishing_002c-style-elements-106"></a>
+<!-- (FlyZhyGG)Style elements are tags that define a style.  Use -->
+<!-- (FlyZhyGG)@code{muse-define-style} to create a new style. -->
+风格元素是定义一个风格的标签。使用 <code>muse-define-style</code> 来创建一个新
+的风格。
+
+<pre class="example">     (muse-define-style DERIVED-NAME BASE-NAME STYLE-PARAMETERS)
+</pre>
+   <!-- (FlyZhyGG)@subheading Usable elements -->
+<h4 class="subheading">可用的元素</h4>
+
+     <dl>
+<dt><samp><span class="option">:suffix</span></samp><dd><!-- (FlyZhyGG)File extension to use for publishing files with this style. -->
+以这种风格发布文件使用的文件扩展名。
+
+     <br><dt><samp><span class="option">:link-suffix</span></samp><dd><!-- (FlyZhyGG)File extension to use for publishing links to Muse files with this -->
+<!-- (FlyZhyGG)style. -->
+以这种风格发布到 Muse 文件的链接使用的文件扩展名。
+
+     <br><dt><samp><span class="option">:osuffix</span></samp><dd><!-- (FlyZhyGG)File extension to use for publishing second-stage files with this style. -->
+以这种风格发布第二阶段文件使用的文件扩展名。
+
+     <!-- (FlyZhyGG)For example, PDF publishing generates a LaTeX file first, then a PDF -->
+<!-- (FlyZhyGG)from that LaTeX file. -->
+<p>例如，PDF 发布首先生成一个 LaTeX 文件，然后通过这个 LaTeX 文件生成 PDF 文件。
+
+     <br><dt><samp><span class="option">:regexps</span></samp><dd><!-- (FlyZhyGG)List of markup rules for publishing a page with Muse. -->
+使用 Muse 发布一个页面的标记规则表。
+<!-- (FlyZhyGG)@xref{muse-publish-markup-regexps}. -->
+参阅 <a href="muse_002dpublish_002dmarkup_002dregexps.html#muse_002dpublish_002dmarkup_002dregexps">muse-publish-markup-regexps</a>。
+
+     <br><dt><samp><span class="option">:functions</span></samp><dd><!-- (FlyZhyGG)An alist of style types to custom functions for that kind of text. -->
+<!-- (FlyZhyGG)@xref{muse-publish-markup-functions}. -->
+为该风格文本定制函数的风格样式表，参阅 <a href="muse_002dpublish_002dmarkup_002dfunctions.html#muse_002dpublish_002dmarkup_002dfunctions">muse-publish-markup-functions</a>。
+
+     <br><dt><samp><span class="option">:strings</span></samp><dd><!-- (FlyZhyGG)Strings used for marking up text with this style. -->
+这个风格标记文本使用的字符串。
+
+     <!-- (FlyZhyGG)These cover the most basic kinds of markup, the handling of which -->
+<!-- (FlyZhyGG)differs little between the various styles. -->
+<p>这些字符串涵盖最基本的标记类，它们在各种风格之间的操作差别很小。
+
+     <br><dt><samp><span class="option">:tags</span></samp><dd><!-- (FlyZhyGG)A list of tag specifications, used for handling extra tags. -->
+<!-- (FlyZhyGG)@xref{muse-publish-markup-tags}. -->
+处理特别标签使用的标签详表，参阅 <a href="muse_002dpublish_002dmarkup_002dtags.html#muse_002dpublish_002dmarkup_002dtags">muse-publish-markup-tags</a>。
+
+     <br><dt><samp><span class="option">:specials</span></samp><dd><!-- (FlyZhyGG)A table of characters which must be represented specially. -->
+必须被特殊表示的字符表。
+
+     <br><dt><samp><span class="option">:before</span></samp><dd><!-- (FlyZhyGG)A function that is to be executed on the newly-created publishing buffer -->
+<!-- (FlyZhyGG)(or the current region) before any publishing occurs. -->
+任何发布动作发生前在新生成的发布 buffer（或当前区域）里要被执行的一个函数。
+
+     <!-- (FlyZhyGG)This is used to set extra parameters that direct the publishing process. -->
+<p>这被用于设置管理发布过程的额外参数。
+
+     <br><dt><samp><span class="option">:before-end</span></samp><dd><!-- (FlyZhyGG)A function that is to be executed on the publishing buffer (or the -->
+<!-- (FlyZhyGG)current region) immediately after applying all of the markup regexps. -->
+应用所有的标记正则表达式后在发布 buffer（或者当前区域）里立即要被执行的一个
+函数。
+
+     <!-- (FlyZhyGG)This is used to fix the order of table elements (header, footer, body) -->
+<!-- (FlyZhyGG)in XML-ish styles. -->
+<p>这被用于修复在类 XML 类型文件中表格元素的顺序（表头，表底，表体）。
+
+     <br><dt><samp><span class="option">:after</span></samp><dd><!-- (FlyZhyGG)A function that is to be executed on the publishing buffer after -->
+<!-- (FlyZhyGG):before-end, and immediately after inserting the header and footer. -->
+插入页眉和页脚后，在 :before-end 后的发布 buffer 里立即要被执行的一个函数。
+
+     <!-- (FlyZhyGG)This is used for generating the table of contents as well as setting the -->
+<!-- (FlyZhyGG)file coding system. -->
+<p>这被用于生成目录和设置文件编码系统。
+
+     <br><dt><samp><span class="option">:final</span></samp><dd><!-- (FlyZhyGG)A function that is to be executed after saving the published file, but -->
+<!-- (FlyZhyGG)while still in its buffer. -->
+保存发布文件后，但仍旧在其 buffer 中要被执行的一个函数。
+
+     <!-- (FlyZhyGG)This is used for generating second-stage documents like PDF files from -->
+<!-- (FlyZhyGG)just-published LaTeX files. -->
+<p>这被用于生成象从刚刚被发布的 LaTeX 文件生成 PDF 文件这样的第二阶段文档。
+
+     <br><dt><samp><span class="option">:header</span></samp><dd><!-- (FlyZhyGG)Header used for publishing files of this style. -->
+发布这种风格文件使用的页眉。
+
+     <!-- (FlyZhyGG)This may be a variable, text, or a filename.  It is inserted at the -->
+<!-- (FlyZhyGG)beginning of a file, after evaluating the publishing markup. -->
+<p>这可以是一个变量，文本或者一个文件名。它被插入在文件的开始，赋值发布标记后。
+
+     <br><dt><samp><span class="option">:footer</span></samp><dd><!-- (FlyZhyGG)Footer used for publishing files of this style. -->
+发布这种风格文件使用的页脚。
+
+     <!-- (FlyZhyGG)This may be a variable, text, or a filename.  It is inserted at the end -->
+<!-- (FlyZhyGG)of a file, after evaluating the publishing markup. -->
+<p>这可以是一个变量，文本或者一个文件名。它被插入在文件的结尾，赋值发布标记后。
+
+     <br><dt><samp><span class="option">:style-sheet</span></samp><dd><!-- (FlyZhyGG)Style sheet used for publishing files of this style. -->
+发布这种风格使用的样式表。
+
+     <!-- (FlyZhyGG)This may be a variable or text.  It is used in the header of HTML and -->
+<!-- (FlyZhyGG)XHTML based publishing styles. -->
+<p>这可以是一个变量或者文本。它被用于基于 HTML 和 XHTML 发布风格的页眉。
+
+     <br><dt><samp><span class="option">:browser</span></samp><dd><!-- (FlyZhyGG)The function used to browse the published result of files of this style. -->
+用于浏览这种风格文件发布结果的函数。
+
+</dl>
+
+   </body></html>
+

@@ -1,0 +1,94 @@
+<html lang="zh">
+<head>
+<title>Blosxom Entries - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Blosxom.html#Blosxom" title="Blosxom">
+<link rel="prev" href="Blosxom-Requirements.html#Blosxom-Requirements" title="Blosxom Requirements">
+<link rel="next" href="Blosxom-Options.html#Blosxom-Options" title="Blosxom Options">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Blosxom-Entries"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Blosxom-Options.html#Blosxom-Options">Blosxom Options</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Blosxom-Requirements.html#Blosxom-Requirements">Blosxom Requirements</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Blosxom.html#Blosxom">Blosxom</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@subsection Format of a Blosxom entry and automation -->
+<h4 class="subsection">9.1.2 一个 Blosxom 条目的格式和自动操作</h4>
+
+<!-- (FlyZhyGG)Each Blosxom file must include `#date yyyy-mm-dd', or optionally the -->
+<!-- (FlyZhyGG)longer `#date yyyy-mm-dd-hh-mm', a title (using the #title directive), -->
+<!-- (FlyZhyGG)plus whatever normal content is desired. -->
+<p>每一个 Blosxom 文件必须包含 `#date yyyy-mm-dd' 或者可选的长格式
+`#date yyyy-mm-dd-hh-mm'，一个题目（使用 #title 指令）加上任意内容的正文。
+
+<!-- (FlyZhyGG)The date directive is not used directly by @command{pyblosxom.cgi} or -->
+<!-- (FlyZhyGG)this program.  You need to have the two additional items from the former -->
+<!-- (FlyZhyGG)section to make use of this feature. -->
+<p>日期指令不会直接由 <samp><span class="command">pyblosxom.cgi</span></samp> 或者这个程序所使用。你需要有
+上一节中提到的那两个额外组件来使用这个特色。
+
+<!-- (FlyZhyGG)There is a function called @code{muse-blosxom-new-entry} that will -->
+<!-- (FlyZhyGG)automate the process of making a new blog entry.  To make use of it, do -->
+<!-- (FlyZhyGG)the following. -->
+<p>有一个名为 <code>muse-blosxom-new-entry</code> 的函数可以使得生成一个新的 blog 条目
+的过程自动化。照下面所做来使用它。
+
+     <ul>
+<li><!-- (FlyZhyGG)Customize @code{muse-blosxom-base-directory} to the location that your -->
+<!-- (FlyZhyGG)blog entries are stored. -->
+定制 <code>muse-blosxom-base-directory</code> 为你的 blog 条目存储的位置。
+
+     <li><!-- (FlyZhyGG)Assign the @code{muse-blosxom-new-entry} function to a key sequence.  I -->
+<!-- (FlyZhyGG)use the following code to assign this function to @kbd{C-c p l'}. -->
+绑定 <code>muse-blosxom-new-entry</code> 函数到一个键序列。我使用下面的代码绑定这个
+函数到 <kbd>C-c p l'</kbd>。
+
+     <pre class="example">          (global-set-key "\C-cpl" 'muse-blosxom-new-entry)
+     </pre>
+     <li><!-- (FlyZhyGG)You should create your directory structure ahead of time under your base -->
+<!-- (FlyZhyGG)directory.  These directories, which correspond with category names, may -->
+<!-- (FlyZhyGG)be nested. -->
+你应该预先在你的基目录下创建目录结构。这些目录与分类名一致，并且可以嵌套。
+
+     <li><!-- (FlyZhyGG)When you enter this key sequence, you will be prompted for the category -->
+<!-- (FlyZhyGG)of your entry and its title.  Upon entering this information, a new file -->
+<!-- (FlyZhyGG)will be created that corresponds with the title, but in lowercase -->
+<!-- (FlyZhyGG)letters and having special characters converted to underscores.  The -->
+<!-- (FlyZhyGG)title and date directives will be inserted automatically. -->
+当你输入这个键序列，你会被提示输入条目分类和题目。键入这些信息后，一个新
+文件被创建，这个文件名与输入的题目一致，但全部为小写字母并且特殊字符被转
+换为下划线。同时，题目和日期指令被自动插入。
+</ul>
+
+   </body></html>
+

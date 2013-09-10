@@ -1,0 +1,99 @@
+<html lang="zh">
+<head>
+<title>Directives - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="prev" href="Headings.html#Headings" title="Headings">
+<link rel="next" href="Emphasizing-Text.html#Emphasizing-Text" title="Emphasizing Text">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Directives"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Emphasizing-Text.html#Emphasizing-Text">Emphasizing Text</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Headings.html#Headings">Headings</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@section Directives at the beginning of a document -->
+<h3 class="section">8.3 文档开始处的指令</h3>
+
+<p><a name="index-directives-21"></a>
+<!-- (FlyZhyGG)Directives are lines beginning with the @samp{#} character that come -->
+<!-- (FlyZhyGG)before any paragraphs or sections in the document.  Directives are of -->
+<!-- (FlyZhyGG)the form ``#directive content of directive''.  You can use any -->
+<!-- (FlyZhyGG)combination of uppercase and lowercase letters for directives, even if -->
+<!-- (FlyZhyGG)the directive is not in the list below. -->
+文档中全部的段落或者区段前以 `<samp><span class="samp">#</span></samp>' 开始的行是指令。指令的格式为
+“#directive content of directive”。你可以使用任意大小写字母的组合作为指令，
+即使它没有在下面列出。
+
+<!-- (FlyZhyGG)The @code{muse-publishing-directive} function may be used in header and -->
+<!-- (FlyZhyGG)footer text to access directives.  For example, to access the -->
+<!-- (FlyZhyGG)@samp{#title} directive, use @code{(muse-publishing-directive "title")}. -->
+<p><code>muse-publishing-directive</code> 函数可以被用于页眉和页脚来存取指令。例如，
+使用 <code>(muse-publishing-directive "title")</code> 来存取 `<samp><span class="samp">#title</span></samp>' 指令。
+
+<!-- (FlyZhyGG)The following is a list of directives that Muse uses. -->
+<p>下面是 Muse 使用的指令表。
+
+     
+<a name="index-g_t_0023author-22"></a>
+<dl><dt><code>#author</code><dd><!-- (FlyZhyGG)The author of this document. -->
+该文档的作者。
+
+     <!-- (FlyZhyGG)If this is not specified, Muse will attempt to figure it out from the -->
+<!-- (FlyZhyGG)@code{user-full-name} variable. -->
+<p>如果它没有被指定，Muse 将试图从变量 <code>user-full-name</code> 来推断它。
+
+     <p><a name="index-g_t_0023date-23"></a><br><dt><code>#date</code><dd><!-- (FlyZhyGG)The date that the document was last modified. -->
+文档最近更新的日期。
+
+     <!-- (FlyZhyGG)This is used by publishing styles that are able to embed the date -->
+<!-- (FlyZhyGG)information. -->
+<p>它由那些能够嵌入日期信息的发布风格使用。
+
+     <p><a name="index-g_t_0023desc-24"></a><br><dt><code>#desc</code><dd><!-- (FlyZhyGG)A short description of this document. -->
+该文档的一个简短的描述。
+
+     <!-- (FlyZhyGG)This is used by the @code{journal} publishing style to embed information -->
+<!-- (FlyZhyGG)inside of an RSS/RDF feed. -->
+<p>它被 <code>journal</code> 发布风格用来在一个 RSS/RDF 源内部嵌入信息。
+
+     <p><a name="index-g_t_0023title-25"></a><br><dt><code>#title</code><dd><!-- (FlyZhyGG)The title of this document. -->
+该文档的题目。
+
+     <!-- (FlyZhyGG)If this is not specified, the name of the file is used. -->
+<p>如果它没有被指定，那么将使用文件名作为文档题目。
+
+   </dl>
+
+   </body></html>
+

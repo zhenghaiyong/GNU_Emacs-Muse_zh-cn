@@ -1,0 +1,84 @@
+<html lang="zh">
+<head>
+<title>Getting Started - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="prev" href="Installation.html#Installation" title="Installation">
+<link rel="next" href="Projects.html#Projects" title="Projects">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Getting-Started"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Projects.html#Projects">Projects</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Installation.html#Installation">Installation</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@chapter Getting Started -->
+<h2 class="chapter">5 开始</h2>
+
+<p><a name="index-settings-7"></a>
+<!-- (FlyZhyGG)To use Muse, add the directory containing its files to your -->
+<!-- (FlyZhyGG)@code{load-path} variable, in your @file{.emacs} file.  Then, load in -->
+<!-- (FlyZhyGG)the authoring mode, and the styles you wish to publish to.  An example -->
+<!-- (FlyZhyGG)follows. -->
+要使用 Muse，添加包含 Muse 文件的目录到你的 <code>load-path</code> 变量中，
+它一般在你的 <samp><span class="file">.emacs</span></samp> 文件中定义。然后，加载写作模式和你想要发布的
+文档风格。下面是一个例子。
+
+<pre class="lisp">     (add-to-list 'load-path "&lt;path to Muse&gt;")
+     
+     (require 'muse-mode)     ; load authoring mode
+     
+     (require 'muse-html)     ; load publishing styles I use
+     (require 'muse-latex)
+     (require 'muse-texinfo)
+     (require 'muse-docbook)
+</pre>
+   <!-- (FlyZhyGG)Once loaded, the command @kbd{M-x muse-publish-this-file} will publish -->
+<!-- (FlyZhyGG)an input document to any available style.  If you enable -->
+<!-- (FlyZhyGG)@file{muse-mode} within a buffer, by typing @kbd{M-x muse-mode}, this -->
+<!-- (FlyZhyGG)command will be bound to @kbd{C-c C-t}. -->
+<p>一旦 Muse 模式被加载，命令 <kbd>M-x muse-publish-this-file</kbd> 将发布一个
+输入文档为任意可用的风格。如果你想在一个 buffer 中启用 <samp><span class="file">muse-mode</span></samp>，
+那么输入 <kbd>M-x muse-mode</kbd>，它被绑定到 <kbd>C-c C-t</kbd>。
+
+<!-- (FlyZhyGG)If the currently opened file is part of a defined project in -->
+<!-- (FlyZhyGG)@code{muse-project-alist}, it may be published using @kbd{C-c C-p}. -->
+<p>如果当前打开的文件属于 <code>muse-project-alist</code> 中一个定义的项目，
+那么可以使用 <kbd>C-c C-p</kbd> 来发布它。
+
+<!-- (FlyZhyGG)You should also type @kbd{M-x customize-group}, and give the name -->
+<!-- (FlyZhyGG)@samp{muse}.  Each of the options has its own documentation. -->
+<p>你也可以输入 <kbd>M-x customize-group</kbd>，然后给出名 `<samp><span class="samp">muse</span></samp>'。每一个选项
+都有它自己的文档。
+
+   </body></html>
+

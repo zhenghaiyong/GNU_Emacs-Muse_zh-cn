@@ -1,0 +1,67 @@
+<html lang="zh">
+<head>
+<title>Embedded Lisp - Muse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Muse">
+<meta name="generator" content="makeinfo 4.8">
+<link title="Top" rel="start" href="index.html#Top">
+<link rel="up" href="Markup-Rules.html#Markup-Rules" title="Markup Rules">
+<link rel="prev" href="Horizontal-Rules-and-Anchors.html#Horizontal-Rules-and-Anchors" title="Horizontal Rules and Anchors">
+<link rel="next" href="Comments.html#Comments" title="Comments">
+<link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
+<!--
+本手册针对 Emacs Muse 3.02.92 (3.03 RC2) 版本。
+
+Copyright (C) 2004, 2005, 2006 Free Software Foundation, Inc.
+
+     基于 GNU 通用公共许可证（General Public
+     Licese）的条款
+     任何人有权复制，发布和/或修改本文档。
+   [翻译]：郑海永(Zheng Haiyong) <zhenghaiyong@gmail.com> `http://ipl.ouc.edu.cn/~zhenghaiyong'-->
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+  pre.display { font-family:inherit }
+  pre.format  { font-family:inherit }
+  pre.smalldisplay { font-family:inherit; font-size:smaller }
+  pre.smallformat  { font-family:inherit; font-size:smaller }
+  pre.smallexample { font-size:smaller }
+  pre.smalllisp    { font-size:smaller }
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+--></style>
+</head>
+<body>
+<div class="node">
+<p>
+<a name="Embedded-Lisp"></a>
+下一个：&nbsp;<a rel="next" accesskey="n" href="Comments.html#Comments">Comments</a>,
+上一个：&nbsp;<a rel="previous" accesskey="p" href="Horizontal-Rules-and-Anchors.html#Horizontal-Rules-and-Anchors">Horizontal Rules and Anchors</a>,
+上层：&nbsp;<a rel="up" accesskey="u" href="Markup-Rules.html#Markup-Rules">Markup Rules</a>
+<hr>
+</div>
+
+<!-- node-name,  next,  previous,  up -->
+<!-- (FlyZhyGG)@section Evaluating Emacs Lisp code in documents for extensibility -->
+<h3 class="section">8.13 在文档中为扩展而执行 Emacs Lisp 代码</h3>
+
+<p><a name="index-lisp_002c-embedded-61"></a>
+<!-- (FlyZhyGG)Arbitrary kinds of markup can be achieved using the @verb{|<lisp>|} tag, -->
+<!-- (FlyZhyGG)which is the only Muse tag supported in a style's header and footer -->
+<!-- (FlyZhyGG)text.  With the @verb{|<lisp>|} tag, you may generated whatever output -->
+<!-- (FlyZhyGG)text you wish.  The inserted output will get marked up, if the -->
+<!-- (FlyZhyGG)@verb{|<lisp>|} tag appears within the main text of the document. -->
+使用 <tt>&lt;lisp></tt> 标签可以得到任意种类的标记，它也是仅有的在一个风格的页眉
+和页脚文本中支持的 Muse 标签。使用 <tt>&lt;lisp></tt> 标签你可以生成任意你想要的输出。
+如果 <tt>&lt;lisp></tt> 标签出现在文档正文内部，那么插入的输出将会被标记出。
+
+<pre class="example">     &lt;lisp&gt;(concat "This form gets " "inserted")&lt;/lisp&gt;
+</pre>
+   <p><a name="index-lisp_002c-and-insert-command-62"></a><!-- (FlyZhyGG)Note that you should not use the @code{insert} command within a set of -->
+<!-- (FlyZhyGG)@verb{|<lisp>|} tags, since the return value from the @verb{|<lisp>|} -->
+<!-- (FlyZhyGG)tags will be automatically inserted into the document. -->
+注意不能在一组 <tt>&lt;lisp></tt> 标签中使用 <code>insert</code> 命令，因为这样的话
+<tt>&lt;lisp></tt> 标签的返回值将被自动插入文档中。
+
+   </body></html>
+
